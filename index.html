@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>漢字検定 学習アプリ - 3級対策</title>
+    <title>漢字検定 学習アプリ - 2字熟語対策</title>
     <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
     <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
@@ -33,47 +33,295 @@
     <script>
         const { useState, useEffect, useRef } = React;
 
+        // 2文字熟語データ
+        const kokugoData = [
+            { id: 1, kanji: '愛情', yomi: 'あいじょう', imi: '相手を思い大事にする気持ち' },
+            { id: 2, kanji: '安全', yomi: 'あんぜん', imi: '危険がなく安心な状態' },
+            { id: 3, kanji: '一生', yomi: 'いっしょう', imi: '生まれてから死ぬまでの間' },
+            { id: 4, kanji: '運命', yomi: 'うんめい', imi: '人が逃れられない定められた運' },
+            { id: 5, kanji: '幸せ', yomi: 'しあわせ', imi: '心が満足して喜んでいる状態' },
+            { id: 6, kanji: '努力', yomi: 'どりょく', imi: '目的のために力を尽くす' },
+            { id: 7, kanji: '希望', yomi: 'きぼう', imi: '将来が良くなることを期待する気持ち' },
+            { id: 8, kanji: '成功', yomi: 'せいこう', imi: '目的を達成すること' },
+            { id: 9, kanji: '失敗', yomi: 'しっぱい', imi: '望んだことが実現しないこと' },
+            { id: 10, kanji: '友情', yomi: 'ゆうじょう', imi: '友人同士の深い信頼と愛情' },
+            { id: 11, kanji: '知識', yomi: 'ちしき', imi: '学んで得た情報や理解' },
+            { id: 12, kanji: '才能', yomi: 'さいのう', imi: '生まれつき備わった優れた能力' },
+            { id: 13, kanji: '美しい', yomi: 'うつくしい', imi: '見た目が素晴らしく整っている' },
+            { id: 14, kanji: '勇気', yomi: 'ゆうき', imi: '恐れや危険に立ち向かう心' },
+            { id: 15, kanji: '正義', yomi: 'せいぎ', imi: '道理にかなった正しいこと' },
+            { id: 16, kanji: '誠実', yomi: 'せいじつ', imi: '心が真っすぐで嘘のないこと' },
+            { id: 17, kanji: '信頼', yomi: 'しんらい', imi: '相手を信じて頼ること' },
+            { id: 18, kanji: '責任', yomi: 'せきにん', imi: '自分がしたことに対する義務' },
+            { id: 19, kanji: '自由', yomi: 'じゆう', imi: '束縛されず自分の意志で行動すること' },
+            { id: 20, kanji: '進歩', yomi: 'しんぽ', imi: '前へ進み段階的に良くなること' },
+            { id: 21, kanji: '挑戦', yomi: 'ちょうせん', imi: '困難に立ち向かって試みること' },
+            { id: 22, kanji: '統一', yomi: 'とういつ', imi: 'バラバラなものを一つにまとめること' },
+            { id: 23, kanji: '判断', yomi: 'はんだん', imi: '情報から適切な結論を出すこと' },
+            { id: 24, kanji: '変化', yomi: 'へんか', imi: '状態や性質が変わること' },
+            { id: 25, kanji: '保護', yomi: 'ほご', imi: '危害から守り助けること' },
+            { id: 26, kanji: '本質', yomi: 'ほんしつ', imi: 'ものの最も大切な性質' },
+            { id: 27, kanji: '誤解', yomi: 'ごかい', imi: '相手の意図を間違って理解すること' },
+            { id: 28, kanji: '悟り', yomi: 'さとり', imi: '深く理解し真理を知ること' },
+            { id: 29, kanji: '高潔', yomi: 'こうけつ', imi: '心が清くて高い志を持つこと' },
+            { id: 30, kanji: '刻苦', yomi: 'こっく', imi: '苦しみながらも努力すること' },
+            { id: 31, kanji: '感謝', yomi: 'かんしゃ', imi: '相手の恩や親切に対する感情' },
+            { id: 32, kanji: '緊張', yomi: 'きんちょう', imi: '心身が引き締まった状態' },
+            { id: 33, kanji: '計画', yomi: 'けいかく', imi: '事前に行動の内容を立てること' },
+            { id: 34, kanji: '経験', yomi: 'けいけん', imi: '実際に経て得た知識や技術' },
+            { id: 35, kanji: '健康', yomi: 'けんこう', imi: '体や心が良い状態であること' },
+            { id: 36, kanji: '結果', yomi: 'けっか', imi: '行動がもたらした最終的な状態' },
+            { id: 37, kanji: '決意', yomi: 'けつい', imi: '心を決めて何かをしようとする気持ち' },
+            { id: 38, kanji: '兼任', yomi: 'けんにん', imi: '複数の役目を同時に担当すること' },
+            { id: 39, kanji: '献身', yomi: 'けんしん', imi: '身も心も相手のために捧げること' },
+            { id: 40, kanji: '言葉', yomi: 'ことば', imi: '意思や考えを表すための音や文字' },
+        ];
+
+        // メニュー画面コンポーネント
+        function MenuScreen({ onSelectSet }) {
+            const sets = [];
+            for (let i = 0; i < Math.ceil(kokugoData.length / 20); i++) {
+                const start = i * 20 + 1;
+                const end = Math.min((i + 1) * 20, kokugoData.length);
+                sets.push({ number: i + 1, start, end });
+            }
+
+            return (
+                <div className="min-h-screen bg-gradient-to-b from-blue-50 to-blue-100 p-4 pt-8 flex flex-col">
+                    {/* ヘッダー */}
+                    <div className="text-center mb-8">
+                        <h1 className="text-3xl font-bold text-gray-800 mb-2">漢字検定</h1>
+                        <p className="text-gray-600">2字熟語学習アプリ</p>
+                    </div>
+
+                    {/* セット一覧 */}
+                    <div className="flex-1 flex flex-col gap-3 mb-4">
+                        {sets.map(set => (
+                            <button
+                                key={set.number}
+                                onClick={() => onSelectSet(set.number - 1)}
+                                className="w-full bg-white rounded-lg shadow-md p-6 text-left hover:shadow-lg transition-shadow"
+                            >
+                                <div className="flex items-center justify-between">
+                                    <div>
+                                        <p className="text-lg font-bold text-blue-600">
+                                            セット {set.number}
+                                        </p>
+                                        <p className="text-sm text-gray-600">
+                                            問題 {set.start} - {set.end}
+                                        </p>
+                                    </div>
+                                    <div className="text-2xl text-gray-400">→</div>
+                                </div>
+                            </button>
+                        ))}
+                    </div>
+
+                    {/* フッター */}
+                    <div className="text-center text-xs text-gray-500">
+                        全 {kokugoData.length} 問
+                    </div>
+                </div>
+            );
+        }
+
+        // 問題画面コンポーネント
+        function QuestionScreen({ setNumber, currentIndex, onAnswerClick, onBackToMenu }) {
+            const setStartIndex = (setNumber) * 20;
+            const setEndIndex = Math.min((setNumber + 1) * 20, kokugoData.length);
+            const currentSetData = kokugoData.slice(setStartIndex, setEndIndex);
+            const currentItem = currentSetData[currentIndex];
+
+            if (!currentItem) {
+                return (
+                    <div className="min-h-screen bg-gradient-to-b from-blue-50 to-blue-100 p-4 pt-8 flex flex-col">
+                        <div className="flex-1 flex flex-col items-center justify-center gap-4">
+                            <p className="text-xl text-gray-800 font-bold">
+                                セット {setNumber + 1} が完了しました！
+                            </p>
+                            <button
+                                onClick={onBackToMenu}
+                                className="bg-blue-500 text-white px-6 py-3 rounded-lg font-bold hover:bg-blue-600"
+                            >
+                                メニューに戻る
+                            </button>
+                        </div>
+                    </div>
+                );
+            }
+
+            return (
+                <div className="min-h-screen bg-gradient-to-b from-blue-50 to-blue-100 p-4 pt-8 flex flex-col">
+                    {/* ヘッダー */}
+                    <div className="text-center mb-6">
+                        <h1 className="text-2xl font-bold text-gray-800">漢字検定 3級</h1>
+                        <p className="text-sm text-gray-600">
+                            セット {setNumber + 1} / 問題 {currentIndex + 1}/{currentSetData.length}
+                        </p>
+                    </div>
+
+                    {/* メイン問題エリア */}
+                    <div className="flex-1 flex flex-col items-center justify-center gap-8 mb-8">
+                        {/* 熟語表示 */}
+                        <div className="w-full max-w-sm">
+                            <div className="bg-white rounded-lg shadow-lg p-8 text-center">
+                                <p className="text-gray-600 text-sm mb-4">問題</p>
+                                <p className="text-6xl font-bold text-blue-600 mb-4">
+                                    {currentItem.kanji}
+                                </p>
+                                <p className="text-gray-500 text-sm">
+                                    「覚えた」または「覚えていない」をタップしてください
+                                </p>
+                            </div>
+                        </div>
+
+                        {/* 進捗インジケーター */}
+                        <div className="w-full max-w-sm">
+                            <div className="bg-gray-200 rounded-full h-2">
+                                <div
+                                    className="bg-blue-500 h-2 rounded-full transition-all"
+                                    style={{
+                                        width: `${((currentIndex + 1) / currentSetData.length) * 100}%`,
+                                    }}
+                                ></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* ボタンエリア */}
+                    <div className="flex gap-4 justify-center w-full max-w-sm mx-auto mb-4">
+                        {/* 「覚えた」ボタン */}
+                        <button
+                            onClick={() => onAnswerClick(true)}
+                            className="flex-1 py-4 rounded-lg font-bold text-white text-lg bg-blue-500 shadow-md hover:bg-blue-600 active:scale-95 transition-all"
+                        >
+                            覚えた
+                        </button>
+
+                        {/* 「覚えていない」ボタン */}
+                        <button
+                            onClick={() => onAnswerClick(false)}
+                            className="flex-1 py-4 rounded-lg font-bold text-white text-lg bg-orange-500 shadow-md hover:bg-orange-600 active:scale-95 transition-all"
+                        >
+                            覚えていない
+                        </button>
+                    </div>
+
+                    {/* メニューに戻るボタン */}
+                    <div className="text-center mb-4">
+                        <button
+                            onClick={onBackToMenu}
+                            className="text-blue-600 hover:text-blue-800 font-semibold text-sm underline"
+                        >
+                            ← メニューに戻る
+                        </button>
+                    </div>
+                </div>
+            );
+        }
+
+        // 解答画面コンポーネント
+        function AnswerScreen({ setNumber, currentIndex, isLearned, onNextQuestion, onBackToMenu }) {
+            const setStartIndex = (setNumber) * 20;
+            const setEndIndex = Math.min((setNumber + 1) * 20, kokugoData.length);
+            const currentSetData = kokugoData.slice(setStartIndex, setEndIndex);
+            const currentItem = currentSetData[currentIndex];
+
+            if (!currentItem) {
+                return (
+                    <div className="min-h-screen bg-gradient-to-b from-blue-50 to-blue-100 p-4 pt-8 flex flex-col">
+                        <div className="flex-1 flex flex-col items-center justify-center gap-4">
+                            <p className="text-xl text-gray-800 font-bold">
+                                セット {setNumber + 1} が完了しました！
+                            </p>
+                            <button
+                                onClick={onBackToMenu}
+                                className="bg-blue-500 text-white px-6 py-3 rounded-lg font-bold hover:bg-blue-600"
+                            >
+                                メニューに戻る
+                            </button>
+                        </div>
+                    </div>
+                );
+            }
+
+            return (
+                <div className="min-h-screen bg-gradient-to-b from-blue-50 to-blue-100 p-4 pt-8 flex flex-col">
+                    {/* ヘッダー */}
+                    <div className="text-center mb-6">
+                        <h1 className="text-2xl font-bold text-gray-800">漢字検定 3級</h1>
+                        <p className="text-sm text-gray-600">
+                            セット {setNumber + 1} / 問題 {currentIndex + 1}/{currentSetData.length}
+                        </p>
+                    </div>
+
+                    {/* メイン解答エリア */}
+                    <div className="flex-1 flex flex-col items-center justify-center gap-8 mb-8">
+                        {/* 解答画面 */}
+                        <div className="w-full max-w-sm">
+                            <div className={`rounded-lg shadow-lg p-8 ${isLearned ? 'bg-gradient-to-br from-green-100 to-green-50' : 'bg-gradient-to-br from-orange-100 to-orange-50'}`}>
+                                <div className="text-center">
+                                    <p className={`text-4xl font-bold mb-4 ${isLearned ? 'text-green-600' : 'text-orange-600'}`}>
+                                        {currentItem.kanji}
+                                    </p>
+                                    <div className={`border-t-2 pt-6 mt-6 ${isLearned ? 'border-green-300' : 'border-orange-300'}`}>
+                                        <p className="text-gray-700 text-sm mb-2">【読み方】</p>
+                                        <p className={`text-2xl font-semibold mb-6 ${isLearned ? 'text-green-700' : 'text-orange-700'}`}>
+                                            {currentItem.yomi}
+                                        </p>
+                                        <p className="text-gray-700 text-sm mb-2">【意味】</p>
+                                        <p className="text-base text-gray-800 leading-relaxed">
+                                            {currentItem.imi}
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* 進捗インジケーター */}
+                        <div className="w-full max-w-sm">
+                            <div className="bg-gray-200 rounded-full h-2">
+                                <div
+                                    className="bg-blue-500 h-2 rounded-full transition-all"
+                                    style={{
+                                        width: `${((currentIndex + 1) / currentSetData.length) * 100}%`,
+                                    }}
+                                ></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* ボタンエリア */}
+                    <div className="flex flex-col gap-3 w-full max-w-sm mx-auto mb-4">
+                        <button
+                            onClick={onNextQuestion}
+                            className="w-full py-4 rounded-lg font-bold text-white text-lg bg-blue-500 shadow-md hover:bg-blue-600 active:scale-95 transition-all"
+                        >
+                            次へ
+                        </button>
+
+                        {/* メニューに戻るボタン */}
+                        <button
+                            onClick={onBackToMenu}
+                            className="text-blue-600 hover:text-blue-800 font-semibold text-sm underline"
+                        >
+                            ← メニューに戻る
+                        </button>
+                    </div>
+                </div>
+            );
+        }
+
+        // メインアプリコンポーネント
         function KanjiLearningApp() {
-            const [data, setData] = useState([]);
-            const [currentSet, setCurrentSet] = useState(0);
+            const [screen, setScreen] = useState('menu'); // 'menu', 'question', 'answer'
+            const [selectedSet, setSelectedSet] = useState(0);
             const [currentIndex, setCurrentIndex] = useState(0);
-            const [showMeaning, setShowMeaning] = useState(false);
+            const [isLearned, setIsLearned] = useState(false);
             const [learningRecord, setLearningRecord] = useState({});
-            const [touchStart, setTouchStart] = useState({ x: 0, y: 0 });
-            const [touchEnd, setTouchEnd] = useState({ x: 0, y: 0 });
-            const [isPressed, setIsPressed] = useState(false);
-            const [showAnswerAfterUnlearn, setShowAnswerAfterUnlearn] = useState(false);
-            const pressTimerRef = useRef(null);
-            const minSwipeDistance = 50;
 
-            // データの読み込み
+            // ローカルストレージから学習記録を復元
             useEffect(() => {
-                const kokugoData = [
-                    { id: 1, kanji: '哀哀父母', yomi: 'あいあいふぼ', imi: '自分を生んで苦労を重ねてくれた父母の死を悼む', difficulty: 'kyu3' },
-                    { id: 2, kanji: '哀糸豪竹', yomi: 'あいしごうちく', imi: '管弦の調和が人を感動させること', difficulty: 'kyu3' },
-                    { id: 3, kanji: '愛多憎生', yomi: 'あいたぞうせい', imi: '愛が多すぎると憎しみが生まれる', difficulty: 'kyu3' },
-                    { id: 4, kanji: '安穏無事', yomi: 'あんのんぶじ', imi: '何事もなく暮らしが穏やか', difficulty: 'kyu3' },
-                    { id: 5, kanji: '衣冠盛事', yomi: 'いかんせいじ', imi: '家の名声を引き継ぐこと', difficulty: 'kyu3' },
-                    { id: 6, kanji: '意気衝天', yomi: 'いきしょうてん', imi: '気力が高く充実している', difficulty: 'kyu3' },
-                    { id: 7, kanji: '意気自如', yomi: 'いきじじょ', imi: '心の持ち方が平静', difficulty: 'kyu3' },
-                    { id: 8, kanji: '意気揚揚', yomi: 'いきようよう', imi: '威勢よく誇らしげに振る舞う', difficulty: 'kyu3' },
-                    { id: 9, kanji: '一栄一辱', yomi: 'いちえいいちじょく', imi: '良い時もあれば悪い時もある', difficulty: 'kyu3' },
-                    { id: 10, kanji: '一言芳恩', yomi: 'いちごんほうおん', imi: 'ひと言声をかけてくれたことに感謝', difficulty: 'kyu3' },
-                    { id: 11, kanji: '一樹百穫', yomi: 'いちじゅひゃっかく', imi: '人材育成は大きな利益につながる', difficulty: 'kyu3' },
-                    { id: 12, kanji: '一諾千金', yomi: 'いちだくせんきん', imi: '一度の約束は千金の価値', difficulty: 'kyu3' },
-                    { id: 13, kanji: '一了百了', yomi: 'いちりょうひゃくりょう', imi: '一つ解決すれば全て解決', difficulty: 'kyu3' },
-                    { id: 14, kanji: '一喜一憂', yomi: 'いっきいちゆう', imi: '状況変化で喜んだり心配したり', difficulty: 'kyu3' },
-                    { id: 15, kanji: '一騎当千', yomi: 'いっきとうせん', imi: '並外れた能力を持つ人', difficulty: 'kyu3' },
-                    { id: 16, kanji: '一球入魂', yomi: 'いっきゅうにゅうこん', imi: '野球で一球に精神を集中', difficulty: 'kyu3' },
-                    { id: 17, kanji: '一虚一実', yomi: 'いっきょいちじつ', imi: '様々に変化し予測が難しい', difficulty: 'kyu3' },
-                    { id: 18, kanji: '空中楼閣', yomi: 'くうちゅうのろうかく', imi: '根拠のない非現実的な考え', difficulty: 'kyu3' },
-                    { id: 19, kanji: '苦口婆心', yomi: 'くこうばしん', imi: '相手を思い何度も教えさとす', difficulty: 'kyu3' },
-                    { id: 20, kanji: '愚公移山', yomi: 'ぐこういざん', imi: '努力し続ければ必ず成功', difficulty: 'kyu3' },
-                ];
-
-                setData(kokugoData);
-
-                // ローカルストレージから学習記録を復元
                 const saved = localStorage.getItem('kanjiLearningRecord');
                 if (saved) {
                     setLearningRecord(JSON.parse(saved));
@@ -85,200 +333,65 @@
                 localStorage.setItem('kanjiLearningRecord', JSON.stringify(learningRecord));
             }, [learningRecord]);
 
-            // 現在のセット（20問ごと）
-            const currentSetData = data.slice(currentSet * 20, (currentSet + 1) * 20);
-            const currentItem = currentSetData[currentIndex];
-            const recordKey = currentItem ? `item_${currentItem.id}` : null;
-            const recordStatus = recordKey ? learningRecord[recordKey] : null;
-
-            // フリック処理
-            const handleTouchStart = (e) => {
-                setTouchStart({ x: e.changedTouches[0].clientX, y: e.changedTouches[0].clientY });
+            const handleSelectSet = (setNumber) => {
+                setSelectedSet(setNumber);
+                setCurrentIndex(0);
+                setScreen('question');
             };
 
-            const handleTouchEnd = (e) => {
-                setTouchEnd({ x: e.changedTouches[0].clientX, y: e.changedTouches[0].clientY });
-                handleSwipe();
-            };
+            const handleAnswerClick = (learned) => {
+                const setStartIndex = selectedSet * 20;
+                const currentSetData = kokugoData.slice(setStartIndex, Math.min((selectedSet + 1) * 20, kokugoData.length));
+                const currentItem = currentSetData[currentIndex];
 
-            const handleSwipe = () => {
-                const distance = {
-                    x: touchStart.x - touchEnd.x,
-                    y: touchStart.y - touchEnd.y,
-                };
-
-                const isLeftSwipe = distance.x > minSwipeDistance;
-                const isRightSwipe = distance.x < -minSwipeDistance;
-                const isUpSwipe = distance.y > minSwipeDistance;
-                const isDownSwipe = distance.y < -minSwipeDistance;
-
-                if (showMeaning) {
-                    if (isUpSwipe || isLeftSwipe) {
-                        markAsLearned();
-                    } else if (isDownSwipe || isRightSwipe) {
-                        setShowMeaning(false);
-                    }
+                if (learned) {
+                    setLearningRecord(prev => ({
+                        ...prev,
+                        [`item_${currentItem.id}`]: 'learned'
+                    }));
                 }
+
+                setIsLearned(learned);
+                setScreen('answer');
             };
 
-            // 「覚えた」ボタン長押し処理
-            const handleLearned = () => {
-                setIsPressed(true);
-                setShowMeaning(true);
-            };
+            const handleNextQuestion = () => {
+                const setStartIndex = selectedSet * 20;
+                const setEndIndex = Math.min((selectedSet + 1) * 20, kokugoData.length);
+                const currentSetData = kokugoData.slice(setStartIndex, setEndIndex);
 
-            const handleLearnedup = () => {
-                setIsPressed(false);
-                setShowMeaning(false);
-            };
-
-            // 「覚えていない」ボタン処理
-            const handleUnlearn = () => {
-                if (showAnswerAfterUnlearn) {
-                    nextQuestion();
-                    setShowAnswerAfterUnlearn(false);
-                    setShowMeaning(false);
-                } else {
-                    setShowAnswerAfterUnlearn(true);
-                    setShowMeaning(true);
-                }
-            };
-
-            // 正解：次へ
-            const markAsLearned = () => {
-                setLearningRecord(prev => ({
-                    ...prev,
-                    [recordKey]: 'learned'
-                }));
-                nextQuestion();
-            };
-
-            // 次の問題へ
-            const nextQuestion = () => {
-                if (currentIndex < currentSetData.length - 1) {
+                if (currentIndex + 1 < currentSetData.length) {
                     setCurrentIndex(currentIndex + 1);
-                    setShowMeaning(false);
-                    setShowAnswerAfterUnlearn(false);
+                    setScreen('question');
                 } else {
-                    alert(`セット ${currentSet + 1} が完了しました！`);
-                    if (currentSet < Math.ceil(data.length / 20) - 1) {
-                        setCurrentSet(currentSet + 1);
-                        setCurrentIndex(0);
-                        setShowMeaning(false);
-                        setShowAnswerAfterUnlearn(false);
-                    }
+                    // セット完了
+                    setScreen('question');
                 }
             };
 
-            if (!currentItem) {
-                return React.createElement('div', { className: 'flex items-center justify-center h-screen bg-gray-100' }, '読み込み中...');
-            }
+            const handleBackToMenu = () => {
+                setScreen('menu');
+                setCurrentIndex(0);
+            };
 
-            return React.createElement(
-                'div',
-                { className: 'min-h-screen bg-gradient-to-b from-blue-50 to-blue-100 p-4 flex flex-col' },
-                // ヘッダー
-                React.createElement(
-                    'div',
-                    { className: 'text-center mb-4' },
-                    React.createElement('h1', { className: 'text-2xl font-bold text-gray-800' }, '漢字検定 3級'),
-                    React.createElement('p', { className: 'text-sm text-gray-600' }, `セット ${currentSet + 1} / 問題 ${currentIndex + 1}/${currentSetData.length}`)
-                ),
-                // メイン学習エリア
-                React.createElement(
-                    'div',
-                    {
-                        className: 'flex-1 flex flex-col items-center justify-center gap-8 mb-8',
-                        onTouchStart: handleTouchStart,
-                        onTouchEnd: handleTouchEnd,
-                    },
-                    // 熟語表示
-                    React.createElement(
-                        'div',
-                        { className: 'w-full max-w-sm' },
-                        !showMeaning
-                            ? React.createElement(
-                                'div',
-                                { className: 'bg-white rounded-lg shadow-lg p-8 text-center' },
-                                React.createElement('p', { className: 'text-gray-600 text-sm mb-4' }, '問題'),
-                                React.createElement('p', { className: 'text-6xl font-bold text-blue-600 mb-4' }, currentItem.kanji),
-                                React.createElement('p', { className: 'text-gray-500 text-sm' }, '読みと意味を確認するには「覚えた」を押し続けてください')
-                            )
-                            : React.createElement(
-                                'div',
-                                { className: 'bg-gradient-to-br from-green-100 to-green-50 rounded-lg shadow-lg p-8' },
-                                React.createElement(
-                                    'div',
-                                    { className: 'text-center' },
-                                    React.createElement('p', { className: 'text-4xl font-bold text-green-600 mb-4' }, currentItem.kanji),
-                                    React.createElement(
-                                        'div',
-                                        { className: 'border-t-2 border-green-300 pt-6 mt-6' },
-                                        React.createElement('p', { className: 'text-gray-700 text-sm mb-2' }, '【読み方】'),
-                                        React.createElement('p', { className: 'text-2xl font-semibold text-green-700 mb-6' }, currentItem.yomi),
-                                        React.createElement('p', { className: 'text-gray-700 text-sm mb-2' }, '【意味】'),
-                                        React.createElement('p', { className: 'text-base text-gray-800 leading-relaxed' }, currentItem.imi)
-                                    )
-                                ),
-                                React.createElement('p', { className: 'text-xs text-gray-500 text-center mt-6' }, '上/左にフリック → 次へ | 下/右にフリック → もう一度')
-                            )
-                    ),
-                    // 進捗インジケーター
-                    React.createElement(
-                        'div',
-                        { className: 'w-full max-w-sm' },
-                        React.createElement(
-                            'div',
-                            { className: 'bg-gray-200 rounded-full h-2' },
-                            React.createElement('div', {
-                                className: 'bg-blue-500 h-2 rounded-full transition-all',
-                                style: { width: `${((currentIndex + 1) / currentSetData.length) * 100}%` }
-                            })
-                        )
-                    )
-                ),
-                // ボタンエリア
-                React.createElement(
-                    'div',
-                    { className: 'flex gap-4 justify-center w-full max-w-sm mx-auto mb-4' },
-                    // 「覚えた」ボタン
-                    React.createElement(
-                        'button',
-                        {
-                            onMouseDown: handleLearned,
-                            onMouseUp: handleLearnedup,
-                            onMouseLeave: handleLearnedup,
-                            onTouchStart: handleLearned,
-                            onTouchEnd: handleLearnedup,
-                            className: `flex-1 py-4 rounded-lg font-bold text-white text-lg transition-all ${
-                                isPressed
-                                    ? 'bg-blue-600 scale-95 shadow-inner'
-                                    : 'bg-blue-500 shadow-md hover:bg-blue-600 active:scale-95'
-                            }`
-                        },
-                        '覚えた'
-                    ),
-                    // 「覚えていない」ボタン
-                    React.createElement(
-                        'button',
-                        {
-                            onClick: handleUnlearn,
-                            className: `flex-1 py-4 rounded-lg font-bold text-white text-lg transition-all ${
-                                showAnswerAfterUnlearn
-                                    ? 'bg-orange-600 shadow-md'
-                                    : 'bg-orange-500 shadow-md hover:bg-orange-600 active:scale-95'
-                            }`
-                        },
-                        showAnswerAfterUnlearn ? '次へ' : '覚えていない'
-                    )
-                ),
-                // 学習状況
-                recordStatus && React.createElement(
-                    'div',
-                    { className: 'text-center text-sm text-green-600' },
-                    '✓ この問題は覚えました'
-                )
-            );
+            if (screen === 'menu') {
+                return React.createElement(MenuScreen, { onSelectSet: handleSelectSet });
+            } else if (screen === 'question') {
+                return React.createElement(QuestionScreen, {
+                    setNumber: selectedSet,
+                    currentIndex: currentIndex,
+                    onAnswerClick: handleAnswerClick,
+                    onBackToMenu: handleBackToMenu,
+                });
+            } else if (screen === 'answer') {
+                return React.createElement(AnswerScreen, {
+                    setNumber: selectedSet,
+                    currentIndex: currentIndex,
+                    isLearned: isLearned,
+                    onNextQuestion: handleNextQuestion,
+                    onBackToMenu: handleBackToMenu,
+                });
+            }
         }
 
         const root = ReactDOM.createRoot(document.getElementById('root'));
