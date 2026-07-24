@@ -408,7 +408,7 @@
         }
 
         // 解答画面コンポーネント
-        function AnswerScreen({ setNumber, currentIndex, onNext, onBackToMenu }) {
+        function AnswerScreen({ setNumber, currentIndex, onNext, onBackToMenu, isChecked, onToggleCheck }) {
             const setStartIndex = setNumber * 20;
             const setEndIndex = Math.min((setNumber + 1) * 20, kokugoData.length);
             const currentSetData = kokugoData.slice(setStartIndex, setEndIndex);
@@ -475,13 +475,26 @@
                     </div>
 
                     {/* 次へボタン */}
-                    <div className="flex flex-col gap-3 w-full max-w-sm mx-auto mb-6">
+                    <div className="w-full max-w-sm mx-auto mb-16">
                         <button
                             onClick={onNext}
                             className="w-full py-4 rounded-lg font-bold text-white text-lg bg-blue-500 shadow-md hover:bg-blue-600 active:scale-95 transition-all"
                         >
                             次へ
                         </button>
+                    </div>
+
+                    {/* チェックボックス */}
+                    <div className="flex gap-3 items-center w-full max-w-sm mx-auto mb-6">
+                        {/* チェックボックス */}
+                        <input
+                            type="checkbox"
+                            checked={isChecked}
+                            onChange={onToggleCheck}
+                            className="w-6 h-6 cursor-pointer"
+                        />
+                        {/* わからなかった テキスト */}
+                        <span className="text-sm text-gray-700">わからなかった</span>
                     </div>
 
                     {/* メニューに戻るボタン */}
@@ -608,6 +621,8 @@
                     currentIndex={currentIndex}
                     onNext={handleNext}
                     onBackToMenu={handleBackToMenu}
+                    isChecked={isChecked}
+                    onToggleCheck={handleToggleCheck}
                 />;
             } else if (screen === 'review') {
                 return <ReviewScreen
