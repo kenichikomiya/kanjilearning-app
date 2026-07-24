@@ -304,19 +304,18 @@
                         </div>
                     </div>
 
-                    {/* ボタンと チェックボックス */}
-                    <div className="flex gap-4 items-center justify-center w-full max-w-sm mx-auto mb-6">
-                        {/* 次へ ボタン */}
+                    {/* 次へ ボタン */}
+                    <div className="w-full max-w-sm mx-auto mb-16">
                         <button
                             onClick={onNext}
-                            className="flex-1 py-4 rounded-lg font-bold text-white text-lg bg-blue-500 shadow-md hover:bg-blue-600 active:scale-95 transition-all"
+                            className="w-full py-4 rounded-lg font-bold text-white text-lg bg-blue-500 shadow-md hover:bg-blue-600 active:scale-95 transition-all"
                         >
                             次へ
                         </button>
+                    </div>
 
-                        {/* わからなかった テキスト */}
-                        <span className="text-sm text-gray-700">わからなかった</span>
-
+                    {/* チェックボックス */}
+                    <div className="flex gap-3 items-center w-full max-w-sm mx-auto mb-6">
                         {/* チェックボックス */}
                         <input
                             type="checkbox"
@@ -324,6 +323,8 @@
                             onChange={onToggleCheck}
                             className="w-6 h-6 cursor-pointer"
                         />
+                        {/* わからなかった テキスト */}
+                        <span className="text-sm text-gray-700">わからなかった</span>
                     </div>
 
                     {/* メニューに戻るボタン */}
