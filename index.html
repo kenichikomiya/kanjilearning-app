@@ -137,9 +137,11 @@
         }
 
         // 復習画面コンポーネント
-        function ReviewScreen({ currentIndex, reviewData, onNext, onBackToMenu }) {
+        function ReviewScreen({ currentIndex, reviewData, onNext, onBackToMenu, checkedItems, onToggleCheck }) {
             const [isAnswerShown, setIsAnswerShown] = useState(false);
             const currentItem = reviewData[currentIndex];
+            const currentItemKey = currentItem ? `item_${currentItem.id}` : null;
+            const isChecked = currentItemKey ? !!checkedItems[currentItemKey] : false;
 
             if (!currentItem) {
                 return (
@@ -211,7 +213,7 @@
                     </div>
 
                     {/* 次へボタン */}
-                    <div className="flex flex-col gap-3 w-full max-w-sm mx-auto mb-6">
+                    <div className="w-full max-w-sm mx-auto mb-16">
                         <button
                             onClick={() => {
                                 if (!isAnswerShown) {
@@ -225,6 +227,19 @@
                         >
                             {isAnswerShown ? '次へ' : '解答を見る'}
                         </button>
+                    </div>
+
+                    {/* チェックボックス */}
+                    <div className="flex gap-3 items-center w-full max-w-sm mx-auto mb-6">
+                        {/* チェックボックス */}
+                        <input
+                            type="checkbox"
+                            checked={isChecked}
+                            onChange={onToggleCheck}
+                            className="w-6 h-6 cursor-pointer"
+                        />
+                        {/* 覚えた テキスト */}
+                        <span className="text-sm text-gray-700">覚えた</span>
                     </div>
 
                     {/* メニューに戻るボタン */}
@@ -483,15 +498,23 @@
             };
 
             const handleToggleCheck = () => {
-                const setStartIndex = selectedSet * 20;
-                const currentSetData = kokugoData.slice(setStartIndex, Math.min((selectedSet + 1) * 20, kokugoData.length));
-                const currentItem = currentSetData[currentIndex];
-                const key = `item_${currentItem.id}`;
+                let currentItem;
 
-                setCheckedItems(prev => ({
-                    ...prev,
-                    [key]: !prev[key]
-                }));
+                if (screen === 'review') {
+                    currentItem = reviewData[currentIndex];
+                } else {
+                    const setStartIndex = selectedSet * 20;
+                    const currentSetData = kokugoData.slice(setStartIndex, Math.min((selectedSet + 1) * 20, kokugoData.length));
+                    currentItem = currentSetData[currentIndex];
+                }
+
+                if (currentItem) {
+                    const key = `item_${currentItem.id}`;
+                    setCheckedItems(prev => ({
+                        ...prev,
+                        [key]: !prev[key]
+                    }));
+                }
             };
 
             const handleBackToMenu = () => {
@@ -532,6 +555,8 @@
                     reviewData={reviewData}
                     onNext={handleNext}
                     onBackToMenu={handleBackToMenu}
+                    checkedItems={checkedItems}
+                    onToggleCheck={handleToggleCheck}
                 />;
             }
         }
