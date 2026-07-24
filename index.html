@@ -79,7 +79,7 @@
         ];
 
         // メニュー画面コンポーネント
-        function MenuScreen({ onSelectSet }) {
+        function MenuScreen({ onSelectSet, onReview, checkedCount }) {
             const sets = [];
             for (let i = 0; i < Math.ceil(kokugoData.length / 20); i++) {
                 const start = i * 20 + 1;
@@ -94,6 +94,16 @@
                         <h1 className="text-3xl font-bold text-gray-800 mb-2">漢字検定</h1>
                         <p className="text-gray-600">2字熟語学習アプリ</p>
                     </div>
+
+                    {/* 復習ボタン */}
+                    {checkedCount > 0 && (
+                        <button
+                            onClick={onReview}
+                            className="w-full bg-orange-500 text-white rounded-lg shadow-md p-4 mb-4 font-bold hover:bg-orange-600 transition-all"
+                        >
+                            復習する ({checkedCount} 問)
+                        </button>
+                    )}
 
                     {/* セット一覧 */}
                     <div className="flex-1 flex flex-col gap-3 mb-4">
@@ -121,6 +131,114 @@
                     {/* フッター */}
                     <div className="text-center text-xs text-gray-500">
                         全 {kokugoData.length} 問
+                    </div>
+                </div>
+            );
+        }
+
+        // 復習画面コンポーネント
+        function ReviewScreen({ currentIndex, reviewData, onNext, onBackToMenu }) {
+            const [isAnswerShown, setIsAnswerShown] = useState(false);
+            const currentItem = reviewData[currentIndex];
+
+            if (!currentItem) {
+                return (
+                    <div className="min-h-screen bg-gradient-to-b from-blue-50 to-blue-100 p-4 pt-8 flex flex-col">
+                        <div className="flex-1 flex flex-col items-center justify-center gap-4">
+                            <p className="text-xl text-gray-800 font-bold">
+                                復習が完了しました！
+                            </p>
+                            <button
+                                onClick={onBackToMenu}
+                                className="bg-blue-500 text-white px-6 py-3 rounded-lg font-bold hover:bg-blue-600"
+                            >
+                                メニューに戻る
+                            </button>
+                        </div>
+                    </div>
+                );
+            }
+
+            return (
+                <div className="min-h-screen bg-gradient-to-b from-blue-50 to-blue-100 p-4 pt-12 flex flex-col">
+                    {/* ヘッダー */}
+                    <div className="text-center mb-6">
+                        <h1 className="text-2xl font-bold text-gray-800">復習モード</h1>
+                        <p className="text-sm text-gray-600">
+                            問題 {currentIndex + 1}/{reviewData.length}
+                        </p>
+                    </div>
+
+                    {/* メイン復習エリア */}
+                    <div className="flex-1 flex flex-col items-center justify-center gap-8 mb-8">
+                        {/* 熟語表示 または 解答表示 */}
+                        <div className="w-full max-w-sm">
+                            {!isAnswerShown ? (
+                                <div className="bg-white rounded-lg shadow-lg p-12 text-center">
+                                    <p className="text-gray-600 text-sm mb-6">問題</p>
+                                    <p className="text-7xl font-bold text-blue-600">
+                                        {currentItem.kanji}
+                                    </p>
+                                </div>
+                            ) : (
+                                <div className="bg-gradient-to-br from-green-100 to-green-50 rounded-lg shadow-lg p-8">
+                                    <div className="text-center">
+                                        <p className="text-4xl font-bold text-green-600 mb-4">
+                                            {currentItem.kanji}
+                                        </p>
+                                        <div className="border-t-2 border-green-300 pt-6 mt-6">
+                                            <p className="text-gray-700 text-sm mb-2">【読み方】</p>
+                                            <p className="text-2xl font-semibold text-green-700 mb-6">
+                                                {currentItem.yomi}
+                                            </p>
+                                            <p className="text-gray-700 text-sm mb-2">【意味】</p>
+                                            <p className="text-base text-gray-800 leading-relaxed">
+                                                {currentItem.imi}
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            )}
+                        </div>
+
+                        {/* 進捗インジケーター */}
+                        <div className="w-full max-w-sm">
+                            <div className="bg-gray-200 rounded-full h-2">
+                                <div
+                                    className="bg-orange-500 h-2 rounded-full transition-all"
+                                    style={{
+                                        width: `${((currentIndex + 1) / reviewData.length) * 100}%`,
+                                    }}
+                                ></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* 次へボタン */}
+                    <div className="flex flex-col gap-3 w-full max-w-sm mx-auto mb-6">
+                        <button
+                            onClick={() => {
+                                if (!isAnswerShown) {
+                                    setIsAnswerShown(true);
+                                } else {
+                                    setIsAnswerShown(false);
+                                    onNext();
+                                }
+                            }}
+                            className="w-full py-4 rounded-lg font-bold text-white text-lg bg-orange-500 shadow-md hover:bg-orange-600 active:scale-95 transition-all"
+                        >
+                            {isAnswerShown ? '次へ' : '解答を見る'}
+                        </button>
+                    </div>
+
+                    {/* メニューに戻るボタン */}
+                    <div className="text-center mb-4">
+                        <button
+                            onClick={onBackToMenu}
+                            className="text-blue-600 hover:text-blue-800 font-semibold text-sm underline"
+                        >
+                            ← メニューに戻る
+                        </button>
                     </div>
                 </div>
             );
@@ -188,6 +306,17 @@
 
                     {/* ボタンと チェックボックス */}
                     <div className="flex gap-4 items-center justify-center w-full max-w-sm mx-auto mb-6">
+                        {/* 次へ ボタン */}
+                        <button
+                            onClick={onNext}
+                            className="flex-1 py-4 rounded-lg font-bold text-white text-lg bg-blue-500 shadow-md hover:bg-blue-600 active:scale-95 transition-all"
+                        >
+                            次へ
+                        </button>
+
+                        {/* わからなかった テキスト */}
+                        <span className="text-sm text-gray-700">わからなかった</span>
+
                         {/* チェックボックス */}
                         <input
                             type="checkbox"
@@ -195,15 +324,6 @@
                             onChange={onToggleCheck}
                             className="w-6 h-6 cursor-pointer"
                         />
-                        <span className="text-sm text-gray-700">わからなかった</span>
-
-                        {/* 次へ ボタン */}
-                        <button
-                            onClick={onNext}
-                            className="flex-1 ml-4 py-4 rounded-lg font-bold text-white text-lg bg-blue-500 shadow-md hover:bg-blue-600 active:scale-95 transition-all"
-                        >
-                            次へ
-                        </button>
                     </div>
 
                     {/* メニューに戻るボタン */}
@@ -315,10 +435,11 @@
 
         // メインアプリコンポーネント
         function KanjiLearningApp() {
-            const [screen, setScreen] = useState('menu'); // 'menu', 'question', 'answer'
+            const [screen, setScreen] = useState('menu'); // 'menu', 'question', 'answer', 'review'
             const [selectedSet, setSelectedSet] = useState(0);
             const [currentIndex, setCurrentIndex] = useState(0);
             const [checkedItems, setCheckedItems] = useState({});
+            const [reviewData, setReviewData] = useState([]);
 
             // ローカルストレージから復習対象を復元
             useEffect(() => {
@@ -339,6 +460,14 @@
                 setScreen('question');
             };
 
+            const handleReview = () => {
+                // チェック済みの漢字だけをフィルタリング
+                const checked = kokugoData.filter(item => checkedItems[`item_${item.id}`]);
+                setReviewData(checked);
+                setCurrentIndex(0);
+                setScreen('review');
+            };
+
             const handleNext = () => {
                 if (screen === 'question') {
                     setScreen('answer');
@@ -353,6 +482,13 @@
                     } else {
                         // セット完了
                         setScreen('question');
+                    }
+                } else if (screen === 'review') {
+                    if (currentIndex + 1 < reviewData.length) {
+                        setCurrentIndex(currentIndex + 1);
+                    } else {
+                        // 復習完了
+                        setScreen('menu');
                     }
                 }
             };
@@ -374,14 +510,17 @@
                 setCurrentIndex(0);
             };
 
+            const checkedCount = Object.values(checkedItems).filter(Boolean).length;
+
+            // 通常学習の現在アイテム
             const setStartIndex = selectedSet * 20;
             const currentSetData = kokugoData.slice(setStartIndex, Math.min((selectedSet + 1) * 20, kokugoData.length));
-            const currentItem = currentSetData[currentIndex];
+            const currentItem = screen === 'review' ? reviewData[currentIndex] : currentSetData[currentIndex];
             const currentItemKey = currentItem ? `item_${currentItem.id}` : null;
             const isChecked = currentItemKey ? !!checkedItems[currentItemKey] : false;
 
             if (screen === 'menu') {
-                return <MenuScreen onSelectSet={handleSelectSet} />;
+                return <MenuScreen onSelectSet={handleSelectSet} onReview={handleReview} checkedCount={checkedCount} />;
             } else if (screen === 'question') {
                 return <QuestionScreen
                     setNumber={selectedSet}
@@ -395,6 +534,13 @@
                 return <AnswerScreen
                     setNumber={selectedSet}
                     currentIndex={currentIndex}
+                    onNext={handleNext}
+                    onBackToMenu={handleBackToMenu}
+                />;
+            } else if (screen === 'review') {
+                return <ReviewScreen
+                    currentIndex={currentIndex}
+                    reviewData={reviewData}
                     onNext={handleNext}
                     onBackToMenu={handleBackToMenu}
                 />;
