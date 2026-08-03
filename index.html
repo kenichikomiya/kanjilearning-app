@@ -1,683 +1,775 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>漢字検定 学習アプリ - 2字熟語対策</title>
-    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
-    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        * {
-            touch-action: manipulation;
-            -webkit-touch-callout: none;
-            -webkit-user-select: none;
-            user-select: none;
-        }
-        input, textarea, button {
-            -webkit-user-select: text;
-            user-select: text;
-        }
-        body {
-            font-family: 'Segoe UI', 'ヒラギノ角ゴ Pro', 'Hiragino Kaku Gothic Pro', 'YuGothic', 'Yu Gothic', sans-serif;
-            margin: 0;
-            padding: 0;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>漢字検定 学習アプリ - 2字熟語対策</title>
+<script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+* {
+touch-action: manipulation;
+-webkit-touch-callout: none;
+-webkit-user-select: none;
+user-select: none;
+}
+input, textarea, button {
+-webkit-user-select: text;
+user-select: text;
+}
+body {
+font-family: 'Segoe UI', 'ヒラギノ角ゴ Pro', 'Hiragino Kaku Gothic Pro', 'YuGothic', 'Yu Gothic', sans-serif;
+margin: 0;
+padding: 0;
+background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+min-height: 100vh;
+}
+</style>
 </head>
 <body>
-    <div id="root"></div>
+<div id="root"></div>
+<script type="text/babel">
+const { useState, useEffect, useRef } = React;
 
-    <script type="text/babel">
-        const { useState, useEffect, useRef } = React;
+// 漢字検定3級 問題データ（2字・3字熟語）
+const kokugoData = [
+{
+"id": 1,
+"kanji": "停滞",
+"yomi": "ていたい",
+"imi": "物事がはかどらず、うまく進まない",
+"kyu": 3
+},
+{
+"id": 2,
+"kanji": "卓越",
+"yomi": "たくえつ",
+"imi": "他よりもはるかにすぐれていること。能力が抜きん出ていること。",
+"kyu": 3
+},
+{
+"id": 3,
+"kanji": "閲覧",
+"yomi": "えつらん",
+"imi": "書物や新聞などを読んだり、見たりすること。",
+"kyu": 3
+},
+{
+"id": 4,
+"kanji": "掌握",
+"yomi": "しょうあく",
+"imi": "自分の思いどおりにすること。手にぎること。",
+"kyu": 3
+},
+{
+"id": 5,
+"kanji": "概要",
+"yomi": "がいよう",
+"imi": "物事のあらまし。",
+"kyu": 3
+},
+{
+"id": 6,
+"kanji": "密封",
+"yomi": "みっぷう",
+"imi": "すき間のないように閉じること。",
+"kyu": 3
+},
+{
+"id": 7,
+"kanji": "快諾",
+"yomi": "かいだく",
+"imi": "申し出や提案を快く受け入れること。",
+"kyu": 3
+},
+{
+"id": 8,
+"kanji": "忘れ",
+"yomi": "わす",
+"imi": "あることを思い出せないようになること。",
+"kyu": 3
+},
+{
+"id": 9,
+"kanji": "嫁ぐ",
+"yomi": "とつ",
+"imi": "女の人が他の家に嫁ぐこと。",
+"kyu": 3
+},
+{
+"id": 10,
+"kanji": "携わる",
+"yomi": "たずさ",
+"imi": "あることに関する。従事する。",
+"kyu": 3
+},
+{
+"id": 11,
+"kanji": "座勢",
+"yomi": "きょせい",
+"imi": "姿勢。あるがままの様子。",
+"kyu": 3
+},
+{
+"id": 12,
+"kanji": "克服",
+"yomi": "こくふく",
+"imi": "努力して困難な状態に打ち勝つこと。",
+"kyu": 3
+},
+{
+"id": 13,
+"kanji": "折衝",
+"yomi": "せっしょう",
+"imi": "外交などで、事が有利に運ぶように駆け引きすること。",
+"kyu": 3
+},
+{
+"id": 14,
+"kanji": "漏電",
+"yomi": "ろうでん",
+"imi": "電線の絶縁不良や機械の故障などが原因で、電気が流れること。",
+"kyu": 3
+},
+{
+"id": 15,
+"kanji": "追随",
+"yomi": "ついずい",
+"imi": "あとをついていくこと。あとについきすること。",
+"kyu": 3
+},
+{
+"id": 16,
+"kanji": "凝視",
+"yomi": "ぎょうし",
+"imi": "目をこらしじっと見つめること。",
+"kyu": 3
+},
+{
+"id": 17,
+"kanji": "昇進",
+"yomi": "しょうしん",
+"imi": "地位や官位が上がること。昇格。",
+"kyu": 3
+},
+{
+"id": 18,
+"kanji": "悔しい",
+"yomi": "くやしい",
+"imi": "物事が思いどおりにならず、くやまるような気持ち。",
+"kyu": 3
+},
+{
+"id": 19,
+"kanji": "慮める",
+"yomi": "おもんぱかる",
+"imi": "人の悲しみや苦しみを、優しい言葉などでいたわること。",
+"kyu": 3
+},
+{
+"id": 20,
+"kanji": "迎える",
+"yomi": "むかえる",
+"imi": "来る人を出迎える。時が来るのを待つ。",
+"kyu": 3
+}
+];
 
-        // 漢字検定3級 問題データ（本より抽出）
-        const kokugoData = [
-          {
-            "id": 1,
-            "kanji": "停滞",
-            "yomi": "ていたい",
-            "imi": "物事がはかどらず、うまく進まない",
-            "kyu": 3
-          },
-          {
-            "id": 2,
-            "kanji": "卓越",
-            "yomi": "たくえつ",
-            "imi": "他よりもはるかにすぐれていること。能力が抜きん出ていること。",
-            "kyu": 3
-          },
-          {
-            "id": 3,
-            "kanji": "閲覧",
-            "yomi": "えつらん",
-            "imi": "書物や新聞などを読んだり、見たりすること。",
-            "kyu": 3
-          },
-          {
-            "id": 4,
-            "kanji": "掌握",
-            "yomi": "しょうあく",
-            "imi": "自分の思いどおりにすること。手にぎること。",
-            "kyu": 3
-          },
-          {
-            "id": 5,
-            "kanji": "概要",
-            "yomi": "がいよう",
-            "imi": "物事のあらまし。",
-            "kyu": 3
-          },
-          {
-            "id": 6,
-            "kanji": "密封",
-            "yomi": "みっぷう",
-            "imi": "すき間のないように閉じること。",
-            "kyu": 3
-          },
-          {
-            "id": 7,
-            "kanji": "快諾",
-            "yomi": "かいだく",
-            "imi": "申し出や提案を快く受け入れること。",
-            "kyu": 3
-          },
-          {
-            "id": 8,
-            "kanji": "忘れ",
-            "yomi": "わす",
-            "imi": "あることを思い出せないようになること。",
-            "kyu": 3
-          },
-          {
-            "id": 9,
-            "kanji": "嫁ぐ",
-            "yomi": "とつ",
-            "imi": "女の人が他の家に嫁ぐこと。",
-            "kyu": 3
-          },
-          {
-            "id": 10,
-            "kanji": "携わる",
-            "yomi": "たずさ",
-            "imi": "あることに関する。従事する。",
-            "kyu": 3
-          },
-          {
-            "id": 11,
-            "kanji": "座勢",
-            "yomi": "きょせい",
-            "imi": "姿勢。あるがままの様子。",
-            "kyu": 3
-          },
-          {
-            "id": 12,
-            "kanji": "克服",
-            "yomi": "こくふく",
-            "imi": "努力して困難な状態に打ち勝つこと。",
-            "kyu": 3
-          },
-          {
-            "id": 13,
-            "kanji": "折衝",
-            "yomi": "せっしょう",
-            "imi": "外交などで、事が有利に運ぶように駆け引きすること。",
-            "kyu": 3
-          },
-          {
-            "id": 14,
-            "kanji": "漏電",
-            "yomi": "ろうでん",
-            "imi": "電線の絶縁不良や機械の故障などが原因で、電気が流れること。",
-            "kyu": 3
-          },
-          {
-            "id": 15,
-            "kanji": "追随",
-            "yomi": "ついずい",
-            "imi": "あとをついていくこと。あとについきすること。",
-            "kyu": 3
-          },
-          {
-            "id": 16,
-            "kanji": "凝視",
-            "yomi": "ぎょうし",
-            "imi": "目をこらしじっと見つめること。",
-            "kyu": 3
-          },
-          {
-            "id": 17,
-            "kanji": "昇進",
-            "yomi": "しょうしん",
-            "imi": "地位や官位が上がること。昇格。",
-            "kyu": 3
-          },
-          {
-            "id": 18,
-            "kanji": "悔しい",
-            "yomi": "くやしい",
-            "imi": "物事が思いどおりにならず、くやまるような気持ち。",
-            "kyu": 3
-          },
-          {
-            "id": 19,
-            "kanji": "慮める",
-            "yomi": "おもんぱかる",
-            "imi": "人の悲しみや苦しみを、優しい言葉などでいたわること。",
-            "kyu": 3
-          },
-          {
-            "id": 20,
-            "kanji": "迎える",
-            "yomi": "むかえる",
-            "imi": "来る人を出迎える。時が来るのを待つ。",
-            "kyu": 3
-          }
-        ];
+// 漢字検定3級 問題データ（四字熟語）
+// 元データ kokugo_kyu3.json より重複1件（鶏口牛後）を除去し、id を振り直し
+const yojijukugoData = [
+{ "id": 1, "kanji": "哀哀父母", "yomi": "あいあいふぼ", "imi": "自分を生んで苦労を重ねてくれた父母の死を悼み、その恩に報いることができず哀しむこと。", "kyu": 3 },
+{ "id": 2, "kanji": "哀糸豪竹", "yomi": "あいしごうちく", "imi": "悲しい音をだす琴と、力強く明るい音をだす笛の見事な管弦は、人を感動させること。", "kyu": 3 },
+{ "id": 3, "kanji": "愛多憎生", "yomi": "あいたぞうせい", "imi": "愛や恩を多くもらいすぎると、憎しみやねたみを生むということ。", "kyu": 3 },
+{ "id": 4, "kanji": "安穏無事", "yomi": "あんのんぶじ", "imi": "何事もなく、世の中や暮らしが穏やかで安らかなさま。", "kyu": 3 },
+{ "id": 5, "kanji": "衣冠盛事", "yomi": "いかんせいじ", "imi": "名門の家に生まれてさらに功績を上げた後に、家の名声を引き継ぐこと、またはその者のこと。", "kyu": 3 },
+{ "id": 6, "kanji": "意気衝天", "yomi": "いきしょうてん", "imi": "気力が天を衝くほど高く充実している様子。", "kyu": 3 },
+{ "id": 7, "kanji": "意気自如", "yomi": "いきじじょ", "imi": "心の持ち方がいつも通りで平静な様子。", "kyu": 3 },
+{ "id": 8, "kanji": "意気揚揚", "yomi": "いきようよう", "imi": "威勢がよく誇らしげに振る舞う様子。", "kyu": 3 },
+{ "id": 9, "kanji": "一栄一辱", "yomi": "いちえいいちじょく", "imi": "人の世は、良いときもあれば悪いときもあるということ。", "kyu": 3 },
+{ "id": 10, "kanji": "一言芳恩", "yomi": "いちごんほうおん", "imi": "ひと言声をかけてもらったことに対して感謝すること。", "kyu": 3 },
+{ "id": 11, "kanji": "一樹百穫", "yomi": "いちじゅひゃっかく", "imi": "人材を育成することは、大きな利益につながるということ。", "kyu": 3 },
+{ "id": 12, "kanji": "一諾千金", "yomi": "いちだくせんきん", "imi": "決して裏切らない、一度約束したことは守らなければならないというたとえ。", "kyu": 3 },
+{ "id": 13, "kanji": "一了百了", "yomi": "いちりょうひゃくりょう", "imi": "一つが解決すれば、すべてのことが解決すること。", "kyu": 3 },
+{ "id": 14, "kanji": "一喜一憂", "yomi": "いっきいちゆう", "imi": "物事の状況が変化するたびに喜んだり心配したりすること。", "kyu": 3 },
+{ "id": 15, "kanji": "一騎当千", "yomi": "いっきとうせん", "imi": "並外れた能力を持つ勇敢な人のこと。", "kyu": 3 },
+{ "id": 16, "kanji": "一球入魂", "yomi": "いっきゅうにゅうこん", "imi": "野球で、精神を集中して一球一球を投げること。", "kyu": 3 },
+{ "id": 17, "kanji": "一虚一実", "yomi": "いっきょいちじつ", "imi": "さまざまに変化して、予測が難しいことのたとえ。", "kyu": 3 },
+{ "id": 18, "kanji": "空中楼閣", "yomi": "くうちゅうのろうかく", "imi": "土台のない蜃気楼で現れた建物という意味から、根拠がなく現実的ではない考えや議論のこと。", "kyu": 3 },
+{ "id": 19, "kanji": "苦口婆心", "yomi": "くこうばしん", "imi": "相手のことを思い、口を苦くして何度も教えさとすこと。", "kyu": 3 },
+{ "id": 20, "kanji": "愚公移山", "yomi": "ぐこういざん", "imi": "大きなことでも、根気よく努力し続ければ必ず成功することのたとえ。", "kyu": 3 },
+{ "id": 21, "kanji": "愚者一得", "yomi": "ぐしゃのいっとく", "imi": "愚かな人でもたまには優れた名案を出すこと。", "kyu": 3 },
+{ "id": 22, "kanji": "鶏口牛後", "yomi": "けいこうぎゅうご", "imi": "大きな組織に入って上の人に付き従い言いなりになるより、小さな組織だとしても上に立つほうがよいということ。", "kyu": 3 },
+{ "id": 23, "kanji": "喜怒哀楽", "yomi": "きどあいらく", "imi": "「喜び」「怒り」「悲しみ」「楽しみ」といった、人間がもっているいろいろな感情のこと。", "kyu": 3 },
+{ "id": 24, "kanji": "器用貧乏", "yomi": "きようびんぼう", "imi": "何でも人並み以上にうまいために、色々なことに手を出してしまい、どれも中途半端となり極めることができないこと。", "kyu": 3 },
+{ "id": 25, "kanji": "国士無双", "yomi": "こくしむそう", "imi": "国の中で最もすぐれている人のこと。", "kyu": 3 },
+{ "id": 26, "kanji": "孤軍奮闘", "yomi": "こぐんふんとう", "imi": "援軍が来ることを期待できない状態で必死に戦うこと。", "kyu": 3 },
+{ "id": 27, "kanji": "克己復礼", "yomi": "こっきふくれい", "imi": "欲望や感情に打ち勝ち、礼儀にかなった言動をすること。", "kyu": 3 },
+{ "id": 28, "kanji": "刻苦勉励", "yomi": "こっくべんれい", "imi": "苦労しながらも、全力で仕事や勉強に励むこと。", "kyu": 3 },
+{ "id": 29, "kanji": "孤立無援", "yomi": "こりつむえん", "imi": "たった一人で、誰かの助けも期待できないこと。", "kyu": 3 },
+{ "id": 30, "kanji": "才子佳人", "yomi": "さいしかじん", "imi": "理想的な男女のこと。", "kyu": 3 },
+{ "id": 31, "kanji": "試行錯誤", "yomi": "しこうさくご", "imi": "試みと失敗を何度も繰り返して、問題の解決に近づけていくこと。", "kyu": 3 },
+{ "id": 32, "kanji": "四分五裂", "yomi": "しぶんごれつ", "imi": "国や秩序などが乱れてまとまりがなくなり、ばらばらに分裂すること。", "kyu": 3 },
+{ "id": 33, "kanji": "終始一貫", "yomi": "しゅうしいっかん", "imi": "初めから終わりまで言動や態度を貫き通すこと。", "kyu": 3 },
+{ "id": 34, "kanji": "取捨選択", "yomi": "しゅしゃせんたく", "imi": "必要なものだけを取って、不必要なものを捨てること。", "kyu": 3 },
+{ "id": 35, "kanji": "首尾一貫", "yomi": "しゅびいっかん", "imi": "最初から最後まで、態度や方針を変えずに貫き通すこと。", "kyu": 3 },
+{ "id": 36, "kanji": "自暴自棄", "yomi": "じぼうじき", "imi": "やけになって、もうどうなってもいいと将来の希望を捨てたり、投げやりな行動をすること。", "kyu": 3 },
+{ "id": 37, "kanji": "失望落胆", "yomi": "しつぼうらくたん", "imi": "夢や希望が無くなって落ち込むこと。", "kyu": 3 },
+{ "id": 38, "kanji": "支離滅裂", "yomi": "しりめつれつ", "imi": "まとまりがなく、ばらばらであること。", "kyu": 3 },
+{ "id": 39, "kanji": "新陳代謝", "yomi": "しんちんたいしゃ", "imi": "古いものが新しいものへと入れ替わること。", "kyu": 3 },
+{ "id": 40, "kanji": "心頭滅却", "yomi": "しんとうめっきゃく", "imi": "気を散らすような考えを消し去ること。", "kyu": 3 },
+{ "id": 41, "kanji": "深謀遠慮", "yomi": "しんぼうえんりょ", "imi": "深く考えをめぐらせて、遠い先の未来のことを見通して、手抜かりのない計画を立てること。", "kyu": 3 },
+{ "id": 42, "kanji": "順風満帆", "yomi": "じゅんぷうまんぱん", "imi": "特に問題が起きることなく、思い通りに物事が進んでいくこと。", "kyu": 3 },
+{ "id": 43, "kanji": "天衣無縫", "yomi": "てんいむほう", "imi": "詩や文章などにわざとらしさがなく、自然で美しいこと。", "kyu": 3 },
+{ "id": 44, "kanji": "天下無双", "yomi": "てんかむそう", "imi": "世の中につりあうものが存在しないほどすぐれていること。", "kyu": 3 },
+{ "id": 45, "kanji": "大安吉日", "yomi": "たいあんきちじつ", "imi": "物事を行うのに最も縁起がよいとされる日。", "kyu": 3 },
+{ "id": 46, "kanji": "大胆不敵", "yomi": "だいたんふてき", "imi": "精神力が強く、決して恐れることがないこと。", "kyu": 3 },
+{ "id": 47, "kanji": "大慈大悲", "yomi": "だいじだいひ", "imi": "心を持つ全てのものを救おうとする、仏の限りない慈悲のこと。", "kyu": 3 },
+{ "id": 48, "kanji": "清廉潔白", "yomi": "せいれんけっぱく", "imi": "心が清らかで、良心に恥じるようなことがまったくないこと。", "kyu": 3 },
+{ "id": 49, "kanji": "権謀術数", "yomi": "けんぼうじゅっすう", "imi": "他人を騙しておとしめる策略のこと。", "kyu": 3 },
+{ "id": 50, "kanji": "温厚篤実", "yomi": "おんこうとくじつ", "imi": "心が温かく穏やかで、誠実な性格のこと。", "kyu": 3 }
+];
 
-        // メニュー画面コンポーネント
-        function MenuScreen({ onSelectSet, onReview, checkedCount }) {
-            const sets = [];
-            for (let i = 0; i < Math.ceil(kokugoData.length / 20); i++) {
-                const start = i * 20 + 1;
-                const end = Math.min((i + 1) * 20, kokugoData.length);
-                sets.push({ number: i + 1, start, end });
-            }
+const CATEGORIES = [
+{ key: 'kokugo', label: '2字・3字熟語', data: kokugoData },
+{ key: 'yoji', label: '四字熟語', data: yojijukugoData },
+];
 
-            return (
-                <div className="min-h-screen bg-gradient-to-b from-blue-50 to-blue-100 p-4 pt-8 flex flex-col">
-                    {/* ヘッダー */}
-                    <div className="text-center mb-8">
-                        <h1 className="text-3xl font-bold text-gray-800 mb-2">漢字検定</h1>
-                        <p className="text-gray-600">2字熟語学習アプリ</p>
-                    </div>
+// カテゴリ選択画面
+function CategoryScreen({ onSelectCategory }) {
+return (
+<div className="min-h-screen bg-gradient-to-b from-blue-50 to-blue-100 p-4 pt-8 flex flex-col">
+<div className="text-center mb-8">
+<h1 className="text-3xl font-bold text-gray-800 mb-2">漢字検定</h1>
+<p className="text-gray-600">学習するカテゴリを選択してください</p>
+</div>
+<div className="flex-1 flex flex-col gap-3">
+{CATEGORIES.map(cat => (
+<button
+key={cat.key}
+onClick={() => onSelectCategory(cat.key)}
+className="w-full bg-white rounded-lg shadow-md p-6 text-left hover:shadow-lg transition-shadow"
+>
+<div className="flex items-center justify-between">
+<div>
+<p className="text-lg font-bold text-blue-600">{cat.label}</p>
+<p className="text-sm text-gray-600">全 {cat.data.length} 問</p>
+</div>
+<div className="text-2xl text-gray-400">→</div>
+</div>
+</button>
+))}
+</div>
+</div>
+);
+}
 
-                    {/* 復習ボタン */}
-                    {checkedCount > 0 && (
-                        <button
-                            onClick={onReview}
-                            className="w-full bg-orange-500 text-white rounded-lg shadow-md p-4 mb-4 font-bold hover:bg-orange-600 transition-all"
-                        >
-                            復習する ({checkedCount} 問)
-                        </button>
-                    )}
+// メニュー画面コンポーネント
+function MenuScreen({ data, categoryLabel, onSelectSet, onReview, onBackToCategory, checkedCount }) {
+const sets = [];
+for (let i = 0; i < Math.ceil(data.length / 20); i++) {
+const start = i * 20 + 1;
+const end = Math.min((i + 1) * 20, data.length);
+sets.push({ number: i + 1, start, end });
+}
 
-                    {/* セット一覧 */}
-                    <div className="flex-1 flex flex-col gap-3 mb-4">
-                        {sets.map(set => (
-                            <button
-                                key={set.number}
-                                onClick={() => onSelectSet(set.number - 1)}
-                                className="w-full bg-white rounded-lg shadow-md p-6 text-left hover:shadow-lg transition-shadow"
-                            >
-                                <div className="flex items-center justify-between">
-                                    <div>
-                                        <p className="text-lg font-bold text-blue-600">
-                                            セット {set.number}
-                                        </p>
-                                        <p className="text-sm text-gray-600">
-                                            問題 {set.start} - {set.end}
-                                        </p>
-                                    </div>
-                                    <div className="text-2xl text-gray-400">→</div>
-                                </div>
-                            </button>
-                        ))}
-                    </div>
+return (
+<div className="min-h-screen bg-gradient-to-b from-blue-50 to-blue-100 p-4 pt-8 flex flex-col">
+<div className="text-center mb-8">
+<h1 className="text-3xl font-bold text-gray-800 mb-2">漢字検定</h1>
+<p className="text-gray-600">{categoryLabel}</p>
+</div>
 
-                    {/* フッター */}
-                    <div className="text-center text-xs text-gray-500">
-                        全 {kokugoData.length} 問
-                    </div>
-                </div>
-            );
-        }
+{checkedCount > 0 && (
+<button
+onClick={onReview}
+className="w-full bg-orange-500 text-white rounded-lg shadow-md p-4 mb-4 font-bold hover:bg-orange-600 transition-all"
+>
+復習する ({checkedCount} 問)
+</button>
+)}
 
-        // 復習画面コンポーネント
-        function ReviewScreen({ currentIndex, reviewData, onNext, onBackToMenu, checkedItems, onToggleCheck }) {
-            const [isAnswerShown, setIsAnswerShown] = useState(false);
-            const currentItem = reviewData[currentIndex];
-            const currentItemKey = currentItem ? `item_${currentItem.id}` : null;
-            const isChecked = currentItemKey ? !!checkedItems[currentItemKey] : false;
+<div className="flex-1 flex flex-col gap-3 mb-4">
+{sets.map(set => (
+<button
+key={set.number}
+onClick={() => onSelectSet(set.number - 1)}
+className="w-full bg-white rounded-lg shadow-md p-6 text-left hover:shadow-lg transition-shadow"
+>
+<div className="flex items-center justify-between">
+<div>
+<p className="text-lg font-bold text-blue-600">
+セット {set.number}
+</p>
+<p className="text-sm text-gray-600">
+問題 {set.start} - {set.end}
+</p>
+</div>
+<div className="text-2xl text-gray-400">→</div>
+</div>
+</button>
+))}
+</div>
 
-            if (!currentItem) {
-                return (
-                    <div className="min-h-screen bg-gradient-to-b from-blue-50 to-blue-100 p-4 pt-8 flex flex-col">
-                        <div className="flex-1 flex flex-col items-center justify-center gap-4">
-                            <p className="text-xl text-gray-800 font-bold">
-                                復習が完了しました！
-                            </p>
-                            <button
-                                onClick={onBackToMenu}
-                                className="bg-blue-500 text-white px-6 py-3 rounded-lg font-bold hover:bg-blue-600"
-                            >
-                                メニューに戻る
-                            </button>
-                        </div>
-                    </div>
-                );
-            }
+<div className="text-center mb-2">
+<button
+onClick={onBackToCategory}
+className="text-blue-600 hover:text-blue-800 font-semibold text-sm underline"
+>
+← カテゴリ選択に戻る
+</button>
+</div>
 
-            return (
-                <div className="min-h-screen bg-gradient-to-b from-blue-50 to-blue-100 p-4 pt-12 flex flex-col">
-                    {/* ヘッダー */}
-                    <div className="text-center mb-6">
-                        <h1 className="text-2xl font-bold text-gray-800">復習モード</h1>
-                        <p className="text-sm text-gray-600">
-                            問題 {currentIndex + 1}/{reviewData.length}
-                        </p>
-                    </div>
+<div className="text-center text-xs text-gray-500">
+全 {data.length} 問
+</div>
+</div>
+);
+}
 
-                    {/* メイン復習エリア */}
-                    <div className="w-full max-w-sm mx-auto mb-12">
-                        {/* 熟語表示 または 解答表示 */}
-                        {!isAnswerShown ? (
-                            <div className="bg-white rounded-lg shadow-lg p-8 text-center mb-4 min-h-[350px] flex flex-col justify-center">
-                                <p className="text-gray-600 text-sm mb-6">問題</p>
-                                <p className="text-7xl font-bold text-blue-600">
-                                    {currentItem.kanji}
-                                </p>
-                            </div>
-                        ) : (
-                            <div className="bg-gradient-to-br from-green-100 to-green-50 rounded-lg shadow-lg p-8 mb-4 min-h-[350px] flex flex-col justify-center">
-                                <div className="text-center">
-                                    <p className="text-4xl font-bold text-green-600 mb-4">
-                                        {currentItem.kanji}
-                                    </p>
-                                    <div className="border-t-2 border-green-300 pt-6 mt-6">
-                                        <p className="text-gray-700 text-sm mb-2">【読み方】</p>
-                                        <p className="text-2xl font-semibold text-green-700 mb-6">
-                                            {currentItem.yomi}
-                                        </p>
-                                        <p className="text-gray-700 text-sm mb-2">【意味】</p>
-                                        <p className="text-base text-gray-800 leading-relaxed">
-                                            {currentItem.imi}
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        )}
+// 復習画面コンポーネント
+function ReviewScreen({ currentIndex, reviewData, onNext, onBackToMenu, checkedItems, onToggleCheck, buildKey }) {
+const [isAnswerShown, setIsAnswerShown] = useState(false);
+const currentItem = reviewData[currentIndex];
+const currentItemKey = currentItem ? buildKey(currentItem.id) : null;
+const isChecked = currentItemKey ? !!checkedItems[currentItemKey] : false;
 
-                        {/* 進捗インジケーター */}
-                        <div className="bg-gray-200 rounded-full h-2">
-                            <div
-                                className="bg-orange-500 h-2 rounded-full transition-all"
-                                style={{
-                                    width: `${((currentIndex + 1) / reviewData.length) * 100}%`,
-                                }}
-                            ></div>
-                        </div>
-                    </div>
+if (!currentItem) {
+return (
+<div className="min-h-screen bg-gradient-to-b from-blue-50 to-blue-100 p-4 pt-8 flex flex-col">
+<div className="flex-1 flex flex-col items-center justify-center gap-4">
+<p className="text-xl text-gray-800 font-bold">
+復習が完了しました！
+</p>
+<button
+onClick={onBackToMenu}
+className="bg-blue-500 text-white px-6 py-3 rounded-lg font-bold hover:bg-blue-600"
+>
+メニューに戻る
+</button>
+</div>
+</div>
+);
+}
 
-                    {/* 次へボタン */}
-                    <div className="w-full max-w-sm mx-auto mb-16">
-                        <button
-                            onClick={() => {
-                                if (!isAnswerShown) {
-                                    setIsAnswerShown(true);
-                                } else {
-                                    setIsAnswerShown(false);
-                                    onNext();
-                                }
-                            }}
-                            className="w-full py-4 rounded-lg font-bold text-white text-lg bg-orange-500 shadow-md hover:bg-orange-600 active:scale-95 transition-all"
-                        >
-                            {isAnswerShown ? '次へ' : '解答を見る'}
-                        </button>
-                    </div>
+return (
+<div className="min-h-screen bg-gradient-to-b from-blue-50 to-blue-100 p-4 pt-12 flex flex-col">
+<div className="text-center mb-6">
+<h1 className="text-2xl font-bold text-gray-800">復習モード</h1>
+<p className="text-sm text-gray-600">
+問題 {currentIndex + 1}/{reviewData.length}
+</p>
+</div>
 
-                    {/* チェックボックス */}
-                    <div className="flex gap-3 items-center w-full max-w-sm mx-auto mb-6">
-                        {/* チェックボックス */}
-                        <input
-                            type="checkbox"
-                            checked={isChecked}
-                            onChange={onToggleCheck}
-                            className="w-6 h-6 cursor-pointer"
-                        />
-                        {/* 覚えた テキスト */}
-                        <span className="text-sm text-gray-700">覚えた</span>
-                    </div>
+<div className="w-full max-w-sm mx-auto mb-12">
+{!isAnswerShown ? (
+<div className="bg-white rounded-lg shadow-lg p-8 text-center mb-4 min-h-[350px] flex flex-col justify-center">
+<p className="text-gray-600 text-sm mb-6">問題</p>
+<p className="text-7xl font-bold text-blue-600">
+{currentItem.kanji}
+</p>
+</div>
+) : (
+<div className="bg-gradient-to-br from-green-100 to-green-50 rounded-lg shadow-lg p-8 mb-4 min-h-[350px] flex flex-col justify-center">
+<div className="text-center">
+<p className="text-4xl font-bold text-green-600 mb-4">
+{currentItem.kanji}
+</p>
+<div className="border-t-2 border-green-300 pt-6 mt-6">
+<p className="text-gray-700 text-sm mb-2">【読み方】</p>
+<p className="text-2xl font-semibold text-green-700 mb-6">
+{currentItem.yomi}
+</p>
+<p className="text-gray-700 text-sm mb-2">【意味】</p>
+<p className="text-base text-gray-800 leading-relaxed">
+{currentItem.imi}
+</p>
+</div>
+</div>
+</div>
+)}
 
-                    {/* メニューに戻るボタン */}
-                    <div className="text-center mb-4">
-                        <button
-                            onClick={onBackToMenu}
-                            className="text-blue-600 hover:text-blue-800 font-semibold text-sm underline"
-                        >
-                            ← メニューに戻る
-                        </button>
-                    </div>
-                </div>
-            );
-        }
+<div className="bg-gray-200 rounded-full h-2">
+<div
+className="bg-orange-500 h-2 rounded-full transition-all"
+style={{
+width: `${((currentIndex + 1) / reviewData.length) * 100}%`,
+}}
+></div>
+</div>
+</div>
 
-        // 問題画面コンポーネント
-        function QuestionScreen({ setNumber, currentIndex, onNext, onBackToMenu, isChecked, onToggleCheck }) {
-            const setStartIndex = setNumber * 20;
-            const setEndIndex = Math.min((setNumber + 1) * 20, kokugoData.length);
-            const currentSetData = kokugoData.slice(setStartIndex, setEndIndex);
-            const currentItem = currentSetData[currentIndex];
+<div className="w-full max-w-sm mx-auto mb-16">
+<button
+onClick={() => {
+if (!isAnswerShown) {
+setIsAnswerShown(true);
+} else {
+setIsAnswerShown(false);
+onNext();
+}
+}}
+className="w-full py-4 rounded-lg font-bold text-white text-lg bg-orange-500 shadow-md hover:bg-orange-600 active:scale-95 transition-all"
+>
+{isAnswerShown ? '次へ' : '解答を見る'}
+</button>
+</div>
 
-            if (!currentItem) {
-                return (
-                    <div className="min-h-screen bg-gradient-to-b from-blue-50 to-blue-100 p-4 pt-8 flex flex-col">
-                        <div className="flex-1 flex flex-col items-center justify-center gap-4">
-                            <p className="text-xl text-gray-800 font-bold">
-                                セット {setNumber + 1} が完了しました！
-                            </p>
-                            <button
-                                onClick={onBackToMenu}
-                                className="bg-blue-500 text-white px-6 py-3 rounded-lg font-bold hover:bg-blue-600"
-                            >
-                                メニューに戻る
-                            </button>
-                        </div>
-                    </div>
-                );
-            }
+<div className="flex gap-3 items-center w-full max-w-sm mx-auto mb-6">
+<input
+type="checkbox"
+checked={isChecked}
+onChange={onToggleCheck}
+className="w-6 h-6 cursor-pointer"
+/>
+<span className="text-sm text-gray-700">覚えた</span>
+</div>
 
-            return (
-                <div className="min-h-screen bg-gradient-to-b from-blue-50 to-blue-100 p-4 pt-12 flex flex-col">
-                    {/* ヘッダー */}
-                    <div className="text-center mb-6">
-                        <h1 className="text-2xl font-bold text-gray-800">漢字検定 3級</h1>
-                        <p className="text-sm text-gray-600">
-                            セット {setNumber + 1} / 問題 {currentIndex + 1}/{currentSetData.length}
-                        </p>
-                    </div>
+<div className="text-center mb-4">
+<button
+onClick={onBackToMenu}
+className="text-blue-600 hover:text-blue-800 font-semibold text-sm underline"
+>
+← メニューに戻る
+</button>
+</div>
+</div>
+);
+}
 
-                    {/* メイン問題エリア */}
-                    <div className="w-full max-w-sm mx-auto mb-12">
-                        {/* 熟語表示 */}
-                        <div className="bg-white rounded-lg shadow-lg p-8 text-center mb-4 min-h-[350px] flex flex-col justify-center">
-                            <p className="text-gray-600 text-sm mb-6">問題</p>
-                            <p className="text-7xl font-bold text-blue-600">
-                                {currentItem.kanji}
-                            </p>
-                        </div>
+// 問題画面コンポーネント
+function QuestionScreen({ data, categoryLabel, setNumber, currentIndex, onNext, onBackToMenu, isChecked, onToggleCheck }) {
+const setStartIndex = setNumber * 20;
+const setEndIndex = Math.min((setNumber + 1) * 20, data.length);
+const currentSetData = data.slice(setStartIndex, setEndIndex);
+const currentItem = currentSetData[currentIndex];
 
-                        {/* 進捗インジケーター */}
-                        <div className="bg-gray-200 rounded-full h-2">
-                            <div
-                                className="bg-blue-500 h-2 rounded-full transition-all"
-                                style={{
-                                    width: `${((currentIndex + 1) / currentSetData.length) * 100}%`,
-                                }}
-                            ></div>
-                        </div>
-                    </div>
+if (!currentItem) {
+return (
+<div className="min-h-screen bg-gradient-to-b from-blue-50 to-blue-100 p-4 pt-8 flex flex-col">
+<div className="flex-1 flex flex-col items-center justify-center gap-4">
+<p className="text-xl text-gray-800 font-bold">
+セット {setNumber + 1} が完了しました！
+</p>
+<button
+onClick={onBackToMenu}
+className="bg-blue-500 text-white px-6 py-3 rounded-lg font-bold hover:bg-blue-600"
+>
+メニューに戻る
+</button>
+</div>
+</div>
+);
+}
 
-                    {/* 次へ ボタン */}
-                    <div className="w-full max-w-sm mx-auto mb-16">
-                        <button
-                            onClick={onNext}
-                            className="w-full py-4 rounded-lg font-bold text-white text-lg bg-blue-500 shadow-md hover:bg-blue-600 active:scale-95 transition-all"
-                        >
-                            次へ
-                        </button>
-                    </div>
+return (
+<div className="min-h-screen bg-gradient-to-b from-blue-50 to-blue-100 p-4 pt-12 flex flex-col">
+<div className="text-center mb-6">
+<h1 className="text-2xl font-bold text-gray-800">漢字検定 3級（{categoryLabel}）</h1>
+<p className="text-sm text-gray-600">
+セット {setNumber + 1} / 問題 {currentIndex + 1}/{currentSetData.length}
+</p>
+</div>
 
-                    {/* チェックボックス */}
-                    <div className="flex gap-3 items-center w-full max-w-sm mx-auto mb-6">
-                        {/* チェックボックス */}
-                        <input
-                            type="checkbox"
-                            checked={isChecked}
-                            onChange={onToggleCheck}
-                            className="w-6 h-6 cursor-pointer"
-                        />
-                        {/* わからなかった テキスト */}
-                        <span className="text-sm text-gray-700">わからなかった</span>
-                    </div>
+<div className="w-full max-w-sm mx-auto mb-12">
+<div className="bg-white rounded-lg shadow-lg p-8 text-center mb-4 min-h-[350px] flex flex-col justify-center">
+<p className="text-gray-600 text-sm mb-6">問題</p>
+<p className="text-7xl font-bold text-blue-600">
+{currentItem.kanji}
+</p>
+</div>
 
-                    {/* メニューに戻るボタン */}
-                    <div className="text-center mb-4">
-                        <button
-                            onClick={onBackToMenu}
-                            className="text-blue-600 hover:text-blue-800 font-semibold text-sm underline"
-                        >
-                            ← メニューに戻る
-                        </button>
-                    </div>
-                </div>
-            );
-        }
+<div className="bg-gray-200 rounded-full h-2">
+<div
+className="bg-blue-500 h-2 rounded-full transition-all"
+style={{
+width: `${((currentIndex + 1) / currentSetData.length) * 100}%`,
+}}
+></div>
+</div>
+</div>
 
-        // 解答画面コンポーネント
-        function AnswerScreen({ setNumber, currentIndex, onNext, onBackToMenu, isChecked, onToggleCheck }) {
-            const setStartIndex = setNumber * 20;
-            const setEndIndex = Math.min((setNumber + 1) * 20, kokugoData.length);
-            const currentSetData = kokugoData.slice(setStartIndex, setEndIndex);
-            const currentItem = currentSetData[currentIndex];
+<div className="w-full max-w-sm mx-auto mb-16">
+<button
+onClick={onNext}
+className="w-full py-4 rounded-lg font-bold text-white text-lg bg-blue-500 shadow-md hover:bg-blue-600 active:scale-95 transition-all"
+>
+次へ
+</button>
+</div>
 
-            if (!currentItem) {
-                return (
-                    <div className="min-h-screen bg-gradient-to-b from-blue-50 to-blue-100 p-4 pt-8 flex flex-col">
-                        <div className="flex-1 flex flex-col items-center justify-center gap-4">
-                            <p className="text-xl text-gray-800 font-bold">
-                                セット {setNumber + 1} が完了しました！
-                            </p>
-                            <button
-                                onClick={onBackToMenu}
-                                className="bg-blue-500 text-white px-6 py-3 rounded-lg font-bold hover:bg-blue-600"
-                            >
-                                メニューに戻る
-                            </button>
-                        </div>
-                    </div>
-                );
-            }
+<div className="flex gap-3 items-center w-full max-w-sm mx-auto mb-6">
+<input
+type="checkbox"
+checked={isChecked}
+onChange={onToggleCheck}
+className="w-6 h-6 cursor-pointer"
+/>
+<span className="text-sm text-gray-700">わからなかった</span>
+</div>
 
-            return (
-                <div className="min-h-screen bg-gradient-to-b from-blue-50 to-blue-100 p-4 pt-12 flex flex-col">
-                    {/* ヘッダー */}
-                    <div className="text-center mb-6">
-                        <h1 className="text-2xl font-bold text-gray-800">漢字検定 3級</h1>
-                        <p className="text-sm text-gray-600">
-                            セット {setNumber + 1} / 問題 {currentIndex + 1}/{currentSetData.length}
-                        </p>
-                    </div>
+<div className="text-center mb-4">
+<button
+onClick={onBackToMenu}
+className="text-blue-600 hover:text-blue-800 font-semibold text-sm underline"
+>
+← メニューに戻る
+</button>
+</div>
+</div>
+);
+}
 
-                    {/* メイン解答エリア */}
-                    <div className="w-full max-w-sm mx-auto mb-12">
-                        {/* 解答画面 */}
-                        <div className="bg-gradient-to-br from-green-100 to-green-50 rounded-lg shadow-lg p-8 mb-4 min-h-[350px] flex flex-col justify-center">
-                            <div className="text-center">
-                                <p className="text-4xl font-bold text-green-600 mb-4">
-                                    {currentItem.kanji}
-                                </p>
-                                <div className="border-t-2 border-green-300 pt-6 mt-6">
-                                    <p className="text-gray-700 text-sm mb-2">【読み方】</p>
-                                    <p className="text-2xl font-semibold text-green-700 mb-6">
-                                        {currentItem.yomi}
-                                    </p>
-                                    <p className="text-gray-700 text-sm mb-2">【意味】</p>
-                                    <p className="text-base text-gray-800 leading-relaxed">
-                                        {currentItem.imi}
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
+// 解答画面コンポーネント
+function AnswerScreen({ data, categoryLabel, setNumber, currentIndex, onNext, onBackToMenu, isChecked, onToggleCheck }) {
+const setStartIndex = setNumber * 20;
+const setEndIndex = Math.min((setNumber + 1) * 20, data.length);
+const currentSetData = data.slice(setStartIndex, setEndIndex);
+const currentItem = currentSetData[currentIndex];
 
-                        {/* 進捗インジケーター */}
-                        <div className="bg-gray-200 rounded-full h-2">
-                            <div
-                                className="bg-blue-500 h-2 rounded-full transition-all"
-                                style={{
-                                    width: `${((currentIndex + 1) / currentSetData.length) * 100}%`,
-                                }}
-                            ></div>
-                        </div>
-                    </div>
+if (!currentItem) {
+return (
+<div className="min-h-screen bg-gradient-to-b from-blue-50 to-blue-100 p-4 pt-8 flex flex-col">
+<div className="flex-1 flex flex-col items-center justify-center gap-4">
+<p className="text-xl text-gray-800 font-bold">
+セット {setNumber + 1} が完了しました！
+</p>
+<button
+onClick={onBackToMenu}
+className="bg-blue-500 text-white px-6 py-3 rounded-lg font-bold hover:bg-blue-600"
+>
+メニューに戻る
+</button>
+</div>
+</div>
+);
+}
 
-                    {/* 次へボタン */}
-                    <div className="w-full max-w-sm mx-auto mb-16">
-                        <button
-                            onClick={onNext}
-                            className="w-full py-4 rounded-lg font-bold text-white text-lg bg-blue-500 shadow-md hover:bg-blue-600 active:scale-95 transition-all"
-                        >
-                            次へ
-                        </button>
-                    </div>
+return (
+<div className="min-h-screen bg-gradient-to-b from-blue-50 to-blue-100 p-4 pt-12 flex flex-col">
+<div className="text-center mb-6">
+<h1 className="text-2xl font-bold text-gray-800">漢字検定 3級（{categoryLabel}）</h1>
+<p className="text-sm text-gray-600">
+セット {setNumber + 1} / 問題 {currentIndex + 1}/{currentSetData.length}
+</p>
+</div>
 
-                    {/* チェックボックス */}
-                    <div className="flex gap-3 items-center w-full max-w-sm mx-auto mb-6">
-                        {/* チェックボックス */}
-                        <input
-                            type="checkbox"
-                            checked={isChecked}
-                            onChange={onToggleCheck}
-                            className="w-6 h-6 cursor-pointer"
-                        />
-                        {/* わからなかった テキスト */}
-                        <span className="text-sm text-gray-700">わからなかった</span>
-                    </div>
+<div className="w-full max-w-sm mx-auto mb-12">
+<div className="bg-gradient-to-br from-green-100 to-green-50 rounded-lg shadow-lg p-8 mb-4 min-h-[350px] flex flex-col justify-center">
+<div className="text-center">
+<p className="text-4xl font-bold text-green-600 mb-4">
+{currentItem.kanji}
+</p>
+<div className="border-t-2 border-green-300 pt-6 mt-6">
+<p className="text-gray-700 text-sm mb-2">【読み方】</p>
+<p className="text-2xl font-semibold text-green-700 mb-6">
+{currentItem.yomi}
+</p>
+<p className="text-gray-700 text-sm mb-2">【意味】</p>
+<p className="text-base text-gray-800 leading-relaxed">
+{currentItem.imi}
+</p>
+</div>
+</div>
+</div>
 
-                    {/* メニューに戻るボタン */}
-                    <div className="text-center mb-4">
-                        <button
-                            onClick={onBackToMenu}
-                            className="text-blue-600 hover:text-blue-800 font-semibold text-sm underline"
-                        >
-                            ← メニューに戻る
-                        </button>
-                    </div>
-                </div>
-            );
-        }
+<div className="bg-gray-200 rounded-full h-2">
+<div
+className="bg-blue-500 h-2 rounded-full transition-all"
+style={{
+width: `${((currentIndex + 1) / currentSetData.length) * 100}%`,
+}}
+></div>
+</div>
+</div>
 
-        // メインアプリコンポーネント
-        function KanjiLearningApp() {
-            const [screen, setScreen] = useState('menu'); // 'menu', 'question', 'answer', 'review'
-            const [selectedSet, setSelectedSet] = useState(0);
-            const [currentIndex, setCurrentIndex] = useState(0);
-            const [checkedItems, setCheckedItems] = useState({});
-            const [reviewData, setReviewData] = useState([]);
+<div className="w-full max-w-sm mx-auto mb-16">
+<button
+onClick={onNext}
+className="w-full py-4 rounded-lg font-bold text-white text-lg bg-blue-500 shadow-md hover:bg-blue-600 active:scale-95 transition-all"
+>
+次へ
+</button>
+</div>
 
-            // ローカルストレージから復習対象を復元
-            useEffect(() => {
-                const saved = localStorage.getItem('kanjiCheckedItems');
-                if (saved) {
-                    setCheckedItems(JSON.parse(saved));
-                }
-            }, []);
+<div className="flex gap-3 items-center w-full max-w-sm mx-auto mb-6">
+<input
+type="checkbox"
+checked={isChecked}
+onChange={onToggleCheck}
+className="w-6 h-6 cursor-pointer"
+/>
+<span className="text-sm text-gray-700">わからなかった</span>
+</div>
 
-            // チェック状態を保存
-            useEffect(() => {
-                localStorage.setItem('kanjiCheckedItems', JSON.stringify(checkedItems));
-            }, [checkedItems]);
+<div className="text-center mb-4">
+<button
+onClick={onBackToMenu}
+className="text-blue-600 hover:text-blue-800 font-semibold text-sm underline"
+>
+← メニューに戻る
+</button>
+</div>
+</div>
+);
+}
 
-            const handleSelectSet = (setNumber) => {
-                setSelectedSet(setNumber);
-                setCurrentIndex(0);
-                setScreen('question');
-            };
+// メインアプリコンポーネント
+function KanjiLearningApp() {
+const [screen, setScreen] = useState('category'); // 'category', 'menu', 'question', 'answer', 'review'
+const [category, setCategory] = useState(null); // 'kokugo' | 'yoji'
+const [selectedSet, setSelectedSet] = useState(0);
+const [currentIndex, setCurrentIndex] = useState(0);
+const [checkedItems, setCheckedItems] = useState({});
+const [reviewData, setReviewData] = useState([]);
 
-            const handleReview = () => {
-                // チェック済みの漢字だけをフィルタリング
-                const checked = kokugoData.filter(item => checkedItems[`item_${item.id}`]);
-                setReviewData(checked);
-                setCurrentIndex(0);
-                setScreen('review');
-            };
+useEffect(() => {
+const saved = localStorage.getItem('kanjiCheckedItems');
+if (saved) {
+setCheckedItems(JSON.parse(saved));
+}
+}, []);
 
-            const handleNext = () => {
-                if (screen === 'question') {
-                    setScreen('answer');
-                } else if (screen === 'answer') {
-                    const setStartIndex = selectedSet * 20;
-                    const setEndIndex = Math.min((selectedSet + 1) * 20, kokugoData.length);
-                    const currentSetData = kokugoData.slice(setStartIndex, setEndIndex);
+useEffect(() => {
+localStorage.setItem('kanjiCheckedItems', JSON.stringify(checkedItems));
+}, [checkedItems]);
 
-                    if (currentIndex + 1 < currentSetData.length) {
-                        setCurrentIndex(currentIndex + 1);
-                        setScreen('question');
-                    } else {
-                        // セット完了
-                        setScreen('question');
-                    }
-                } else if (screen === 'review') {
-                    if (currentIndex + 1 < reviewData.length) {
-                        setCurrentIndex(currentIndex + 1);
-                    } else {
-                        // 復習完了
-                        setScreen('menu');
-                    }
-                }
-            };
+const currentCategoryInfo = CATEGORIES.find(c => c.key === category);
+const currentData = currentCategoryInfo ? currentCategoryInfo.data : [];
+const buildKey = (id) => `${category}_item_${id}`;
 
-            const handleToggleCheck = () => {
-                let currentItem;
+const handleSelectCategory = (catKey) => {
+setCategory(catKey);
+setSelectedSet(0);
+setCurrentIndex(0);
+setScreen('menu');
+};
 
-                if (screen === 'review') {
-                    currentItem = reviewData[currentIndex];
-                } else {
-                    const setStartIndex = selectedSet * 20;
-                    const currentSetData = kokugoData.slice(setStartIndex, Math.min((selectedSet + 1) * 20, kokugoData.length));
-                    currentItem = currentSetData[currentIndex];
-                }
+const handleSelectSet = (setNumber) => {
+setSelectedSet(setNumber);
+setCurrentIndex(0);
+setScreen('question');
+};
 
-                if (currentItem) {
-                    const key = `item_${currentItem.id}`;
-                    setCheckedItems(prev => ({
-                        ...prev,
-                        [key]: !prev[key]
-                    }));
-                }
-            };
+const handleReview = () => {
+const checked = currentData.filter(item => checkedItems[buildKey(item.id)]);
+setReviewData(checked);
+setCurrentIndex(0);
+setScreen('review');
+};
 
-            const handleBackToMenu = () => {
-                setScreen('menu');
-                setCurrentIndex(0);
-            };
+const handleNext = () => {
+if (screen === 'question') {
+setScreen('answer');
+} else if (screen === 'answer') {
+const setStartIndex = selectedSet * 20;
+const setEndIndex = Math.min((selectedSet + 1) * 20, currentData.length);
+const currentSetData = currentData.slice(setStartIndex, setEndIndex);
+if (currentIndex + 1 < currentSetData.length) {
+setCurrentIndex(currentIndex + 1);
+setScreen('question');
+} else {
+setScreen('question');
+}
+} else if (screen === 'review') {
+if (currentIndex + 1 < reviewData.length) {
+setCurrentIndex(currentIndex + 1);
+} else {
+setScreen('menu');
+}
+}
+};
 
-            const checkedCount = Object.values(checkedItems).filter(Boolean).length;
+const handleToggleCheck = () => {
+let currentItem;
+if (screen === 'review') {
+currentItem = reviewData[currentIndex];
+} else {
+const setStartIndex = selectedSet * 20;
+const currentSetData = currentData.slice(setStartIndex, Math.min((selectedSet + 1) * 20, currentData.length));
+currentItem = currentSetData[currentIndex];
+}
+if (currentItem) {
+const key = buildKey(currentItem.id);
+setCheckedItems(prev => ({
+...prev,
+[key]: !prev[key]
+}));
+}
+};
 
-            // 通常学習の現在アイテム
-            const setStartIndex = selectedSet * 20;
-            const currentSetData = kokugoData.slice(setStartIndex, Math.min((selectedSet + 1) * 20, kokugoData.length));
-            const currentItem = screen === 'review' ? reviewData[currentIndex] : currentSetData[currentIndex];
-            const currentItemKey = currentItem ? `item_${currentItem.id}` : null;
-            const isChecked = currentItemKey ? !!checkedItems[currentItemKey] : false;
+const handleBackToMenu = () => {
+setScreen('menu');
+setCurrentIndex(0);
+};
 
-            if (screen === 'menu') {
-                return <MenuScreen onSelectSet={handleSelectSet} onReview={handleReview} checkedCount={checkedCount} />;
-            } else if (screen === 'question') {
-                return <QuestionScreen
-                    setNumber={selectedSet}
-                    currentIndex={currentIndex}
-                    onNext={handleNext}
-                    onBackToMenu={handleBackToMenu}
-                    isChecked={isChecked}
-                    onToggleCheck={handleToggleCheck}
-                />;
-            } else if (screen === 'answer') {
-                return <AnswerScreen
-                    setNumber={selectedSet}
-                    currentIndex={currentIndex}
-                    onNext={handleNext}
-                    onBackToMenu={handleBackToMenu}
-                    isChecked={isChecked}
-                    onToggleCheck={handleToggleCheck}
-                />;
-            } else if (screen === 'review') {
-                return <ReviewScreen
-                    currentIndex={currentIndex}
-                    reviewData={reviewData}
-                    onNext={handleNext}
-                    onBackToMenu={handleBackToMenu}
-                    checkedItems={checkedItems}
-                    onToggleCheck={handleToggleCheck}
-                />;
-            }
-        }
+const handleBackToCategory = () => {
+setScreen('category');
+setCategory(null);
+setSelectedSet(0);
+setCurrentIndex(0);
+};
 
-        const root = ReactDOM.createRoot(document.getElementById('root'));
-        root.render(<KanjiLearningApp />);
-    </script>
+const checkedCount = category
+? currentData.filter(item => checkedItems[buildKey(item.id)]).length
+: 0;
+
+const setStartIndex = selectedSet * 20;
+const currentSetData = currentData.slice(setStartIndex, Math.min((selectedSet + 1) * 20, currentData.length));
+const currentItem = screen === 'review' ? reviewData[currentIndex] : currentSetData[currentIndex];
+const currentItemKey = currentItem ? buildKey(currentItem.id) : null;
+const isChecked = currentItemKey ? !!checkedItems[currentItemKey] : false;
+
+if (screen === 'category') {
+return <CategoryScreen onSelectCategory={handleSelectCategory} />;
+} else if (screen === 'menu') {
+return <MenuScreen
+data={currentData}
+categoryLabel={currentCategoryInfo.label}
+onSelectSet={handleSelectSet}
+onReview={handleReview}
+onBackToCategory={handleBackToCategory}
+checkedCount={checkedCount}
+/>;
+} else if (screen === 'question') {
+return <QuestionScreen
+data={currentData}
+categoryLabel={currentCategoryInfo.label}
+setNumber={selectedSet}
+currentIndex={currentIndex}
+onNext={handleNext}
+onBackToMenu={handleBackToMenu}
+isChecked={isChecked}
+onToggleCheck={handleToggleCheck}
+/>;
+} else if (screen === 'answer') {
+return <AnswerScreen
+data={currentData}
+categoryLabel={currentCategoryInfo.label}
+setNumber={selectedSet}
+currentIndex={currentIndex}
+onNext={handleNext}
+onBackToMenu={handleBackToMenu}
+isChecked={isChecked}
+onToggleCheck={handleToggleCheck}
+/>;
+} else if (screen === 'review') {
+return <ReviewScreen
+currentIndex={currentIndex}
+reviewData={reviewData}
+onNext={handleNext}
+onBackToMenu={handleBackToMenu}
+checkedItems={checkedItems}
+onToggleCheck={handleToggleCheck}
+buildKey={buildKey}
+/>;
+}
+}
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<KanjiLearningApp />);
+</script>
 </body>
 </html>
