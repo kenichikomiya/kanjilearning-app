@@ -232,10 +232,286 @@ const yojijukugoData = [
 { "id": 50, "kanji": "温厚篤実", "yomi": "おんこうとくじつ", "imi": "心が温かく穏やかで、誠実な性格のこと。", "kyu": 3 }
 ];
 
-const CATEGORIES = [
-{ key: 'kokugo', label: '2字・3字熟語', data: kokugoData },
-{ key: 'yoji', label: '四字熟語', data: yojijukugoData },
+// 漢字検定準2級 問題データ（読み・出る順Aランク）
+const jun2YomiData = [
+{ "id": 1, "sentence": "新生活に必要な家具を調える。", "target": "調える", "yomi": "ととのえる", "imi": "用意すること。", "kyu": "準2" },
+{ "id": 2, "sentence": "宵っ張りで睡眠時間が短い。", "target": "宵っ張り", "yomi": "よいっぱり", "imi": "深夜まで起きている習慣の人。", "kyu": "準2" },
+{ "id": 3, "sentence": "決まった日に棚卸しする。", "target": "棚卸し", "yomi": "たなおろし", "imi": "物の数を調べ価格評定する。", "kyu": "準2" },
+{ "id": 4, "sentence": "蔵を改造して住居にする。", "target": "蔵", "yomi": "くら", "imi": "耐火の貯蔵庫。", "kyu": "準2" },
+{ "id": 5, "sentence": "靴擦れができて歩くと痛い。", "target": "靴擦れ", "yomi": "くつずれ", "imi": "靴が合わずできる擦り傷。", "kyu": "準2" },
+{ "id": 6, "sentence": "病気の夫に献身的に尽くす。", "target": "献身的", "yomi": "けんしん", "imi": "身を犠牲にしてつくす事。", "kyu": "準2" },
+{ "id": 7, "sentence": "漆塗りの食器に料理を盛る。", "target": "漆塗り", "yomi": "うるしぬり", "imi": "器物に漆を塗ること。", "kyu": "準2" },
+{ "id": 8, "sentence": "棚田は日本の原風景だ。", "target": "棚田", "yomi": "たなだ", "imi": "傾斜地にある階段状の田。", "kyu": "準2" },
+{ "id": 9, "sentence": "あじさいを挿し木で増やす。", "target": "挿し木", "yomi": "さしき", "imi": "枝や茎の切り口を土に入れて根を出す栽培方法。", "kyu": "準2" },
+{ "id": 10, "sentence": "見るに堪えない場面だ。", "target": "堪えない", "yomi": "たえる", "imi": "こらえる。がまんする。", "kyu": "準2" },
+{ "id": 11, "sentence": "襟足のおくれ毛をまとめる。", "target": "襟足", "yomi": "えりあし", "imi": "首の後ろの髪の生え際。", "kyu": "準2" },
+{ "id": 12, "sentence": "母と二人でクリの渋皮をむく。", "target": "渋皮", "yomi": "しぶかわ", "imi": "果実などの表皮の下の皮。", "kyu": "準2" },
+{ "id": 13, "sentence": "彼の詩は叙景に特徴がある。", "target": "叙景", "yomi": "じょけい", "imi": "風景を文章で表現すること。", "kyu": "準2" },
+{ "id": 14, "sentence": "両者の長所を併せ持った製品。", "target": "併せ", "yomi": "あわせる", "imi": "複数のものを一緒にする。", "kyu": "準2" },
+{ "id": 15, "sentence": "授業で多くの国の興廃を学ぶ。", "target": "興廃", "yomi": "こうはい", "imi": "栄えることと滅ぶことの意。", "kyu": "準2" },
+{ "id": 16, "sentence": "訪問先で厚遇された。", "target": "厚遇", "yomi": "こうぐう", "imi": "手厚い扱い。", "kyu": "準2" },
+{ "id": 17, "sentence": "国賓としての訪日を要請する。", "target": "国賓", "yomi": "こくひん", "imi": "国や政府にとっての賓客。", "kyu": "準2" },
+{ "id": 18, "sentence": "予算の大枠を決める。", "target": "大枠", "yomi": "おおわく", "imi": "大まかな枠組み。", "kyu": "準2" },
+{ "id": 19, "sentence": "カモが中州で休んでいる。", "target": "中州", "yomi": "なかす", "imi": "川の中で土砂がたまった所。", "kyu": "準2" },
+{ "id": 20, "sentence": "夕映えの山肌を写生する。", "target": "夕映え", "yomi": "ゆうばえ", "imi": "夕日を受け照り輝くさま。", "kyu": "準2" },
+{ "id": 21, "sentence": "鋼のような肉体を誇る。", "target": "鋼", "yomi": "はがね", "imi": "鍛えて高品質となった鉄。", "kyu": "準2" },
+{ "id": 22, "sentence": "名匠が丹精込めた逸品だ。", "target": "逸品", "yomi": "いっぴん", "imi": "非常に優れた品物や作品。", "kyu": "準2" },
+{ "id": 23, "sentence": "市場では寡占状態が進む。", "target": "寡占", "yomi": "かせん", "imi": "市場を支配している状態。", "kyu": "準2" },
+{ "id": 24, "sentence": "あぜ道に蚊柱が立っている。", "target": "蚊柱", "yomi": "かばしら", "imi": "群れた蚊の一群。", "kyu": "準2" },
+{ "id": 25, "sentence": "誤った認識を一言で喝破した。", "target": "喝破", "yomi": "かっぱ", "imi": "真実を説き明かすこと。", "kyu": "準2" },
+{ "id": 26, "sentence": "各国の艦艇が続々と入港した。", "target": "艦艇", "yomi": "かんてい", "imi": "大小問わない各種の軍艦。", "kyu": "準2" },
+{ "id": 27, "sentence": "泥棒の襟首をつかんだ。", "target": "襟首", "yomi": "えりくび", "imi": "首の後ろ側。うなじ。", "kyu": "準2" },
+{ "id": 28, "sentence": "吟醸酒の香りを楽しむ。", "target": "吟醸", "yomi": "ぎんじょう", "imi": "良い材料を使った醸造法。", "kyu": "準2" },
+{ "id": 29, "sentence": "大雨で土砂崩れの虞がある。", "target": "虞", "yomi": "おそれ", "imi": "懸念。不安。", "kyu": "準2" },
+{ "id": 30, "sentence": "渓谷にかかるつり橋を渡る。", "target": "渓谷", "yomi": "けいこく", "imi": "川のある谷間。", "kyu": "準2" },
+{ "id": 31, "sentence": "大きな問題点が顕在化した。", "target": "顕在化", "yomi": "けんざい", "imi": "明確になっているさま。", "kyu": "準2" },
+{ "id": 32, "sentence": "川沿いのがけに桟道が続く。", "target": "桟道", "yomi": "さんどう", "imi": "崖に沿って棚のように設けた道。", "kyu": "準2" },
+{ "id": 33, "sentence": "情状を酌量する余地などない。", "target": "酌量", "yomi": "しゃくりょう", "imi": "事情を酌み手加減すること。", "kyu": "準2" },
+{ "id": 34, "sentence": "事件について叙述する。", "target": "叙述", "yomi": "じょじゅつ", "imi": "順を追って述べること。", "kyu": "準2" },
+{ "id": 35, "sentence": "原稿用紙の升目を埋めていく。", "target": "升目", "yomi": "ますめ", "imi": "枡の形に区切ってあるもの。", "kyu": "準2" },
+{ "id": 36, "sentence": "ただ惰眠をむさぼる毎日だ。", "target": "惰眠", "yomi": "だみん", "imi": "怠けて眠ること。", "kyu": "準2" },
+{ "id": 37, "sentence": "造園家の泰斗と知られる。", "target": "泰斗", "yomi": "たいと", "imi": "その道の大家。第一人者。", "kyu": "準2" },
+{ "id": 38, "sentence": "町の人口が逓減している。", "target": "逓減", "yomi": "ていげん", "imi": "次第に数量などが減ること。", "kyu": "準2" },
+{ "id": 39, "sentence": "ホースの筒先から水が出る。", "target": "筒先", "yomi": "つつさき", "imi": "筒形の物の先端の部分。", "kyu": "準2" },
+{ "id": 40, "sentence": "恩師に媒酌を頼む。", "target": "媒酌", "yomi": "ばいしゃく", "imi": "結婚の仲立ちをすること。", "kyu": "準2" },
+{ "id": 41, "sentence": "摩耗した部品を交換する。", "target": "摩耗", "yomi": "まもう", "imi": "こすられてすり減ること。", "kyu": "準2" },
+{ "id": 42, "sentence": "モノトーンの扉絵が印象的だ。", "target": "扉絵", "yomi": "とびらえ", "imi": "本の扉に書かれた絵。", "kyu": "準2" },
+{ "id": 43, "sentence": "仲人は高砂を朗々と吟詠した。", "target": "吟詠", "yomi": "ぎんえい", "imi": "節をつけて詩歌をうたうこと。", "kyu": "準2" },
+{ "id": 44, "sentence": "叙情的な映画を観て感動した。", "target": "叙情的", "yomi": "じょじょう", "imi": "感情そのものを述べること。", "kyu": "準2" },
+{ "id": 45, "sentence": "自分の力を顕示する。", "target": "顕示", "yomi": "けんじ", "imi": "はっきりと明確に示すこと。", "kyu": "準2" },
+{ "id": 46, "sentence": "大病院の受診を勧奨する。", "target": "勧奨", "yomi": "かんしょう", "imi": "勧め励ますこと。", "kyu": "準2" },
+{ "id": 47, "sentence": "どれも秀逸な作品ばかりだ。", "target": "秀逸", "yomi": "しゅういつ", "imi": "抜きん出て優れていること。", "kyu": "準2" },
+{ "id": 48, "sentence": "病気が快癒して明日退院する。", "target": "快癒", "yomi": "かいゆ", "imi": "病気や傷が完全に治ること。", "kyu": "準2" },
+{ "id": 49, "sentence": "壇上から静粛を求める。", "target": "静粛", "yomi": "せいしゅく", "imi": "ひっそりと静まり返る状態。", "kyu": "準2" },
+{ "id": 50, "sentence": "街並みの変遷を記録する。", "target": "変遷", "yomi": "へんせん", "imi": "移り変わり。", "kyu": "準2" },
+{ "id": 51, "sentence": "安逸な生活に終止符を打つ。", "target": "安逸", "yomi": "あんいつ", "imi": "無計画に遊び暮らすこと。", "kyu": "準2" },
+{ "id": 52, "sentence": "戦死者の追悼の会が催された。", "target": "追悼", "yomi": "ついとう", "imi": "生前を思い出ししのぶこと。", "kyu": "準2" },
+{ "id": 53, "sentence": "自在カギに鉄瓶を掛ける。", "target": "鉄瓶", "yomi": "てつびん", "imi": "湯をわかす鋳鉄製の容器。", "kyu": "準2" },
+{ "id": 54, "sentence": "神妙な面持ちで話を聞く。", "target": "面持ち", "yomi": "おももち", "imi": "心情が現れた顔。", "kyu": "準2" },
+{ "id": 55, "sentence": "状況を見据えて計画を立てる。", "target": "見据えて", "yomi": "みすえる", "imi": "見定める。", "kyu": "準2" },
+{ "id": 56, "sentence": "人垣の中に知人を見つける。", "target": "人垣", "yomi": "ひとがき", "imi": "多くの人が立ち並ぶこと。", "kyu": "準2" },
+{ "id": 57, "sentence": "湖水に映える新緑が美しい。", "target": "映える", "yomi": "はえる", "imi": "視覚的な色やつやが良いこと。", "kyu": "準2" },
+{ "id": 58, "sentence": "時間を割いてくれた礼を言う。", "target": "割いて", "yomi": "さく", "imi": "一部を分け他に供すること。", "kyu": "準2" },
+{ "id": 59, "sentence": "彼の行為は称賛に値する。", "target": "値する", "yomi": "あたい", "imi": "値段。価値。値打ち。", "kyu": "準2" },
+{ "id": 60, "sentence": "本来の目的を逸脱する。", "target": "逸脱", "yomi": "いつだつ", "imi": "本質から外れること。", "kyu": "準2" },
+{ "id": 61, "sentence": "渦潮見物の船に乗る。", "target": "渦潮", "yomi": "うずしお", "imi": "渦巻いて流れる海水。", "kyu": "準2" },
+{ "id": 62, "sentence": "控え目で寡黙な性格だ。", "target": "寡黙", "yomi": "かもく", "imi": "口数が少ないさま。", "kyu": "準2" },
+{ "id": 63, "sentence": "所得税の還付を受ける。", "target": "還付", "yomi": "かんぷ", "imi": "持ち主に返すこと。", "kyu": "準2" },
+{ "id": 64, "sentence": "夜の公園は閑散としていた。", "target": "閑散", "yomi": "かんさん", "imi": "静まりかえっていること。", "kyu": "準2" },
+{ "id": 65, "sentence": "法廷で偽証罪に問われる。", "target": "偽証", "yomi": "ぎしょう", "imi": "うその証言や証明。", "kyu": "準2" },
+{ "id": 66, "sentence": "だれもが享有している権利だ。", "target": "享有", "yomi": "きょうゆう", "imi": "生来身につけていること。", "kyu": "準2" },
+{ "id": 67, "sentence": "著書を先輩に謹呈した。", "target": "謹呈", "yomi": "きんてい", "imi": "物品を差し上げること。", "kyu": "準2" },
+{ "id": 68, "sentence": "祖父には輝かしい勲功がある。", "target": "勲功", "yomi": "くんこう", "imi": "国家や君主に尽くした功績。", "kyu": "準2" },
+{ "id": 69, "sentence": "傑出した才能の持ち主だ。", "target": "傑出", "yomi": "けっしゅつ", "imi": "飛び抜けて優れていること。", "kyu": "準2" },
+{ "id": 70, "sentence": "窯元から陶器を仕入れる。", "target": "窯元", "yomi": "かまもと", "imi": "陶磁器を作る所。", "kyu": "準2" },
+{ "id": 71, "sentence": "侯爵の結婚式に招かれる。", "target": "侯爵", "yomi": "こうしゃく", "imi": "五等の爵位の二番目。", "kyu": "準2" },
+{ "id": 72, "sentence": "反対分子が粛清される。", "target": "粛清", "yomi": "しゅくせい", "imi": "反対者を排除・追放すること。", "kyu": "準2" },
+{ "id": 73, "sentence": "幼少期から俊才と言われた。", "target": "俊才", "yomi": "しゅんさい", "imi": "並外れた才能の持ち主。", "kyu": "準2" },
+{ "id": 74, "sentence": "叙勲者が一堂に会した。", "target": "叙勲", "yomi": "じょくん", "imi": "勲章を授けること。", "kyu": "準2" },
+{ "id": 75, "sentence": "結論を出すには時期尚早だ。", "target": "尚早", "yomi": "しょうそう", "imi": "事をするには早すぎること。", "kyu": "準2" },
+{ "id": 76, "sentence": "名作古典の抄訳を読む。", "target": "抄訳", "yomi": "しょうやく", "imi": "原文の一部を翻訳すること。", "kyu": "準2" },
+{ "id": 77, "sentence": "老師に崇敬の念を抱く。", "target": "崇敬", "yomi": "すうけい", "imi": "あがめ敬うこと。", "kyu": "準2" },
+{ "id": 78, "sentence": "約束を守ると誓約する。", "target": "誓約", "yomi": "せいやく", "imi": "固く誓い約束すること。", "kyu": "準2" },
+{ "id": 79, "sentence": "拙劣な出来映えにガッカリする。", "target": "拙劣", "yomi": "せつれつ", "imi": "技術などが劣っているさま。", "kyu": "準2" },
+{ "id": 80, "sentence": "新企画の会員が漸増している。", "target": "漸増", "yomi": "ぜんぞう", "imi": "少しずつ増えること。", "kyu": "準2" },
+{ "id": 81, "sentence": "遭難者をヘリコプターで捜す。", "target": "捜す", "yomi": "さがす", "imi": "見つけ出そうとする。", "kyu": "準2" },
+{ "id": 82, "sentence": "霜の降りた庭を眺める。", "target": "霜", "yomi": "しも", "imi": "気温差でできる氷の結晶。", "kyu": "準2" },
+{ "id": 83, "sentence": "こんな駄文は掲載できない。", "target": "駄文", "yomi": "だぶん", "imi": "下手な文章のこと。", "kyu": "準2" },
+{ "id": 84, "sentence": "病状を逐次報告する。", "target": "逐次", "yomi": "ちくじ", "imi": "順を追って次々に進むさま。", "kyu": "準2" },
+{ "id": 85, "sentence": "面長な顔立ちの美人姉妹だ。", "target": "面長", "yomi": "おもなが", "imi": "顔が縦に長いさま。", "kyu": "準2" },
+{ "id": 86, "sentence": "英語の原文を逐語訳する。", "target": "逐語訳", "yomi": "ちくごやく", "imi": "原文を一語一句訳したもの。", "kyu": "準2" },
+{ "id": 87, "sentence": "母屋は廃屋同然だ。", "target": "廃屋", "yomi": "はいおく", "imi": "住む人もなく荒れはてた家。", "kyu": "準2" },
+{ "id": 88, "sentence": "住所氏名を併記する。", "target": "併記", "yomi": "へいき", "imi": "並べて書くこと。", "kyu": "準2" },
+{ "id": 89, "sentence": "業界の再編が漸進する。", "target": "漸進", "yomi": "ぜんしん", "imi": "物事が徐々に進むこと。", "kyu": "準2" },
+{ "id": 90, "sentence": "報道は偏向してはならない。", "target": "偏向", "yomi": "へんこう", "imi": "偏った考え方。", "kyu": "準2" },
+{ "id": 91, "sentence": "以前は紡績で栄えた町だ。", "target": "紡績", "yomi": "ぼうせき", "imi": "織物を作る産業。", "kyu": "準2" },
+{ "id": 92, "sentence": "自由奔放に育てられた。", "target": "奔放", "yomi": "ほんぽう", "imi": "思うままにふるまうこと。", "kyu": "準2" },
+{ "id": 93, "sentence": "世界唯一と銘打って売り出す。", "target": "銘打って", "yomi": "めいうつ", "imi": "物に名目をかかげて宣伝する。", "kyu": "準2" },
+{ "id": 94, "sentence": "愉悦の表情を浮かべる。", "target": "愉悦", "yomi": "ゆえつ", "imi": "心底喜び楽しむこと。", "kyu": "準2" },
+{ "id": 95, "sentence": "上司と業者との癒着を疑う。", "target": "癒着", "yomi": "ゆちゃく", "imi": "良くない状態でくっつくこと。", "kyu": "準2" },
+{ "id": 96, "sentence": "悠久なる時の流れを感じる。", "target": "悠久", "yomi": "ゆうきゅう", "imi": "果てしなく長く続くこと。", "kyu": "準2" },
+{ "id": 97, "sentence": "ぜひ拙宅へお立ち寄りください。", "target": "拙宅", "yomi": "せったく", "imi": "自分の家をへりくだった語。", "kyu": "準2" },
+{ "id": 98, "sentence": "ついに窯出しの時を迎えた。", "target": "窯出し", "yomi": "かまだし", "imi": "陶磁器を窯から出すこと。", "kyu": "準2" },
+{ "id": 99, "sentence": "池に竜神を祭る社がある。", "target": "竜神", "yomi": "りゅうじん", "imi": "水と雨を司る神。", "kyu": "準2" },
+{ "id": 100, "sentence": "技術の巧拙を比較する。", "target": "巧拙", "yomi": "こうせつ", "imi": "巧みなことと拙いこと。", "kyu": "準2" },
+{ "id": 101, "sentence": "怠惰な暮らしを改める。", "target": "怠惰", "yomi": "たいだ", "imi": "怠けてだらしない様子。", "kyu": "準2" },
+{ "id": 102, "sentence": "多国籍軍が駐屯している。", "target": "駐屯", "yomi": "ちゅうとん", "imi": "軍隊がとどまること。", "kyu": "準2" },
+{ "id": 103, "sentence": "贈賄の容疑を認める。", "target": "贈賄", "yomi": "ぞうわい", "imi": "わいろを贈ること。", "kyu": "準2" },
+{ "id": 104, "sentence": "証券会社の推奨する株を買う。", "target": "推奨", "yomi": "すいしょう", "imi": "人に推し勧めること。", "kyu": "準2" },
+{ "id": 105, "sentence": "壊れた窓枠を取り替える。", "target": "窓枠", "yomi": "まどわく", "imi": "窓の周りの枠。", "kyu": "準2" },
+{ "id": 106, "sentence": "この世の迷妄から人々を救う。", "target": "迷妄", "yomi": "めいもう", "imi": "心の迷い。間違った考え。", "kyu": "準2" },
+{ "id": 107, "sentence": "父の病気の治癒を祈る。", "target": "治癒", "yomi": "ちゆ", "imi": "病気やけがなどが治ること。", "kyu": "準2" },
+{ "id": 108, "sentence": "けんかの仲裁に入る。", "target": "仲裁", "yomi": "ちゅうさい", "imi": "紛争者間に入りとりなすこと。", "kyu": "準2" },
+{ "id": 109, "sentence": "両親の心配りに感泣する。", "target": "感泣", "yomi": "かんきゅう", "imi": "感激して泣くこと。", "kyu": "準2" },
+{ "id": 110, "sentence": "交番に拾得物を届ける。", "target": "拾得", "yomi": "しゅうとく", "imi": "落とし物をひろうこと。", "kyu": "準2" },
+{ "id": 111, "sentence": "古いシステムを全廃する。", "target": "全廃", "yomi": "ぜんぱい", "imi": "すべてを廃止すること。", "kyu": "準2" },
+{ "id": 112, "sentence": "等閑視できない事が起きた。", "target": "等閑視", "yomi": "とうかんし", "imi": "注意せずに放っておくこと。", "kyu": "準2" },
+{ "id": 113, "sentence": "命懸けの救出劇だ。", "target": "命懸け", "yomi": "いのちがけ", "imi": "死ぬ覚悟で物事を行うこと。", "kyu": "準2" },
+{ "id": 114, "sentence": "兄は高校の教諭をしている。", "target": "教諭", "yomi": "きょうゆ", "imi": "免許状を有する正教員。", "kyu": "準2" },
+{ "id": 115, "sentence": "彼の主張は首肯しかねる。", "target": "首肯", "yomi": "しゅこう", "imi": "納得すること。うなずくこと。", "kyu": "準2" },
+{ "id": 116, "sentence": "西洋文化を毛嫌いする老人。", "target": "毛嫌い", "yomi": "けぎらい", "imi": "感情的に嫌悪すること。", "kyu": "準2" },
+{ "id": 117, "sentence": "予備の雨傘を友人に貸す。", "target": "雨傘", "yomi": "あまがさ", "imi": "雨天時に使う傘。", "kyu": "準2" },
+{ "id": 118, "sentence": "現場の意見を上申する。", "target": "上申", "yomi": "じょうしん", "imi": "上の者に意見を申し述べること。", "kyu": "準2" },
+{ "id": 119, "sentence": "会議のあとは懇親会の予定だ。", "target": "懇親会", "yomi": "こんしん", "imi": "交際をあつくすること。", "kyu": "準2" },
+{ "id": 120, "sentence": "生糸の産地で知られた町だ。", "target": "生糸", "yomi": "きいと", "imi": "蚕のまゆから取った糸。", "kyu": "準2" },
+{ "id": 121, "sentence": "野趣あふれる石窯料理を食べた。", "target": "石窯", "yomi": "いしがま", "imi": "石でできたオーブン。", "kyu": "準2" },
+{ "id": 122, "sentence": "何事も中庸を守るのが望ましい。", "target": "中庸", "yomi": "ちゅうよう", "imi": "かたよらず中立なこと。", "kyu": "準2" },
+{ "id": 123, "sentence": "大会出場の好機を逸した。", "target": "逸した", "yomi": "いっする", "imi": "逃す。失う。", "kyu": "準2" },
+{ "id": 124, "sentence": "心に渦巻く感情を抑える。", "target": "渦巻く", "yomi": "うずまく", "imi": "心情が激しく動くさま。", "kyu": "準2" },
+{ "id": 125, "sentence": "国王との謁見を願い出た。", "target": "謁見", "yomi": "えっけん", "imi": "身分の高い人に会うこと。", "kyu": "準2" },
+{ "id": 126, "sentence": "業務を処理する人員が寡少だ。", "target": "寡少", "yomi": "かしょう", "imi": "明らかに少ないさま。", "kyu": "準2" },
+{ "id": 127, "sentence": "昔を懐古するには若すぎる。", "target": "懐古", "yomi": "かいこ", "imi": "昔の事をなつかしむこと。", "kyu": "準2" },
+{ "id": 128, "sentence": "科学の恩恵を享受する。", "target": "享受", "yomi": "きょうじゅ", "imi": "価値として受け取ること。", "kyu": "準2" },
+{ "id": 129, "sentence": "謹厳実直な人柄の老人。", "target": "謹厳", "yomi": "きんげん", "imi": "慎み深く真面目なこと。", "kyu": "準2" },
+{ "id": 130, "sentence": "新緑が薫る公園を散策する。", "target": "薫る", "yomi": "かおる", "imi": "いいにおいがすること。", "kyu": "準2" },
+{ "id": 131, "sentence": "選挙の出馬を懇願する。", "target": "懇願", "yomi": "こんがん", "imi": "誠意を込めて頼み込むこと。", "kyu": "準2" },
+{ "id": 132, "sentence": "父は腕のいい漆器職人だ。", "target": "漆器", "yomi": "しっき", "imi": "漆塗りの器。", "kyu": "準2" },
+{ "id": 133, "sentence": "夕涼みは夏の風物詩だ。", "target": "夕涼み", "yomi": "ゆうすずみ", "imi": "夕方に戸外ですずむこと。", "kyu": "準2" },
+{ "id": 134, "sentence": "窓に遮光フィルムをはる。", "target": "遮光", "yomi": "しゃこう", "imi": "光を遮ること。", "kyu": "準2" },
+{ "id": 135, "sentence": "船宿の亭主が船頭を務めた。", "target": "亭主", "yomi": "ていしゅ", "imi": "あるじ。家の主人。", "kyu": "準2" },
+{ "id": 136, "sentence": "国王から爵位を授かる。", "target": "爵位", "yomi": "しゃくい", "imi": "貴族の階級を示す称号。", "kyu": "準2" },
+{ "id": 137, "sentence": "小麦の価格が騰貴した。", "target": "騰貴", "yomi": "とうき", "imi": "価値が高まること。", "kyu": "準2" },
+{ "id": 138, "sentence": "偉人の塑像を製作する。", "target": "塑像", "yomi": "そぞう", "imi": "粘土などの立体造形。", "kyu": "準2" },
+{ "id": 139, "sentence": "会長職を渋々引き受けた。", "target": "渋々", "yomi": "しぶしぶ", "imi": "不本意ながら承知するさま。", "kyu": "準2" },
+{ "id": 140, "sentence": "渓流に釣り糸をたれる。", "target": "渓流", "yomi": "けいりゅう", "imi": "渓谷を流れる川。沢。", "kyu": "準2" },
+{ "id": 141, "sentence": "遺族に弔慰金を手渡した。", "target": "弔慰金", "yomi": "ちょうい", "imi": "人の死をいたむ気持ち。", "kyu": "準2" },
+{ "id": 142, "sentence": "晩餐会は紳士淑女の集まりだ。", "target": "淑女", "yomi": "しゅくじょ", "imi": "上品で落ち着いた女性。", "kyu": "準2" },
+{ "id": 143, "sentence": "将来に禍根を残してはならない。", "target": "禍根", "yomi": "かこん", "imi": "災いが起こる原因。", "kyu": "準2" },
+{ "id": 144, "sentence": "会葬者の列は粛々と進んだ。", "target": "粛々", "yomi": "しゅくしゅく", "imi": "おごそかなさま。", "kyu": "準2" },
+{ "id": 145, "sentence": "けだるい旋律のピアノ曲だ。", "target": "旋律", "yomi": "せんりつ", "imi": "メロディー。", "kyu": "準2" },
+{ "id": 146, "sentence": "頒価を高めに設定する。", "target": "頒価", "yomi": "はんか", "imi": "物品を広く分ける時の価格。", "kyu": "準2" },
+{ "id": 147, "sentence": "敵城はとうとう陥落した。", "target": "陥落", "yomi": "かんらく", "imi": "攻め落とされること。", "kyu": "準2" },
+{ "id": 148, "sentence": "一門の俊傑として名高い。", "target": "俊傑", "yomi": "しゅんけつ", "imi": "飛び抜けて優れた人物。", "kyu": "準2" },
+{ "id": 149, "sentence": "里程標として塚を築く。", "target": "塚", "yomi": "つか", "imi": "土を小高く盛り上げた場所。", "kyu": "準2" },
+{ "id": 150, "sentence": "震災で消防署員が殉職した。", "target": "殉職", "yomi": "じゅんしょく", "imi": "職務中に死亡すること。", "kyu": "準2" },
+{ "id": 151, "sentence": "スポーツ新聞を購読している。", "target": "購読", "yomi": "こうどく", "imi": "新聞などを買って読むこと。", "kyu": "準2" },
+{ "id": 152, "sentence": "昔から伝わる庶民の味だ。", "target": "庶民", "yomi": "しょみん", "imi": "世間一般の民衆。大衆。", "kyu": "準2" },
+{ "id": 153, "sentence": "脱税の嫌疑がかかる。", "target": "嫌疑", "yomi": "けんぎ", "imi": "悪事をした疑いのあること。", "kyu": "準2" },
+{ "id": 154, "sentence": "英雄の生涯を叙した本を読む。", "target": "叙した", "yomi": "じょする", "imi": "文字で書き表すこと。", "kyu": "準2" },
+{ "id": 155, "sentence": "兄は頑として謝らない男だ。", "target": "頑として", "yomi": "がん", "imi": "かたくなな様子。", "kyu": "準2" },
+{ "id": 156, "sentence": "戸籍抄本を郵便で取り寄せる。", "target": "抄本", "yomi": "しょうほん", "imi": "原本を抜き書きしたもの。", "kyu": "準2" },
+{ "id": 157, "sentence": "新居に小さな坪庭をつくる。", "target": "坪庭", "yomi": "つぼにわ", "imi": "屋敷内の囲まれた小庭。", "kyu": "準2" },
+{ "id": 158, "sentence": "明るい雰囲気を醸成する。", "target": "醸成", "yomi": "じょうせい", "imi": "徐々につくり出すこと。", "kyu": "準2" },
+{ "id": 159, "sentence": "教祖を崇拝している。", "target": "崇拝", "yomi": "すうはい", "imi": "あがめて敬うこと。", "kyu": "準2" },
+{ "id": 160, "sentence": "ストーリーが酷似している。", "target": "酷似", "yomi": "こくじ", "imi": "極めて似ていること。", "kyu": "準2" },
+{ "id": 161, "sentence": "一族で枢要な役職を独占する。", "target": "枢要", "yomi": "すうよう", "imi": "物事の最も重要な所。", "kyu": "準2" },
+{ "id": 162, "sentence": "惰弱な精神をたたき直す。", "target": "惰弱", "yomi": "だじゃく", "imi": "気力に欠けること。", "kyu": "準2" },
+{ "id": 163, "sentence": "街道跡に杉並木だけが残る。", "target": "杉並木", "yomi": "すぎなみき", "imi": "杉の並木。", "kyu": "準2" },
+{ "id": 164, "sentence": "寡聞にして初耳です。", "target": "寡聞", "yomi": "かぶん", "imi": "見聞が狭いこと。", "kyu": "準2" },
+{ "id": 165, "sentence": "剛直な男ほど説得が難しい。", "target": "剛直", "yomi": "ごうちょく", "imi": "信念を曲げない強い気性。", "kyu": "準2" },
+{ "id": 166, "sentence": "戦闘機が上空で急旋回した。", "target": "旋回", "yomi": "きゅうせんかい", "imi": "円を描くように回ること。", "kyu": "準2" },
+{ "id": 167, "sentence": "奈良時代は遷都が続いた。", "target": "遷都", "yomi": "せんと", "imi": "都を他の地に移すこと。", "kyu": "準2" },
+{ "id": 168, "sentence": "雑誌の懸賞問題に応募した。", "target": "懸賞", "yomi": "けんしょう", "imi": "条件付きで賞金や賞品をかけること。", "kyu": "準2" },
+{ "id": 169, "sentence": "大木の洞に身を隠す。", "target": "洞", "yomi": "ほら", "imi": "岩や大木にできたうろ、穴。", "kyu": "準2" },
+{ "id": 170, "sentence": "教会は崇高な美にあふれていた。", "target": "崇高", "yomi": "すうこう", "imi": "気高くて尊いこと。", "kyu": "準2" },
+{ "id": 171, "sentence": "軟らかい地面に足を取られる。", "target": "軟らかい", "yomi": "やわらかい", "imi": "ゆるくて崩れやすい。", "kyu": "準2" },
+{ "id": 172, "sentence": "二人の実力は伯仲している。", "target": "伯仲", "yomi": "はくちゅう", "imi": "同等で優劣つけがたい状態。", "kyu": "準2" },
+{ "id": 173, "sentence": "刺激物で肌荒れを起こした。", "target": "肌荒れ", "yomi": "はだあれ", "imi": "皮膚がカサカサになること。", "kyu": "準2" },
+{ "id": 174, "sentence": "法要は粛然と進行した。", "target": "粛然", "yomi": "しゅくぜん", "imi": "かしこまって静まるさま。", "kyu": "準2" },
+{ "id": 175, "sentence": "知人からの書簡を披見する。", "target": "披見", "yomi": "ひけん", "imi": "手紙などを開いて見ること。", "kyu": "準2" },
+{ "id": 176, "sentence": "汚職した大臣が罷免された。", "target": "罷免", "yomi": "ひめん", "imi": "職を辞めさせること。", "kyu": "準2" },
+{ "id": 177, "sentence": "理不尽な仕打ちに憤激する。", "target": "憤激", "yomi": "ふんげき", "imi": "爆発的に怒るさま。", "kyu": "準2" },
+{ "id": 178, "sentence": "落ち着いた雰囲気の女性だ。", "target": "雰囲気", "yomi": "ふんいき", "imi": "周囲に感じさせる気分。", "kyu": "準2" },
+{ "id": 179, "sentence": "二社の情報誌を併読する。", "target": "併読", "yomi": "へいどく", "imi": "二つ以上を併せて読むこと。", "kyu": "準2" },
+{ "id": 180, "sentence": "偏屈だが悪いやつじゃない。", "target": "偏屈", "yomi": "へんくつ", "imi": "素直でなくかたくなな様子。", "kyu": "準2" },
+{ "id": 181, "sentence": "ずいぶんと悠長な話だ。", "target": "悠長", "yomi": "ゆうちょう", "imi": "のんびりと急がないさま。", "kyu": "準2" },
+{ "id": 182, "sentence": "面接の場で履歴書を提出する。", "target": "履歴書", "yomi": "りれき", "imi": "学業や職業や賞罰の経歴。", "kyu": "準2" },
+{ "id": 183, "sentence": "累積した債務に苦しむ。", "target": "累積", "yomi": "るいせき", "imi": "重なり積もること。", "kyu": "準2" },
+{ "id": 184, "sentence": "哀愁を帯びた音楽だ。", "target": "哀愁", "yomi": "あいしゅう", "imi": "寂しくもの悲しい気持ち。", "kyu": "準2" },
+{ "id": 185, "sentence": "小売り業界の現状を概括する。", "target": "概括", "yomi": "がいかつ", "imi": "主な内容をまとめること。", "kyu": "準2" },
+{ "id": 186, "sentence": "彫塑の作品展に出品した。", "target": "彫塑", "yomi": "ちょうそ", "imi": "彫刻と塑像。", "kyu": "準2" },
+{ "id": 187, "sentence": "憂愁の色が濃い作品だ。", "target": "憂愁", "yomi": "ゆうしゅう", "imi": "うれい悲しみ沈むさま。", "kyu": "準2" },
+{ "id": 188, "sentence": "荒廃した都を再建する。", "target": "荒廃", "yomi": "こうはい", "imi": "荒れすさむこと。", "kyu": "準2" },
+{ "id": 189, "sentence": "触媒としての機能を持つ。", "target": "触媒", "yomi": "しょくばい", "imi": "化学反応速度調整物質。", "kyu": "準2" },
+{ "id": 190, "sentence": "治療として人工透析を行う。", "target": "透析", "yomi": "とうせき", "imi": "じん臓の代行をする治療法。", "kyu": "準2" },
+{ "id": 191, "sentence": "内乱で国力が疲弊している。", "target": "疲弊", "yomi": "ひへい", "imi": "経済に活力がなくなること。", "kyu": "準2" },
+{ "id": 192, "sentence": "旧悪が露顕して失脚した。", "target": "露顕", "yomi": "ろけん", "imi": "秘密や悪事がばれること。", "kyu": "準2" },
+{ "id": 193, "sentence": "建物は危うく延焼を免れた。", "target": "延焼", "yomi": "えんしょう", "imi": "火事が燃え広がること。", "kyu": "準2" },
+{ "id": 194, "sentence": "割腹した家臣を供養する。", "target": "割腹", "yomi": "かっぷく", "imi": "腹を自分で切って死ぬこと。", "kyu": "準2" },
+{ "id": 195, "sentence": "私淑する作家の新作を読む。", "target": "私淑", "yomi": "ししゅく", "imi": "ひそかに師と仰ぐこと。", "kyu": "準2" },
+{ "id": 196, "sentence": "事態の収拾は難航した。", "target": "収拾", "yomi": "しゅうしゅう", "imi": "事態を収めること。", "kyu": "準2" },
+{ "id": 197, "sentence": "悪天候で捜索は難渋した。", "target": "難渋", "yomi": "なんじゅう", "imi": "すらすらと進まないこと。", "kyu": "準2" },
+{ "id": 198, "sentence": "国王への拝謁が許された。", "target": "拝謁", "yomi": "はいえつ", "imi": "身分の高い人に会うこと。", "kyu": "準2" },
+{ "id": 199, "sentence": "おぼろ月が暮春の宵を彩る。", "target": "暮春", "yomi": "ぼしゅん", "imi": "春の終わりごろ。晩春。", "kyu": "準2" },
+{ "id": 200, "sentence": "死者に花を手向ける。", "target": "手向ける", "yomi": "たむける", "imi": "神仏や霊にささげ物をする。", "kyu": "準2" },
+{ "id": 201, "sentence": "ついつい忘我の境に入る。", "target": "忘我", "yomi": "ぼうが", "imi": "うっとりすること。心奪われる。", "kyu": "準2" },
+{ "id": 202, "sentence": "情報を検索して入手する。", "target": "検索", "yomi": "けんさく", "imi": "必要な情報を探し出すこと。", "kyu": "準2" },
+{ "id": 203, "sentence": "閑却できない問題を抱える。", "target": "閑却", "yomi": "かんきゃく", "imi": "適当にして放っておくこと。", "kyu": "準2" },
+{ "id": 204, "sentence": "混紡生地の軍手をはめる。", "target": "混紡", "yomi": "こんぼう", "imi": "複数の繊維を混ぜた紡績。", "kyu": "準2" },
+{ "id": 205, "sentence": "町は災禍を免れた。", "target": "災禍", "yomi": "さいか", "imi": "天災や事故で受ける被害。", "kyu": "準2" },
+{ "id": 206, "sentence": "質朴な印象の宿だ。", "target": "質朴", "yomi": "しつぼく", "imi": "飾り気がなく素直なさま。", "kyu": "準2" },
+{ "id": 207, "sentence": "会員の意見を総括する。", "target": "総括", "yomi": "そうかつ", "imi": "全体を見渡しまとめること。", "kyu": "準2" },
+{ "id": 208, "sentence": "複雑な貸借関係を改める。", "target": "貸借", "yomi": "たいしゃく", "imi": "金銭などの貸し借り。", "kyu": "準2" },
+{ "id": 209, "sentence": "会社の営業部門を統轄する。", "target": "統轄", "yomi": "とうかつ", "imi": "一つにまとめて管理する。", "kyu": "準2" },
+{ "id": 210, "sentence": "祖父は囲碁の名人であった。", "target": "囲碁", "yomi": "いご", "imi": "碁。碁を打つこと。", "kyu": "準2" },
+{ "id": 211, "sentence": "競艇の選手を目指す。", "target": "競艇", "yomi": "きょうてい", "imi": "公営モーターボートレース。", "kyu": "準2" },
+{ "id": 212, "sentence": "建坪は狭くなるが庭が欲しい。", "target": "建坪", "yomi": "たてつぼ", "imi": "建物が占める土地の坪数。", "kyu": "準2" },
+{ "id": 213, "sentence": "原本は既に散逸してしまった。", "target": "散逸", "yomi": "さんいつ", "imi": "ばらばらに散り失うこと。", "kyu": "準2" },
+{ "id": 214, "sentence": "晩年は滋味に富む作品が多い。", "target": "滋味", "yomi": "じみ", "imi": "精神的に味わい深いこと。", "kyu": "準2" },
+{ "id": 215, "sentence": "どうぞご笑納くださいませ。", "target": "笑納", "yomi": "しょうのう", "imi": "物品の贈答をへりくだる語。", "kyu": "準2" },
+{ "id": 216, "sentence": "態度を改めるよう説諭された。", "target": "説諭", "yomi": "せつゆ", "imi": "悪い点を言い聞かせること。", "kyu": "準2" },
+{ "id": 217, "sentence": "浅慮なふるまいに迷惑する。", "target": "浅慮", "yomi": "せんりょ", "imi": "考えが浅はかなこと。", "kyu": "準2" },
+{ "id": 218, "sentence": "満遍なく行き渡るよう配慮する。", "target": "満遍なく", "yomi": "まんべんない", "imi": "全体に行き渡っている様子。", "kyu": "準2" },
+{ "id": 219, "sentence": "安閑としてはいられない。", "target": "安閑", "yomi": "あんかん", "imi": "気楽に何もせずにいるさま。", "kyu": "準2" },
+{ "id": 220, "sentence": "宮廷内の権力を一手に握る。", "target": "宮廷", "yomi": "きゅうてい", "imi": "王や天皇の居城。", "kyu": "準2" },
+{ "id": 221, "sentence": "故人の苦衷を察する。", "target": "苦衷", "yomi": "くちゅう", "imi": "苦しい心の中。", "kyu": "準2" },
+{ "id": 222, "sentence": "政府の無策が露呈した。", "target": "露呈", "yomi": "ろてい", "imi": "表面に現れ出ること。", "kyu": "準2" },
+{ "id": 223, "sentence": "報道の真偽を確かめる。", "target": "真偽", "yomi": "しんぎ", "imi": "本当かうそかということ。", "kyu": "準2" },
+{ "id": 224, "sentence": "見た目の美醜にとらわれない。", "target": "美醜", "yomi": "びしゅう", "imi": "美しいことと醜いこと。", "kyu": "準2" },
+{ "id": 225, "sentence": "永年勤続の表彰を受ける。", "target": "表彰", "yomi": "ひょうしょう", "imi": "善行や功績をたたえること。", "kyu": "準2" },
+{ "id": 226, "sentence": "業界の福音となる技術だ。", "target": "福音", "yomi": "ふくいん", "imi": "喜ばしいしらせ。", "kyu": "準2" },
+{ "id": 227, "sentence": "しみじみと旅愁を味わう。", "target": "旅愁", "yomi": "りょしゅう", "imi": "旅先で感じる物悲しさ。", "kyu": "準2" },
+{ "id": 228, "sentence": "強盗を教唆した容疑がかかる。", "target": "教唆", "yomi": "きょうさ", "imi": "犯罪の実行を仕向けること。", "kyu": "準2" },
+{ "id": 229, "sentence": "隠し戸棚に暗号文をしまう。", "target": "戸棚", "yomi": "とだな", "imi": "戸のついた収納用の棚。", "kyu": "準2" },
+{ "id": 230, "sentence": "袋小路に入り後戻りできない。", "target": "後戻り", "yomi": "あともどり", "imi": "元の方に引き返すこと。", "kyu": "準2" },
+{ "id": 231, "sentence": "公僕としての自覚がない。", "target": "公僕", "yomi": "こうぼく", "imi": "公務員のこと。", "kyu": "準2" },
+{ "id": 232, "sentence": "感染症対策として自粛する。", "target": "自粛", "yomi": "じしゅく", "imi": "自ら進んで行動を慎むこと。", "kyu": "準2" },
+{ "id": 233, "sentence": "残暑が過ぎて秋涼の候となる。", "target": "秋涼", "yomi": "しゅうりょう", "imi": "初秋のさわやかなさま、風。", "kyu": "準2" },
+{ "id": 234, "sentence": "地震後も地殻変動が続く。", "target": "地殻", "yomi": "ちかく", "imi": "地球の表層部。", "kyu": "準2" },
+{ "id": 235, "sentence": "湯のみについた茶渋を取る。", "target": "茶渋", "yomi": "ちゃしぶ", "imi": "茶を入れた後につくシミ。", "kyu": "準2" },
+{ "id": 236, "sentence": "王妃は高潔な人柄だ。", "target": "王妃", "yomi": "おうひ", "imi": "王の配偶者にして第一夫人。", "kyu": "準2" },
+{ "id": 237, "sentence": "かすかな記憶を手繰る。", "target": "手繰る", "yomi": "たぐる", "imi": "物事を順々に引き出す。", "kyu": "準2" },
+{ "id": 238, "sentence": "彼とは肌合いの違いを感じる。", "target": "肌合い", "yomi": "はだあい", "imi": "特徴的気質や作品の風合い。", "kyu": "準2" },
+{ "id": 239, "sentence": "裁判所に出廷する。", "target": "出廷", "yomi": "しゅってい", "imi": "法廷に出ること。", "kyu": "準2" },
+{ "id": 240, "sentence": "夜のビル街は森閑としていた。", "target": "森閑", "yomi": "しんかん", "imi": "静まりかえっているさま。", "kyu": "準2" },
+{ "id": 241, "sentence": "戦争は人倫にもとる行為だ。", "target": "人倫", "yomi": "じんりん", "imi": "人間の実践すべき道義。", "kyu": "準2" },
+{ "id": 242, "sentence": "政界と財界の生臭い話を聞いた。", "target": "生臭い", "yomi": "なまぐさい", "imi": "打算や利害で世俗的なさま。", "kyu": "準2" },
+{ "id": 243, "sentence": "浮ついた気持ちではいけない。", "target": "浮ついた", "yomi": "うわつく", "imi": "軽薄感が漂う様子。", "kyu": "準2" },
+{ "id": 244, "sentence": "なつかしい童うたを思い出す。", "target": "童うた", "yomi": "わらべ", "imi": "幼子や子ども。", "kyu": "準2" },
+{ "id": 245, "sentence": "懐石料理が振る舞われた。", "target": "懐石", "yomi": "かいせき", "imi": "茶会の前に出る簡単な料理。", "kyu": "準2" },
+{ "id": 246, "sentence": "艦長は軍艦全体を指揮している。", "target": "艦長", "yomi": "かんちょう", "imi": "軍艦の最高責任者。", "kyu": "準2" },
+{ "id": 247, "sentence": "新旧のシステムを併用する。", "target": "併用", "yomi": "へいよう", "imi": "他のものと共に用いること。", "kyu": "準2" },
+{ "id": 248, "sentence": "人事異動で閑職に回された。", "target": "閑職", "yomi": "かんしょく", "imi": "主流を外れたひまな職務。", "kyu": "準2" },
+{ "id": 249, "sentence": "頑健だった父も年老いた。", "target": "頑健", "yomi": "がんけん", "imi": "身体が頑丈なこと。", "kyu": "準2" },
+{ "id": 250, "sentence": "飢餓に苦しむ国を支援する。", "target": "飢餓", "yomi": "きが", "imi": "食物が不足し飢えていること。", "kyu": "準2" },
+{ "id": 251, "sentence": "車の運転の擬似体験をする。", "target": "擬似", "yomi": "ぎじ", "imi": "本物によく似ていること。", "kyu": "準2" },
+{ "id": 252, "sentence": "厳しい追及で返答に窮した。", "target": "窮した", "yomi": "きゅうする", "imi": "行き詰まること。", "kyu": "準2" }
 ];
+
+const CATEGORIES = [
+{ key: 'kokugo', label: '2字・3字熟語', data: kokugoData, mode: 'word' },
+{ key: 'yoji', label: '四字熟語', data: yojijukugoData, mode: 'word' },
+{ key: 'jun2yomi', label: '準２級 読み', data: jun2YomiData, mode: 'sentence' },
+];
+
+// セット完了回数から★/☆表示を計算する
+// 1〜5回目: ★を1個ずつ増やす。6〜10回目: 前から☆に変えていく。
+// 11〜15回目: 前から★に戻す。以降10回周期で繰り返す。
+function getProgressStars(n) {
+if (!n || n <= 0) return '';
+if (n <= 5) return '★'.repeat(n);
+const k = n - 5;
+const cyclePos = ((k - 1) % 10) + 1;
+if (cyclePos <= 5) {
+const hollow = cyclePos;
+const star = 5 - cyclePos;
+return '☆'.repeat(hollow) + '★'.repeat(star);
+} else {
+const star = cyclePos - 5;
+const hollow = 10 - cyclePos;
+return '★'.repeat(star) + '☆'.repeat(hollow);
+}
+}
 
 // カテゴリ選択画面
 function CategoryScreen({ onSelectCategory }) {
@@ -267,7 +543,7 @@ className="w-full bg-white rounded-lg shadow-md p-6 text-left hover:shadow-lg tr
 }
 
 // メニュー画面コンポーネント
-function MenuScreen({ data, categoryLabel, onSelectSet, onReview, onBackToCategory, checkedCount }) {
+function MenuScreen({ data, categoryLabel, categoryKey, setCompletions, onSelectSet, onReview, onBackToCategory, checkedCount }) {
 const sets = [];
 for (let i = 0; i < Math.ceil(data.length / 20); i++) {
 const start = i * 20 + 1;
@@ -292,7 +568,10 @@ className="w-full bg-orange-500 text-white rounded-lg shadow-md p-4 mb-4 font-bo
 )}
 
 <div className="flex-1 flex flex-col gap-3 mb-4">
-{sets.map(set => (
+{sets.map(set => {
+const completionCount = setCompletions[`${categoryKey}_set_${set.number - 1}`] || 0;
+const stars = getProgressStars(completionCount);
+return (
 <button
 key={set.number}
 onClick={() => onSelectSet(set.number - 1)}
@@ -305,12 +584,14 @@ className="w-full bg-white rounded-lg shadow-md p-6 text-left hover:shadow-lg tr
 </p>
 <p className="text-sm text-gray-600">
 問題 {set.start} - {set.end}
+{stars && <span className="text-yellow-500 ml-2 tracking-wide">{stars}</span>}
 </p>
 </div>
 <div className="text-2xl text-gray-400">→</div>
 </div>
 </button>
-))}
+);
+})}
 </div>
 
 <div className="text-center mb-2">
@@ -330,7 +611,7 @@ className="text-blue-600 hover:text-blue-800 font-semibold text-sm underline"
 }
 
 // 復習画面コンポーネント
-function ReviewScreen({ currentIndex, reviewData, onNext, onBackToMenu, checkedItems, onToggleCheck, buildKey }) {
+function ReviewScreen({ currentIndex, reviewData, onNext, onBackToMenu, checkedItems, onToggleCheck, buildKey, mode }) {
 const [isAnswerShown, setIsAnswerShown] = useState(false);
 const currentItem = reviewData[currentIndex];
 const currentItemKey = currentItem ? buildKey(currentItem.id) : null;
@@ -354,6 +635,22 @@ className="bg-blue-500 text-white px-6 py-3 rounded-lg font-bold hover:bg-blue-6
 );
 }
 
+const renderSentence = (item) => {
+const idx = item.sentence.indexOf(item.target);
+if (idx === -1) {
+return <span>{item.sentence}</span>;
+}
+const before = item.sentence.slice(0, idx);
+const after = item.sentence.slice(idx + item.target.length);
+return (
+<span>
+{before}
+<span className="underline decoration-2 underline-offset-4 text-blue-700">{item.target}</span>
+{after}
+</span>
+);
+};
+
 return (
 <div className="min-h-screen bg-gradient-to-b from-blue-50 to-blue-100 p-4 pt-12 flex flex-col">
 <div className="text-center mb-6">
@@ -367,16 +664,28 @@ return (
 {!isAnswerShown ? (
 <div className="bg-white rounded-lg shadow-lg p-8 text-center mb-4 min-h-[350px] flex flex-col justify-center">
 <p className="text-gray-600 text-sm mb-6">問題</p>
+{mode === 'sentence' ? (
+<p className="text-xl font-bold text-gray-800 leading-relaxed text-left">
+{renderSentence(currentItem)}
+</p>
+) : (
 <p className="text-7xl font-bold text-blue-600">
 {currentItem.kanji}
 </p>
+)}
 </div>
 ) : (
 <div className="bg-gradient-to-br from-green-100 to-green-50 rounded-lg shadow-lg p-8 mb-4 min-h-[350px] flex flex-col justify-center">
 <div className="text-center">
+{mode === 'sentence' ? (
+<p className="text-lg font-bold text-gray-800 leading-relaxed mb-4">
+{renderSentence(currentItem)}
+</p>
+) : (
 <p className="text-4xl font-bold text-green-600 mb-4">
 {currentItem.kanji}
 </p>
+)}
 <div className="border-t-2 border-green-300 pt-6 mt-6">
 <p className="text-gray-700 text-sm mb-2">【読み方】</p>
 <p className="text-2xl font-semibold text-green-700 mb-6">
@@ -440,7 +749,7 @@ className="text-blue-600 hover:text-blue-800 font-semibold text-sm underline"
 }
 
 // 問題画面コンポーネント
-function QuestionScreen({ data, categoryLabel, setNumber, currentIndex, onNext, onBackToMenu, isChecked, onToggleCheck }) {
+function QuestionScreen({ data, categoryLabel, mode, setNumber, currentIndex, onNext, onPrev, onBackToMenu, isChecked, onToggleCheck }) {
 const setStartIndex = setNumber * 20;
 const setEndIndex = Math.min((setNumber + 1) * 20, data.length);
 const currentSetData = data.slice(setStartIndex, setEndIndex);
@@ -464,22 +773,47 @@ className="bg-blue-500 text-white px-6 py-3 rounded-lg font-bold hover:bg-blue-6
 );
 }
 
+const renderSentence = (item) => {
+const idx = item.sentence.indexOf(item.target);
+if (idx === -1) {
+return <span>{item.sentence}</span>;
+}
+const before = item.sentence.slice(0, idx);
+const after = item.sentence.slice(idx + item.target.length);
+return (
+<span>
+{before}
+<span className="underline decoration-2 underline-offset-4 text-blue-700">{item.target}</span>
+{after}
+</span>
+);
+};
+
 return (
 <div className="min-h-screen bg-gradient-to-b from-blue-50 to-blue-100 p-4 pt-12 flex flex-col">
 <div className="text-center mb-6">
-<h1 className="text-2xl font-bold text-gray-800">漢字検定 3級（{categoryLabel}）</h1>
+<h1 className="text-2xl font-bold text-gray-800">漢字検定（{categoryLabel}）</h1>
 <p className="text-sm text-gray-600">
 セット {setNumber + 1} / 問題 {currentIndex + 1}/{currentSetData.length}
 </p>
 </div>
 
 <div className="w-full max-w-sm mx-auto mb-12">
+{mode === 'sentence' ? (
+<div className="bg-white rounded-lg shadow-lg p-8 mb-4 min-h-[350px] flex flex-col justify-center">
+<p className="text-gray-600 text-sm mb-6">次の下線部の読みをひらがなで記せ</p>
+<p className="text-2xl font-bold text-gray-800 leading-relaxed">
+{renderSentence(currentItem)}
+</p>
+</div>
+) : (
 <div className="bg-white rounded-lg shadow-lg p-8 text-center mb-4 min-h-[350px] flex flex-col justify-center">
 <p className="text-gray-600 text-sm mb-6">問題</p>
 <p className="text-7xl font-bold text-blue-600">
 {currentItem.kanji}
 </p>
 </div>
+)}
 
 <div className="bg-gray-200 rounded-full h-2">
 <div
@@ -491,13 +825,23 @@ width: `${((currentIndex + 1) / currentSetData.length) * 100}%`,
 </div>
 </div>
 
-<div className="w-full max-w-sm mx-auto mb-16">
+<div className="w-full max-w-sm mx-auto mb-16 flex gap-2">
 <button
 onClick={onNext}
-className="w-full py-4 rounded-lg font-bold text-white text-lg bg-blue-500 shadow-md hover:bg-blue-600 active:scale-95 transition-all"
+style={{ width: currentIndex > 0 ? '80%' : '100%' }}
+className="py-4 rounded-lg font-bold text-white text-lg bg-blue-500 shadow-md hover:bg-blue-600 active:scale-95 transition-all"
 >
 次へ
 </button>
+{currentIndex > 0 && (
+<button
+onClick={onPrev}
+style={{ width: '20%' }}
+className="py-4 rounded-lg font-bold text-white text-base bg-gray-400 shadow-md hover:bg-gray-500 active:scale-95 transition-all"
+>
+前へ
+</button>
+)}
 </div>
 
 <div className="flex gap-3 items-center w-full max-w-sm mx-auto mb-6">
@@ -523,11 +867,12 @@ className="text-blue-600 hover:text-blue-800 font-semibold text-sm underline"
 }
 
 // 解答画面コンポーネント
-function AnswerScreen({ data, categoryLabel, setNumber, currentIndex, onNext, onBackToMenu, isChecked, onToggleCheck }) {
+function AnswerScreen({ data, categoryLabel, mode, setNumber, currentIndex, onNext, onPrev, onBackToMenu, isChecked, onToggleCheck }) {
 const setStartIndex = setNumber * 20;
 const setEndIndex = Math.min((setNumber + 1) * 20, data.length);
 const currentSetData = data.slice(setStartIndex, setEndIndex);
 const currentItem = currentSetData[currentIndex];
+const isLastInSet = currentIndex + 1 >= currentSetData.length;
 
 if (!currentItem) {
 return (
@@ -547,10 +892,26 @@ className="bg-blue-500 text-white px-6 py-3 rounded-lg font-bold hover:bg-blue-6
 );
 }
 
+const renderSentence = (item) => {
+const idx = item.sentence.indexOf(item.target);
+if (idx === -1) {
+return <span>{item.sentence}</span>;
+}
+const before = item.sentence.slice(0, idx);
+const after = item.sentence.slice(idx + item.target.length);
+return (
+<span>
+{before}
+<span className="underline decoration-2 underline-offset-4 text-green-700">{item.target}</span>
+{after}
+</span>
+);
+};
+
 return (
 <div className="min-h-screen bg-gradient-to-b from-blue-50 to-blue-100 p-4 pt-12 flex flex-col">
 <div className="text-center mb-6">
-<h1 className="text-2xl font-bold text-gray-800">漢字検定 3級（{categoryLabel}）</h1>
+<h1 className="text-2xl font-bold text-gray-800">漢字検定（{categoryLabel}）</h1>
 <p className="text-sm text-gray-600">
 セット {setNumber + 1} / 問題 {currentIndex + 1}/{currentSetData.length}
 </p>
@@ -559,9 +920,15 @@ return (
 <div className="w-full max-w-sm mx-auto mb-12">
 <div className="bg-gradient-to-br from-green-100 to-green-50 rounded-lg shadow-lg p-8 mb-4 min-h-[350px] flex flex-col justify-center">
 <div className="text-center">
+{mode === 'sentence' ? (
+<p className="text-lg font-bold text-gray-800 leading-relaxed mb-4">
+{renderSentence(currentItem)}
+</p>
+) : (
 <p className="text-4xl font-bold text-green-600 mb-4">
 {currentItem.kanji}
 </p>
+)}
 <div className="border-t-2 border-green-300 pt-6 mt-6">
 <p className="text-gray-700 text-sm mb-2">【読み方】</p>
 <p className="text-2xl font-semibold text-green-700 mb-6">
@@ -585,13 +952,23 @@ width: `${((currentIndex + 1) / currentSetData.length) * 100}%`,
 </div>
 </div>
 
-<div className="w-full max-w-sm mx-auto mb-16">
+<div className="w-full max-w-sm mx-auto mb-16 flex gap-2">
 <button
 onClick={onNext}
-className="w-full py-4 rounded-lg font-bold text-white text-lg bg-blue-500 shadow-md hover:bg-blue-600 active:scale-95 transition-all"
+style={{ width: currentIndex > 0 ? '80%' : '100%' }}
+className="py-4 rounded-lg font-bold text-white text-lg bg-blue-500 shadow-md hover:bg-blue-600 active:scale-95 transition-all"
 >
-次へ
+{isLastInSet ? '次のセットへ' : '次へ'}
 </button>
+{currentIndex > 0 && (
+<button
+onClick={onPrev}
+style={{ width: '20%' }}
+className="py-4 rounded-lg font-bold text-white text-base bg-gray-400 shadow-md hover:bg-gray-500 active:scale-95 transition-all"
+>
+前へ
+</button>
+)}
 </div>
 
 <div className="flex gap-3 items-center w-full max-w-sm mx-auto mb-6">
@@ -624,17 +1001,26 @@ const [selectedSet, setSelectedSet] = useState(0);
 const [currentIndex, setCurrentIndex] = useState(0);
 const [checkedItems, setCheckedItems] = useState({});
 const [reviewData, setReviewData] = useState([]);
+const [setCompletions, setSetCompletions] = useState({});
 
 useEffect(() => {
 const saved = localStorage.getItem('kanjiCheckedItems');
 if (saved) {
 setCheckedItems(JSON.parse(saved));
 }
+const savedCompletions = localStorage.getItem('kanjiSetCompletions');
+if (savedCompletions) {
+setSetCompletions(JSON.parse(savedCompletions));
+}
 }, []);
 
 useEffect(() => {
 localStorage.setItem('kanjiCheckedItems', JSON.stringify(checkedItems));
 }, [checkedItems]);
+
+useEffect(() => {
+localStorage.setItem('kanjiSetCompletions', JSON.stringify(setCompletions));
+}, [setCompletions]);
 
 const currentCategoryInfo = CATEGORIES.find(c => c.key === category);
 const currentData = currentCategoryInfo ? currentCategoryInfo.data : [];
@@ -671,7 +1057,21 @@ if (currentIndex + 1 < currentSetData.length) {
 setCurrentIndex(currentIndex + 1);
 setScreen('question');
 } else {
+// セット完了：★進捗を記録し、次のセットへ（なければメニューへ）
+const completionKey = `${category}_set_${selectedSet}`;
+setSetCompletions(prev => ({
+...prev,
+[completionKey]: (prev[completionKey] || 0) + 1
+}));
+const totalSets = Math.ceil(currentData.length / 20);
+if (selectedSet + 1 < totalSets) {
+setSelectedSet(selectedSet + 1);
+setCurrentIndex(0);
 setScreen('question');
+} else {
+setScreen('menu');
+setCurrentIndex(0);
+}
 }
 } else if (screen === 'review') {
 if (currentIndex + 1 < reviewData.length) {
@@ -679,6 +1079,13 @@ setCurrentIndex(currentIndex + 1);
 } else {
 setScreen('menu');
 }
+}
+};
+
+const handlePrev = () => {
+if (currentIndex > 0) {
+setCurrentIndex(currentIndex - 1);
+setScreen('question');
 }
 };
 
@@ -728,6 +1135,8 @@ return <CategoryScreen onSelectCategory={handleSelectCategory} />;
 return <MenuScreen
 data={currentData}
 categoryLabel={currentCategoryInfo.label}
+categoryKey={category}
+setCompletions={setCompletions}
 onSelectSet={handleSelectSet}
 onReview={handleReview}
 onBackToCategory={handleBackToCategory}
@@ -737,9 +1146,11 @@ checkedCount={checkedCount}
 return <QuestionScreen
 data={currentData}
 categoryLabel={currentCategoryInfo.label}
+mode={currentCategoryInfo.mode}
 setNumber={selectedSet}
 currentIndex={currentIndex}
 onNext={handleNext}
+onPrev={handlePrev}
 onBackToMenu={handleBackToMenu}
 isChecked={isChecked}
 onToggleCheck={handleToggleCheck}
@@ -748,9 +1159,11 @@ onToggleCheck={handleToggleCheck}
 return <AnswerScreen
 data={currentData}
 categoryLabel={currentCategoryInfo.label}
+mode={currentCategoryInfo.mode}
 setNumber={selectedSet}
 currentIndex={currentIndex}
 onNext={handleNext}
+onPrev={handlePrev}
 onBackToMenu={handleBackToMenu}
 isChecked={isChecked}
 onToggleCheck={handleToggleCheck}
@@ -764,6 +1177,7 @@ onBackToMenu={handleBackToMenu}
 checkedItems={checkedItems}
 onToggleCheck={handleToggleCheck}
 buildKey={buildKey}
+mode={currentCategoryInfo.mode}
 />;
 }
 }
