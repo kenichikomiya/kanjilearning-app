@@ -289,13 +289,97 @@ const jun2YomiData = [
 { "id": 252, "sentence": "厳しい追及で返答に窮した。", "target": "窮した", "yomi": "きゅうする", "imi": "行き詰まること。", "kyu": "準2" }
 ];
 
+// 漢字検定準2級 問題データ（部首・出る順Aランク）
+const jun2BushuData = [
+{ "id": 1, "kanji": "亜", "bushu": "二", "bushuYomi": "に", "kyu": "準2" },
+{ "id": 2, "kanji": "畝", "bushu": "田", "bushuYomi": "た", "kyu": "準2" },
+{ "id": 3, "kanji": "窯", "bushu": "穴", "bushuYomi": "あなかんむり", "kyu": "準2" },
+{ "id": 4, "kanji": "且", "bushu": "一", "bushuYomi": "いち", "kyu": "準2" },
+{ "id": 5, "kanji": "栽", "bushu": "木", "bushuYomi": "き", "kyu": "準2" },
+{ "id": 6, "kanji": "爵", "bushu": "爫", "bushuYomi": "つめかんむり", "kyu": "準2" },
+{ "id": 7, "kanji": "殉", "bushu": "歹", "bushuYomi": "がつへん", "kyu": "準2" },
+{ "id": 8, "kanji": "升", "bushu": "十", "bushuYomi": "じゅう", "kyu": "準2" },
+{ "id": 9, "kanji": "甚", "bushu": "甘", "bushuYomi": "あまい", "kyu": "準2" },
+{ "id": 10, "kanji": "斉", "bushu": "斉", "bushuYomi": "せい", "kyu": "準2" },
+{ "id": 11, "kanji": "丙", "bushu": "一", "bushuYomi": "いち", "kyu": "準2" },
+{ "id": 12, "kanji": "褒", "bushu": "衣", "bushuYomi": "ころも", "kyu": "準2" },
+{ "id": 13, "kanji": "虞", "bushu": "虍", "bushuYomi": "とらがしら", "kyu": "準2" },
+{ "id": 14, "kanji": "薫", "bushu": "艹", "bushuYomi": "くさかんむり", "kyu": "準2" },
+{ "id": 15, "kanji": "蛍", "bushu": "虫", "bushuYomi": "むし", "kyu": "準2" },
+{ "id": 16, "kanji": "嗣", "bushu": "口", "bushuYomi": "くち", "kyu": "準2" },
+{ "id": 17, "kanji": "臭", "bushu": "自", "bushuYomi": "みずから", "kyu": "準2" },
+{ "id": 18, "kanji": "泰", "bushu": "氺", "bushuYomi": "したみず", "kyu": "準2" },
+{ "id": 19, "kanji": "亭", "bushu": "亠", "bushuYomi": "なべぶた", "kyu": "準2" },
+{ "id": 20, "kanji": "軟", "bushu": "車", "bushuYomi": "くるまへん", "kyu": "準2" },
+{ "id": 21, "kanji": "奔", "bushu": "大", "bushuYomi": "だい", "kyu": "準2" },
+{ "id": 22, "kanji": "戻", "bushu": "戸", "bushuYomi": "とだれ", "kyu": "準2" },
+{ "id": 23, "kanji": "恭", "bushu": "小", "bushuYomi": "したごころ", "kyu": "準2" },
+{ "id": 24, "kanji": "呉", "bushu": "口", "bushuYomi": "くち", "kyu": "準2" },
+{ "id": 25, "kanji": "衡", "bushu": "行", "bushuYomi": "ぎょうがまえ", "kyu": "準2" },
+{ "id": 26, "kanji": "昆", "bushu": "日", "bushuYomi": "ひ", "kyu": "準2" },
+{ "id": 27, "kanji": "喪", "bushu": "口", "bushuYomi": "くち", "kyu": "準2" },
+{ "id": 28, "kanji": "呈", "bushu": "口", "bushuYomi": "くち", "kyu": "準2" },
+{ "id": 29, "kanji": "廷", "bushu": "又", "bushuYomi": "えんにょう", "kyu": "準2" },
+{ "id": 30, "kanji": "凸", "bushu": "凵", "bushuYomi": "うけばこ", "kyu": "準2" },
+{ "id": 31, "kanji": "瓶", "bushu": "瓦", "bushuYomi": "かわら", "kyu": "準2" },
+{ "id": 32, "kanji": "磨", "bushu": "石", "bushuYomi": "いし", "kyu": "準2" },
+{ "id": 33, "kanji": "麻", "bushu": "麻", "bushuYomi": "あさ", "kyu": "準2" },
+{ "id": 34, "kanji": "耗", "bushu": "耒", "bushuYomi": "らいすき", "kyu": "準2" },
+{ "id": 35, "kanji": "凹", "bushu": "凵", "bushuYomi": "うけばこ", "kyu": "準2" },
+{ "id": 36, "kanji": "殻", "bushu": "殳", "bushuYomi": "ほこづくり", "kyu": "準2" },
+{ "id": 37, "kanji": "缶", "bushu": "缶", "bushuYomi": "ほとぎ", "kyu": "準2" },
+{ "id": 38, "kanji": "充", "bushu": "儿", "bushuYomi": "にんにょう", "kyu": "準2" },
+{ "id": 39, "kanji": "叙", "bushu": "又", "bushuYomi": "また", "kyu": "準2" },
+{ "id": 40, "kanji": "彰", "bushu": "彡", "bushuYomi": "さんづくり", "kyu": "準2" },
+{ "id": 41, "kanji": "妥", "bushu": "女", "bushuYomi": "おんな", "kyu": "準2" },
+{ "id": 42, "kanji": "弔", "bushu": "弓", "bushuYomi": "ゆみ", "kyu": "準2" },
+{ "id": 43, "kanji": "勅", "bushu": "力", "bushuYomi": "ちから", "kyu": "準2" },
+{ "id": 44, "kanji": "寧", "bushu": "宀", "bushuYomi": "うかんむり", "kyu": "準2" },
+{ "id": 45, "kanji": "扉", "bushu": "戸", "bushuYomi": "とかんむり", "kyu": "準2" },
+{ "id": 46, "kanji": "賓", "bushu": "貝", "bushuYomi": "かい", "kyu": "準2" },
+{ "id": 47, "kanji": "弊", "bushu": "廾", "bushuYomi": "にじゅうあし", "kyu": "準2" },
+{ "id": 48, "kanji": "摩", "bushu": "手", "bushuYomi": "て", "kyu": "準2" },
+{ "id": 49, "kanji": "庸", "bushu": "广", "bushuYomi": "まだれ", "kyu": "準2" },
+{ "id": 50, "kanji": "竜", "bushu": "竜", "bushuYomi": "りゅう", "kyu": "準2" },
+{ "id": 51, "kanji": "虜", "bushu": "虍", "bushuYomi": "とらがしら", "kyu": "準2" },
+{ "id": 52, "kanji": "累", "bushu": "糸", "bushuYomi": "いと", "kyu": "準2" },
+{ "id": 53, "kanji": "尉", "bushu": "寸", "bushuYomi": "すん", "kyu": "準2" },
+{ "id": 54, "kanji": "韻", "bushu": "音", "bushuYomi": "おと", "kyu": "準2" },
+{ "id": 55, "kanji": "翁", "bushu": "羽", "bushuYomi": "はね", "kyu": "準2" },
+{ "id": 56, "kanji": "劾", "bushu": "力", "bushuYomi": "ちから", "kyu": "準2" },
+{ "id": 57, "kanji": "款", "bushu": "欠", "bushuYomi": "かける", "kyu": "準2" },
+{ "id": 58, "kanji": "遮", "bushu": "辶", "bushuYomi": "しんにょう", "kyu": "準2" },
+{ "id": 59, "kanji": "刃", "bushu": "刀", "bushuYomi": "かたな", "kyu": "準2" },
+{ "id": 60, "kanji": "崇", "bushu": "山", "bushuYomi": "やま", "kyu": "準2" },
+{ "id": 61, "kanji": "窃", "bushu": "穴", "bushuYomi": "あなかんむり", "kyu": "準2" },
+{ "id": 62, "kanji": "衷", "bushu": "衣", "bushuYomi": "ころも", "kyu": "準2" },
+{ "id": 63, "kanji": "尼", "bushu": "尸", "bushuYomi": "しかばね", "kyu": "準2" },
+{ "id": 64, "kanji": "閥", "bushu": "門", "bushuYomi": "もんがまえ", "kyu": "準2" },
+{ "id": 65, "kanji": "癒", "bushu": "疒", "bushuYomi": "やまいだれ", "kyu": "準2" },
+{ "id": 66, "kanji": "羅", "bushu": "罒", "bushuYomi": "あみがしら", "kyu": "準2" },
+{ "id": 67, "kanji": "堪", "bushu": "土", "bushuYomi": "つちへん", "kyu": "準2" },
+{ "id": 68, "kanji": "閑", "bushu": "門", "bushuYomi": "もんがまえ", "kyu": "準2" },
+{ "id": 69, "kanji": "宜", "bushu": "宀", "bushuYomi": "うかんむり", "kyu": "準2" },
+{ "id": 70, "kanji": "享", "bushu": "亠", "bushuYomi": "けいさんかんむり", "kyu": "準2" },
+{ "id": 71, "kanji": "献", "bushu": "犬", "bushuYomi": "いぬ", "kyu": "準2" },
+{ "id": 72, "kanji": "宵", "bushu": "宀", "bushuYomi": "うかんむり", "kyu": "準2" },
+{ "id": 73, "kanji": "徹", "bushu": "彳", "bushuYomi": "ぎょうにんべん", "kyu": "準2" },
+{ "id": 74, "kanji": "迭", "bushu": "辶", "bushuYomi": "しんにょう", "kyu": "準2" },
+{ "id": 75, "kanji": "逸", "bushu": "辶", "bushuYomi": "しんにょう", "kyu": "準2" },
+{ "id": 76, "kanji": "寡", "bushu": "宀", "bushuYomi": "うかんむり", "kyu": "準2" },
+{ "id": 77, "kanji": "碁", "bushu": "石", "bushuYomi": "いし", "kyu": "準2" },
+{ "id": 78, "kanji": "宰", "bushu": "宀", "bushuYomi": "うかんむり", "kyu": "準2" },
+{ "id": 79, "kanji": "索", "bushu": "糸", "bushuYomi": "いと", "kyu": "準2" },
+{ "id": 80, "kanji": "囚", "bushu": "口", "bushuYomi": "くにがまえ", "kyu": "準2" }
+];
+
 const LEVELS = [
 {
 key: 'jun2',
 label: '準２級',
 types: [
 { key: 'yomi', label: '読み', data: jun2YomiData, mode: 'sentence' },
-{ key: 'bushu', label: '部首', data: [], mode: 'word' },
+{ key: 'bushu', label: '部首', data: jun2BushuData, mode: 'bushu' },
 { key: 'kouzou', label: '熟語の構成', data: [], mode: 'word' },
 { key: 'yoji', label: '四字熟語', data: [], mode: 'word' },
 { key: 'taigirui', label: '対義語・類義語', data: [], mode: 'word' },
@@ -559,6 +643,19 @@ return (
 </p>
 )}
 <div className="border-t-2 border-green-300 pt-6 mt-6">
+{mode === 'bushu' ? (
+<React.Fragment>
+<p className="text-gray-700 text-sm mb-2">【部首】</p>
+<p className="text-5xl font-bold text-green-700 mb-4">
+{currentItem.bushu}
+</p>
+<p className="text-gray-700 text-sm mb-2">【部首名】</p>
+<p className="text-xl text-gray-800">
+{currentItem.bushuYomi}
+</p>
+</React.Fragment>
+) : (
+<React.Fragment>
 <p className="text-gray-700 text-sm mb-2">【読み方】</p>
 <p className="text-2xl font-semibold text-green-700 mb-6">
 {currentItem.yomi}
@@ -567,6 +664,8 @@ return (
 <p className="text-base text-gray-800 leading-relaxed">
 {currentItem.imi}
 </p>
+</React.Fragment>
+)}
 </div>
 </div>
 </div>
@@ -680,7 +779,7 @@ return (
 </div>
 ) : (
 <div className="bg-white rounded-lg shadow-lg p-8 text-center mb-4 min-h-[350px] flex flex-col justify-center">
-<p className="text-gray-600 text-sm mb-6">問題</p>
+<p className="text-gray-600 text-sm mb-6">{mode === 'bushu' ? '次の漢字の部首を記せ（部首名は不要）' : '問題'}</p>
 <p className="text-7xl font-bold text-blue-600">
 {currentItem.kanji}
 </p>
@@ -802,6 +901,19 @@ return (
 </p>
 )}
 <div className="border-t-2 border-green-300 pt-6 mt-6">
+{mode === 'bushu' ? (
+<React.Fragment>
+<p className="text-gray-700 text-sm mb-2">【部首】</p>
+<p className="text-5xl font-bold text-green-700 mb-4">
+{currentItem.bushu}
+</p>
+<p className="text-gray-700 text-sm mb-2">【部首名】</p>
+<p className="text-xl text-gray-800">
+{currentItem.bushuYomi}
+</p>
+</React.Fragment>
+) : (
+<React.Fragment>
 <p className="text-gray-700 text-sm mb-2">【読み方】</p>
 <p className="text-2xl font-semibold text-green-700 mb-6">
 {currentItem.yomi}
@@ -810,6 +922,8 @@ return (
 <p className="text-base text-gray-800 leading-relaxed">
 {currentItem.imi}
 </p>
+</React.Fragment>
+)}
 </div>
 </div>
 </div>
