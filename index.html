@@ -1119,13 +1119,22 @@ const jun2KakitoriData = [
 // 3. 既存の id を振り直さない。
 // ============================================================
 
-
-// 四字熟語の語群データ（セット別）
 const yojiWordGroups = {
   0: ["ごう", "しゅう", "ちん", "てき", "ぼう", "し", "げん", "せん", "きょう", "よく"],
   1: ["とう", "かく", "ち", "ばつ", "り", "ふく", "きゃく", "いん", "び", "たん", "りょ", "じゅう", "えい", "そく", "し", "れき"],
   2: ["しょう", "い", "やく", "ほっ", "せっ", "こ", "れっ", "へい", "そう", "はく"],
   3: ["ぎゅう", "い", "しゅう", "とう", "だつ", "えつ", "き", "こ", "う", "せん", "かっ", "ち", "きょう", "む", "ばつ", "かん"]
+};
+
+const taigiruiWordGroups = {
+  0: ["ひんこん", "せんめい", "まったん", "いだい", "はけん", "しゃくほう", "こくひょう", "ていぞく", "びれい", "きょひ"],
+  1: ["じんりょく", "ばつぐん", "がまん", "かいにゅう", "ぜにん", "ちんちゃく", "ついおく", "おめい", "ひってき", "じんじょう"],
+  2: ["きょくたん", "ぼんさい", "たぼう", "にゅうじゃく", "いあつ", "しっこく", "のうしゅく", "おせん", "てんか", "おだく", "はんこう", "びんそく", "のうこう", "しんがい"],
+  3: ["たんねん", "りんり", "きよ", "てがら", "いっぱん", "れいたん", "しょばつ", "げきど", "ゆうきゅう", "こうりょ", "ごかく", "ぜんと", "ひんこん", "こぶ"],
+  4: ["じんそく", "ぼんじん", "かくとく", "こうにゅう", "ぼうきゃく", "けんきょ", "はんしょく", "はんえい", "いっせい", "しょうもう"],
+  5: ["やしき", "あんみん", "いかん", "ほうしゅう", "ぎょうてん", "あんねい", "ていねい", "もうしょ", "うんぱん", "きばん"],
+  6: ["どんじゅう", "こうきゅう", "もくひ", "しょうさい", "ちつじょ", "すうはい", "かんそう", "ぞっかい", "いつかつ", "ぶんり", "かんよう", "ちんこう", "めいよ", "へいさ"],
+  7: ["だとう", "はくじょう", "はいりょ", "だきょう", "もくさつ", "こんきょ", "ろぼう", "けっかん", "もくにん", "えいみん", "しゅわん", "しんけん", "もうてん", "ふふごう"]
 };
 
 const LEVELS = [
@@ -1216,14 +1225,6 @@ className="w-full bg-white rounded-lg shadow-md p-6 text-left hover:shadow-lg tr
 function TypeScreen({ level, onSelectType, onBackToLevel }) {
 return (
 <div className="min-h-screen bg-gradient-to-b from-blue-50 to-blue-100 p-4 pt-8 flex flex-col">
-<div className="absolute top-4 left-4">
-<button
-onClick={onBackToLevel}
-className="text-blue-600 hover:text-blue-800 font-bold text-2xl"
->
-←
-</button>
-</div>
 <div className="text-center mb-8">
 <h1 className="text-3xl font-bold text-gray-800 mb-2">{level.label}</h1>
 <p className="text-gray-600">問題種別を選択してください</p>
@@ -1249,6 +1250,14 @@ className={`w-full rounded-lg shadow-md p-5 text-left transition-shadow ${isRead
 );
 })}
 </div>
+<div className="text-center mb-2">
+<button
+onClick={onBackToLevel}
+className="text-blue-600 hover:text-blue-800 font-semibold text-sm underline"
+>
+← 級選択に戻る
+</button>
+</div>
 </div>
 );
 }
@@ -1264,14 +1273,6 @@ sets.push({ number: i + 1, start, end });
 
 return (
 <div className="min-h-screen bg-gradient-to-b from-blue-50 to-blue-100 p-4 pt-8 flex flex-col">
-<div className="absolute top-4 left-4">
-<button
-onClick={onBackToType}
-className="text-blue-600 hover:text-blue-800 font-bold text-2xl"
->
-←
-</button>
-</div>
 <div className="text-center mb-8">
 <h1 className="text-3xl font-bold text-gray-800 mb-2">漢字検定</h1>
 <p className="text-gray-600">{categoryLabel}</p>
@@ -1311,6 +1312,15 @@ className="w-full bg-white rounded-lg shadow-md p-6 text-left hover:shadow-lg tr
 </button>
 );
 })}
+</div>
+
+<div className="text-center mb-2">
+<button
+onClick={onBackToType}
+className="text-blue-600 hover:text-blue-800 font-semibold text-sm underline"
+>
+← 問題種別選択に戻る
+</button>
 </div>
 
 <div className="text-center text-xs text-gray-500">
@@ -1404,11 +1414,88 @@ return (
 </p>
 ) : mode === 'kakitori' ? (
 <p className="text-xl font-bold text-gray-800 leading-relaxed text-left">
-	<div className="text-center mt-2">
-	<a href={`https://okjiten.jp/search.html?q=${encodeURIComponent(currentItem.answer)}`} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 font-semibold text-sm underline">
-	解説ページ
-	</a>
-	</div>
+{renderDouseiSentence(currentItem)}
+</p>
+) : mode === 'kouzou' ? (
+<p className="text-6xl font-bold text-blue-600">
+{currentItem.jukugo}
+</p>
+) : mode === 'yoji' ? (
+<React.Fragment>
+<p className="text-5xl font-bold text-blue-600 tracking-wider mb-4">
+{currentItem.pattern}
+</p>
+<p className="text-xs text-gray-600 mb-2">【語群】</p>
+<p className="text-sm text-gray-700">
+{(yojiWordGroups[Math.floor((currentItem.id - 1) / 20)] || []).join('　')}
+</p>
+</React.Fragment>
+) : mode === 'taigirui' ? (
+<React.Fragment>
+<p className="text-5xl font-bold text-blue-600 tracking-wider mb-4">
+{currentItem.word}
+</p>
+<p className="text-sm text-gray-600 mb-2">【{currentItem.kind}を答える】</p>
+<p className="text-xs text-gray-600 mb-2">【語群】</p>
+<p className="text-sm text-gray-700">
+{(taigiruiWordGroups[Math.floor((currentItem.id - 1) / 20)] || []).join('　')}
+</p>
+</React.Fragment>
+) : (
+<p className="text-7xl font-bold text-blue-600">
+{mode === 'goji' ? currentItem.wrong : currentItem.kanji}
+</p>
+)}
+</div>
+) : (
+<div className="bg-gradient-to-br from-green-100 to-green-50 rounded-lg shadow-lg p-8 mb-4 min-h-[350px] flex flex-col justify-center">
+<div className="text-center">
+{mode === 'sentence' ? (
+<p className="text-lg font-bold text-gray-800 leading-relaxed mb-4">
+{renderSentence(currentItem)}
+</p>
+) : mode === 'dousei' ? (
+<p className="text-lg font-bold text-gray-800 leading-relaxed mb-4">
+{currentItem.correctedSentence}
+</p>
+) : mode === 'okurigana' ? (
+<p className="text-lg font-bold text-gray-800 leading-relaxed mb-4">
+{currentItem.correctedSentence}
+</p>
+) : mode === 'kakitori' ? (
+<p className="text-lg font-bold text-gray-800 leading-relaxed mb-4">
+{currentItem.correctedSentence}
+</p>
+) : mode === 'kouzou' ? (
+<p className="text-4xl font-bold text-green-600 mb-4">
+{currentItem.jukugo}
+</p>
+) : mode === 'yoji' ? (
+<p className="text-4xl font-bold text-green-600 mb-4 tracking-wider">
+{currentItem.answer}
+</p>
+) : (
+<p className="text-4xl font-bold text-green-600 mb-4">
+{mode === 'taigirui' ? currentItem.word : mode === 'goji' ? currentItem.wrong : currentItem.kanji}
+</p>
+)}
+<div className="border-t-2 border-green-300 pt-6 mt-6">
+{mode === 'bushu' ? (
+<React.Fragment>
+<p className="text-gray-700 text-sm mb-2">【部首】</p>
+<p className="text-5xl font-bold text-green-700 mb-4">
+{currentItem.bushu}
+</p>
+<p className="text-gray-700 text-sm mb-2">【部首名】</p>
+<p className="text-xl text-gray-800 mb-4">
+{currentItem.bushuYomi}
+</p>
+{currentItem.examples && currentItem.examples.length > 0 && (
+<React.Fragment>
+<p className="text-gray-700 text-sm mb-2">【同じ部首の漢字】</p>
+<p className="text-2xl text-gray-800">
+{currentItem.examples.join('　')}
+</p>
 </React.Fragment>
 )}
 </React.Fragment>
@@ -1440,33 +1527,21 @@ return (
 </React.Fragment>
 ) : mode === 'goji' ? (
 <React.Fragment>
-	<p className="text-base text-gray-800 mb-4 leading-relaxed">
-	{currentItem.sentence}
-	</p>
-	<div className="border-t-2 border-green-300 pt-4 mt-4">
-	<p className="text-gray-700 text-sm mb-2">【修正】</p>
-	<div className="flex items-center justify-center gap-3 mb-4">
-	<p className="text-3xl text-red-600">{currentItem.wrong}</p>
-	<p className="text-2xl text-gray-500">→</p>
-	<p className="text-5xl font-bold text-green-700">{currentItem.correct}</p>
-	</div>
-	<p className="text-gray-700 text-sm mb-2">【正しい語句・読み】</p>
-	<p className="text-xl text-gray-800">
-	{currentItem.word}（{currentItem.reading}）
-	</p>
-	</div>
-	</React.Fragment>
+<p className="text-gray-700 text-sm mb-2">【正字】</p>
+<p className="text-5xl font-bold text-green-700 mb-4">
+{currentItem.correct}
+</p>
+<p className="text-gray-700 text-sm mb-2">【正しい語句・読み】</p>
+<p className="text-xl text-gray-800">
+{currentItem.word}（{currentItem.reading}）
+</p>
+</React.Fragment>
 ) : mode === 'okurigana' ? (
 <React.Fragment>
 <p className="text-gray-700 text-sm mb-2">【正しい語句】</p>
 <p className="text-4xl font-bold text-green-700 mb-4">
 {currentItem.answer}
 </p>
-	<div className="text-center mt-2">
-	<a href={`https://okjiten.jp/search.html?q=${encodeURIComponent(currentItem.answer)}`} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 font-semibold text-sm underline">
-	解説ページ
-	</a>
-	</div>
 </React.Fragment>
 ) : mode === 'kakitori' ? (
 <React.Fragment>
@@ -1474,11 +1549,6 @@ return (
 <p className="text-4xl font-bold text-green-700 mb-4">
 {currentItem.answer}
 </p>
-	<div className="text-center mt-2">
-	<a href={`https://okjiten.jp/search.html?q=${encodeURIComponent(currentItem.answer)}`} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 font-semibold text-sm underline">
-	解説ページ
-	</a>
-	</div>
 <p className="text-gray-700 text-sm mb-2">【意味】</p>
 <p className="text-base text-gray-800 leading-relaxed">
 {currentItem.meaning}
@@ -1490,13 +1560,6 @@ return (
 <p className="text-5xl font-bold text-green-700 mb-4">
 {currentItem.answer}
 </p>
-	<p className="text-2xl text-green-600 mb-4">
-	{currentItem.answer === 'ア' && '同じ意味'}
-	{currentItem.answer === 'イ' && '反対の意味'}
-	{currentItem.answer === 'ウ' && '上が下を修飾'}
-	{currentItem.answer === 'エ' && '下が目的・補語'}
-	{currentItem.answer === 'オ' && '上が打ち消し'}
-	</p>
 <p className="text-gray-700 text-sm mb-2">【読み】</p>
 <p className="text-xl text-gray-800 mb-4">
 {currentItem.reading}
@@ -1508,13 +1571,13 @@ return (
 </React.Fragment>
 ) : mode === 'yoji' ? (
 <React.Fragment>
-<p className="text-gray-600 text-sm mb-6">次の四字熟語の□に入る字を選びなさい</p>
-<p className="text-4xl font-bold text-blue-700 mb-6 text-center">
-{currentItem.pattern}
+<p className="text-gray-700 text-sm mb-2">【読み】</p>
+<p className="text-2xl font-semibold text-green-700 mb-6">
+{currentItem.reading}
 </p>
-<p className="text-gray-700 text-sm mb-2">【語群】</p>
-<p className="text-sm text-gray-800 leading-relaxed text-center">
-{(yojiWordGroups[Math.floor((currentItem.id - 1) / 20)] || []).join('　')}
+<p className="text-gray-700 text-sm mb-2">【意味】</p>
+<p className="text-base text-gray-800 leading-relaxed">
+{currentItem.meaning}
 </p>
 </React.Fragment>
 ) : (
@@ -1654,14 +1717,6 @@ return (
 
 return (
 <div className="min-h-screen bg-gradient-to-b from-blue-50 to-blue-100 p-4 pt-12 flex flex-col">
-<div className="absolute top-4 left-4">
-<button
-onClick={onBackToMenu}
-className="text-blue-600 hover:text-blue-800 font-bold text-2xl"
->
-←
-</button>
-</div>
 <div className="text-center mb-6">
 <h1 className="text-2xl font-bold text-gray-800">漢字検定（{categoryLabel}）</h1>
 <p className="text-sm text-gray-600">
@@ -1690,11 +1745,212 @@ className="text-blue-600 hover:text-blue-800 font-bold text-2xl"
 <p className="text-2xl font-bold text-gray-800 leading-relaxed">
 {renderDouseiSentence(currentItem)}
 </p>
-	<div className="text-center mt-2">
-	<a href={`https://okjiten.jp/search.html?q=${encodeURIComponent(currentItem.answer)}`} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 font-semibold text-sm underline">
-	解説ページ
-	</a>
-	</div>
+</div>
+) : mode === 'kakitori' ? (
+<div className="bg-white rounded-lg shadow-lg p-8 mb-4 min-h-[350px] flex flex-col justify-center">
+<p className="text-gray-600 text-sm mb-6">次の下線部のカタカナを漢字に直せ</p>
+<p className="text-2xl font-bold text-gray-800 leading-relaxed">
+{renderDouseiSentence(currentItem)}
+</p>
+</div>
+) : mode === 'kouzou' ? (
+<div className="bg-white rounded-lg shadow-lg p-6 mb-4 min-h-[350px] flex flex-col justify-center">
+<p className="text-gray-600 text-sm mb-4">次の熟語の構成はどれにあたるか、記号で答えよ</p>
+<p className="text-6xl font-bold text-blue-600 text-center mb-6">
+{currentItem.jukugo}
+</p>
+<div className="bg-blue-50 rounded-lg p-3 text-xs text-gray-700 leading-relaxed">
+<p>ア 同じ意味　イ 反対の意味　ウ 上が下を修飾</p>
+<p>エ 下が目的・補語　オ 上が打ち消し</p>
+</div>
+</div>
+) : mode === 'yoji' ? (
+<div className="bg-white rounded-lg shadow-lg p-8 text-center mb-4 min-h-[350px] flex flex-col justify-center">
+<p className="text-gray-600 text-sm mb-6">次の四字熟語の□に入る字を選びなさい</p>
+<p className="text-6xl font-bold text-blue-600 tracking-wider">
+{currentItem.pattern}
+</p>
+<div className="bg-blue-50 rounded-lg p-3 mt-6 text-sm text-gray-700 leading-relaxed">
+<p className="text-xs text-gray-500 mb-1">【語群】</p>
+{(yojiWordGroups[setNumber] || []).join('　')}
+</div>
+</div>
+) : mode === 'goji' && currentItem.sentence ? (
+<div className="bg-white rounded-lg shadow-lg p-8 mb-4 min-h-[350px] flex flex-col justify-center">
+<p className="text-gray-600 text-sm mb-6">次の文中の誤字を正しい漢字に直せ</p>
+<p className="text-2xl font-bold text-gray-800 leading-relaxed">
+{currentItem.sentence}
+</p>
+</div>
+) : (
+<div className="bg-white rounded-lg shadow-lg p-8 text-center mb-4 min-h-[350px] flex flex-col justify-center">
+<p className="text-gray-600 text-sm mb-6">
+{mode === 'bushu' ? '次の漢字の部首を記せ（部首名は不要）' : mode === 'taigirui' ? `次の語句の${currentItem.kind}を漢字で記せ` : mode === 'goji' ? '次の誤字を正しい漢字に直せ' : '問題'}
+</p>
+<p className="text-7xl font-bold text-blue-600">
+{mode === 'taigirui' ? currentItem.word : mode === 'goji' ? currentItem.wrong : currentItem.kanji}
+</p>
+{mode === 'taigirui' && (
+<div className="bg-blue-50 rounded-lg p-3 mt-6 text-sm text-gray-700 leading-relaxed">
+<p className="text-xs text-gray-500 mb-1">【語群】</p>
+{(taigiruiWordGroups[setNumber] || []).join('　')}
+</div>
+)}
+</div>
+)}
+
+
+<div className="bg-gray-200 rounded-full h-2">
+<div
+className="bg-blue-500 h-2 rounded-full transition-all"
+style={{
+width: `${((currentIndex + 1) / currentSetData.length) * 100}%`,
+}}
+></div>
+</div>
+</div>
+
+<div className="w-full max-w-sm mx-auto mb-16 flex gap-2">
+<button
+onClick={onNext}
+style={{ width: currentIndex > 0 ? '80%' : '100%' }}
+className="py-4 rounded-lg font-bold text-white text-lg bg-blue-500 shadow-md hover:bg-blue-600 active:scale-95 transition-all"
+>
+次へ
+</button>
+{currentIndex > 0 && (
+<button
+onClick={onPrev}
+style={{ width: '20%' }}
+className="py-4 rounded-lg font-bold text-white text-base bg-gray-400 shadow-md hover:bg-gray-500 active:scale-95 transition-all"
+>
+前へ
+</button>
+)}
+</div>
+
+<label className="flex gap-3 items-center w-full max-w-sm mx-auto mb-6 cursor-pointer">
+<input
+type="checkbox"
+checked={isChecked}
+onChange={onToggleCheck}
+className="w-6 h-6 cursor-pointer"
+/>
+<span className="text-sm text-gray-700">わからなかった</span>
+</label>
+
+<div className="text-center mb-4">
+<button
+onClick={onBackToMenu}
+className="text-blue-600 hover:text-blue-800 font-semibold text-sm underline"
+>
+← メニューに戻る
+</button>
+</div>
+</div>
+);
+}
+
+// 解答画面コンポーネント
+function AnswerScreen({ data, categoryLabel, mode, setNumber, currentIndex, onNext, onPrev, onBackToMenu, isChecked, onToggleCheck }) {
+const setStartIndex = setNumber * 20;
+const setEndIndex = Math.min((setNumber + 1) * 20, data.length);
+const currentSetData = data.slice(setStartIndex, setEndIndex);
+const currentItem = currentSetData[currentIndex];
+const isLastInSet = currentIndex + 1 >= currentSetData.length;
+
+if (!currentItem) {
+return (
+<div className="min-h-screen bg-gradient-to-b from-blue-50 to-blue-100 p-4 pt-8 flex flex-col">
+<div className="flex-1 flex flex-col items-center justify-center gap-4">
+<p className="text-xl text-gray-800 font-bold">
+セット {setNumber + 1} が完了しました！
+</p>
+<button
+onClick={onBackToMenu}
+className="bg-blue-500 text-white px-6 py-3 rounded-lg font-bold hover:bg-blue-600"
+>
+メニューに戻る
+</button>
+</div>
+</div>
+);
+}
+
+const renderSentence = (item) => {
+const idx = item.sentence.indexOf(item.target);
+if (idx === -1) {
+return <span>{item.sentence}</span>;
+}
+const before = item.sentence.slice(0, idx);
+const after = item.sentence.slice(idx + item.target.length);
+return (
+<span>
+{before}
+<span className="underline decoration-2 underline-offset-4 text-green-700">{item.target}</span>
+{after}
+</span>
+);
+};
+
+return (
+<div className="min-h-screen bg-gradient-to-b from-blue-50 to-blue-100 p-4 pt-12 flex flex-col">
+<div className="text-center mb-6">
+<h1 className="text-2xl font-bold text-gray-800">漢字検定（{categoryLabel}）</h1>
+<p className="text-sm text-gray-600">
+セット {setNumber + 1} / 問題 {currentIndex + 1}/{currentSetData.length}
+</p>
+</div>
+
+<div className="w-full max-w-sm mx-auto mb-12">
+<div className="bg-gradient-to-br from-green-100 to-green-50 rounded-lg shadow-lg p-8 mb-4 min-h-[350px] flex flex-col justify-center">
+<div className="text-center">
+{mode === 'sentence' ? (
+<p className="text-lg font-bold text-gray-800 leading-relaxed mb-4">
+{renderSentence(currentItem)}
+</p>
+) : mode === 'dousei' ? (
+<p className="text-lg font-bold text-gray-800 leading-relaxed mb-4">
+{currentItem.correctedSentence}
+</p>
+) : mode === 'okurigana' ? (
+<p className="text-lg font-bold text-gray-800 leading-relaxed mb-4">
+{currentItem.correctedSentence}
+</p>
+) : mode === 'kakitori' ? (
+<p className="text-lg font-bold text-gray-800 leading-relaxed mb-4">
+{currentItem.correctedSentence}
+</p>
+) : mode === 'kouzou' ? (
+<p className="text-4xl font-bold text-green-600 mb-4">
+{currentItem.jukugo}
+</p>
+) : mode === 'yoji' ? (
+<p className="text-5xl font-bold text-green-600 mb-4 tracking-wider">
+{currentItem.answer}
+</p>
+) : (
+<p className="text-4xl font-bold text-green-600 mb-4">
+{mode === 'taigirui' ? currentItem.word : mode === 'goji' ? currentItem.wrong : currentItem.kanji}
+</p>
+)}
+<div className="border-t-2 border-green-300 pt-6 mt-6">
+{mode === 'bushu' ? (
+<React.Fragment>
+<p className="text-gray-700 text-sm mb-2">【部首】</p>
+<p className="text-5xl font-bold text-green-700 mb-4">
+{currentItem.bushu}
+</p>
+<p className="text-gray-700 text-sm mb-2">【部首名】</p>
+<p className="text-xl text-gray-800 mb-4">
+{currentItem.bushuYomi}
+</p>
+{currentItem.examples && currentItem.examples.length > 0 && (
+<React.Fragment>
+<p className="text-gray-700 text-sm mb-2">【同じ部首の漢字】</p>
+<p className="text-2xl text-gray-800">
+{currentItem.examples.join('　')}
+</p>
 </React.Fragment>
 )}
 </React.Fragment>
@@ -1726,33 +1982,21 @@ className="text-blue-600 hover:text-blue-800 font-bold text-2xl"
 </React.Fragment>
 ) : mode === 'goji' ? (
 <React.Fragment>
-	<p className="text-base text-gray-800 mb-4 leading-relaxed">
-	{currentItem.sentence}
-	</p>
-	<div className="border-t-2 border-green-300 pt-4 mt-4">
-	<p className="text-gray-700 text-sm mb-2">【修正】</p>
-	<div className="flex items-center justify-center gap-3 mb-4">
-	<p className="text-3xl text-red-600">{currentItem.wrong}</p>
-	<p className="text-2xl text-gray-500">→</p>
-	<p className="text-5xl font-bold text-green-700">{currentItem.correct}</p>
-	</div>
-	<p className="text-gray-700 text-sm mb-2">【正しい語句・読み】</p>
-	<p className="text-xl text-gray-800">
-	{currentItem.word}（{currentItem.reading}）
-	</p>
-	</div>
-	</React.Fragment>
+<p className="text-gray-700 text-sm mb-2">【正字】</p>
+<p className="text-5xl font-bold text-green-700 mb-4">
+{currentItem.correct}
+</p>
+<p className="text-gray-700 text-sm mb-2">【正しい語句・読み】</p>
+<p className="text-xl text-gray-800">
+{currentItem.word}（{currentItem.reading}）
+</p>
+</React.Fragment>
 ) : mode === 'okurigana' ? (
 <React.Fragment>
 <p className="text-gray-700 text-sm mb-2">【正しい語句】</p>
 <p className="text-4xl font-bold text-green-700 mb-4">
 {currentItem.answer}
 </p>
-	<div className="text-center mt-2">
-	<a href={`https://okjiten.jp/search.html?q=${encodeURIComponent(currentItem.answer)}`} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 font-semibold text-sm underline">
-	解説ページ
-	</a>
-	</div>
 </React.Fragment>
 ) : mode === 'kakitori' ? (
 <React.Fragment>
@@ -1760,11 +2004,6 @@ className="text-blue-600 hover:text-blue-800 font-bold text-2xl"
 <p className="text-4xl font-bold text-green-700 mb-4">
 {currentItem.answer}
 </p>
-	<div className="text-center mt-2">
-	<a href={`https://okjiten.jp/search.html?q=${encodeURIComponent(currentItem.answer)}`} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 font-semibold text-sm underline">
-	解説ページ
-	</a>
-	</div>
 <p className="text-gray-700 text-sm mb-2">【意味】</p>
 <p className="text-base text-gray-800 leading-relaxed">
 {currentItem.meaning}
@@ -1776,13 +2015,6 @@ className="text-blue-600 hover:text-blue-800 font-bold text-2xl"
 <p className="text-5xl font-bold text-green-700 mb-4">
 {currentItem.answer}
 </p>
-	<p className="text-2xl text-green-600 mb-4">
-	{currentItem.answer === 'ア' && '同じ意味'}
-	{currentItem.answer === 'イ' && '反対の意味'}
-	{currentItem.answer === 'ウ' && '上が下を修飾'}
-	{currentItem.answer === 'エ' && '下が目的・補語'}
-	{currentItem.answer === 'オ' && '上が打ち消し'}
-	</p>
 <p className="text-gray-700 text-sm mb-2">【読み】</p>
 <p className="text-xl text-gray-800 mb-4">
 {currentItem.reading}
@@ -1794,13 +2026,13 @@ className="text-blue-600 hover:text-blue-800 font-bold text-2xl"
 </React.Fragment>
 ) : mode === 'yoji' ? (
 <React.Fragment>
-<p className="text-gray-600 text-sm mb-6">次の四字熟語の□に入る字を選びなさい</p>
-<p className="text-4xl font-bold text-blue-700 mb-6 text-center">
-{currentItem.pattern}
+<p className="text-gray-700 text-sm mb-2">【読み】</p>
+<p className="text-2xl font-semibold text-green-700 mb-6">
+{currentItem.reading}
 </p>
-<p className="text-gray-700 text-sm mb-2">【語群】</p>
-<p className="text-sm text-gray-800 leading-relaxed text-center">
-{(yojiWordGroups[setNumber] || []).join('　')}
+<p className="text-gray-700 text-sm mb-2">【意味】</p>
+<p className="text-base text-gray-800 leading-relaxed">
+{currentItem.meaning}
 </p>
 </React.Fragment>
 ) : (
