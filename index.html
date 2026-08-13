@@ -291,86 +291,817 @@ const jun2YomiData = [
 
 // 漢字検定準2級 問題データ（部首・出る順Aランク）
 const jun2BushuData = [
-{ "id": 1, "kanji": "亜", "bushu": "二", "bushuYomi": "に", "kyu": "準2" },
-{ "id": 2, "kanji": "畝", "bushu": "田", "bushuYomi": "た", "kyu": "準2" },
-{ "id": 3, "kanji": "窯", "bushu": "穴", "bushuYomi": "あなかんむり", "kyu": "準2" },
-{ "id": 4, "kanji": "且", "bushu": "一", "bushuYomi": "いち", "kyu": "準2" },
-{ "id": 5, "kanji": "栽", "bushu": "木", "bushuYomi": "き", "kyu": "準2" },
-{ "id": 6, "kanji": "爵", "bushu": "爫", "bushuYomi": "つめかんむり", "kyu": "準2" },
-{ "id": 7, "kanji": "殉", "bushu": "歹", "bushuYomi": "がつへん", "kyu": "準2" },
-{ "id": 8, "kanji": "升", "bushu": "十", "bushuYomi": "じゅう", "kyu": "準2" },
-{ "id": 9, "kanji": "甚", "bushu": "甘", "bushuYomi": "あまい", "kyu": "準2" },
-{ "id": 10, "kanji": "斉", "bushu": "斉", "bushuYomi": "せい", "kyu": "準2" },
-{ "id": 11, "kanji": "丙", "bushu": "一", "bushuYomi": "いち", "kyu": "準2" },
-{ "id": 12, "kanji": "褒", "bushu": "衣", "bushuYomi": "ころも", "kyu": "準2" },
-{ "id": 13, "kanji": "虞", "bushu": "虍", "bushuYomi": "とらがしら", "kyu": "準2" },
-{ "id": 14, "kanji": "薫", "bushu": "艹", "bushuYomi": "くさかんむり", "kyu": "準2" },
-{ "id": 15, "kanji": "蛍", "bushu": "虫", "bushuYomi": "むし", "kyu": "準2" },
-{ "id": 16, "kanji": "嗣", "bushu": "口", "bushuYomi": "くち", "kyu": "準2" },
-{ "id": 17, "kanji": "臭", "bushu": "自", "bushuYomi": "みずから", "kyu": "準2" },
-{ "id": 18, "kanji": "泰", "bushu": "氺", "bushuYomi": "したみず", "kyu": "準2" },
-{ "id": 19, "kanji": "亭", "bushu": "亠", "bushuYomi": "なべぶた", "kyu": "準2" },
-{ "id": 20, "kanji": "軟", "bushu": "車", "bushuYomi": "くるまへん", "kyu": "準2" },
-{ "id": 21, "kanji": "奔", "bushu": "大", "bushuYomi": "だい", "kyu": "準2" },
-{ "id": 22, "kanji": "戻", "bushu": "戸", "bushuYomi": "とだれ", "kyu": "準2" },
-{ "id": 23, "kanji": "恭", "bushu": "小", "bushuYomi": "したごころ", "kyu": "準2" },
-{ "id": 24, "kanji": "呉", "bushu": "口", "bushuYomi": "くち", "kyu": "準2" },
-{ "id": 25, "kanji": "衡", "bushu": "行", "bushuYomi": "ぎょうがまえ", "kyu": "準2" },
-{ "id": 26, "kanji": "昆", "bushu": "日", "bushuYomi": "ひ", "kyu": "準2" },
-{ "id": 27, "kanji": "喪", "bushu": "口", "bushuYomi": "くち", "kyu": "準2" },
-{ "id": 28, "kanji": "呈", "bushu": "口", "bushuYomi": "くち", "kyu": "準2" },
-{ "id": 29, "kanji": "廷", "bushu": "又", "bushuYomi": "えんにょう", "kyu": "準2" },
-{ "id": 30, "kanji": "凸", "bushu": "凵", "bushuYomi": "うけばこ", "kyu": "準2" },
-{ "id": 31, "kanji": "瓶", "bushu": "瓦", "bushuYomi": "かわら", "kyu": "準2" },
-{ "id": 32, "kanji": "磨", "bushu": "石", "bushuYomi": "いし", "kyu": "準2" },
-{ "id": 33, "kanji": "麻", "bushu": "麻", "bushuYomi": "あさ", "kyu": "準2" },
-{ "id": 34, "kanji": "耗", "bushu": "耒", "bushuYomi": "らいすき", "kyu": "準2" },
-{ "id": 35, "kanji": "凹", "bushu": "凵", "bushuYomi": "うけばこ", "kyu": "準2" },
-{ "id": 36, "kanji": "殻", "bushu": "殳", "bushuYomi": "ほこづくり", "kyu": "準2" },
-{ "id": 37, "kanji": "缶", "bushu": "缶", "bushuYomi": "ほとぎ", "kyu": "準2" },
-{ "id": 38, "kanji": "充", "bushu": "儿", "bushuYomi": "にんにょう", "kyu": "準2" },
-{ "id": 39, "kanji": "叙", "bushu": "又", "bushuYomi": "また", "kyu": "準2" },
-{ "id": 40, "kanji": "彰", "bushu": "彡", "bushuYomi": "さんづくり", "kyu": "準2" },
-{ "id": 41, "kanji": "妥", "bushu": "女", "bushuYomi": "おんな", "kyu": "準2" },
-{ "id": 42, "kanji": "弔", "bushu": "弓", "bushuYomi": "ゆみ", "kyu": "準2" },
-{ "id": 43, "kanji": "勅", "bushu": "力", "bushuYomi": "ちから", "kyu": "準2" },
-{ "id": 44, "kanji": "寧", "bushu": "宀", "bushuYomi": "うかんむり", "kyu": "準2" },
-{ "id": 45, "kanji": "扉", "bushu": "戸", "bushuYomi": "とかんむり", "kyu": "準2" },
-{ "id": 46, "kanji": "賓", "bushu": "貝", "bushuYomi": "かい", "kyu": "準2" },
-{ "id": 47, "kanji": "弊", "bushu": "廾", "bushuYomi": "にじゅうあし", "kyu": "準2" },
-{ "id": 48, "kanji": "摩", "bushu": "手", "bushuYomi": "て", "kyu": "準2" },
-{ "id": 49, "kanji": "庸", "bushu": "广", "bushuYomi": "まだれ", "kyu": "準2" },
-{ "id": 50, "kanji": "竜", "bushu": "竜", "bushuYomi": "りゅう", "kyu": "準2" },
-{ "id": 51, "kanji": "虜", "bushu": "虍", "bushuYomi": "とらがしら", "kyu": "準2" },
-{ "id": 52, "kanji": "累", "bushu": "糸", "bushuYomi": "いと", "kyu": "準2" },
-{ "id": 53, "kanji": "尉", "bushu": "寸", "bushuYomi": "すん", "kyu": "準2" },
-{ "id": 54, "kanji": "韻", "bushu": "音", "bushuYomi": "おと", "kyu": "準2" },
-{ "id": 55, "kanji": "翁", "bushu": "羽", "bushuYomi": "はね", "kyu": "準2" },
-{ "id": 56, "kanji": "劾", "bushu": "力", "bushuYomi": "ちから", "kyu": "準2" },
-{ "id": 57, "kanji": "款", "bushu": "欠", "bushuYomi": "かける", "kyu": "準2" },
-{ "id": 58, "kanji": "遮", "bushu": "辶", "bushuYomi": "しんにょう", "kyu": "準2" },
-{ "id": 59, "kanji": "刃", "bushu": "刀", "bushuYomi": "かたな", "kyu": "準2" },
-{ "id": 60, "kanji": "崇", "bushu": "山", "bushuYomi": "やま", "kyu": "準2" },
-{ "id": 61, "kanji": "窃", "bushu": "穴", "bushuYomi": "あなかんむり", "kyu": "準2" },
-{ "id": 62, "kanji": "衷", "bushu": "衣", "bushuYomi": "ころも", "kyu": "準2" },
-{ "id": 63, "kanji": "尼", "bushu": "尸", "bushuYomi": "しかばね", "kyu": "準2" },
-{ "id": 64, "kanji": "閥", "bushu": "門", "bushuYomi": "もんがまえ", "kyu": "準2" },
-{ "id": 65, "kanji": "癒", "bushu": "疒", "bushuYomi": "やまいだれ", "kyu": "準2" },
-{ "id": 66, "kanji": "羅", "bushu": "罒", "bushuYomi": "あみがしら", "kyu": "準2" },
-{ "id": 67, "kanji": "堪", "bushu": "土", "bushuYomi": "つちへん", "kyu": "準2" },
-{ "id": 68, "kanji": "閑", "bushu": "門", "bushuYomi": "もんがまえ", "kyu": "準2" },
-{ "id": 69, "kanji": "宜", "bushu": "宀", "bushuYomi": "うかんむり", "kyu": "準2" },
-{ "id": 70, "kanji": "享", "bushu": "亠", "bushuYomi": "けいさんかんむり", "kyu": "準2" },
-{ "id": 71, "kanji": "献", "bushu": "犬", "bushuYomi": "いぬ", "kyu": "準2" },
-{ "id": 72, "kanji": "宵", "bushu": "宀", "bushuYomi": "うかんむり", "kyu": "準2" },
-{ "id": 73, "kanji": "徹", "bushu": "彳", "bushuYomi": "ぎょうにんべん", "kyu": "準2" },
-{ "id": 74, "kanji": "迭", "bushu": "辶", "bushuYomi": "しんにょう", "kyu": "準2" },
-{ "id": 75, "kanji": "逸", "bushu": "辶", "bushuYomi": "しんにょう", "kyu": "準2" },
-{ "id": 76, "kanji": "寡", "bushu": "宀", "bushuYomi": "うかんむり", "kyu": "準2" },
-{ "id": 77, "kanji": "碁", "bushu": "石", "bushuYomi": "いし", "kyu": "準2" },
-{ "id": 78, "kanji": "宰", "bushu": "宀", "bushuYomi": "うかんむり", "kyu": "準2" },
-{ "id": 79, "kanji": "索", "bushu": "糸", "bushuYomi": "いと", "kyu": "準2" },
-{ "id": 80, "kanji": "囚", "bushu": "口", "bushuYomi": "くにがまえ", "kyu": "準2" }
+{ "id": 1, "kanji": "亜", "bushu": "二", "bushuYomi": "に", "examples": ["互", "井", "五"], "kyu": "準2" },
+{ "id": 2, "kanji": "畝", "bushu": "田", "bushuYomi": "た", "examples": ["甲", "畜", "畳"], "kyu": "準2" },
+{ "id": 3, "kanji": "窯", "bushu": "穴", "bushuYomi": "あなかんむり", "examples": ["窃", "窮", "突"], "kyu": "準2" },
+{ "id": 4, "kanji": "且", "bushu": "一", "bushuYomi": "いち", "examples": ["丙", "且", "丘"], "kyu": "準2" },
+{ "id": 5, "kanji": "栽", "bushu": "木", "bushuYomi": "き", "examples": ["架", "棄", "桑"], "kyu": "準2" },
+{ "id": 6, "kanji": "爵", "bushu": "爫", "bushuYomi": "つめかんむり", "examples": ["采", "争"], "kyu": "準2" },
+{ "id": 7, "kanji": "殉", "bushu": "歹", "bushuYomi": "がつへん", "examples": ["殊", "殖", "残"], "kyu": "準2" },
+{ "id": 8, "kanji": "升", "bushu": "十", "bushuYomi": "じゅう", "examples": ["卓", "協", "卑"], "kyu": "準2" },
+{ "id": 9, "kanji": "甚", "bushu": "甘", "bushuYomi": "あまい", "examples": [], "kyu": "準2" },
+{ "id": 10, "kanji": "斉", "bushu": "斉", "bushuYomi": "せい", "examples": ["斎"], "kyu": "準2" },
+{ "id": 11, "kanji": "丙", "bushu": "一", "bushuYomi": "いち", "examples": ["丙", "且", "丘"], "kyu": "準2" },
+{ "id": 12, "kanji": "褒", "bushu": "衣", "bushuYomi": "ころも", "examples": ["衷", "衰", "装"], "kyu": "準2" },
+{ "id": 13, "kanji": "虞", "bushu": "虍", "bushuYomi": "とらがしら", "examples": ["虜", "虐", "虚"], "kyu": "準2" },
+{ "id": 14, "kanji": "薫", "bushu": "艹", "bushuYomi": "くさかんむり", "examples": ["荘", "茎", "薦"], "kyu": "準2" },
+{ "id": 15, "kanji": "蛍", "bushu": "虫", "bushuYomi": "むし", "examples": ["蚕", "蛮", "融"], "kyu": "準2" },
+{ "id": 16, "kanji": "嗣", "bushu": "口", "bushuYomi": "くち", "examples": ["呈", "喪", "呉"], "kyu": "準2" },
+{ "id": 17, "kanji": "臭", "bushu": "自", "bushuYomi": "みずから", "examples": [], "kyu": "準2" },
+{ "id": 18, "kanji": "泰", "bushu": "氺", "bushuYomi": "したみず", "examples": [], "kyu": "準2" },
+{ "id": 19, "kanji": "亭", "bushu": "亠", "bushuYomi": "なべぶた", "examples": ["亡", "京", "享"], "kyu": "準2" },
+{ "id": 20, "kanji": "軟", "bushu": "車", "bushuYomi": "くるまへん", "examples": ["軌", "軸", "轄"], "kyu": "準2" },
+{ "id": 21, "kanji": "奔", "bushu": "大", "bushuYomi": "だい", "examples": ["奨", "契", "奪"], "kyu": "準2" },
+{ "id": 22, "kanji": "戻", "bushu": "戸", "bushuYomi": "とだれ", "examples": ["扇", "房", "扉"], "kyu": "準2" },
+{ "id": 23, "kanji": "恭", "bushu": "小", "bushuYomi": "したごころ", "examples": ["慕"], "kyu": "準2" },
+{ "id": 24, "kanji": "呉", "bushu": "口", "bushuYomi": "くち", "examples": ["呈", "喪", "呉"], "kyu": "準2" },
+{ "id": 25, "kanji": "衡", "bushu": "行", "bushuYomi": "ぎょうがまえ", "examples": ["術", "街", "衛"], "kyu": "準2" },
+{ "id": 26, "kanji": "昆", "bushu": "日", "bushuYomi": "ひ", "examples": ["昇", "晶", "暫"], "kyu": "準2" },
+{ "id": 27, "kanji": "喪", "bushu": "口", "bushuYomi": "くち", "examples": ["呈", "喪", "呉"], "kyu": "準2" },
+{ "id": 28, "kanji": "呈", "bushu": "口", "bushuYomi": "くち", "examples": ["呈", "喪", "呉"], "kyu": "準2" },
+{ "id": 29, "kanji": "廷", "bushu": "又", "bushuYomi": "えんにょう", "examples": ["双", "叔", "及"], "kyu": "準2" },
+{ "id": 30, "kanji": "凸", "bushu": "凵", "bushuYomi": "うけばこ", "examples": ["凶", "出"], "kyu": "準2" },
+{ "id": 31, "kanji": "瓶", "bushu": "瓦", "bushuYomi": "かわら", "examples": ["瓶"], "kyu": "準2" },
+{ "id": 32, "kanji": "磨", "bushu": "石", "bushuYomi": "いし", "examples": ["碁", "磁", "砕"], "kyu": "準2" },
+{ "id": 33, "kanji": "麻", "bushu": "麻", "bushuYomi": "あさ", "examples": [], "kyu": "準2" },
+{ "id": 34, "kanji": "耗", "bushu": "耒", "bushuYomi": "らいすき", "examples": ["耕"], "kyu": "準2" },
+{ "id": 35, "kanji": "凹", "bushu": "凵", "bushuYomi": "うけばこ", "examples": ["凶", "出"], "kyu": "準2" },
+{ "id": 36, "kanji": "殻", "bushu": "殳", "bushuYomi": "ほこづくり", "examples": ["殿", "殴", "段"], "kyu": "準2" },
+{ "id": 37, "kanji": "缶", "bushu": "缶", "bushuYomi": "ほとぎ", "examples": [], "kyu": "準2" },
+{ "id": 38, "kanji": "充", "bushu": "儿", "bushuYomi": "にんにょう", "examples": ["兄", "克", "免"], "kyu": "準2" },
+{ "id": 39, "kanji": "叙", "bushu": "又", "bushuYomi": "また", "examples": ["双", "叔", "及"], "kyu": "準2" },
+{ "id": 40, "kanji": "彰", "bushu": "彡", "bushuYomi": "さんづくり", "examples": ["彩", "影", "彫"], "kyu": "準2" },
+{ "id": 41, "kanji": "妥", "bushu": "女", "bushuYomi": "おんな", "examples": ["妄", "婆", "威"], "kyu": "準2" },
+{ "id": 42, "kanji": "弔", "bushu": "弓", "bushuYomi": "ゆみ", "examples": ["弱", "弟", "弦"], "kyu": "準2" },
+{ "id": 43, "kanji": "勅", "bushu": "力", "bushuYomi": "ちから", "examples": ["勲", "勘", "劾"], "kyu": "準2" },
+{ "id": 44, "kanji": "寧", "bushu": "宀", "bushuYomi": "うかんむり", "examples": ["宵", "寛", "寡"], "kyu": "準2" },
+{ "id": 45, "kanji": "扉", "bushu": "戸", "bushuYomi": "とかんむり", "examples": ["扇", "房", "扉"], "kyu": "準2" },
+{ "id": 46, "kanji": "賓", "bushu": "貝", "bushuYomi": "かい", "examples": ["貞", "貢", "賦"], "kyu": "準2" },
+{ "id": 47, "kanji": "弊", "bushu": "廾", "bushuYomi": "にじゅうあし", "examples": ["弁", "弄"], "kyu": "準2" },
+{ "id": 48, "kanji": "摩", "bushu": "手", "bushuYomi": "て", "examples": ["掌", "撃", "承"], "kyu": "準2" },
+{ "id": 49, "kanji": "庸", "bushu": "广", "bushuYomi": "まだれ", "examples": ["庶", "廉", "廃"], "kyu": "準2" },
+{ "id": 50, "kanji": "竜", "bushu": "竜", "bushuYomi": "りゅう", "examples": [], "kyu": "準2" },
+{ "id": 51, "kanji": "虜", "bushu": "虍", "bushuYomi": "とらがしら", "examples": ["虜", "虐", "虚"], "kyu": "準2" },
+{ "id": 52, "kanji": "累", "bushu": "糸", "bushuYomi": "いと", "examples": ["索", "繭", "緊"], "kyu": "準2" },
+{ "id": 53, "kanji": "尉", "bushu": "寸", "bushuYomi": "すん", "examples": ["寿", "封", "尋"], "kyu": "準2" },
+{ "id": 54, "kanji": "韻", "bushu": "音", "bushuYomi": "おと", "examples": ["響"], "kyu": "準2" },
+{ "id": 55, "kanji": "翁", "bushu": "羽", "bushuYomi": "はね", "examples": ["翻", "翼", "翌"], "kyu": "準2" },
+{ "id": 56, "kanji": "劾", "bushu": "力", "bushuYomi": "ちから", "examples": ["勲", "勘", "劾"], "kyu": "準2" },
+{ "id": 57, "kanji": "款", "bushu": "欠", "bushuYomi": "かける", "examples": ["欧", "欺", "歓"], "kyu": "準2" },
+{ "id": 58, "kanji": "遮", "bushu": "辶", "bushuYomi": "しんにょう", "examples": ["逓", "逐", "逝"], "kyu": "準2" },
+{ "id": 59, "kanji": "刃", "bushu": "刀", "bushuYomi": "かたな", "examples": ["券", "初", "切"], "kyu": "準2" },
+{ "id": 60, "kanji": "崇", "bushu": "山", "bushuYomi": "やま", "examples": ["岳", "崩", "岡"], "kyu": "準2" },
+{ "id": 61, "kanji": "窃", "bushu": "穴", "bushuYomi": "あなかんむり", "examples": ["窃", "窮", "突"], "kyu": "準2" },
+{ "id": 62, "kanji": "衷", "bushu": "衣", "bushuYomi": "ころも", "examples": ["衷", "衰", "装"], "kyu": "準2" },
+{ "id": 63, "kanji": "尼", "bushu": "尸", "bushuYomi": "しかばね", "examples": ["履", "尿", "尽"], "kyu": "準2" },
+{ "id": 64, "kanji": "閥", "bushu": "門", "bushuYomi": "もんがまえ", "examples": ["閲", "闘", "閥"], "kyu": "準2" },
+{ "id": 65, "kanji": "癒", "bushu": "疒", "bushuYomi": "やまいだれ", "examples": ["痴", "疫"], "kyu": "準2" },
+{ "id": 66, "kanji": "羅", "bushu": "罒", "bushuYomi": "あみがしら", "examples": ["罷", "罰", "署"], "kyu": "準2" },
+{ "id": 67, "kanji": "堪", "bushu": "土", "bushuYomi": "つちへん", "examples": ["壊", "塀", "塚"], "kyu": "準2" },
+{ "id": 68, "kanji": "閑", "bushu": "門", "bushuYomi": "もんがまえ", "examples": ["閲", "闘", "閥"], "kyu": "準2" },
+{ "id": 69, "kanji": "宜", "bushu": "宀", "bushuYomi": "うかんむり", "examples": ["宵", "寛", "寡"], "kyu": "準2" },
+{ "id": 70, "kanji": "享", "bushu": "亠", "bushuYomi": "けいさんかんむり", "examples": ["亡", "京", "享"], "kyu": "準2" },
+{ "id": 71, "kanji": "献", "bushu": "犬", "bushuYomi": "いぬ", "examples": ["獣", "状"], "kyu": "準2" },
+{ "id": 72, "kanji": "宵", "bushu": "宀", "bushuYomi": "うかんむり", "examples": ["宵", "寛", "寡"], "kyu": "準2" },
+{ "id": 73, "kanji": "徹", "bushu": "彳", "bushuYomi": "ぎょうにんべん", "examples": ["循", "徐", "御"], "kyu": "準2" },
+{ "id": 74, "kanji": "迭", "bushu": "辶", "bushuYomi": "しんにょう", "examples": ["逓", "逐", "逝"], "kyu": "準2" },
+{ "id": 75, "kanji": "逸", "bushu": "辶", "bushuYomi": "しんにょう", "examples": ["逓", "逐", "逝"], "kyu": "準2" },
+{ "id": 76, "kanji": "寡", "bushu": "宀", "bushuYomi": "うかんむり", "examples": ["宵", "寛", "寡"], "kyu": "準2" },
+{ "id": 77, "kanji": "碁", "bushu": "石", "bushuYomi": "いし", "examples": ["碁", "磁", "砕"], "kyu": "準2" },
+{ "id": 78, "kanji": "宰", "bushu": "宀", "bushuYomi": "うかんむり", "examples": ["宵", "寛", "寡"], "kyu": "準2" },
+{ "id": 79, "kanji": "索", "bushu": "糸", "bushuYomi": "いと", "examples": ["索", "繭", "緊"], "kyu": "準2" },
+{ "id": 80, "kanji": "囚", "bushu": "口", "bushuYomi": "くにがまえ", "examples": ["呈", "喪", "呉"], "kyu": "準2" }
+];
+
+// 漢字検定準2級 問題データ（対義語・類義語・出る順Aランク）
+const jun2TaigiruiData = [
+{ "id": 1, "word": "召還", "wordYomi": "しょうかん", "kind": "対義語", "answer": "派遣", "answerYomi": "はけん", "kyu": "準2" },
+{ "id": 2, "word": "高尚", "wordYomi": "こうしょう", "kind": "対義語", "answer": "低俗", "answerYomi": "ていぞく", "kyu": "準2" },
+{ "id": 3, "word": "中枢", "wordYomi": "ちゅうすう", "kind": "対義語", "answer": "末端", "answerYomi": "まったん", "kyu": "準2" },
+{ "id": 4, "word": "受諾", "wordYomi": "じゅだく", "kind": "対義語", "answer": "拒否", "answerYomi": "きょひ", "kyu": "準2" },
+{ "id": 5, "word": "凡庸", "wordYomi": "ぼんよう", "kind": "対義語", "answer": "偉大", "answerYomi": "いだい", "kyu": "準2" },
+{ "id": 6, "word": "拘束", "wordYomi": "こうそく", "kind": "対義語", "answer": "釈放", "answerYomi": "しゃくほう", "kyu": "準2" },
+{ "id": 7, "word": "漠然", "wordYomi": "ばくぜん", "kind": "対義語", "answer": "鮮明", "answerYomi": "せんめい", "kyu": "準2" },
+{ "id": 8, "word": "醜悪", "wordYomi": "しゅうあく", "kind": "対義語", "answer": "美麗", "answerYomi": "びれい", "kyu": "準2" },
+{ "id": 9, "word": "裕福", "wordYomi": "ゆうふく", "kind": "対義語", "answer": "貧困", "answerYomi": "ひんこん", "kyu": "準2" },
+{ "id": 10, "word": "絶賛", "wordYomi": "ぜっさん", "kind": "対義語", "answer": "酷評", "answerYomi": "こくひょう", "kyu": "準2" },
+{ "id": 11, "word": "屈指", "wordYomi": "くっし", "kind": "類義語", "answer": "抜群", "answerYomi": "ばつぐん", "kyu": "準2" },
+{ "id": 12, "word": "醜聞", "wordYomi": "しゅうぶん", "kind": "類義語", "answer": "汚名", "answerYomi": "おめい", "kyu": "準2" },
+{ "id": 13, "word": "忍耐", "wordYomi": "にんたい", "kind": "類義語", "answer": "我慢", "answerYomi": "がまん", "kyu": "準2" },
+{ "id": 14, "word": "泰然", "wordYomi": "たいぜん", "kind": "類義語", "answer": "沈着", "answerYomi": "ちんちゃく", "kyu": "準2" },
+{ "id": 15, "word": "同等", "wordYomi": "どうとう", "kind": "類義語", "answer": "匹敵", "answerYomi": "ひってき", "kyu": "準2" },
+{ "id": 16, "word": "回顧", "wordYomi": "かいこ", "kind": "類義語", "answer": "追憶", "answerYomi": "ついおく", "kyu": "準2" },
+{ "id": 17, "word": "干渉", "wordYomi": "かんしょう", "kind": "類義語", "answer": "介入", "answerYomi": "かいにゅう", "kyu": "準2" },
+{ "id": 18, "word": "普通", "wordYomi": "ふつう", "kind": "類義語", "answer": "尋常", "answerYomi": "じんじょう", "kyu": "準2" },
+{ "id": 19, "word": "奔走", "wordYomi": "ほんそう", "kind": "類義語", "answer": "尽力", "answerYomi": "じんりょく", "kyu": "準2" },
+{ "id": 20, "word": "肯定", "wordYomi": "こうてい", "kind": "類義語", "answer": "是認", "answerYomi": "ぜにん", "kyu": "準2" },
+{ "id": 21, "word": "浄化", "wordYomi": "じょうか", "kind": "対義語", "answer": "汚染", "answerYomi": "おせん", "kyu": "準2" },
+{ "id": 22, "word": "恭順", "wordYomi": "きょうじゅん", "kind": "対義語", "answer": "反抗", "answerYomi": "はんこう", "kyu": "準2" },
+{ "id": 23, "word": "剛健", "wordYomi": "ごうけん", "kind": "対義語", "answer": "柔弱", "answerYomi": "にゅうじゃく", "kyu": "準2" },
+{ "id": 24, "word": "中庸", "wordYomi": "ちゅうよう", "kind": "対義語", "answer": "極端", "answerYomi": "きょくたん", "kyu": "準2" },
+{ "id": 25, "word": "淡泊", "wordYomi": "たんぱく", "kind": "対義語", "answer": "濃厚", "answerYomi": "のうこう", "kyu": "準2" },
+{ "id": 26, "word": "逸材", "wordYomi": "いつざい", "kind": "対義語", "answer": "凡才", "answerYomi": "ぼんさい", "kyu": "準2" },
+{ "id": 27, "word": "純白", "wordYomi": "じゅんぱく", "kind": "対義語", "answer": "漆黒", "answerYomi": "しっこく", "kyu": "準2" },
+{ "id": 28, "word": "懐柔", "wordYomi": "かいじゅう", "kind": "対義語", "answer": "威圧", "answerYomi": "いあつ", "kyu": "準2" },
+{ "id": 29, "word": "清浄", "wordYomi": "せいじょう", "kind": "対義語", "answer": "汚濁", "answerYomi": "おだく", "kyu": "準2" },
+{ "id": 30, "word": "擁護", "wordYomi": "ようご", "kind": "対義語", "answer": "侵害", "answerYomi": "しんがい", "kyu": "準2" },
+{ "id": 31, "word": "削除", "wordYomi": "さくじょ", "kind": "対義語", "answer": "添加", "answerYomi": "てんか", "kyu": "準2" },
+{ "id": 32, "word": "希釈", "wordYomi": "きしゃく", "kind": "対義語", "answer": "濃縮", "answerYomi": "のうしゅく", "kyu": "準2" },
+{ "id": 33, "word": "緩慢", "wordYomi": "かんまん", "kind": "対義語", "answer": "敏速", "answerYomi": "びんそく", "kyu": "準2" },
+{ "id": 34, "word": "閑暇", "wordYomi": "かんか", "kind": "対義語", "answer": "多忙", "answerYomi": "たぼう", "kyu": "準2" },
+{ "id": 35, "word": "克明", "wordYomi": "こくめい", "kind": "類義語", "answer": "丹念", "answerYomi": "たんねん", "kyu": "準2" },
+{ "id": 36, "word": "憤慨", "wordYomi": "ふんがい", "kind": "類義語", "answer": "激怒", "answerYomi": "げきど", "kyu": "準2" },
+{ "id": 37, "word": "酌量", "wordYomi": "しゃくりょう", "kind": "類義語", "answer": "考慮", "answerYomi": "こうりょ", "kyu": "準2" },
+{ "id": 38, "word": "将来", "wordYomi": "しょうらい", "kind": "類義語", "answer": "前途", "answerYomi": "ぜんと", "kyu": "準2" },
+{ "id": 39, "word": "勲功", "wordYomi": "くんこう", "kind": "類義語", "answer": "功労", "answerYomi": "こうろう", "kyu": "準2" },
+{ "id": 40, "word": "激励", "wordYomi": "げきれい", "kind": "類義語", "answer": "鼓舞", "answerYomi": "こぶ", "kyu": "準2" },
+{ "id": 41, "word": "伯仲", "wordYomi": "はくちゅう", "kind": "類義語", "answer": "互角", "answerYomi": "ごかく", "kyu": "準2" },
+{ "id": 42, "word": "懲戒", "wordYomi": "ちょうかい", "kind": "類義語", "answer": "処罰", "answerYomi": "しょばつ", "kyu": "準2" },
+{ "id": 43, "word": "貢献", "wordYomi": "こうけん", "kind": "類義語", "answer": "寄与", "answerYomi": "きよ", "kyu": "準2" },
+{ "id": 44, "word": "難点", "wordYomi": "なんてん", "kind": "類義語", "answer": "欠点", "answerYomi": "けってん", "kyu": "準2" },
+{ "id": 45, "word": "薄情", "wordYomi": "はくじょう", "kind": "類義語", "answer": "冷淡", "answerYomi": "れいたん", "kyu": "準2" },
+{ "id": 46, "word": "普遍", "wordYomi": "ふへん", "kind": "類義語", "answer": "一般", "answerYomi": "いっぱん", "kyu": "準2" },
+{ "id": 47, "word": "永遠", "wordYomi": "えいえん", "kind": "類義語", "answer": "悠久", "answerYomi": "ゆうきゅう", "kyu": "準2" },
+{ "id": 48, "word": "道徳", "wordYomi": "どうとく", "kind": "類義語", "answer": "倫理", "answerYomi": "りんり", "kyu": "準2" },
+{ "id": 49, "word": "傑物", "wordYomi": "けつぶつ", "kind": "対義語", "answer": "凡人", "answerYomi": "ぼんじん", "kyu": "準2" },
+{ "id": 50, "word": "記憶", "wordYomi": "きおく", "kind": "対義語", "answer": "忘却", "answerYomi": "ぼうきゃく", "kyu": "準2" },
+{ "id": 51, "word": "高慢", "wordYomi": "こうまん", "kind": "対義語", "answer": "謙虚", "answerYomi": "けんきょ", "kyu": "準2" },
+{ "id": 52, "word": "売却", "wordYomi": "ばいきゃく", "kind": "対義語", "answer": "購入", "answerYomi": "こうにゅう", "kyu": "準2" },
+{ "id": 53, "word": "緩慢", "wordYomi": "かんまん", "kind": "対義語", "answer": "迅速", "answerYomi": "じんそく", "kyu": "準2" },
+{ "id": 54, "word": "個別", "wordYomi": "こべつ", "kind": "対義語", "answer": "一斉", "answerYomi": "いっせい", "kyu": "準2" },
+{ "id": 55, "word": "蓄積", "wordYomi": "ちくせき", "kind": "対義語", "answer": "消耗", "answerYomi": "しょうもう", "kyu": "準2" },
+{ "id": 56, "word": "喪失", "wordYomi": "そうしつ", "kind": "対義語", "answer": "獲得", "answerYomi": "かくとく", "kyu": "準2" },
+{ "id": 57, "word": "衰微", "wordYomi": "すいび", "kind": "対義語", "answer": "繁栄", "answerYomi": "はんえい", "kyu": "準2" },
+{ "id": 58, "word": "絶滅", "wordYomi": "ぜつめつ", "kind": "対義語", "answer": "繁殖", "answerYomi": "はんしょく", "kyu": "準2" },
+{ "id": 59, "word": "動転", "wordYomi": "どうてん", "kind": "類義語", "answer": "仰天", "answerYomi": "ぎょうてん", "kyu": "準2" },
+{ "id": 60, "word": "炎熱", "wordYomi": "えんねつ", "kind": "類義語", "answer": "猛暑", "answerYomi": "もうしょ", "kyu": "準2" },
+{ "id": 61, "word": "残念", "wordYomi": "ざんねん", "kind": "類義語", "answer": "遺憾", "answerYomi": "いかん", "kyu": "準2" },
+{ "id": 62, "word": "根幹", "wordYomi": "こんかん", "kind": "類義語", "answer": "基盤", "answerYomi": "きばん", "kyu": "準2" },
+{ "id": 63, "word": "対価", "wordYomi": "たいか", "kind": "類義語", "answer": "報酬", "answerYomi": "ほうしゅう", "kyu": "準2" },
+{ "id": 64, "word": "平穏", "wordYomi": "へいおん", "kind": "類義語", "answer": "安寧", "answerYomi": "あんねい", "kyu": "準2" },
+{ "id": 65, "word": "熟睡", "wordYomi": "じゅくすい", "kind": "類義語", "answer": "安眠", "answerYomi": "あんみん", "kyu": "準2" },
+{ "id": 66, "word": "輸送", "wordYomi": "ゆそう", "kind": "類義語", "answer": "運搬", "answerYomi": "うんぱん", "kyu": "準2" },
+{ "id": 67, "word": "邸宅", "wordYomi": "ていたく", "kind": "類義語", "answer": "屋敷", "answerYomi": "やしき", "kyu": "準2" },
+{ "id": 68, "word": "懇切", "wordYomi": "こんせつ", "kind": "類義語", "answer": "丁寧", "answerYomi": "ていねい", "kyu": "準2" },
+{ "id": 69, "word": "恥辱", "wordYomi": "ちじょく", "kind": "対義語", "answer": "名誉", "answerYomi": "めいよ", "kyu": "準2" },
+{ "id": 70, "word": "分割", "wordYomi": "ぶんかつ", "kind": "対義語", "answer": "一括", "answerYomi": "いっかつ", "kyu": "準2" },
+{ "id": 71, "word": "厳格", "wordYomi": "げんかく", "kind": "対義語", "answer": "寛容", "answerYomi": "かんよう", "kyu": "準2" },
+{ "id": 72, "word": "軽侮", "wordYomi": "けいぶ", "kind": "対義語", "answer": "崇拝", "answerYomi": "すうはい", "kyu": "準2" },
+{ "id": 73, "word": "混乱", "wordYomi": "こんらん", "kind": "対義語", "answer": "秩序", "answerYomi": "ちつじょ", "kyu": "準2" },
+{ "id": 74, "word": "湿潤", "wordYomi": "しつじゅん", "kind": "対義語", "answer": "乾燥", "answerYomi": "かんそう", "kyu": "準2" },
+{ "id": 75, "word": "暫時", "wordYomi": "ざんじ", "kind": "対義語", "answer": "恒久", "answerYomi": "こうきゅう", "kyu": "準2" },
+{ "id": 76, "word": "開放", "wordYomi": "かいほう", "kind": "対義語", "answer": "閉鎖", "answerYomi": "へいさ", "kyu": "準2" },
+{ "id": 77, "word": "概略", "wordYomi": "がいりゃく", "kind": "対義語", "answer": "詳細", "answerYomi": "しょうさい", "kyu": "準2" },
+{ "id": 78, "word": "仙境", "wordYomi": "せんきょう", "kind": "対義語", "answer": "俗界", "answerYomi": "ぞっかい", "kyu": "準2" },
+{ "id": 79, "word": "隆起", "wordYomi": "りゅうき", "kind": "対義語", "answer": "沈降", "answerYomi": "ちんこう", "kyu": "準2" },
+{ "id": 80, "word": "機敏", "wordYomi": "きびん", "kind": "対義語", "answer": "鈍重", "answerYomi": "どんじゅう", "kyu": "準2" },
+{ "id": 81, "word": "供述", "wordYomi": "きょうじゅつ", "kind": "対義語", "answer": "黙秘", "answerYomi": "もくひ", "kyu": "準2" },
+{ "id": 82, "word": "結合", "wordYomi": "けつごう", "kind": "対義語", "answer": "分離", "answerYomi": "ぶんり", "kyu": "準2" },
+{ "id": 83, "word": "道端", "wordYomi": "みちばた", "kind": "類義語", "answer": "路傍", "answerYomi": "ろぼう", "kyu": "準2" },
+{ "id": 84, "word": "技量", "wordYomi": "ぎりょう", "kind": "類義語", "answer": "手腕", "answerYomi": "しゅわん", "kyu": "準2" },
+{ "id": 85, "word": "譲歩", "wordYomi": "じょうほ", "kind": "類義語", "answer": "妥協", "answerYomi": "だきょう", "kyu": "準2" },
+{ "id": 86, "word": "適切", "wordYomi": "てきせつ", "kind": "類義語", "answer": "妥当", "answerYomi": "だとう", "kyu": "準2" },
+{ "id": 87, "word": "死角", "wordYomi": "しかく", "kind": "類義語", "answer": "盲点", "answerYomi": "もうてん", "kyu": "準2" },
+{ "id": 88, "word": "冷酷", "wordYomi": "れいこく", "kind": "類義語", "answer": "非情", "answerYomi": "ひじょう", "kyu": "準2" },
+{ "id": 89, "word": "看過", "wordYomi": "かんか", "kind": "類義語", "answer": "黙認", "answerYomi": "もくにん", "kyu": "準2" },
+{ "id": 90, "word": "無視", "wordYomi": "むし", "kind": "類義語", "answer": "黙殺", "answerYomi": "もくさつ", "kyu": "準2" },
+{ "id": 91, "word": "逝去", "wordYomi": "せいきょ", "kind": "類義語", "answer": "永眠", "answerYomi": "えいみん", "kyu": "準2" },
+{ "id": 92, "word": "長者", "wordYomi": "ちょうじゃ", "kind": "類義語", "answer": "富豪", "answerYomi": "ふごう", "kyu": "準2" },
+{ "id": 93, "word": "難点", "wordYomi": "なんてん", "kind": "類義語", "answer": "欠陥", "answerYomi": "けっかん", "kyu": "準2" },
+{ "id": 94, "word": "理由", "wordYomi": "りゆう", "kind": "類義語", "answer": "根拠", "answerYomi": "こんきょ", "kyu": "準2" },
+{ "id": 95, "word": "本気", "wordYomi": "ほんき", "kind": "類義語", "answer": "真剣", "answerYomi": "しんけん", "kyu": "準2" },
+{ "id": 96, "word": "留意", "wordYomi": "りゅうい", "kind": "類義語", "answer": "配慮", "answerYomi": "はいりょ", "kyu": "準2" }
+];
+
+// 漢字検定準2級 問題データ（同音・同訓異字・出る順Aランク）
+const jun2DouseiData = [
+{ "id": 1, "sentence": "閣僚のコウ迭が報道された。", "katakana": "コウ", "kanji": "更", "word": "更迭", "correctedSentence": "閣僚の更迭が報道された。", "imi": "役職者をかえること。", "kyu": "準2" },
+{ "id": 2, "sentence": "どこまでもコウ涼とした景色だ。", "katakana": "コウ", "kanji": "荒", "word": "荒涼", "correctedSentence": "どこまでも荒涼とした景色だ。", "imi": "あれ果てて寂しいさま。", "kyu": "準2" },
+{ "id": 3, "sentence": "MRーで脳の状態をトウ視する。", "katakana": "トウ", "kanji": "透", "word": "透視", "correctedSentence": "MRーで脳の状態を透視する。", "imi": "すかして見ること。", "kyu": "準2" },
+{ "id": 4, "sentence": "水トウに温かいお茶を入れる。", "katakana": "トウ", "kanji": "筒", "word": "水筒", "correctedSentence": "水筒に温かいお茶を入れる。", "imi": "飲料を携帯する容器。", "kyu": "準2" },
+{ "id": 5, "sentence": "アルコールへのイ存を断つ。", "katakana": "イ", "kanji": "依", "word": "依存", "correctedSentence": "アルコールへの依存を断つ。", "imi": "やめられないこと。", "kyu": "準2" },
+{ "id": 6, "sentence": "イ嚇のための空砲を撃つ。", "katakana": "イ", "kanji": "威", "word": "威嚇", "correctedSentence": "威嚇のための空砲を撃つ。", "imi": "おどしつけること。", "kyu": "準2" },
+{ "id": 7, "sentence": "悪の温ショウとなっている店だ。", "katakana": "ショウ", "kanji": "床", "word": "温床", "correctedSentence": "悪の温床となっている店だ。", "imi": "何かを育成する環境。", "kyu": "準2" },
+{ "id": 8, "sentence": "飼い犬を愛ショウで呼ぶ。", "katakana": "ショウ", "kanji": "称", "word": "愛称", "correctedSentence": "飼い犬を愛称で呼ぶ。", "imi": "親しみを込めた呼び名。", "kyu": "準2" },
+{ "id": 9, "sentence": "ケン微鏡で細菌を調べる。", "katakana": "ケン", "kanji": "顕", "word": "顕微鏡", "correctedSentence": "顕微鏡で細菌を調べる。", "imi": "拡大して見る装置。", "kyu": "準2" },
+{ "id": 10, "sentence": "男女ケン用のバッグを新調する。", "katakana": "ケン", "kanji": "兼", "word": "兼用", "correctedSentence": "男女兼用のバッグを新調する。", "imi": "複数用途に使うこと。", "kyu": "準2" },
+{ "id": 11, "sentence": "厄カイな問題を持ち込まれる。", "katakana": "カイ", "kanji": "介", "word": "厄介", "correctedSentence": "厄介な問題を持ち込まれる。", "imi": "面倒で迷惑なこと。", "kyu": "準2" },
+{ "id": 12, "sentence": "不正行為に懲カイ処分を与える。", "katakana": "カイ", "kanji": "戒", "word": "懲戒", "correctedSentence": "不正行為に懲戒処分を与える。", "imi": "不正をこらしめること。", "kyu": "準2" },
+{ "id": 13, "sentence": "雄大な景色に詠タンする。", "katakana": "タン", "kanji": "嘆", "word": "詠嘆", "correctedSentence": "雄大な景色に詠嘆する。", "imi": "深く感動すること。", "kyu": "準2" },
+{ "id": 14, "sentence": "植木をタン念に手入れする。", "katakana": "タン", "kanji": "丹", "word": "丹念", "correctedSentence": "植木を丹念に手入れする。", "imi": "丁寧に行うこと。", "kyu": "準2" },
+{ "id": 15, "sentence": "繁ボウな日々に疲れて旅に出る。", "katakana": "ボウ", "kanji": "忙", "word": "繁忙", "correctedSentence": "繁忙な日々に疲れて旅に出る。", "imi": "用事でいそがしいこと。", "kyu": "準2" },
+{ "id": 16, "sentence": "理科室でカエルの解ボウをする。", "katakana": "ボウ", "kanji": "剖", "word": "解剖", "correctedSentence": "理科室でカエルの解剖をする。", "imi": "生体を解体して観察すること。", "kyu": "準2" },
+{ "id": 17, "sentence": "文化の違いを比カクしてみる。", "katakana": "カク", "kanji": "較", "word": "比較", "correctedSentence": "文化の違いを比較してみる。", "imi": "くらべること。", "kyu": "準2" },
+{ "id": 18, "sentence": "工場のカク張工事を行う。", "katakana": "カク", "kanji": "拡", "word": "拡張", "correctedSentence": "工場の拡張工事を行う。", "imi": "大きく広げること。", "kyu": "準2" },
+{ "id": 19, "sentence": "多額の負サイを数年で完済した。", "katakana": "サイ", "kanji": "債", "word": "負債", "correctedSentence": "多額の負債を数年で完済した。", "imi": "借金や債務。", "kyu": "準2" },
+{ "id": 20, "sentence": "社長のサイ断を仰ぐ。", "katakana": "サイ", "kanji": "裁", "word": "裁断", "correctedSentence": "社長の裁断を仰ぐ。", "imi": "判断、断定すること。", "kyu": "準2" },
+{ "id": 21, "sentence": "故郷に帰って家業をツいだ。", "katakana": "ツ", "kanji": "継", "word": "継いだ", "correctedSentence": "故郷に帰って家業を継いだ。", "imi": "あとを受けて続けること。", "kyu": "準2" },
+{ "id": 22, "sentence": "防波堤で魚をツる。", "katakana": "ツ", "kanji": "釣", "word": "釣る", "correctedSentence": "防波堤で魚を釣る。", "imi": "針に引っかけてとること。", "kyu": "準2" },
+{ "id": 23, "sentence": "馬が森の中をカける。", "katakana": "カ", "kanji": "駆", "word": "駆ける", "correctedSentence": "馬が森の中を駆ける。", "imi": "足で走ること。", "kyu": "準2" },
+{ "id": 24, "sentence": "機械で田んぼの稲をカる。", "katakana": "カ", "kanji": "刈", "word": "刈る", "correctedSentence": "機械で田んぼの稲を刈る。", "imi": "根元で切り取ること。", "kyu": "準2" },
+{ "id": 25, "sentence": "選手代表がセン誓を行う。", "katakana": "セン", "kanji": "宣", "word": "宣誓", "correctedSentence": "選手代表が宣誓を行う。", "imi": "誓いの言葉を述べること。", "kyu": "準2" },
+{ "id": 26, "sentence": "海中深くまでセン水する。", "katakana": "セン", "kanji": "潜", "word": "潜水", "correctedSentence": "海中深くまで潜水する。", "imi": "水中にもぐること。", "kyu": "準2" },
+{ "id": 27, "sentence": "列車の汽笛がキョウ愁を誘う。", "katakana": "キョウ", "kanji": "郷", "word": "郷愁", "correctedSentence": "列車の汽笛が郷愁を誘う。", "imi": "なつかしむ気持ち。", "kyu": "準2" },
+{ "id": 28, "sentence": "キョウ竜の化石を観賞する。", "katakana": "キョウ", "kanji": "恐", "word": "恐竜", "correctedSentence": "恐竜の化石を観賞する。", "imi": "中生代に栄えたは虫類。", "kyu": "準2" },
+{ "id": 29, "sentence": "幼チな意見に振り回される。", "katakana": "チ", "kanji": "稚", "word": "幼稚", "correctedSentence": "幼稚な意見に振り回される。", "imi": "おさないこと。未熟。", "kyu": "準2" },
+{ "id": 30, "sentence": "町に企業を誘チする。", "katakana": "チ", "kanji": "致", "word": "誘致", "correctedSentence": "町に企業を誘致する。", "imi": "招き寄せること。", "kyu": "準2" },
+{ "id": 31, "sentence": "医師のシン断書が必要だ。", "katakana": "シン", "kanji": "診", "word": "診断", "correctedSentence": "医師の診断書が必要だ。", "imi": "診察と病状の判断。", "kyu": "準2" },
+{ "id": 32, "sentence": "就労のためにビザをシン請する。", "katakana": "シン", "kanji": "申", "word": "申請", "correctedSentence": "就労のためにビザを申請する。", "imi": "認可・許可を求めること。", "kyu": "準2" },
+{ "id": 33, "sentence": "自然カン境を保護する。", "katakana": "カン", "kanji": "環", "word": "環境", "correctedSentence": "自然環境を保護する。", "imi": "周りの世界。", "kyu": "準2" },
+{ "id": 34, "sentence": "彼へのカン大な処置を希望する。", "katakana": "カン", "kanji": "寛", "word": "寛大", "correctedSentence": "彼への寛大な処置を希望する。", "imi": "心が広いこと。", "kyu": "準2" },
+{ "id": 35, "sentence": "試合観戦のト中で席を立つ。", "katakana": "ト", "kanji": "途", "word": "途中", "correctedSentence": "試合観戦の途中で席を立つ。", "imi": "始めと終わりの間。", "kyu": "準2" },
+{ "id": 36, "sentence": "あまりの美しさにト息を漏らす。", "katakana": "ト", "kanji": "吐", "word": "吐息", "correctedSentence": "あまりの美しさに吐息を漏らす。", "imi": "ためいき。", "kyu": "準2" },
+{ "id": 37, "sentence": "不キュウの名作とされる小説だ。", "katakana": "キュウ", "kanji": "朽", "word": "不朽", "correctedSentence": "不朽の名作とされる小説だ。", "imi": "価値を失わずに残ること。", "kyu": "準2" },
+{ "id": 38, "sentence": "キュウ迫する財政を立て直す。", "katakana": "キュウ", "kanji": "窮", "word": "窮迫", "correctedSentence": "窮迫する財政を立て直す。", "imi": "行き詰まること。", "kyu": "準2" },
+{ "id": 39, "sentence": "時代をチョウ越した魅力がある。", "katakana": "チョウ", "kanji": "超", "word": "超越", "correctedSentence": "時代を超越した魅力がある。", "imi": "はるかにこえること。", "kyu": "準2" },
+{ "id": 40, "sentence": "断チョウの思いで恋人と別れる。", "katakana": "チョウ", "kanji": "腸", "word": "断腸", "correctedSentence": "断腸の思いで恋人と別れる。", "imi": "はらわたがちぎれるほど悲しいこと。", "kyu": "準2" },
+{ "id": 41, "sentence": "特訓の成果がケン著に現れた。", "katakana": "ケン", "kanji": "顕", "word": "顕著", "correctedSentence": "特訓の成果が顕著に現れた。", "imi": "目立つさま。", "kyu": "準2" },
+{ "id": 42, "sentence": "町の問題に真ケンに取り組む。", "katakana": "ケン", "kanji": "剣", "word": "真剣", "correctedSentence": "町の問題に真剣に取り組む。", "imi": "本気であること。", "kyu": "準2" },
+{ "id": 43, "sentence": "教師として多ボウな毎日を送る。", "katakana": "ボウ", "kanji": "忙", "word": "多忙", "correctedSentence": "教師として多忙な毎日を送る。", "imi": "非常にいそがしいこと。", "kyu": "準2" },
+{ "id": 44, "sentence": "株価が激しくボウ騰した。", "katakana": "ボウ", "kanji": "暴", "word": "暴騰", "correctedSentence": "株価が激しく暴騰した。", "imi": "急激に上がること。", "kyu": "準2" },
+{ "id": 45, "sentence": "新製品の製作をイ頼される。", "katakana": "イ", "kanji": "依", "word": "依頼", "correctedSentence": "新製品の製作を依頼される。", "imi": "たのむこと。", "kyu": "準2" },
+{ "id": 46, "sentence": "新しい織イを使って布を織る。", "katakana": "イ", "kanji": "維", "word": "繊維", "correctedSentence": "新しい織維を使って布を織る。", "imi": "細い糸状の物質。", "kyu": "準2" },
+{ "id": 47, "sentence": "大は小をカねる。", "katakana": "カ", "kanji": "兼", "word": "兼ねる", "correctedSentence": "大は小を兼ねる。", "imi": "二つ以上の用をすること。", "kyu": "準2" },
+{ "id": 48, "sentence": "害虫で稲がカれる。", "katakana": "カ", "kanji": "枯", "word": "枯れる", "correctedSentence": "害虫で稲が枯れる。", "imi": "草木の水分がなくなり命が終わること。", "kyu": "準2" },
+{ "id": 49, "sentence": "水泳の大会記録をコウ新した。", "katakana": "コウ", "kanji": "更", "word": "更新", "correctedSentence": "水泳の大会記録を更新した。", "imi": "新しく改めること。", "kyu": "準2" },
+{ "id": 50, "sentence": "新しい芳コウ剤を部屋に置く。", "katakana": "コウ", "kanji": "香", "word": "芳香", "correctedSentence": "新しい芳香剤を部屋に置く。", "imi": "良いかおり。", "kyu": "準2" },
+{ "id": 51, "sentence": "学歴の詐ショウが問題視された。", "katakana": "ショウ", "kanji": "称", "word": "詐称", "correctedSentence": "学歴の詐称が問題視された。", "imi": "いつわって言うこと。", "kyu": "準2" },
+{ "id": 52, "sentence": "事件のショウ細を新聞で知る。", "katakana": "ショウ", "kanji": "詳", "word": "詳細", "correctedSentence": "事件の詳細を新聞で知る。", "imi": "くわしく細かなこと。", "kyu": "準2" },
+{ "id": 53, "sentence": "痛みをカン和する薬を飲む。", "katakana": "カン", "kanji": "緩", "word": "緩和", "correctedSentence": "痛みを緩和する薬を飲む。", "imi": "やわらげること。", "kyu": "準2" },
+{ "id": 54, "sentence": "カン轄区域で事件が発生した。", "katakana": "カン", "kanji": "管", "word": "管轄", "correctedSentence": "管轄区域で事件が発生した。", "imi": "権限の及ぶ範囲。", "kyu": "準2" },
+{ "id": 55, "sentence": "トウ突な質問に戸惑う。", "katakana": "トウ", "kanji": "唐", "word": "唐突", "correctedSentence": "唐突な質問に戸惑う。", "imi": "だしぬけな様子。", "kyu": "準2" },
+{ "id": 56, "sentence": "窃トウ事件が増加している。", "katakana": "トウ", "kanji": "盗", "word": "窃盗", "correctedSentence": "窃盗事件が増加している。", "imi": "ぬすむこと。", "kyu": "準2" },
+{ "id": 57, "sentence": "感染者を病院にカク離する。", "katakana": "カク", "kanji": "隔", "word": "隔離", "correctedSentence": "感染者を病院に隔離する。", "imi": "へだてて離すこと。", "kyu": "準2" },
+{ "id": 58, "sentence": "希少動物の乱カクを阻止する。", "katakana": "カク", "kanji": "獲", "word": "乱獲", "correctedSentence": "希少動物の乱獲を阻止する。", "imi": "やたらにとること。", "kyu": "準2" },
+{ "id": 59, "sentence": "動きに精サイを欠いていた。", "katakana": "サイ", "kanji": "彩", "word": "精彩", "correctedSentence": "動きに精彩を欠いていた。", "imi": "生き生きとした感じ。", "kyu": "準2" },
+{ "id": 60, "sentence": "家賃のサイ促を受ける。", "katakana": "サイ", "kanji": "催", "word": "催促", "correctedSentence": "家賃の催促を受ける。", "imi": "せきたてること。", "kyu": "準2" },
+{ "id": 61, "sentence": "全国から救エン物資が届く。", "katakana": "エン", "kanji": "援", "word": "救援", "correctedSentence": "全国から救援物資が届く。", "imi": "救い助けること。", "kyu": "準2" },
+{ "id": 62, "sentence": "エン故を頼って島に移住した。", "katakana": "エン", "kanji": "縁", "word": "縁故", "correctedSentence": "縁故を頼って島に移住した。", "imi": "つながり。コネ。", "kyu": "準2" },
+{ "id": 63, "sentence": "美の極チに達した作品と評された。", "katakana": "チ", "kanji": "致", "word": "極致", "correctedSentence": "美の極致に達した作品と評された。", "imi": "最高の境地。きわみ。", "kyu": "準2" },
+{ "id": 64, "sentence": "敵の進軍により窮チに陥る。", "katakana": "チ", "kanji": "地", "word": "窮地", "correctedSentence": "敵の進軍により窮地に陥る。", "imi": "逃げ場のない苦境。", "kyu": "準2" },
+{ "id": 65, "sentence": "高価な贈り物にキョウ縮する。", "katakana": "キョウ", "kanji": "恐", "word": "恐縮", "correctedSentence": "高価な贈り物に恐縮する。", "imi": "おそれ入ること。", "kyu": "準2" },
+{ "id": 66, "sentence": "店の再建にキョウ奔する。", "katakana": "キョウ", "kanji": "狂", "word": "狂奔", "correctedSentence": "店の再建に狂奔する。", "imi": "懸命に努力すること。", "kyu": "準2" },
+{ "id": 67, "sentence": "突然の友人の死に号キュウする。", "katakana": "キュウ", "kanji": "泣", "word": "号泣", "correctedSentence": "突然の友人の死に号泣する。", "imi": "大声で泣くこと。", "kyu": "準2" },
+{ "id": 68, "sentence": "首相の進退問題に言及キュウする。", "katakana": "キュウ", "kanji": "及", "word": "言及", "correctedSentence": "首相の進退問題に言及及する。", "imi": "話がそれに関連することにまで及ぶこと。", "kyu": "準2" },
+{ "id": 69, "sentence": "蚊が媒カイして伝染病が広まる。", "katakana": "カイ", "kanji": "介", "word": "媒介", "correctedSentence": "蚊が媒介して伝染病が広まる。", "imi": "仲立ちをすること。", "kyu": "準2" },
+{ "id": 70, "sentence": "正しい方法がカイ目わからない。", "katakana": "カイ", "kanji": "皆", "word": "皆目", "correctedSentence": "正しい方法が皆目わからない。", "imi": "全く。全然。", "kyu": "準2" },
+{ "id": 71, "sentence": "ソウ音で話し声がかき消された。", "katakana": "ソウ", "kanji": "騒", "word": "騒音", "correctedSentence": "騒音で話し声がかき消された。", "imi": "さわがしい音。", "kyu": "準2" },
+{ "id": 72, "sentence": "将軍はソウ絶な最期を迎えた。", "katakana": "ソウ", "kanji": "壮", "word": "壮絶", "correctedSentence": "将軍は壮絶な最期を迎えた。", "imi": "勇ましく激しいさま。", "kyu": "準2" },
+{ "id": 73, "sentence": "助命のタン願書を提出する。", "katakana": "タン", "kanji": "嘆", "word": "嘆願", "correctedSentence": "助命の嘆願書を提出する。", "imi": "説明して願うこと。", "kyu": "準2" },
+{ "id": 74, "sentence": "先タン技術を学ぶ。", "katakana": "タン", "kanji": "端", "word": "先端", "correctedSentence": "先端技術を学ぶ。", "imi": "時代の先頭。最新。", "kyu": "準2" },
+{ "id": 75, "sentence": "著名なチョウ刻家の作品を見る。", "katakana": "チョウ", "kanji": "彫", "word": "彫刻", "correctedSentence": "著名な彫刻家の作品を見る。", "imi": "像などをほり込むこと。", "kyu": "準2" },
+{ "id": 76, "sentence": "見事なチョウ躍で優勝した。", "katakana": "チョウ", "kanji": "跳", "word": "跳躍", "correctedSentence": "見事な跳躍で優勝した。", "imi": "とび上がること。", "kyu": "準2" },
+{ "id": 77, "sentence": "出社したト端に電話が鳴った。", "katakana": "ト", "kanji": "途", "word": "途端", "correctedSentence": "出社した途端に電話が鳴った。", "imi": "ちょうどその瞬間。", "kyu": "準2" },
+{ "id": 78, "sentence": "歴史の過ト期に現れた偉人だ。", "katakana": "ト", "kanji": "渡", "word": "過渡期", "correctedSentence": "歴史の過渡期に現れた偉人だ。", "imi": "途中の時期。", "kyu": "準2" },
+{ "id": 79, "sentence": "孤児として世のシン酸をなめる。", "katakana": "シン", "kanji": "辛", "word": "辛酸", "correctedSentence": "孤児として世の辛酸をなめる。", "imi": "苦しくつらいこと。", "kyu": "準2" },
+{ "id": 80, "sentence": "先方の考えを打シンしてみる。", "katakana": "シン", "kanji": "診", "word": "打診", "correctedSentence": "先方の考えを打診してみる。", "imi": "前もって相手の意向や様子をさぐること。", "kyu": "準2" },
+{ "id": 81, "sentence": "努力を続ける友人の姿に脱ボウした。", "katakana": "ボウ", "kanji": "帽", "word": "脱帽", "correctedSentence": "努力を続ける友人の姿に脱帽した。", "imi": "敬服、降参すること。", "kyu": "準2" },
+{ "id": 82, "sentence": "ボウ大な予算を投入する。", "katakana": "ボウ", "kanji": "膨", "word": "膨大", "correctedSentence": "膨大な予算を投入する。", "imi": "非常に大きいこと。", "kyu": "準2" },
+{ "id": 83, "sentence": "母校は遠カクの地にある。", "katakana": "カク", "kanji": "隔", "word": "遠隔", "correctedSentence": "母校は遠隔の地にある。", "imi": "遠く離れていること。", "kyu": "準2" },
+{ "id": 84, "sentence": "優勝して多額の賞金をカク得した。", "katakana": "カク", "kanji": "獲", "word": "獲得", "correctedSentence": "優勝して多額の賞金を獲得した。", "imi": "手に入れること。", "kyu": "準2" },
+{ "id": 85, "sentence": "異サイを放つ作品に出会った。", "katakana": "サイ", "kanji": "彩", "word": "異彩", "correctedSentence": "異彩を放つ作品に出会った。", "imi": "他と違っているさま。", "kyu": "準2" },
+{ "id": 86, "sentence": "新年最初の演奏会が開サイされる。", "katakana": "サイ", "kanji": "催", "word": "開催", "correctedSentence": "新年最初の演奏会が開催される。", "imi": "会などを開くこと。", "kyu": "準2" },
+{ "id": 87, "sentence": "大雨で土砂崩れを警カイする。", "katakana": "カイ", "kanji": "戒", "word": "警戒", "correctedSentence": "大雨で土砂崩れを警戒する。", "imi": "注意、用心すること。", "kyu": "準2" },
+{ "id": 88, "sentence": "カイ既日食により辺りが暗くなる。", "katakana": "カイ", "kanji": "皆", "word": "皆既日食", "correctedSentence": "皆既日食により辺りが暗くなる。", "imi": "太陽の全体が隠れる日食。", "kyu": "準2" },
+{ "id": 89, "sentence": "被災地に支エン物資が届く。", "katakana": "エン", "kanji": "援", "word": "支援", "correctedSentence": "被災地に支援物資が届く。", "imi": "支え助けること。", "kyu": "準2" },
+{ "id": 90, "sentence": "亜エンでメッキしてサビを防ぐ。", "katakana": "エン", "kanji": "鉛", "word": "亜鉛", "correctedSentence": "亜鉛でメッキしてサビを防ぐ。", "imi": "金属元素の一つ。", "kyu": "準2" },
+{ "id": 91, "sentence": "事件の経イを詳しく報告する。", "katakana": "イ", "kanji": "緯", "word": "経緯", "correctedSentence": "事件の経緯を詳しく報告する。", "imi": "物事のいきさつ。", "kyu": "準2" },
+{ "id": 92, "sentence": "大臣がイ憾の意を表明した。", "katakana": "イ", "kanji": "遺", "word": "遺憾", "correctedSentence": "大臣が遺憾の意を表明した。", "imi": "残念に思うこと。", "kyu": "準2" },
+{ "id": 93, "sentence": "猟師が山に入って熊をカる。", "katakana": "カ", "kanji": "狩", "word": "狩る", "correctedSentence": "猟師が山に入って熊を狩る。", "imi": "鳥獣を捕らえること。", "kyu": "準2" },
+{ "id": 94, "sentence": "自宅に三匹の犬をカっている。", "katakana": "カ", "kanji": "飼", "word": "飼う", "correctedSentence": "自宅に三匹の犬を飼っている。", "imi": "養い育てること。", "kyu": "準2" },
+{ "id": 95, "sentence": "最新の耐シン構造で設計する。", "katakana": "シン", "kanji": "震", "word": "耐震", "correctedSentence": "最新の耐震構造で設計する。", "imi": "地震に耐えること。", "kyu": "準2" },
+{ "id": 96, "sentence": "人権をシン害されたと抗議する。", "katakana": "シン", "kanji": "侵", "word": "侵害", "correctedSentence": "人権を侵害されたと抗議する。", "imi": "他者の権利をおかして損害を与えること。", "kyu": "準2" },
+{ "id": 97, "sentence": "経済政策による効果が波キュウする。", "katakana": "キュウ", "kanji": "及", "word": "波及", "correctedSentence": "経済政策による効果が波及する。", "imi": "徐々に広がること。", "kyu": "準2" },
+{ "id": 98, "sentence": "会社のキュウ弊を打破する。", "katakana": "キュウ", "kanji": "旧", "word": "旧弊", "correctedSentence": "会社の旧弊を打破する。", "imi": "古い習慣などの弊害。", "kyu": "準2" },
+{ "id": 99, "sentence": "戦乱でコウ廃した国の様子に驚く。", "katakana": "コウ", "kanji": "荒", "word": "荒廃", "correctedSentence": "戦乱で荒廃した国の様子に驚く。", "imi": "あれすさむこと。", "kyu": "準2" },
+{ "id": 100, "sentence": "運動用の生地にコウ菌加工を施す。", "katakana": "コウ", "kanji": "抗", "word": "抗菌", "correctedSentence": "運動用の生地に抗菌加工を施す。", "imi": "細菌の繁殖を抑えること。", "kyu": "準2" },
+{ "id": 101, "sentence": "農業と会社員をケン業する。", "katakana": "ケン", "kanji": "兼", "word": "兼業", "correctedSentence": "農業と会社員を兼業する。", "imi": "仕事の掛け持ち。", "kyu": "準2" },
+{ "id": 102, "sentence": "ケン道の世界大会で優勝を果たす。", "katakana": "ケン", "kanji": "剣", "word": "剣道", "correctedSentence": "剣道の世界大会で優勝を果たす。", "imi": "竹刀で争う格技。", "kyu": "準2" },
+{ "id": 103, "sentence": "敬ショウを省略して発表する。", "katakana": "ショウ", "kanji": "称", "word": "敬称", "correctedSentence": "敬称を省略して発表する。", "imi": "敬意を表す呼び方。", "kyu": "準2" },
+{ "id": 104, "sentence": "相ショウの良い仲間でチームを組む。", "katakana": "ショウ", "kanji": "性", "word": "相性", "correctedSentence": "相性の良い仲間でチームを組む。", "imi": "性格が合うこと。", "kyu": "準2" },
+{ "id": 105, "sentence": "理不尽な命令をキョ否する。", "katakana": "キョ", "kanji": "拒", "word": "拒否", "correctedSentence": "理不尽な命令を拒否する。", "imi": "受け入れず断ること。", "kyu": "準2" },
+{ "id": 106, "sentence": "引用文の典キョを明らかにする。", "katakana": "キョ", "kanji": "拠", "word": "典拠", "correctedSentence": "引用文の典拠を明らかにする。", "imi": "確かなよりどころ。", "kyu": "準2" },
+{ "id": 107, "sentence": "モウ烈な勢いで海に飛び込む。", "katakana": "モウ", "kanji": "猛", "word": "猛烈", "correctedSentence": "猛烈な勢いで海に飛び込む。", "imi": "程度が激しいこと。", "kyu": "準2" },
+{ "id": 108, "sentence": "これまでの実例をモウ羅する。", "katakana": "モウ", "kanji": "網", "word": "網羅", "correctedSentence": "これまでの実例を網羅する。", "imi": "残らずすべてを取り入れること。", "kyu": "準2" },
+{ "id": 109, "sentence": "興奮のあまり絶キョウする。", "katakana": "キョウ", "kanji": "叫", "word": "絶叫", "correctedSentence": "興奮のあまり絶叫する。", "imi": "大声を発すること。", "kyu": "準2" },
+{ "id": 110, "sentence": "安易な妥キョウを許さない。", "katakana": "キョウ", "kanji": "協", "word": "妥協", "correctedSentence": "安易な妥協を許さない。", "imi": "相手に譲ること。", "kyu": "準2" },
+{ "id": 111, "sentence": "物ソウな世の中になった。", "katakana": "ソウ", "kanji": "騒", "word": "物騒", "correctedSentence": "物騒な世の中になった。", "imi": "危険を感じること。", "kyu": "準2" },
+{ "id": 112, "sentence": "二人の禅ソウの問答を拝聴する。", "katakana": "ソウ", "kanji": "僧", "word": "禅僧", "correctedSentence": "二人の禅僧の問答を拝聴する。", "imi": "禅宗のお坊さん。", "kyu": "準2" },
+{ "id": 113, "sentence": "新入生をサークルにカン誘する。", "katakana": "カン", "kanji": "勧", "word": "勧誘", "correctedSentence": "新入生をサークルに勧誘する。", "imi": "すすめてさそうこと。", "kyu": "準2" },
+{ "id": 114, "sentence": "カン弦楽団の演奏を聴く。", "katakana": "カン", "kanji": "管", "word": "管弦", "correctedSentence": "管弦楽団の演奏を聴く。", "imi": "管楽器と弦楽器。", "kyu": "準2" },
+{ "id": 115, "sentence": "雑トウに紛れた犯人を探す。", "katakana": "トウ", "kanji": "踏", "word": "雑踏", "correctedSentence": "雑踏に紛れた犯人を探す。", "imi": "人ごみ。", "kyu": "準2" },
+{ "id": 116, "sentence": "あふれるトウ魂を見せつける。", "katakana": "トウ", "kanji": "闘", "word": "闘魂", "correctedSentence": "あふれる闘魂を見せつける。", "imi": "戦う意気込み。", "kyu": "準2" },
+{ "id": 117, "sentence": "時代の最先タンを行く。", "katakana": "タン", "kanji": "端", "word": "最先端", "correctedSentence": "時代の最先端を行く。", "imi": "一番新しいところ。", "kyu": "準2" },
+{ "id": 118, "sentence": "タン精込めて野菜を育てる。", "katakana": "タン", "kanji": "丹", "word": "丹精", "correctedSentence": "丹精込めて野菜を育てる。", "imi": "まごころ。誠意。", "kyu": "準2" },
+{ "id": 119, "sentence": "本物に酷ジした偽物を見破る。", "katakana": "ジ", "kanji": "似", "word": "酷似", "correctedSentence": "本物に酷似した偽物を見破る。", "imi": "そっくりなこと。", "kyu": "準2" },
+{ "id": 120, "sentence": "ジ養に富む食材を利用する。", "katakana": "ジ", "kanji": "滋", "word": "滋養", "correctedSentence": "滋養に富む食材を利用する。", "imi": "栄養となること。", "kyu": "準2" },
+{ "id": 121, "sentence": "代表チームのカン督に就任する。", "katakana": "カン", "kanji": "監", "word": "監督", "correctedSentence": "代表チームの監督に就任する。", "imi": "取り締まること、人。", "kyu": "準2" },
+{ "id": 122, "sentence": "カン静な高級住宅地だ。", "katakana": "カン", "kanji": "閑", "word": "閑静", "correctedSentence": "閑静な高級住宅地だ。", "imi": "ひっそり静かなさま。", "kyu": "準2" },
+{ "id": 123, "sentence": "会議のボウ頭で新提案があった。", "katakana": "ボウ", "kanji": "冒", "word": "冒頭", "correctedSentence": "会議の冒頭で新提案があった。", "imi": "はじめの部分。", "kyu": "準2" },
+{ "id": 124, "sentence": "脂ボウの多い豚肉を食べる。", "katakana": "ボウ", "kanji": "肪", "word": "脂肪", "correctedSentence": "脂肪の多い豚肉を食べる。", "imi": "動植物のあぶら。", "kyu": "準2" },
+{ "id": 125, "sentence": "車にカメラ機能を搭サイする。", "katakana": "サイ", "kanji": "載", "word": "搭載", "correctedSentence": "車にカメラ機能を搭載する。", "imi": "装備などを組み込むこと。", "kyu": "準2" },
+{ "id": 126, "sentence": "色サイの鮮やかな衣装を着る。", "katakana": "サイ", "kanji": "彩", "word": "色彩", "correctedSentence": "色彩の鮮やかな衣装を着る。", "imi": "いろどりや色合い。", "kyu": "準2" },
+{ "id": 127, "sentence": "新しいジャンルにチョウ戦する。", "katakana": "チョウ", "kanji": "挑", "word": "挑戦", "correctedSentence": "新しいジャンルに挑戦する。", "imi": "戦いをいどむこと。", "kyu": "準2" },
+{ "id": 128, "sentence": "ハトは平和の象チョウと評される。", "katakana": "チョウ", "kanji": "徴", "word": "象徴", "correctedSentence": "ハトは平和の象徴と評される。", "imi": "概念を具体的な事物で表したもの。", "kyu": "準2" },
+{ "id": 129, "sentence": "野菜を袋にツめる。", "katakana": "ツ", "kanji": "詰", "word": "詰める", "correctedSentence": "野菜を袋に詰める。", "imi": "すき間なく入れること。", "kyu": "準2" },
+{ "id": 130, "sentence": "野草をツんで花瓶に生ける。", "katakana": "ツ", "kanji": "摘", "word": "摘む", "correctedSentence": "野草を摘んで花瓶に生ける。", "imi": "指先ではさみとること。", "kyu": "準2" },
+{ "id": 131, "sentence": "故人を追トウする会を開く。", "katakana": "トウ", "kanji": "悼", "word": "追悼", "correctedSentence": "故人を追悼する会を開く。", "imi": "死をいたむこと。", "kyu": "準2" },
+{ "id": 132, "sentence": "夜中に救急病トウに運ばれた。", "katakana": "トウ", "kanji": "棟", "word": "病棟", "correctedSentence": "夜中に救急病棟に運ばれた。", "imi": "病室のある建物。", "kyu": "準2" },
+{ "id": 133, "sentence": "爆発音で場内がソウ然とした。", "katakana": "ソウ", "kanji": "騒", "word": "騒然", "correctedSentence": "爆発音で場内が騒然とした。", "imi": "さわがしい様子。", "kyu": "準2" },
+{ "id": 134, "sentence": "ソウ烈を極めた戦いを制する。", "katakana": "ソウ", "kanji": "壮", "word": "壮烈", "correctedSentence": "壮烈を極めた戦いを制する。", "imi": "意気盛んで激しいこと。", "kyu": "準2" },
+{ "id": 135, "sentence": "以前にも類ジした事件があった。", "katakana": "ジ", "kanji": "似", "word": "類似", "correctedSentence": "以前にも類似した事件があった。", "imi": "にていること。", "kyu": "準2" },
+{ "id": 136, "sentence": "大晦日に家中を掃ジする。", "katakana": "ジ", "kanji": "除", "word": "掃除", "correctedSentence": "大晦日に家中を掃除する。", "imi": "汚れを取り去る家事。", "kyu": "準2" },
+{ "id": 137, "sentence": "台風で交通モウが分断された。", "katakana": "モウ", "kanji": "網", "word": "交通網", "correctedSentence": "台風で交通網が分断された。", "imi": "縦横に通じた交通。", "kyu": "準2" },
+{ "id": 138, "sentence": "法のモウ点をつく悪徳商法だ。", "katakana": "モウ", "kanji": "盲", "word": "盲点", "correctedSentence": "法の盲点をつく悪徳商法だ。", "imi": "見落としている点。", "kyu": "準2" },
+{ "id": 139, "sentence": "歴史上の英ユウを物語に描く。", "katakana": "ユウ", "kanji": "雄", "word": "英雄", "correctedSentence": "歴史上の英雄を物語に描く。", "imi": "偉業を成し遂げた人。", "kyu": "準2" },
+{ "id": 140, "sentence": "気持ちにやっと余ユウが生まれた。", "katakana": "ユウ", "kanji": "裕", "word": "余裕", "correctedSentence": "気持ちにやっと余裕が生まれた。", "imi": "ゆとり。", "kyu": "準2" },
+{ "id": 141, "sentence": "ケン虚な態度で話を聞く。", "katakana": "ケン", "kanji": "謙", "word": "謙虚", "correctedSentence": "謙虚な態度で話を聞く。", "imi": "控え目でつつましいこと。", "kyu": "準2" },
+{ "id": 142, "sentence": "通勤ケン内に家を購入する。", "katakana": "ケン", "kanji": "圏", "word": "圏内", "correctedSentence": "通勤圏内に家を購入する。", "imi": "ある範囲の内。", "kyu": "準2" },
+{ "id": 143, "sentence": "起ショウ時間を一時間早める。", "katakana": "ショウ", "kanji": "床", "word": "起床", "correctedSentence": "起床時間を一時間早める。", "imi": "起きること。", "kyu": "準2" },
+{ "id": 144, "sentence": "会場全体が爆ショウに包まれた。", "katakana": "ショウ", "kanji": "笑", "word": "爆笑", "correctedSentence": "会場全体が爆笑に包まれた。", "imi": "大勢が一度に笑うこと。", "kyu": "準2" },
+{ "id": 145, "sentence": "宗教の厳しいカイ律を守る。", "katakana": "カイ", "kanji": "戒", "word": "戒律", "correctedSentence": "宗教の厳しい戒律を守る。", "imi": "仏教の規則や規範。", "kyu": "準2" },
+{ "id": 146, "sentence": "卒業式でカイ勤賞をもらった。", "katakana": "カイ", "kanji": "皆", "word": "皆勤", "correctedSentence": "卒業式で皆勤賞をもらった。", "imi": "一日も休まないこと。", "kyu": "準2" },
+{ "id": 147, "sentence": "庶民には無エンの世界です。", "katakana": "エン", "kanji": "縁", "word": "無縁", "correctedSentence": "庶民には無縁の世界です。", "imi": "関係がないこと。", "kyu": "準2" },
+{ "id": 148, "sentence": "喫エン室でタバコを吸う。", "katakana": "エン", "kanji": "煙", "word": "喫煙", "correctedSentence": "喫煙室でタバコを吸う。", "imi": "タバコを吸うこと。", "kyu": "準2" },
+{ "id": 149, "sentence": "新技術が急速に普キュウした。", "katakana": "キュウ", "kanji": "及", "word": "普及", "correctedSentence": "新技術が急速に普及した。", "imi": "広く行き渡ること。", "kyu": "準2" },
+{ "id": 150, "sentence": "老キュウした校舎を取り壊す。", "katakana": "キュウ", "kanji": "朽", "word": "老朽", "correctedSentence": "老朽した校舎を取り壊す。", "imi": "古くて役立たないこと。", "kyu": "準2" },
+{ "id": 151, "sentence": "交渉で両者の意見が合チした。", "katakana": "チ", "kanji": "致", "word": "合致", "correctedSentence": "交渉で両者の意見が合致した。", "imi": "ぴったり合うこと。", "kyu": "準2" },
+{ "id": 152, "sentence": "愚チをこぼしながら酒を飲む。", "katakana": "チ", "kanji": "痴", "word": "愚痴", "correctedSentence": "愚痴をこぼしながら酒を飲む。", "imi": "無駄ななげき。", "kyu": "準2" },
+{ "id": 153, "sentence": "敵の要塞をコウ略する。", "katakana": "コウ", "kanji": "攻", "word": "攻略", "correctedSentence": "敵の要塞を攻略する。", "imi": "巧みに打ち負かすこと。", "kyu": "準2" },
+{ "id": 154, "sentence": "雑誌に俳句を投コウする。", "katakana": "コウ", "kanji": "稿", "word": "投稿", "correctedSentence": "雑誌に俳句を投稿する。", "imi": "文章などを送ること。", "kyu": "準2" },
+{ "id": 155, "sentence": "違法駐車する車を撤キョする。", "katakana": "キョ", "kanji": "去", "word": "撤去", "correctedSentence": "違法駐車する車を撤去する。", "imi": "取り去ること。", "kyu": "準2" },
+{ "id": 156, "sentence": "根キョのない話は信用しない。", "katakana": "キョ", "kanji": "拠", "word": "根拠", "correctedSentence": "根拠のない話は信用しない。", "imi": "よりどころ。理由。", "kyu": "準2" },
+{ "id": 157, "sentence": "完全試合に観衆は熱キョウした。", "katakana": "キョウ", "kanji": "狂", "word": "熱狂", "correctedSentence": "完全試合に観衆は熱狂した。", "imi": "興奮し熱中すること。", "kyu": "準2" },
+{ "id": 158, "sentence": "冷静に状キョウを判断する。", "katakana": "キョウ", "kanji": "況", "word": "状況", "correctedSentence": "冷静に状況を判断する。", "imi": "その場のありさま。", "kyu": "準2" },
+{ "id": 159, "sentence": "よく耳をスまして聞いてみる。", "katakana": "ス", "kanji": "澄", "word": "澄ます", "correctedSentence": "よく耳を澄まして聞いてみる。", "imi": "意識を集中すること。", "kyu": "準2" },
+{ "id": 160, "sentence": "出国の手続きをスます。", "katakana": "ス", "kanji": "済", "word": "済ます", "correctedSentence": "出国の手続きを済ます。", "imi": "終わらせること。", "kyu": "準2" },
+{ "id": 161, "sentence": "寺院のソウ大さに心を奪われた。", "katakana": "ソウ", "kanji": "壮", "word": "壮大", "correctedSentence": "寺院の壮大さに心を奪われた。", "imi": "規模が大きく立派。", "kyu": "準2" },
+{ "id": 162, "sentence": "大学のソウ立百周年を祝う。", "katakana": "ソウ", "kanji": "創", "word": "創立", "correctedSentence": "大学の創立百周年を祝う。", "imi": "初めてつくること。", "kyu": "準2" },
+{ "id": 163, "sentence": "モウ暑で体調を崩す人が続出する。", "katakana": "モウ", "kanji": "猛", "word": "猛暑", "correctedSentence": "猛暑で体調を崩す人が続出する。", "imi": "ひどい暑さ。", "kyu": "準2" },
+{ "id": 164, "sentence": "長年の願いがかなう本モウです。", "katakana": "モウ", "kanji": "望", "word": "本望", "correctedSentence": "長年の願いがかなう本望です。", "imi": "志を達成し満足であること。", "kyu": "準2" },
+{ "id": 165, "sentence": "個別に参加費をチョウ収する。", "katakana": "チョウ", "kanji": "徴", "word": "徴収", "correctedSentence": "個別に参加費を徴収する。", "imi": "金を取り立てること。", "kyu": "準2" },
+{ "id": 166, "sentence": "盲チョウの手術で入院する。", "katakana": "チョウ", "kanji": "腸", "word": "盲腸", "correctedSentence": "盲腸の手術で入院する。", "imi": "虫垂または虫垂炎。", "kyu": "準2" },
+{ "id": 167, "sentence": "使ト不明の金を追及する。", "katakana": "ト", "kanji": "途", "word": "使途", "correctedSentence": "使途不明の金を追及する。", "imi": "使いみち。", "kyu": "準2" },
+{ "id": 168, "sentence": "持ち家の所有権を譲トする。", "katakana": "ト", "kanji": "渡", "word": "譲渡", "correctedSentence": "持ち家の所有権を譲渡する。", "imi": "ゆずりわたすこと。", "kyu": "準2" },
+{ "id": 169, "sentence": "恩師に就職口をショウ介される。", "katakana": "ショウ", "kanji": "紹", "word": "紹介", "correctedSentence": "恩師に就職口を紹介される。", "imi": "引き合わせること。", "kyu": "準2" },
+{ "id": 170, "sentence": "この度は誠にご愁ショウ様です。", "katakana": "ショウ", "kanji": "傷", "word": "愁傷", "correctedSentence": "この度は誠にご愁傷様です。", "imi": "嘆き悲しむこと。", "kyu": "準2" },
+{ "id": 171, "sentence": "循カン器の専門医に診せる。", "katakana": "カン", "kanji": "環", "word": "循環器", "correctedSentence": "循環器の専門医に診せる。", "imi": "血液などを運ぶ器官。", "kyu": "準2" },
+{ "id": 172, "sentence": "ここは空気がカン燥している。", "katakana": "カン", "kanji": "乾", "word": "乾燥", "correctedSentence": "ここは空気が乾燥している。", "imi": "水分がないこと。", "kyu": "準2" },
+{ "id": 173, "sentence": "話題の事件の裁判をボウ聴する。", "katakana": "ボウ", "kanji": "傍", "word": "傍聴", "correctedSentence": "話題の事件の裁判を傍聴する。", "imi": "そばで聞くこと。", "kyu": "準2" },
+{ "id": 174, "sentence": "引っ越しして雑用にボウ殺される。", "katakana": "ボウ", "kanji": "忙", "word": "忙殺", "correctedSentence": "引っ越しして雑用に忙殺される。", "imi": "仕事に追われること。", "kyu": "準2" },
+{ "id": 175, "sentence": "施設を大幅にカク充した。", "katakana": "カク", "kanji": "拡", "word": "拡充", "correctedSentence": "施設を大幅に拡充した。", "imi": "広げ充実させること。", "kyu": "準2" },
+{ "id": 176, "sentence": "事件のカク心に鋭く迫る。", "katakana": "カク", "kanji": "核", "word": "核心", "correctedSentence": "事件の核心に鋭く迫る。", "imi": "中心となる大切な所。", "kyu": "準2" },
+{ "id": 177, "sentence": "この戦いで雌ユウを決する。", "katakana": "ユウ", "kanji": "雄", "word": "雌雄", "correctedSentence": "この戦いで雌雄を決する。", "imi": "優劣。勝敗。", "kyu": "準2" },
+{ "id": 178, "sentence": "銀行へユウ資を申し込む。", "katakana": "ユウ", "kanji": "融", "word": "融資", "correctedSentence": "銀行へ融資を申し込む。", "imi": "資金を融通すること。", "kyu": "準2" },
+{ "id": 179, "sentence": "団体戦の勝利にコウ献する。", "katakana": "コウ", "kanji": "貢", "word": "貢献", "correctedSentence": "団体戦の勝利に貢献する。", "imi": "役立つよう尽力すること。", "kyu": "準2" },
+{ "id": 180, "sentence": "カニはコウ殻類に属す。", "katakana": "コウ", "kanji": "甲", "word": "甲殻類", "correctedSentence": "カニは甲殻類に属す。", "imi": "節足動物の一綱の総称。", "kyu": "準2" },
+{ "id": 181, "sentence": "社内全員の意見が一チした。", "katakana": "チ", "kanji": "致", "word": "一致", "correctedSentence": "社内全員の意見が一致した。", "imi": "ぴったり一つになること。", "kyu": "準2" },
+{ "id": 182, "sentence": "許しがたいチ辱を受けた。", "katakana": "チ", "kanji": "恥", "word": "恥辱", "correctedSentence": "許しがたい恥辱を受けた。", "imi": "はじ。はずかしめ。", "kyu": "準2" },
+{ "id": 183, "sentence": "知恵と実行力で他を圧トウする。", "katakana": "トウ", "kanji": "倒", "word": "圧倒", "correctedSentence": "知恵と実行力で他を圧倒する。", "imi": "他を圧倒的な力で負かすこと。", "kyu": "準2" },
+{ "id": 184, "sentence": "周トウに計画を進める。", "katakana": "トウ", "kanji": "到", "word": "周到", "correctedSentence": "周到に計画を進める。", "imi": "行き届いていること。", "kyu": "準2" },
+{ "id": 185, "sentence": "古典のキョ匠の名曲を聴く。", "katakana": "キョ", "kanji": "巨", "word": "巨匠", "correctedSentence": "古典の巨匠の名曲を聴く。", "imi": "芸術方面の大家。", "kyu": "準2" },
+{ "id": 186, "sentence": "車間キョ離を広くとって走る。", "katakana": "キョ", "kanji": "距", "word": "距離", "correctedSentence": "車間距離を広くとって走る。", "imi": "物事の間の隔たり。", "kyu": "準2" },
+{ "id": 187, "sentence": "応募した詩が新聞に掲サイされた。", "katakana": "サイ", "kanji": "載", "word": "掲載", "correctedSentence": "応募した詩が新聞に掲載された。", "imi": "文などをのせること。", "kyu": "準2" },
+{ "id": 188, "sentence": "陶器の皿にサイ色を施す。", "katakana": "サイ", "kanji": "彩", "word": "彩色", "correctedSentence": "陶器の皿に彩色を施す。", "imi": "色をつけること。", "kyu": "準2" },
+{ "id": 189, "sentence": "病気の原因をツき止める。", "katakana": "ツ", "kanji": "突", "word": "突き止める", "correctedSentence": "病気の原因を突き止める。", "imi": "はっきりさせること。", "kyu": "準2" },
+{ "id": 190, "sentence": "犯人逮捕に全力をツくした。", "katakana": "ツ", "kanji": "尽", "word": "尽くす", "correctedSentence": "犯人逮捕に全力を尽くした。", "imi": "出し切ること。", "kyu": "準2" },
+{ "id": 191, "sentence": "銭湯のエン突から煙が上がる。", "katakana": "エン", "kanji": "煙", "word": "煙突", "correctedSentence": "銭湯の煙突から煙が上がる。", "imi": "けむりを外に出す設備。", "kyu": "準2" },
+{ "id": 192, "sentence": "あの二人は犬エンの仲だ。", "katakana": "エン", "kanji": "猿", "word": "犬猿", "correctedSentence": "あの二人は犬猿の仲だ。", "imi": "仲が悪いもののたとえ。", "kyu": "準2" },
+{ "id": 193, "sentence": "資格試験にキュウ第する。", "katakana": "キュウ", "kanji": "及", "word": "及第", "correctedSentence": "資格試験に及第する。", "imi": "合格すること。", "kyu": "準2" },
+{ "id": 194, "sentence": "キュウ陵地帯に樹木を植える。", "katakana": "キュウ", "kanji": "丘", "word": "丘陵", "correctedSentence": "丘陵地帯に樹木を植える。", "imi": "あまり高くない山地。", "kyu": "準2" },
+{ "id": 195, "sentence": "現在自宅で謹シン中の身です。", "katakana": "シン", "kanji": "慎", "word": "謹慎", "correctedSentence": "現在自宅で謹慎中の身です。", "imi": "言行をつつしむこと。", "kyu": "準2" },
+{ "id": 196, "sentence": "午後のシン療は一時からです。", "katakana": "シン", "kanji": "診", "word": "診療", "correctedSentence": "午後の診療は一時からです。", "imi": "診察と治療。", "kyu": "準2" },
+{ "id": 197, "sentence": "新人選手がセン風を巻き起こす。", "katakana": "セン", "kanji": "旋", "word": "旋風", "correctedSentence": "新人選手が旋風を巻き起こす。", "imi": "急激に反響を呼ぶ動き。", "kyu": "準2" },
+{ "id": 198, "sentence": "母の愛情を独センして育つ。", "katakana": "セン", "kanji": "占", "word": "独占", "correctedSentence": "母の愛情を独占して育つ。", "imi": "一人じめにすること。", "kyu": "準2" },
+{ "id": 199, "sentence": "ケン実な経営方針で信頼を得る。", "katakana": "ケン", "kanji": "堅", "word": "堅実", "correctedSentence": "堅実な経営方針で信頼を得る。", "imi": "手がたく確実なこと。", "kyu": "準2" },
+{ "id": 200, "sentence": "敵国に特使を派ケンした。", "katakana": "ケン", "kanji": "遣", "word": "派遣", "correctedSentence": "敵国に特使を派遣した。", "imi": "役目を負わせて行かせること。", "kyu": "準2" }
+];
+
+// 漢字検定準2級 問題データ（誤字訂正・出る順Aランク）
+const jun2GojiData = [
+{ "id": 1, "wrong": "朗", "correct": "露", "word": "披露", "reading": "ひろう", "sentence": "役者の襲名披朗の公演が華々しく行われて、切符売り場に行列が出来た。", "kyu": "準2" },
+{ "id": 2, "wrong": "待", "correct": "逮", "word": "逮捕", "reading": "たいほ", "sentence": "待捕状を呈示された容疑者は肩を落として刑事に両手を差し出した。", "kyu": "準2" },
+{ "id": 3, "wrong": "拠", "correct": "去", "word": "撤去", "reading": "てっきょ", "sentence": "デモ隊が築いた違法な構造物を撤拠するため行政当局は機動隊を突入させた。", "kyu": "準2" },
+{ "id": 4, "wrong": "採", "correct": "載", "word": "搭載", "reading": "とうさい", "sentence": "携帯電話のカメラはストロボ発光機能などが搭採され専用カメラに近づいた。", "kyu": "準2" },
+{ "id": 5, "wrong": "販", "correct": "搬", "word": "搬送", "reading": "はんそう", "sentence": "余震が頻発する被災地で救急隊は細心の注意をもって傷病者を販送した。", "kyu": "準2" },
+{ "id": 6, "wrong": "位", "correct": "囲", "word": "雰囲気", "reading": "ふんいき", "sentence": "その女優が発散する独特な雰位気を文章だけで表現するのは至難の業だ。", "kyu": "準2" },
+{ "id": 7, "wrong": "礼", "correct": "麗", "word": "華麗", "reading": "かれい", "sentence": "色とりどりの華礼な衣装を着けた登場人物が宮廷で活躍する歴史小説を読む。", "kyu": "準2" },
+{ "id": 8, "wrong": "窮", "correct": "朽", "word": "老朽化", "reading": "ろうきゅうか", "sentence": "明治時代には華やかに舞踏会などが開かれた洋館が老窮化に伴い解体された。", "kyu": "準2" },
+{ "id": 9, "wrong": "衣", "correct": "維", "word": "繊維", "reading": "せんい", "sentence": "食物繊衣の積極的な摂取は、腸内の健康、老廃物の排出などに効果がある。", "kyu": "準2" },
+{ "id": 10, "wrong": "改", "correct": "戒", "word": "懲戒", "reading": "ちょうかい", "sentence": "不祥事が露見したが懲改処分は下されずに職務違反にとどまった。", "kyu": "準2" },
+{ "id": 11, "wrong": "排", "correct": "廃", "word": "廃棄", "reading": "はいき", "sentence": "高レベルの放射性排棄物を埋設する候補地で住民の反対運動が巻き起こった。", "kyu": "準2" },
+{ "id": 12, "wrong": "賓", "correct": "頻", "word": "頻発", "reading": "ひんぱつ", "sentence": "地球的規模の気候変動の影響で大規模な豪雨災害が賓発している。", "kyu": "準2" },
+{ "id": 13, "wrong": "勧", "correct": "喚", "word": "喚起", "reading": "かんき", "sentence": "細菌性食中毒の発生を受けて保健所は飲食店に対して注意を勧起した。", "kyu": "準2" },
+{ "id": 14, "wrong": "抜", "correct": "伐", "word": "伐採", "reading": "ばっさい", "sentence": "山岳地帯を縦断する林道の敷設では広葉樹林の抜採が予定され賛否両論がある。", "kyu": "準2" },
+{ "id": 15, "wrong": "益", "correct": "疫", "word": "免疫", "reading": "めんえき", "sentence": "過剰な運動による筋肉疲労は免益力を一時的に低下させることが証明された。", "kyu": "準2" },
+{ "id": 16, "wrong": "苦", "correct": "駆", "word": "駆除", "reading": "くじょ", "sentence": "湖畔の桜並木に発生した害虫を苦除するために薬剤散布が実施された。", "kyu": "準2" },
+{ "id": 17, "wrong": "効", "correct": "興", "word": "振興", "reading": "しんこう", "sentence": "伝統産業を効興するため地域の高校に専門課程を設置する策が採られた。", "kyu": "準2" },
+{ "id": 18, "wrong": "適", "correct": "摘", "word": "摘発", "reading": "てきはつ", "sentence": "投票後に一斉適発された選挙違反者のうち約八割を買収容疑が占めた。", "kyu": "準2" },
+{ "id": 19, "wrong": "途", "correct": "渡", "word": "渡航", "reading": "とこう", "sentence": "紛争発生後に外務省は不要不急の途航を中止するよう勧告を出した。", "kyu": "準2" },
+{ "id": 20, "wrong": "縁", "correct": "援", "word": "支援", "reading": "しえん", "sentence": "市は避難時に支縁が必要な人の名簿を作成し、災害に備えることを決定した。", "kyu": "準2" },
+{ "id": 21, "wrong": "技", "correct": "儀", "word": "余儀", "reading": "よぎ", "sentence": "報道に旧悪を暴露された閣僚が、任期半ばにして辞職を余技なくされた。", "kyu": "準2" },
+{ "id": 22, "wrong": "倒", "correct": "悼", "word": "追悼", "reading": "ついとう", "sentence": "非業の死を遂げた牧師の追倒集会には彼の遺志に賛同する参列者が集まった。", "kyu": "準2" },
+{ "id": 23, "wrong": "看", "correct": "患", "word": "患者", "reading": "かんじゃ", "sentence": "入院看者と医療従事者に多数の発病者が出たことで院内感染が疑われた。", "kyu": "準2" },
+{ "id": 24, "wrong": "換", "correct": "環", "word": "循環", "reading": "じゅんかん", "sentence": "画期的な海水循換システムが開発され海産魚介の陸上養殖が本格化した。", "kyu": "準2" },
+{ "id": 25, "wrong": "故", "correct": "雇", "word": "雇用", "reading": "こよう", "sentence": "実際の勤務は故用契約書に記載されたものよりも過酷なものだった。", "kyu": "準2" },
+{ "id": 26, "wrong": "置", "correct": "致", "word": "誘致", "reading": "ゆうち", "sentence": "過疎化が進む地域で企業を誘置するため税の優遇を行っている。", "kyu": "準2" },
+{ "id": 27, "wrong": "勢", "correct": "制", "word": "抑制", "reading": "よくせい", "sentence": "露地物が出回らない時季に出荷するため、野菜の生長を抑勢して栽培する。", "kyu": "準2" },
+{ "id": 28, "wrong": "授", "correct": "需", "word": "需要", "reading": "じゅよう", "sentence": "猛暑で電力の授要が急増し、停電が懸念される事態となって節電が叫ばれた。", "kyu": "準2" },
+{ "id": 29, "wrong": "循", "correct": "巡", "word": "巡回", "reading": "じゅんかい", "sentence": "深夜も定期的に施設内を循巡している警備員が不審な物音に気付いた。", "kyu": "準2" },
+{ "id": 30, "wrong": "症", "correct": "床", "word": "臨床", "reading": "りんしょう", "sentence": "将来は獣医師を目指しているので、臨症経験を積める教室に所属している。", "kyu": "準2" },
+{ "id": 31, "wrong": "触", "correct": "殖", "word": "養殖", "reading": "ようしょく", "sentence": "津波で壊滅的な打撃を受けた沿岸養触に復活の兆候が見えてきた。", "kyu": "準2" },
+{ "id": 32, "wrong": "屈", "correct": "掘", "word": "発掘", "reading": "はっくつ", "sentence": "王墓の発屈は困難を極めたが多くの埋葬品が出土して博物館に陳列された。", "kyu": "準2" },
+{ "id": 33, "wrong": "境", "correct": "況", "word": "活況", "reading": "かっきょう", "sentence": "入場者減に悩む動物園が導入した行動展示が評判となり活境を取り戻した。", "kyu": "準2" },
+{ "id": 34, "wrong": "謄", "correct": "騰", "word": "高騰", "reading": "こうとう", "sentence": "飼料価格と人件費の高謄で経営を圧迫された酪農家の廃業が増加している。", "kyu": "準2" },
+{ "id": 35, "wrong": "擬", "correct": "偽", "word": "偽造", "reading": "ぎぞう", "sentence": "犯罪組織の本拠地を急襲した警察は大量の擬造紙幣を摘発した。", "kyu": "準2" },
+{ "id": 36, "wrong": "従", "correct": "充", "word": "充電", "reading": "じゅうでん", "sentence": "休職中は人生の従電期間と割り切って震災復興のボランティアに参加した。", "kyu": "準2" },
+{ "id": 37, "wrong": "尚", "correct": "奨", "word": "奨学金", "reading": "しょうがくきん", "sentence": "高等教育の就学支援制度として返済が不要の給付型尚学金が開始された。", "kyu": "準2" },
+{ "id": 38, "wrong": "益", "correct": "役", "word": "懲役", "reading": "ちょうえき", "sentence": "判決は懲益二年だったが再犯のために執行猶予はつかず実刑となった。", "kyu": "準2" },
+{ "id": 39, "wrong": "撤", "correct": "徹", "word": "徹底", "reading": "てってい", "sentence": "大手居酒屋チェーンが新店舗の候補地周辺で撤底した現地調査を行った。", "kyu": "準2" },
+{ "id": 40, "wrong": "倍", "correct": "培", "word": "培養", "reading": "ばいよう", "sentence": "対象となる生物体に最適な成育環境を考慮した倍養液を調整する。", "kyu": "準2" },
+{ "id": 41, "wrong": "毛", "correct": "耗", "word": "摩耗", "reading": "まもう", "sentence": "調査委員会は事故の原因が軌道上に生じた波状摩毛にあるとの結論に達した。", "kyu": "準2" },
+{ "id": 42, "wrong": "裕", "correct": "猶", "word": "猶予", "reading": "ゆうよ", "sentence": "震災により被害を受けた企業が管轄の税務署に納税の裕予を申請した。", "kyu": "準2" },
+{ "id": 43, "wrong": "裏", "correct": "履", "word": "履歴書", "reading": "りれきしょ", "sentence": "新規採用に応募したが書類選考で不合格となった者に裏歴書を返却した。", "kyu": "準2" },
+{ "id": 44, "wrong": "卓", "correct": "託", "word": "嘱託", "reading": "しょくたく", "sentence": "定年後に希望通り嘱卓社員として用いられたが給与は約七割に減額された。", "kyu": "準2" },
+{ "id": 45, "wrong": "診", "correct": "審", "word": "審査", "reading": "しんさ", "sentence": "診査委員長から賞杯を授与された優勝チームは歓呼の声で迎えた。", "kyu": "準2" },
+{ "id": 46, "wrong": "遂", "correct": "衰", "word": "衰退", "reading": "すいたい", "sentence": "レトロな雰囲気が人気を呼び、遂退した商店街に客足が戻りつつある。", "kyu": "準2" },
+{ "id": 47, "wrong": "決", "correct": "結", "word": "凍結", "reading": "とうけつ", "sentence": "温暖化の影響で湖面の完全凍決が遅れ、氷上祭の開催日程が延期された。", "kyu": "準2" },
+{ "id": 48, "wrong": "徹", "correct": "撤", "word": "撤退", "reading": "てったい", "sentence": "海外主要都市に支店を持つ大手貿易会社が徹退を決断した。", "kyu": "準2" },
+{ "id": 49, "wrong": "奮", "correct": "紛", "word": "紛争", "reading": "ふんそう", "sentence": "政権内の派閥対立が原因で国内を二分する奮争となり社が収益悪化した。", "kyu": "準2" },
+{ "id": 50, "wrong": "挙", "correct": "許", "word": "免許", "reading": "めんきょ", "sentence": "軽い認知症をわずらう祖父は周囲の勧めに従って運転免挙の返納を決めた。", "kyu": "準2" },
+{ "id": 51, "wrong": "印", "correct": "因", "word": "誘因", "reading": "ゆういん", "sentence": "豪雨が誘印となって斜面崩壊が起き、土石流が山里の集落に襲来した。", "kyu": "準2" },
+{ "id": 52, "wrong": "居", "correct": "拠", "word": "拠点", "reading": "きょてん", "sentence": "閑静な避暑地を活動居点として佳作を発表してきた画家が大作に挑んだ。", "kyu": "準2" },
+{ "id": 53, "wrong": "陰", "correct": "隠", "word": "隠匿", "reading": "いんとく", "sentence": "課税を逃れるために市長は資産を陰匿し辞任に追い込まれた。", "kyu": "準2" },
+{ "id": 54, "wrong": "況", "correct": "響", "word": "影響", "reading": "えいきょう", "sentence": "出生率の低下は社会保険、厚生年金はもちろん消費にも多大な影況を与える。", "kyu": "準2" },
+{ "id": 55, "wrong": "洗", "correct": "染", "word": "汚染", "reading": "おせん", "sentence": "ゴミ処理場から発生するガスによる深刻な大気汚洗の解決が重要課題だ。", "kyu": "準2" },
+{ "id": 56, "wrong": "懐", "correct": "介", "word": "介護", "reading": "かいご", "sentence": "懐護施設で虐待を繰り返していた職員が内部告発により逮捕された。", "kyu": "準2" },
+{ "id": 57, "wrong": "喚", "correct": "勧", "word": "勧告", "reading": "かんこく", "sentence": "政府は人事院喚告を受け入れ国家公務員の給与及び賞与の増額を決定した。", "kyu": "準2" },
+{ "id": 58, "wrong": "観", "correct": "鑑", "word": "鑑識", "reading": "かんしき", "sentence": "発見された古書をひと目で偽作と看破した教授は優れた観識眼を証明した。", "kyu": "準2" },
+{ "id": 59, "wrong": "希", "correct": "奇", "word": "奇跡", "reading": "きせき", "sentence": "雪山で遭難した山岳隊は、数々の苦難を乗り越えて希跡の生還を果たした。", "kyu": "準2" },
+{ "id": 60, "wrong": "壊", "correct": "戒", "word": "警戒", "reading": "けいかい", "sentence": "大型台風が襲来したため近隣では地滑りや土石流を警壊して消防団が見回りに出た。", "kyu": "準2" }
+];
+
+// 漢字検定準2級 問題データ（熟語の構成・出る順Aランク）
+const jun2KouzouData = [
+{ "id": 1, "jukugo": "禍福", "answer": "イ", "explanation": "「わざわい」↔「幸福」", "reading": "かふく", "kyu": "準2" },
+{ "id": 2, "jukugo": "枢要", "answer": "ア", "explanation": "両方「かなめ」の意", "reading": "すうよう", "kyu": "準2" },
+{ "id": 3, "jukugo": "巧拙", "answer": "イ", "explanation": "「巧み」↔「つたない」", "reading": "こうせつ", "kyu": "準2" },
+{ "id": 4, "jukugo": "緒論", "answer": "ウ", "explanation": "「初め+議論」", "reading": "しょろん", "kyu": "準2" },
+{ "id": 5, "jukugo": "親疎", "answer": "イ", "explanation": "「親しい」↔「うとい」", "reading": "しんそ", "kyu": "準2" },
+{ "id": 6, "jukugo": "検疫", "answer": "エ", "explanation": "「検査する←疫病を」", "reading": "けんえき", "kyu": "準2" },
+{ "id": 7, "jukugo": "寛厳", "answer": "イ", "explanation": "「寛大」↔「厳格」", "reading": "かんげん", "kyu": "準2" },
+{ "id": 8, "jukugo": "旋回", "answer": "ア", "explanation": "両方「ぐるぐる回る」の意", "reading": "せんかい", "kyu": "準2" },
+{ "id": 9, "jukugo": "罷業", "answer": "エ", "explanation": "「やめる←仕事を」", "reading": "ひぎょう", "kyu": "準2" },
+{ "id": 10, "jukugo": "隠頭", "answer": "イ", "explanation": "「隠れる」↔「あらわれる」", "reading": "いんけん", "kyu": "準2" },
+{ "id": 11, "jukugo": "漆黒", "answer": "ウ", "explanation": "「漆をぬったように+黒い」", "reading": "しっこく", "kyu": "準2" },
+{ "id": 12, "jukugo": "把握", "answer": "ア", "explanation": "両方「つかむ」の意", "reading": "はあく", "kyu": "準2" },
+{ "id": 13, "jukugo": "硝煙", "answer": "ウ", "explanation": "「火薬の+煙」", "reading": "しょうえん", "kyu": "準2" },
+{ "id": 14, "jukugo": "疎密", "answer": "イ", "explanation": "「あらい」↔「密な」", "reading": "そみつ", "kyu": "準2" },
+{ "id": 15, "jukugo": "繊毛", "answer": "ウ", "explanation": "「細い+毛」", "reading": "せんもう", "kyu": "準2" },
+{ "id": 16, "jukugo": "紡績", "answer": "ウ", "explanation": "「糸をつむぐ」の意", "reading": "ぼうせき", "kyu": "準2" },
+{ "id": 17, "jukugo": "酪農", "answer": "ウ", "explanation": "「乳製品などの+農業」", "reading": "らくのう", "kyu": "準2" },
+{ "id": 18, "jukugo": "紛糾", "answer": "ア", "explanation": "両方「もつれる」の意", "reading": "ふんきゅう", "kyu": "準2" },
+{ "id": 19, "jukugo": "座礁", "answer": "エ", "explanation": "「乗り上げる←暗礁に」", "reading": "ざしょう", "kyu": "準2" },
+{ "id": 20, "jukugo": "災禍", "answer": "ア", "explanation": "両方「わざわい」の意", "reading": "さいか", "kyu": "準2" },
+{ "id": 21, "jukugo": "独吟", "answer": "ウ", "explanation": "「ひとりで+吟じる」", "reading": "どくぎん", "kyu": "準2" },
+{ "id": 22, "jukugo": "不肖", "answer": "オ", "explanation": "「ない←(親や師匠に)似て」", "reading": "ふしょう", "kyu": "準2" },
+{ "id": 23, "jukugo": "安寧", "answer": "ア", "explanation": "両方「やすらかである」の意", "reading": "あんねい", "kyu": "準2" },
+{ "id": 24, "jukugo": "慶弔", "answer": "イ", "explanation": "「慶事」↔「弔事」", "reading": "けいちょう", "kyu": "準2" },
+{ "id": 25, "jukugo": "殉職", "answer": "エ", "explanation": "「殉じる←職に」", "reading": "じゅんしょく", "kyu": "準2" },
+{ "id": 26, "jukugo": "頒価", "answer": "ウ", "explanation": "「頒布する+物の価格」", "reading": "はんか", "kyu": "準2" },
+{ "id": 27, "jukugo": "叙勲", "answer": "エ", "explanation": "「授ける←勲章を」", "reading": "じょくん", "kyu": "準2" },
+{ "id": 28, "jukugo": "忍苦", "answer": "エ", "explanation": "「がまんする←苦しみを」", "reading": "にんく", "kyu": "準2" },
+{ "id": 29, "jukugo": "弊風", "answer": "ウ", "explanation": "「悪い+風習」", "reading": "へいふう", "kyu": "準2" },
+{ "id": 30, "jukugo": "免租", "answer": "エ", "explanation": "「免除する←租税を」", "reading": "めんそ", "kyu": "準2" },
+{ "id": 31, "jukugo": "繁閑", "answer": "イ", "explanation": "「いそがしい」↔「ひま」", "reading": "はんかん", "kyu": "準2" },
+{ "id": 32, "jukugo": "迎賓", "answer": "エ", "explanation": "「迎える←賓客を」", "reading": "げいひん", "kyu": "準2" },
+{ "id": 33, "jukugo": "彼我", "answer": "イ", "explanation": "「相手」↔「自分」", "reading": "ひが", "kyu": "準2" },
+{ "id": 34, "jukugo": "腐臭", "answer": "ウ", "explanation": "「腐った+臭い」", "reading": "ふしゅう", "kyu": "準2" },
+{ "id": 35, "jukugo": "収賄", "answer": "エ", "explanation": "「収める←わいろを」", "reading": "しゅうわい", "kyu": "準2" },
+{ "id": 36, "jukugo": "衆寡", "answer": "イ", "explanation": "「大人数」↔「小人数」", "reading": "しゅうか", "kyu": "準2" },
+{ "id": 37, "jukugo": "分析", "answer": "ア", "explanation": "両方「細かく分ける」の意", "reading": "ぶんせき", "kyu": "準2" },
+{ "id": 38, "jukugo": "存廃", "answer": "イ", "explanation": "「存続」↔「廃止」", "reading": "そんぱい", "kyu": "準2" },
+{ "id": 39, "jukugo": "逸脱", "answer": "ア", "explanation": "両方「外れる」の意", "reading": "いつだつ", "kyu": "準2" },
+{ "id": 40, "jukugo": "興廃", "answer": "イ", "explanation": "「盛んになる」↔「すたれる」", "reading": "こうはい", "kyu": "準2" },
+{ "id": 41, "jukugo": "防疫", "answer": "エ", "explanation": "「防ぐ←疫病を」", "reading": "ぼうえき", "kyu": "準2" },
+{ "id": 42, "jukugo": "暗礁", "answer": "ウ", "explanation": "「暗くて隠れている+礁」", "reading": "あんしょう", "kyu": "準2" },
+{ "id": 43, "jukugo": "寡少", "answer": "ア", "explanation": "両方「少ない」の意", "reading": "かしょう", "kyu": "準2" },
+{ "id": 44, "jukugo": "懇談", "answer": "ウ", "explanation": "「親しげな+話し合い」", "reading": "こんだん", "kyu": "準2" },
+{ "id": 45, "jukugo": "懐郷", "answer": "エ", "explanation": "「なつかしむ←故郷を」", "reading": "かいきょう", "kyu": "準2" },
+{ "id": 46, "jukugo": "享受", "answer": "ア", "explanation": "両方「受ける」の意", "reading": "きょうじゅ", "kyu": "準2" },
+{ "id": 47, "jukugo": "献杯", "answer": "エ", "explanation": "「さしあげる←杯を」", "reading": "けんぱい", "kyu": "準2" },
+{ "id": 48, "jukugo": "哀悼", "answer": "ア", "explanation": "両方「かなしむ」の意", "reading": "あいとう", "kyu": "準2" },
+{ "id": 49, "jukugo": "孤塁", "answer": "ウ", "explanation": "「孤立した+とりで」", "reading": "こるい", "kyu": "準2" },
+{ "id": 50, "jukugo": "克己", "answer": "エ", "explanation": "「打ち勝つ←自分に」", "reading": "こっき", "kyu": "準2" },
+{ "id": 51, "jukugo": "謹慎", "answer": "ア", "explanation": "両方「つつしむ」の意", "reading": "きんしん", "kyu": "準2" },
+{ "id": 52, "jukugo": "漸進", "answer": "ウ", "explanation": "「少しずつ+進む」", "reading": "ぜんしん", "kyu": "準2" },
+{ "id": 53, "jukugo": "殉教", "answer": "エ", "explanation": "「殉じる←教えを」", "reading": "じゅんきょう", "kyu": "準2" },
+{ "id": 54, "jukugo": "庶務", "answer": "ウ", "explanation": "「もろもろの+事務」", "reading": "しょむ", "kyu": "準2" },
+{ "id": 55, "jukugo": "奨学", "answer": "エ", "explanation": "「すすめる←学問を」", "reading": "しょうがく", "kyu": "準2" },
+{ "id": 56, "jukugo": "塑像", "answer": "ウ", "explanation": "「土で作る+像」", "reading": "そぞう", "kyu": "準2" },
+{ "id": 57, "jukugo": "遷都", "answer": "エ", "explanation": "「移す←都を」", "reading": "せんと", "kyu": "準2" },
+{ "id": 58, "jukugo": "弔辞", "answer": "ウ", "explanation": "「弔いの+言葉」", "reading": "ちょうじ", "kyu": "準2" },
+{ "id": 59, "jukugo": "懲悪", "answer": "エ", "explanation": "「懲らしめる←悪を」", "reading": "ちょうあく", "kyu": "準2" },
+{ "id": 60, "jukugo": "逓増", "answer": "ウ", "explanation": "「次第に+増える」", "reading": "ていぞう", "kyu": "準2" },
+{ "id": 61, "jukugo": "洞穴", "answer": "ア", "explanation": "両方「あな」の意", "reading": "どうけつ", "kyu": "準2" },
+{ "id": 62, "jukugo": "媒体", "answer": "ウ", "explanation": "「媒介となる+物体」", "reading": "ばいたい", "kyu": "準2" },
+{ "id": 63, "jukugo": "賠償", "answer": "ア", "explanation": "両方「つぐなう」の意", "reading": "ばいしょう", "kyu": "準2" },
+{ "id": 64, "jukugo": "抹茶", "answer": "ウ", "explanation": "「粉末にした+お茶」", "reading": "まっちゃ", "kyu": "準2" },
+{ "id": 65, "jukugo": "愉悦", "answer": "ア", "explanation": "両方「楽しい」の意", "reading": "ゆえつ", "kyu": "準2" },
+{ "id": 66, "jukugo": "虜囚", "answer": "ア", "explanation": "両方「とらわれている人」の意", "reading": "りょしゅう", "kyu": "準2" },
+{ "id": 67, "jukugo": "抗菌", "answer": "エ", "explanation": "「抵抗する←細菌に」", "reading": "こうきん", "kyu": "準2" },
+{ "id": 68, "jukugo": "貴賓", "answer": "ウ", "explanation": "「身分の高い+客」", "reading": "きひん", "kyu": "準2" },
+{ "id": 69, "jukugo": "往還", "answer": "イ", "explanation": "「いく」↔「かえる」", "reading": "おうかん", "kyu": "準2" },
+{ "id": 70, "jukugo": "解剖", "answer": "ア", "explanation": "両方「切り分ける」の意", "reading": "かいぼう", "kyu": "準2" },
+{ "id": 71, "jukugo": "不祥", "answer": "オ", "explanation": "「ない←めでたいことが」", "reading": "ふしょう", "kyu": "準2" },
+{ "id": 72, "jukugo": "報酬", "answer": "ア", "explanation": "両方「むくい」の意", "reading": "ほうしゅう", "kyu": "準2" },
+{ "id": 73, "jukugo": "開廷", "answer": "エ", "explanation": "「開く←法廷に」", "reading": "かいてい", "kyu": "準2" },
+{ "id": 74, "jukugo": "打撲", "answer": "ア", "explanation": "両方「たたく」の意", "reading": "だぼく", "kyu": "準2" },
+{ "id": 75, "jukugo": "直轄", "answer": "ウ", "explanation": "「直接の+管轄」", "reading": "ちょっかつ", "kyu": "準2" },
+{ "id": 76, "jukugo": "土壌", "answer": "ア", "explanation": "両方「土」の意", "reading": "どじょう", "kyu": "準2" },
+{ "id": 77, "jukugo": "上棟", "answer": "エ", "explanation": "「上げる←棟を」", "reading": "じょうとう", "kyu": "準2" },
+{ "id": 78, "jukugo": "擬似", "answer": "ア", "explanation": "両方「似せる」の意", "reading": "ぎじ", "kyu": "準2" },
+{ "id": 79, "jukugo": "謹呈", "answer": "ウ", "explanation": "「謹んで+差し出す」", "reading": "きんてい", "kyu": "準2" },
+{ "id": 80, "jukugo": "懇請", "answer": "ウ", "explanation": "「心から+請う」", "reading": "こんせい", "kyu": "準2" },
+{ "id": 81, "jukugo": "遮光", "answer": "エ", "explanation": "「さえぎる←光を」", "reading": "しゃこう", "kyu": "準2" },
+{ "id": 82, "jukugo": "誓詞", "answer": "ウ", "explanation": "「誓いの+言葉」", "reading": "せいし", "kyu": "準2" },
+{ "id": 83, "jukugo": "俊秀", "answer": "ア", "explanation": "両方「すぐれている」の意", "reading": "しゅんしゅう", "kyu": "準2" },
+{ "id": 84, "jukugo": "勅使", "answer": "ウ", "explanation": "「勅旨を伝える+使者」", "reading": "ちょくし", "kyu": "準2" },
+{ "id": 85, "jukugo": "扶助", "answer": "ア", "explanation": "両方「助ける」の意", "reading": "ふじょ", "kyu": "準2" },
+{ "id": 86, "jukugo": "偏在", "answer": "ウ", "explanation": "「偏って+存在すること」", "reading": "へんざい", "kyu": "準2" },
+{ "id": 87, "jukugo": "哀悼", "answer": "ア", "explanation": "両方「かなしむ」の意", "reading": "あいとう", "kyu": "準2" },
+{ "id": 88, "jukugo": "孤塁", "answer": "ウ", "explanation": "「孤立した+とりで」", "reading": "こるい", "kyu": "準2" },
+{ "id": 89, "jukugo": "克己", "answer": "エ", "explanation": "「打ち勝つ←自分に」", "reading": "こっき", "kyu": "準2" },
+{ "id": 90, "jukugo": "謹慎", "answer": "ア", "explanation": "両方「つつしむ」の意", "reading": "きんしん", "kyu": "準2" },
+{ "id": 91, "jukugo": "疾患", "answer": "ア", "explanation": "両方「病気」の意", "reading": "しっかん", "kyu": "準2" },
+{ "id": 92, "jukugo": "贈賄", "answer": "エ", "explanation": "「贈る←わいろを」", "reading": "ぞうわい", "kyu": "準2" },
+{ "id": 93, "jukugo": "憂愁", "answer": "ア", "explanation": "両方「うれう」の意", "reading": "ゆうしゅう", "kyu": "準2" },
+{ "id": 94, "jukugo": "脚韻", "answer": "ウ", "explanation": "「句末・行末の+韻」", "reading": "きゃくいん", "kyu": "準2" },
+{ "id": 95, "jukugo": "盗塁", "answer": "エ", "explanation": "「盗む←塁を」", "reading": "とうるい", "kyu": "準2" },
+{ "id": 96, "jukugo": "筆禍", "answer": "ウ", "explanation": "「著作物による+わざわい」", "reading": "ひっか", "kyu": "準2" },
+{ "id": 97, "jukugo": "納涼", "answer": "エ", "explanation": "「受け入れる←涼しさを」", "reading": "のうりょう", "kyu": "準2" },
+{ "id": 98, "jukugo": "義憤", "answer": "ウ", "explanation": "「道義にもとづく+憤り」", "reading": "ぎふん", "kyu": "準2" },
+{ "id": 99, "jukugo": "余剰", "answer": "ア", "explanation": "両方「あまる」の意", "reading": "よじょう", "kyu": "準2" },
+{ "id": 100, "jukugo": "争覇", "answer": "エ", "explanation": "「争う←覇を」", "reading": "そうは", "kyu": "準2" },
+{ "id": 101, "jukugo": "得喪", "answer": "イ", "explanation": "「得る」↔「うしなう」", "reading": "とくそう", "kyu": "準2" },
+{ "id": 102, "jukugo": "研磨", "answer": "ア", "explanation": "両方「みがく」の意", "reading": "けんま", "kyu": "準2" },
+{ "id": 103, "jukugo": "雪渓", "answer": "ウ", "explanation": "「雪のある+渓谷」", "reading": "せっけい", "kyu": "準2" },
+{ "id": 104, "jukugo": "出廷", "answer": "エ", "explanation": "「出る←法廷に」", "reading": "しゅってい", "kyu": "準2" },
+{ "id": 105, "jukugo": "懐古", "answer": "エ", "explanation": "「なつかしがる←古いものを」", "reading": "かいこ", "kyu": "準2" },
+{ "id": 106, "jukugo": "核心", "answer": "ア", "explanation": "両方「物事の中心」の意", "reading": "かくしん", "kyu": "準2" },
+{ "id": 107, "jukugo": "還元", "answer": "エ", "explanation": "「かえす←元の状態に」", "reading": "かんげん", "kyu": "準2" },
+{ "id": 108, "jukugo": "飢餓", "answer": "ア", "explanation": "両方「うえる」の意", "reading": "きが", "kyu": "準2" },
+{ "id": 109, "jukugo": "弦楽", "answer": "ウ", "explanation": "「弦楽器による+音楽」", "reading": "げんがく", "kyu": "準2" },
+{ "id": 110, "jukugo": "剛柔", "answer": "イ", "explanation": "「かたい」↔「柔らかい」", "reading": "ごうじゅう", "kyu": "準2" },
+{ "id": 111, "jukugo": "酷使", "answer": "ウ", "explanation": "「容赦なく+使う」", "reading": "こくし", "kyu": "準2" },
+{ "id": 112, "jukugo": "遮音", "answer": "エ", "explanation": "「遮断する←音を」", "reading": "しゃおん", "kyu": "準2" },
+{ "id": 113, "jukugo": "醜態", "answer": "ウ", "explanation": "「醜い+状態」", "reading": "しゅうたい", "kyu": "準2" },
+{ "id": 114, "jukugo": "充満", "answer": "ア", "explanation": "両方「みちる」の意", "reading": "じゅうまん", "kyu": "準2" },
+{ "id": 115, "jukugo": "叙景", "answer": "エ", "explanation": "「文章にする←景色を」", "reading": "じょけい", "kyu": "準2" },
+{ "id": 116, "jukugo": "尚早", "answer": "ウ", "explanation": "「時期(が)まだ早い」", "reading": "しょうそう", "kyu": "準2" },
+{ "id": 117, "jukugo": "崇仏", "answer": "エ", "explanation": "「あがめる←仏を」", "reading": "すうぶつ", "kyu": "準2" }
+];
+
+// 漢字検定準2級 問題データ（四字熟語・出る順Aランク）
+const jun2YojiData = [
+{ "id": 1, "pattern": "□知徹底", "answer": "周知徹底", "missing": "周", "reading": "しゅうちてってい", "meaning": "世間に広く知れ渡らせること。", "kyu": "準2" },
+{ "id": 2, "pattern": "多岐□羊", "answer": "多岐亡羊", "missing": "亡", "reading": "たきぼうよう", "meaning": "学問の道が多方面に分かれていて、真理をとらえがたいこと。", "kyu": "準2" },
+{ "id": 3, "pattern": "南□北馬", "answer": "南船北馬", "missing": "船", "reading": "なんせんほくば", "meaning": "各地を忙しく駆け回ること。", "kyu": "準2" },
+{ "id": 4, "pattern": "悠悠自□", "answer": "悠悠自適", "missing": "適", "reading": "ゆうゆうじてき", "meaning": "世俗に煩わされず、のんびり暮らすこと。", "kyu": "準2" },
+{ "id": 5, "pattern": "英俊□傑", "answer": "英俊豪傑", "missing": "豪", "reading": "えいしゅんごうけつ", "meaning": "人並み外れて優れている人物。", "kyu": "準2" },
+{ "id": 6, "pattern": "□天動地", "answer": "驚天動地", "missing": "驚", "reading": "きょうてんどうち", "meaning": "世間をひどく驚かせること。", "kyu": "準2" },
+{ "id": 7, "pattern": "謹□実直", "answer": "謹厳実直", "missing": "厳", "reading": "きんげんじっちょく", "meaning": "慎み深く誠実なこと。", "kyu": "準2" },
+{ "id": 8, "pattern": "□思黙考", "answer": "沈思黙考", "missing": "沈", "reading": "ちんしもっこう", "meaning": "黙って深く考えを巡らせること。", "kyu": "準2" },
+{ "id": 9, "pattern": "比□連理", "answer": "比翼連理", "missing": "翼", "reading": "ひよくれんり", "meaning": "男女の間の情愛が深いことのたとえ。", "kyu": "準2" },
+{ "id": 10, "pattern": "千□万紅", "answer": "千紫万紅", "missing": "紫", "reading": "せんしばんこう", "meaning": "色とりどりに咲く花のこと。", "kyu": "準2" },
+{ "id": 11, "pattern": "愛別□苦", "answer": "愛別離苦", "missing": "離", "reading": "あいべつりく", "meaning": "愛する人と別れるつらさ、苦しみ。", "kyu": "準2" },
+{ "id": 12, "pattern": "異□邪説", "answer": "異端邪説", "missing": "端", "reading": "いたんじゃせつ", "meaning": "正統とは認められていない思想、学説、信仰。", "kyu": "準2" },
+{ "id": 13, "pattern": "□忍自重", "answer": "隠忍自重", "missing": "隠", "reading": "いんにんじちょう", "meaning": "軽率な言動をしないように慎むこと。", "kyu": "準2" },
+{ "id": 14, "pattern": "延命□災", "answer": "延命息災", "missing": "息", "reading": "えんめいそくさい", "meaning": "何の災いもなく長生きすること。", "kyu": "準2" },
+{ "id": 15, "pattern": "禍□得喪", "answer": "禍福得喪", "missing": "福", "reading": "かふくとくそう", "meaning": "災い、幸運、成功、失敗のこと。", "kyu": "準2" },
+{ "id": 16, "pattern": "外□内剛", "answer": "外柔内剛", "missing": "柔", "reading": "がいじゅうないごう", "meaning": "見た目は穏やかだが、内面は強いこと。", "kyu": "準2" },
+{ "id": 17, "pattern": "故事来□", "answer": "故事来歴", "missing": "歴", "reading": "こじらいれき", "meaning": "物事の由来や歴史。", "kyu": "準2" },
+{ "id": 18, "pattern": "巧□拙速", "answer": "巧遅拙速", "missing": "遅", "reading": "こうちせっそく", "meaning": "巧みで遅いより、下手でも速い方が良い。", "kyu": "準2" },
+{ "id": 19, "pattern": "山□水明", "answer": "山紫水明", "missing": "紫", "reading": "さんしすいめい", "meaning": "山水、自然が清らかで美しいこと。", "kyu": "準2" },
+{ "id": 20, "pattern": "時節□来", "answer": "時節到来", "missing": "到", "reading": "じせつとうらい", "meaning": "ちょうど良い機会がやってくること。", "kyu": "準2" },
+{ "id": 21, "pattern": "熟□断行", "answer": "熟慮断行", "missing": "慮", "reading": "じゅくりょだんこう", "meaning": "よく考えたうえで、思い切って実行すること。", "kyu": "準2" },
+{ "id": 22, "pattern": "少壮□気", "answer": "少壮鋭気", "missing": "鋭", "reading": "しょうそうえいき", "meaning": "年齢が若くて意気盛んなこと。", "kyu": "準2" },
+{ "id": 23, "pattern": "信賞必□", "answer": "信賞必罰", "missing": "罰", "reading": "しんしょうひつばつ", "meaning": "賞罰を厳格に行うこと。", "kyu": "準2" },
+{ "id": 24, "pattern": "心頭滅□", "answer": "心頭滅却", "missing": "却", "reading": "しんとうめっきゃく", "meaning": "雑念を捨て去り、悟りの境地に入ること。", "kyu": "準2" },
+{ "id": 25, "pattern": "主□転倒", "answer": "主客転倒", "missing": "客", "reading": "しゅかくてんとう", "meaning": "順序や立場が逆になること。", "kyu": "準2" },
+{ "id": 26, "pattern": "徹頭徹□", "answer": "徹頭徹尾", "missing": "尾", "reading": "てっとうてつび", "meaning": "最初から最後まで。徹底的に。", "kyu": "準2" },
+{ "id": 27, "pattern": "一念□起", "answer": "一念発起", "missing": "発", "reading": "いちねんほっき", "meaning": "物事を成し遂げようと決心すること。", "kyu": "準2" },
+{ "id": 28, "pattern": "天下泰□", "answer": "天下泰平", "missing": "平", "reading": "てんかたいへい", "meaning": "世の中がよく治まり、平和なこと。", "kyu": "準2" },
+{ "id": 29, "pattern": "同床□夢", "answer": "同床異夢", "missing": "異", "reading": "どうしょういむ", "meaning": "同じ立場でも、考えや方針が異なること。", "kyu": "準2" },
+{ "id": 30, "pattern": "□志弱行", "answer": "薄志弱行", "missing": "薄", "reading": "はくししゃっこう", "meaning": "意志が弱く、実行力に欠けること。", "kyu": "準2" },
+{ "id": 31, "pattern": "栄□盛衰", "answer": "栄枯盛衰", "missing": "枯", "reading": "えいこせいすい", "meaning": "栄えたり衰えたりすること。", "kyu": "準2" },
+{ "id": 32, "pattern": "物情□然", "answer": "物情騒然", "missing": "騒", "reading": "ぶつじょうそうぜん", "meaning": "世間が騒がしく、落ち着かない様子。", "kyu": "準2" },
+{ "id": 33, "pattern": "面目□如", "answer": "面目躍如", "missing": "躍", "reading": "めんもくやくじょ", "meaning": "評価にふさわしい活躍をすること。", "kyu": "準2" },
+{ "id": 34, "pattern": "優勝□敗", "answer": "優勝劣敗", "missing": "劣", "reading": "ゆうしょうれっぱい", "meaning": "強い者が勝ち、弱い者が負けること。", "kyu": "準2" },
+{ "id": 35, "pattern": "和洋□衷", "answer": "和洋折衷", "missing": "折", "reading": "わようせっちゅう", "meaning": "日本と西洋の様式をうまく取り混ぜること。", "kyu": "準2" },
+{ "id": 36, "pattern": "無□自然", "answer": "無為自然", "missing": "為", "reading": "むいしぜん", "meaning": "何もしないであるがままにまかせること。", "kyu": "準2" },
+{ "id": 37, "pattern": "雲散□消", "answer": "雲散霧消", "missing": "霧", "reading": "うんさんむしょう", "meaning": "あとかたもなく消えてしまうこと。", "kyu": "準2" },
+{ "id": 38, "pattern": "百□錬磨", "answer": "百戦錬磨", "missing": "戦", "reading": "ひゃくせんれんま", "meaning": "多くの経験を積んで、鍛えられていること。", "kyu": "準2" },
+{ "id": 39, "pattern": "円転滑□", "answer": "円転滑脱", "missing": "脱", "reading": "えんてんかつだつ", "meaning": "物事をすらすらと処理していく様子。", "kyu": "準2" },
+{ "id": 40, "pattern": "□善懲悪", "answer": "勧善懲悪", "missing": "勧", "reading": "かんぜんちょうあく", "meaning": "善を奨励し、悪を懲らしめること。", "kyu": "準2" },
+{ "id": 41, "pattern": "気□壮大", "answer": "気宇壮大", "missing": "宇", "reading": "きうそうだい", "meaning": "心構えや発想が並外れて大きいさま。", "kyu": "準2" },
+{ "id": 42, "pattern": "□面仏心", "answer": "鬼面仏心", "missing": "鬼", "reading": "きめんぶっしん", "meaning": "見た目は恐ろしいが、心は優しいこと。", "kyu": "準2" },
+{ "id": 43, "pattern": "吉□禍福", "answer": "吉凶禍福", "missing": "凶", "reading": "きっきょうかふく", "meaning": "めでたいことと縁起の悪いこと。", "kyu": "準2" },
+{ "id": 44, "pattern": "旧態□然", "answer": "旧態依然", "missing": "依", "reading": "きゅうたいいぜん", "meaning": "物事が昔のままで、少しも進歩がないさま。", "kyu": "準2" },
+{ "id": 45, "pattern": "群雄□拠", "answer": "群雄割拠", "missing": "割", "reading": "ぐんゆうかっきょ", "meaning": "多くの実力者が勢力を張り、対立する状況。", "kyu": "準2" },
+{ "id": 46, "pattern": "鶏口□後", "answer": "鶏口牛後", "missing": "牛", "reading": "けいこうぎゅうご", "meaning": "大組織で人に使われるより、小さな組織でも人の上に立つ方が良い。", "kyu": "準2" },
+{ "id": 47, "pattern": "堅忍不□", "answer": "堅忍不抜", "missing": "抜", "reading": "けんにんふばつ", "meaning": "断固たる思いで堪え忍び、意志を貫くこと。", "kyu": "準2" },
+{ "id": 48, "pattern": "孤軍奮□", "answer": "孤軍奮闘", "missing": "闘", "reading": "こぐんふんとう", "meaning": "助けがない中で、一人努力すること。", "kyu": "準2" },
+{ "id": 49, "pattern": "一日□秋", "answer": "一日千秋", "missing": "千", "reading": "いちにちせんしゅう", "meaning": "人や物事の到来がとても待ち遠しいこと。", "kyu": "準2" },
+{ "id": 50, "pattern": "□舞激励", "answer": "鼓舞激励", "missing": "鼓", "reading": "こぶげきれい", "meaning": "人を励まし、奮い立たせること。", "kyu": "準2" },
+{ "id": 51, "pattern": "呉□同舟", "answer": "呉越同舟", "missing": "越", "reading": "ごえつどうしゅう", "meaning": "仲の悪い者同士が、ともに行動すること。", "kyu": "準2" },
+{ "id": 52, "pattern": "厚顔無□", "answer": "厚顔無恥", "missing": "恥", "reading": "こうがんむち", "meaning": "ずうずうしく、恥知らずなさま。", "kyu": "準2" },
+{ "id": 53, "pattern": "支□滅裂", "answer": "支離滅裂", "missing": "離", "reading": "しりめつれつ", "meaning": "筋道が通っていないこと。", "kyu": "準2" },
+{ "id": 54, "pattern": "質実剛□", "answer": "質実剛健", "missing": "健", "reading": "しつじつごうけん", "meaning": "飾り気がなくまじめで、強くたくましいさま。", "kyu": "準2" },
+{ "id": 55, "pattern": "衆口一□", "answer": "衆口一致", "missing": "致", "reading": "しゅうこういっち", "meaning": "全員の意見が一つに合うこと。", "kyu": "準2" },
+{ "id": 56, "pattern": "初志貫□", "answer": "初志貫徹", "missing": "徹", "reading": "しょしかんてつ", "meaning": "最初の志を、最後まで貫き通すこと。", "kyu": "準2" },
+{ "id": 57, "pattern": "色即是□", "answer": "色即是空", "missing": "空", "reading": "しきそくぜくう", "meaning": "万物は単なる現象に過ぎないという考え方。", "kyu": "準2" },
+{ "id": 58, "pattern": "神出□没", "answer": "神出鬼没", "missing": "鬼", "reading": "しんしゅつきぼつ", "meaning": "鬼神のように自由自在に出没すること。", "kyu": "準2" },
+{ "id": 59, "pattern": "人面□心", "answer": "人面獣心", "missing": "獣", "reading": "じんめんじゅうしん", "meaning": "顔は人間でも心は獣に等しい、冷酷な人。", "kyu": "準2" },
+{ "id": 60, "pattern": "□常一様", "answer": "尋常一様", "missing": "尋", "reading": "じんじょういちよう", "meaning": "他と変わるところがなく、ごく普通なさま。", "kyu": "準2" },
+{ "id": 61, "pattern": "酔生□死", "answer": "酔生夢死", "missing": "夢", "reading": "すいせいむし", "meaning": "ぼんやりと一生を過ごすこと。", "kyu": "準2" },
+{ "id": 62, "pattern": "勢力伯□", "answer": "勢力伯仲", "missing": "仲", "reading": "せいりょくはくちゅう", "meaning": "力に差がなく、優劣をつけにくいこと。", "kyu": "準2" },
+{ "id": 63, "pattern": "粗□粗食", "answer": "粗衣粗食", "missing": "衣", "reading": "そいそしょく", "meaning": "質素な生活。貧しい暮らし。", "kyu": "準2" },
+{ "id": 64, "pattern": "朝令□改", "answer": "朝令暮改", "missing": "暮", "reading": "ちょうれいぼかい", "meaning": "命令や法律がすぐに変更されること。またその形相。", "kyu": "準2" },
+{ "id": 65, "pattern": "□髪衝天", "answer": "怒髪衝天", "missing": "怒", "reading": "どはつしょうてん", "meaning": "激怒すること。", "kyu": "準2" },
+{ "id": 66, "pattern": "東奔西□", "answer": "東奔西走", "missing": "走", "reading": "とうほんせいそう", "meaning": "用事であちこち忙しく駆け回ること。", "kyu": "準2" },
+{ "id": 67, "pattern": "深山幽□", "answer": "深山幽谷", "missing": "谷", "reading": "しんざんゆうこく", "meaning": "人里から遠く離れた奥深い山や谷。", "kyu": "準2" },
+{ "id": 68, "pattern": "当意□妙", "answer": "当意即妙", "missing": "即", "reading": "とういそくみょう", "meaning": "とっさの機転で、その場に対応すること。", "kyu": "準2" },
+{ "id": 69, "pattern": "難□不落", "answer": "難攻不落", "missing": "攻", "reading": "なんこうふらく", "meaning": "攻めにくく、容易に落とせないこと。", "kyu": "準2" },
+{ "id": 70, "pattern": "美辞□句", "answer": "美辞麗句", "missing": "麗", "reading": "びじれいく", "meaning": "巧みだが真実味に欠ける言葉。", "kyu": "準2" },
+{ "id": 71, "pattern": "□遍妥当", "answer": "普遍妥当", "missing": "普", "reading": "ふへんだとう", "meaning": "すべてに共通して当てはまること。", "kyu": "準2" },
+{ "id": 72, "pattern": "附和□同", "answer": "附和雷同", "missing": "雷", "reading": "ふわらいどう", "meaning": "自分の考えがなく、他人に同調すること。", "kyu": "準2" },
+{ "id": 73, "pattern": "傍□無人", "answer": "傍若無人", "missing": "若", "reading": "ぼうじゃくぶじん", "meaning": "人前でも勝手気ままに振る舞うこと。", "kyu": "準2" },
+{ "id": 74, "pattern": "安寧□序", "answer": "安寧秩序", "missing": "秩", "reading": "あんねいちつじょ", "meaning": "世の中が平和で、落ち着いている様子。", "kyu": "準2" },
+{ "id": 75, "pattern": "暗雲□迷", "answer": "暗雲低迷", "missing": "低", "reading": "あんうんていめい", "meaning": "前途不安な状況が長く続いていること。", "kyu": "準2" },
+{ "id": 76, "pattern": "遺憾□万", "answer": "遺憾千万", "missing": "千", "reading": "いかんせんばん", "meaning": "非常に残念で、心残りであること。", "kyu": "準2" },
+{ "id": 77, "pattern": "一□打尽", "answer": "一網打尽", "missing": "網", "reading": "いちもうだじん", "meaning": "悪人などをひとまとめに捕まえること。", "kyu": "準2" },
+{ "id": 78, "pattern": "闘志満□", "answer": "闘志満満", "missing": "満", "reading": "とうしまんまん", "meaning": "戦おうとする意欲にあふれているさま。", "kyu": "準2" },
+{ "id": 79, "pattern": "夏炉冬□", "answer": "夏炉冬扇", "missing": "扇", "reading": "かろとうせん", "meaning": "時期外れで役に立たないもののたとえ。", "kyu": "準2" },
+{ "id": 80, "pattern": "□牛充棟", "answer": "汗牛充棟", "missing": "汗", "reading": "かんぎゅうじゅうとう", "meaning": "大量の書籍、蔵書のたとえ。", "kyu": "準2" },
+{ "id": 81, "pattern": "危機一□", "answer": "危機一髪", "missing": "髪", "reading": "ききいっぱつ", "meaning": "あとわずかで大事に至る、危うい瞬間。", "kyu": "準2" },
+{ "id": 82, "pattern": "金□湯池", "answer": "金城湯池", "missing": "城", "reading": "きんじょうとうち", "meaning": "非常に守りの堅いたとえ。", "kyu": "準2" },
+{ "id": 83, "pattern": "軽□妄動", "answer": "軽挙妄動", "missing": "挙", "reading": "けいきょもうどう", "meaning": "何も考えないで軽率に行動すること。", "kyu": "準2" },
+{ "id": 84, "pattern": "孤城□日", "answer": "孤城落日", "missing": "落", "reading": "こじょうらくじつ", "meaning": "栄えていたものが落ちぶれて心細いさま。", "kyu": "準2" },
+{ "id": 85, "pattern": "五里霧□", "answer": "五里霧中", "missing": "中", "reading": "ごりむちゅう", "meaning": "事情がわからず、判断に苦しむこと。", "kyu": "準2" },
+{ "id": 86, "pattern": "巧言□色", "answer": "巧言令色", "missing": "令", "reading": "こうげんれいしょく", "meaning": "口先や顔つきだけで愛想良くして、人にこびへつらうこと。", "kyu": "準2" },
+{ "id": 87, "pattern": "馬耳□風", "answer": "馬耳東風", "missing": "東", "reading": "ばじとうふう", "meaning": "人の言うことを少しも気にかけないたとえ。", "kyu": "準2" },
+{ "id": 88, "pattern": "思□分別", "answer": "思慮分別", "missing": "慮", "reading": "しりょふんべつ", "meaning": "慎重に道理に沿って正しく判断すること。", "kyu": "準2" },
+{ "id": 89, "pattern": "七転八□", "answer": "七転八倒", "missing": "倒", "reading": "しちてんばっとう", "meaning": "激しい苦痛でのたうちまわること。", "kyu": "準2" },
+{ "id": 90, "pattern": "首□一貫", "answer": "首尾一貫", "missing": "尾", "reading": "しゅびいっかん", "meaning": "行動や方針が、最後まで変わらないこと。", "kyu": "準2" },
+{ "id": 91, "pattern": "□止千万", "answer": "笑止千万", "missing": "笑", "reading": "しょうしせんばん", "meaning": "笑いが止まらないほどばかげていること。", "kyu": "準2" },
+{ "id": 92, "pattern": "深謀遠□", "answer": "深謀遠慮", "missing": "慮", "reading": "しんぼうえんりょ", "meaning": "深く考えて将来を見通し、計画すること。", "kyu": "準2" },
+{ "id": 93, "pattern": "金科玉□", "answer": "金科玉条", "missing": "条", "reading": "きんかぎょくじょう", "meaning": "最も大事な守るべき決まりや法律、教え。", "kyu": "準2" },
+{ "id": 94, "pattern": "真実一□", "answer": "真実一路", "missing": "路", "reading": "しんじついちろ", "meaning": "誠実一筋に進むこと。", "kyu": "準2" },
+{ "id": 95, "pattern": "青息□息", "answer": "青息吐息", "missing": "吐", "reading": "あおいきといき", "meaning": "ため息を発するほど苦しんでいる様子。", "kyu": "準2" },
+{ "id": 96, "pattern": "朝三暮□", "answer": "朝三暮四", "missing": "四", "reading": "ちょうさんぼし", "meaning": "目先の違いにとらわれて、だまされること。", "kyu": "準2" },
+{ "id": 97, "pattern": "□苦勉励", "answer": "刻苦勉励", "missing": "刻", "reading": "こっくべんれい", "meaning": "苦しみにたえ、仕事や勉学に励むこと。", "kyu": "準2" },
+{ "id": 98, "pattern": "□利多売", "answer": "薄利多売", "missing": "薄", "reading": "はくりたばい", "meaning": "利益を薄くして多く売ること。", "kyu": "準2" },
+{ "id": 99, "pattern": "百□夜行", "answer": "百鬼夜行", "missing": "鬼", "reading": "ひゃっきやこう", "meaning": "悪人たちがのさばり、悪事を働くこと。", "kyu": "準2" },
+{ "id": 100, "pattern": "一□両得", "answer": "一挙両得", "missing": "挙", "reading": "いっきょりょうとく", "meaning": "一つの行動で、二つの利益を得ること。", "kyu": "準2" },
+{ "id": 101, "pattern": "□励努力", "answer": "奮励努力", "missing": "奮", "reading": "ふんれいどりょく", "meaning": "気力を奮い起こし、精一杯励むこと。", "kyu": "準2" },
+{ "id": 102, "pattern": "粉□砕身", "answer": "粉骨砕身", "missing": "骨", "reading": "ふんこつさいしん", "meaning": "力の限り努力すること。", "kyu": "準2" },
+{ "id": 103, "pattern": "無□徒食", "answer": "無為徒食", "missing": "為", "reading": "むいとしょく", "meaning": "何もしないでぶらぶら過ごすこと。", "kyu": "準2" },
+{ "id": 104, "pattern": "勇□果敢", "answer": "勇猛果敢", "missing": "猛", "reading": "ゆうもうかかん", "meaning": "勇ましく思い切りよく行動するさま。", "kyu": "準2" }
+];
+
+// 漢字検定準2級 問題データ（送りがな・出る順Aランク）
+const jun2OkuriganaData = [
+{ "id": 1, "sentence": "勝利の喜びにヒタル。", "katakana": "ヒタル", "answer": "浸る", "correctedSentence": "勝利の喜びに浸る。", "kyu": "準2" },
+{ "id": 2, "sentence": "花もハジラウ年ごろの乙女だ。", "katakana": "ハジラウ", "answer": "恥じらう", "correctedSentence": "花も恥じらう年ごろの乙女だ。", "kyu": "準2" },
+{ "id": 3, "sentence": "睡眠不足で判断能力がニブル。", "katakana": "ニブル", "answer": "鈍る", "correctedSentence": "睡眠不足で判断能力が鈍る。", "kyu": "準2" },
+{ "id": 4, "sentence": "アマヤカサれて身勝手な子に育つ。", "katakana": "アマヤカサ", "answer": "甘やかさ", "correctedSentence": "甘やかされて身勝手な子に育つ。", "kyu": "準2" },
+{ "id": 5, "sentence": "カガヤカシイ将来が待っている。", "katakana": "カガヤカシイ", "answer": "輝かしい", "correctedSentence": "輝かしい将来が待っている。", "kyu": "準2" },
+{ "id": 6, "sentence": "時とともに心の痛みもウスライだ。", "katakana": "ウスライ", "answer": "薄らい", "correctedSentence": "時とともに心の痛みも薄らいだ。", "kyu": "準2" },
+{ "id": 7, "sentence": "師から受けた恩にムクイル。", "katakana": "ムクイル", "answer": "報いる", "correctedSentence": "師から受けた恩に報いる。", "kyu": "準2" },
+{ "id": 8, "sentence": "かんでフクメルように教え諭す。", "katakana": "フクメル", "answer": "含める", "correctedSentence": "かんで含めるように教え諭す。", "kyu": "準2" },
+{ "id": 9, "sentence": "低温が農作物に影響をオヨボス。", "katakana": "オヨボス", "answer": "及ぼす", "correctedSentence": "低温が農作物に影響を及ぼす。", "kyu": "準2" },
+{ "id": 10, "sentence": "オソロシイ目つきで人をにらむ。", "katakana": "オソロシイ", "answer": "恐ろしい", "correctedSentence": "恐ろしい目つきで人をにらむ。", "kyu": "準2" },
+{ "id": 11, "sentence": "夫の出世をホコラシク思う。", "katakana": "ホコラシク", "answer": "誇らしく", "correctedSentence": "夫の出世を誇らしく思う。", "kyu": "準2" },
+{ "id": 12, "sentence": "光にスカシて文字を読み取る。", "katakana": "スカシ", "answer": "透かし", "correctedSentence": "光に透かして文字を読み取る。", "kyu": "準2" },
+{ "id": 13, "sentence": "もんもんとナヤマシイ日々を送る。", "katakana": "ナヤマシイ", "answer": "悩ましい", "correctedSentence": "もんもんと悩ましい日々を送る。", "kyu": "準2" },
+{ "id": 14, "sentence": "倒産で多額の損害をコウムッた。", "katakana": "コウムッ", "answer": "被っ", "correctedSentence": "倒産で多額の損害を被った。", "kyu": "準2" },
+{ "id": 15, "sentence": "予想外の資金と年月をツイヤシた。", "katakana": "ツイヤシ", "answer": "費やし", "correctedSentence": "予想外の資金と年月を費やした。", "kyu": "準2" },
+{ "id": 16, "sentence": "置物が棚から落ちてコワレた。", "katakana": "コワレ", "answer": "壊れ", "correctedSentence": "置物が棚から落ちて壊れた。", "kyu": "準2" },
+{ "id": 17, "sentence": "若者が町に出て村はサビレル一方だ。", "katakana": "サビレル", "answer": "寂れる", "correctedSentence": "若者が町に出て村は寂れる一方だ。", "kyu": "準2" },
+{ "id": 18, "sentence": "応接室のいすに深々と身をシズメル。", "katakana": "シズメル", "answer": "沈める", "correctedSentence": "応接室のいすに深々と身を沈める。", "kyu": "準2" },
+{ "id": 19, "sentence": "仕事でずっとイソガシカッた。", "katakana": "イソガシカッ", "answer": "忙しかっ", "correctedSentence": "仕事でずっと忙しかった。", "kyu": "準2" },
+{ "id": 20, "sentence": "タノモシイ仲間がいる。", "katakana": "タノモシイ", "answer": "頼もしい", "correctedSentence": "頼もしい仲間がいる。", "kyu": "準2" },
+{ "id": 21, "sentence": "古い新聞紙をひもでユワエル。", "katakana": "ユワエル", "answer": "結わえる", "correctedSentence": "古い新聞紙をひもで結わえる。", "kyu": "準2" },
+{ "id": 22, "sentence": "主に女性向けの商品をアツカウ。", "katakana": "アツカウ", "answer": "扱う", "correctedSentence": "主に女性向けの商品を扱う。", "kyu": "準2" },
+{ "id": 23, "sentence": "スルドイ質問に答えきれない。", "katakana": "スルドイ", "answer": "鋭い", "correctedSentence": "鋭い質問に答えきれない。", "kyu": "準2" },
+{ "id": 24, "sentence": "自らの怠け心をイマシメル。", "katakana": "イマシメル", "answer": "戒める", "correctedSentence": "自らの怠け心を戒める。", "kyu": "準2" },
+{ "id": 25, "sentence": "看板が風雪にさらされてクチル。", "katakana": "クチル", "answer": "朽ちる", "correctedSentence": "看板が風雪にさらされて朽ちる。", "kyu": "準2" },
+{ "id": 26, "sentence": "オドロクべき生命力に舌を巻く。", "katakana": "オドロク", "answer": "驚く", "correctedSentence": "驚くべき生命力に舌を巻く。", "kyu": "準2" },
+{ "id": 27, "sentence": "日がカタムクまで作業を続ける。", "katakana": "カタムク", "answer": "傾く", "correctedSentence": "日が傾くまで作業を続ける。", "kyu": "準2" },
+{ "id": 28, "sentence": "来週には屋根の修理にウカガイます。", "katakana": "ウカガイ", "answer": "伺い", "correctedSentence": "来週には屋根の修理に伺います。", "kyu": "準2" },
+{ "id": 29, "sentence": "雑誌の取材で国内の名湯をメグル。", "katakana": "メグル", "answer": "巡る", "correctedSentence": "雑誌の取材で国内の名湯を巡る。", "kyu": "準2" },
+{ "id": 30, "sentence": "不況で会社をタタム決心をした。", "katakana": "タタム", "answer": "畳む", "correctedSentence": "不況で会社を畳む決心をした。", "kyu": "準2" },
+{ "id": 31, "sentence": "交番で美術館への道をタズネル。", "katakana": "タズネル", "answer": "尋ねる", "correctedSentence": "交番で美術館への道を尋ねる。", "kyu": "準2" },
+{ "id": 32, "sentence": "思い出話はツキルことなく続いた。", "katakana": "ツキル", "answer": "尽きる", "correctedSentence": "思い出話は尽きることなく続いた。", "kyu": "準2" },
+{ "id": 33, "sentence": "耳をスマシて虫の音をきく。", "katakana": "スマシ", "answer": "澄まし", "correctedSentence": "耳を澄まして虫の音をきく。", "kyu": "準2" },
+{ "id": 34, "sentence": "目にもアザヤカナ衣装を着る。", "katakana": "アザヤカナ", "answer": "鮮やかな", "correctedSentence": "目にも鮮やかな衣装を着る。", "kyu": "準2" },
+{ "id": 35, "sentence": "明確に答えられず言葉をニゴス。", "katakana": "ニゴス", "answer": "濁す", "correctedSentence": "明確に答えられず言葉を濁す。", "kyu": "準2" },
+{ "id": 36, "sentence": "礼節を欠く行為をナゲカワシク思う。", "katakana": "ナゲカワシク", "answer": "嘆かわしく", "correctedSentence": "礼節を欠く行為を嘆かわしく思う。", "kyu": "準2" },
+{ "id": 37, "sentence": "ハズンだ声で吉報をしらせる。", "katakana": "ハズン", "answer": "弾ん", "correctedSentence": "弾んだ声で吉報をしらせる。", "kyu": "準2" },
+{ "id": 38, "sentence": "練習を重ねて実力をタクワエル。", "katakana": "タクワエル", "answer": "蓄える", "correctedSentence": "練習を重ねて実力を蓄える。", "kyu": "準2" },
+{ "id": 39, "sentence": "日本にはいないメズラシイ昆虫だ。", "katakana": "メズラシイ", "answer": "珍しい", "correctedSentence": "日本にはいない珍しい昆虫だ。", "kyu": "準2" },
+{ "id": 40, "sentence": "過去の経験をフマエて結論を出す。", "katakana": "フマエ", "answer": "踏まえ", "correctedSentence": "過去の経験を踏まえて結論を出す。", "kyu": "準2" },
+{ "id": 41, "sentence": "故障の続出に頭をカカエル。", "katakana": "カカエル", "answer": "抱える", "correctedSentence": "故障の続出に頭を抱える。", "kyu": "準2" },
+{ "id": 42, "sentence": "名医のホマレが高い人物だった。", "katakana": "ホマレ", "answer": "誉れ", "correctedSentence": "名医の誉れが高い人物だった。", "kyu": "準2" },
+{ "id": 43, "sentence": "先生に勝るともオトラない知識だ。", "katakana": "オトラ", "answer": "劣ら", "correctedSentence": "先生に勝るとも劣らない知識だ。", "kyu": "準2" },
+{ "id": 44, "sentence": "オカシた罪を悔いて過ごす。", "katakana": "オカシ", "answer": "犯し", "correctedSentence": "犯した罪を悔いて過ごす。", "kyu": "準2" },
+{ "id": 45, "sentence": "月が雲にカクレて見えなくなった。", "katakana": "カクレ", "answer": "隠れ", "correctedSentence": "月が雲に隠れて見えなくなった。", "kyu": "準2" },
+{ "id": 46, "sentence": "キタナイ風呂場を清掃する。", "katakana": "キタナイ", "answer": "汚い", "correctedSentence": "汚い風呂場を清掃する。", "kyu": "準2" },
+{ "id": 47, "sentence": "問題の出題範囲をセバメル。", "katakana": "セバメル", "answer": "狭める", "correctedSentence": "問題の出題範囲を狭める。", "kyu": "準2" },
+{ "id": 48, "sentence": "先生の怒鳴り声が教室中にヒビク。", "katakana": "ヒビク", "answer": "響く", "correctedSentence": "先生の怒鳴り声が教室中に響く。", "kyu": "準2" },
+{ "id": 49, "sentence": "財界人を政策担当者にムカエル。", "katakana": "ムカエル", "answer": "迎える", "correctedSentence": "財界人を政策担当者に迎える。", "kyu": "準2" },
+{ "id": 50, "sentence": "戦場の悲惨さから目をソムケル。", "katakana": "ソムケル", "answer": "背ける", "correctedSentence": "戦場の悲惨さから目を背ける。", "kyu": "準2" },
+{ "id": 51, "sentence": "日照り続きで畑の作物がカレル。", "katakana": "カレル", "answer": "枯れる", "correctedSentence": "日照り続きで畑の作物が枯れる。", "kyu": "準2" },
+{ "id": 52, "sentence": "緊張して足がフルエル。", "katakana": "フルエル", "answer": "震える", "correctedSentence": "緊張して足が震える。", "kyu": "準2" },
+{ "id": 53, "sentence": "自然環境の保護をウッタエル。", "katakana": "ウッタエル", "answer": "訴える", "correctedSentence": "自然環境の保護を訴える。", "kyu": "準2" },
+{ "id": 54, "sentence": "感謝状に記念品をソエル。", "katakana": "ソエル", "answer": "添える", "correctedSentence": "感謝状に記念品を添える。", "kyu": "準2" },
+{ "id": 55, "sentence": "あまりの暑さにタオレル人が増えた。", "katakana": "タオレル", "answer": "倒れる", "correctedSentence": "あまりの暑さに倒れる人が増えた。", "kyu": "準2" },
+{ "id": 56, "sentence": "原稿の締め切り日がセマル。", "katakana": "セマル", "answer": "迫る", "correctedSentence": "原稿の締め切り日が迫る。", "kyu": "準2" },
+{ "id": 57, "sentence": "砲丸が放物線をエガイて落ちる。", "katakana": "エガイ", "answer": "描い", "correctedSentence": "砲丸が放物線を描いて落ちる。", "kyu": "準2" },
+{ "id": 58, "sentence": "ネムタクてあくびが止まらない。", "katakana": "ネムタク", "answer": "眠たく", "correctedSentence": "眠たくてあくびが止まらない。", "kyu": "準2" },
+{ "id": 59, "sentence": "巧みな言葉で人の心をアヤツル。", "katakana": "アヤツル", "answer": "操る", "correctedSentence": "巧みな言葉で人の心を操る。", "kyu": "準2" },
+{ "id": 60, "sentence": "交渉はナゴヤカナ雰囲気で進んだ。", "katakana": "ナゴヤカナ", "answer": "和やかな", "correctedSentence": "交渉は和やかな雰囲気で進んだ。", "kyu": "準2" },
+{ "id": 61, "sentence": "最後の希望が打ちクダカれた。", "katakana": "クダカ", "answer": "砕か", "correctedSentence": "最後の希望が打ち砕かれた。", "kyu": "準2" },
+{ "id": 62, "sentence": "会議への参加をシブッていた。", "katakana": "シブッ", "answer": "渋っ", "correctedSentence": "会議への参加を渋っていた。", "kyu": "準2" },
+{ "id": 63, "sentence": "壊した窓の修理代をツグナウ。", "katakana": "ツグナウ", "answer": "償う", "correctedSentence": "壊した窓の修理代を償う。", "kyu": "準2" },
+{ "id": 64, "sentence": "どんと構えて根性がスワッた男だ。", "katakana": "スワッ", "answer": "据わっ", "correctedSentence": "どんと構えて根性が据わった男だ。", "kyu": "準2" },
+{ "id": 65, "sentence": "シノビ足で背後から近づく。", "katakana": "シノビ", "answer": "忍び", "correctedSentence": "忍び足で背後から近づく。", "kyu": "準2" },
+{ "id": 66, "sentence": "会社の設立にタズサワッていた。", "katakana": "タズサワッ", "answer": "携わっ", "correctedSentence": "会社の設立に携わっていた。", "kyu": "準2" },
+{ "id": 67, "sentence": "発送する商品を箱にツメル。", "katakana": "ツメル", "answer": "詰める", "correctedSentence": "発送する商品を箱に詰める。", "kyu": "準2" },
+{ "id": 68, "sentence": "夜空をアオグと天の川が見えた。", "katakana": "アオグ", "answer": "仰ぐ", "correctedSentence": "夜空を仰ぐと天の川が見えた。", "kyu": "準2" },
+{ "id": 69, "sentence": "馬が全速力でカケル姿は美しい。", "katakana": "カケル", "answer": "駆ける", "correctedSentence": "馬が全速力で駆ける姿は美しい。", "kyu": "準2" },
+{ "id": 70, "sentence": "総務部長が人事部長もカネル。", "katakana": "カネル", "answer": "兼ねる", "correctedSentence": "総務部長が人事部長も兼ねる。", "kyu": "準2" },
+{ "id": 71, "sentence": "まずはご用件をウケタマワリます。", "katakana": "ウケタマワリ", "answer": "承り", "correctedSentence": "まずはご用件を承ります。", "kyu": "準2" },
+{ "id": 72, "sentence": "煮魚の小骨がのどにササッた。", "katakana": "ササッ", "answer": "刺さっ", "correctedSentence": "煮魚の小骨がのどに刺さった。", "kyu": "準2" },
+{ "id": 73, "sentence": "何のカザリもない殺風景な部屋だ。", "katakana": "カザリ", "answer": "飾り", "correctedSentence": "何の飾りもない殺風景な部屋だ。", "kyu": "準2" },
+{ "id": 74, "sentence": "サワガシイ表通りを避けて歩く。", "katakana": "サワガシイ", "answer": "騒がしい", "correctedSentence": "騒がしい表通りを避けて歩く。", "kyu": "準2" },
+{ "id": 75, "sentence": "秘密話を隣の部屋でヌスミ聞く。", "katakana": "ヌスミ", "answer": "盗み", "correctedSentence": "秘密話を隣の部屋で盗み聞く。", "kyu": "準2" },
+{ "id": 76, "sentence": "食べ残した肉がクサル。", "katakana": "クサル", "answer": "腐る", "correctedSentence": "食べ残した肉が腐る。", "kyu": "準2" },
+{ "id": 77, "sentence": "強盗の犯人を刑事がツカマエル。", "katakana": "ツカマエル", "answer": "捕まえる", "correctedSentence": "強盗の犯人を刑事が捕まえる。", "kyu": "準2" },
+{ "id": 78, "sentence": "うまいもうけ話にマドワサれる。", "katakana": "マドワサ", "answer": "惑わさ", "correctedSentence": "うまいもうけ話に惑わされる。", "kyu": "準2" },
+{ "id": 79, "sentence": "実が赤くウレルころが収穫時だ。", "katakana": "ウレル", "answer": "熟れる", "correctedSentence": "実が赤く熟れるころが収穫時だ。", "kyu": "準2" },
+{ "id": 80, "sentence": "世界的な金融危機にオチイッた。", "katakana": "オチイッ", "answer": "陥っ", "correctedSentence": "世界的な金融危機に陥った。", "kyu": "準2" },
+{ "id": 81, "sentence": "ここでは家族がウエル心配もない。", "katakana": "ウエル", "answer": "飢える", "correctedSentence": "ここでは家族が飢える心配もない。", "kyu": "準2" },
+{ "id": 82, "sentence": "イツワリのない言葉で伝える。", "katakana": "イツワリ", "answer": "偽り", "correctedSentence": "偽りのない言葉で伝える。", "kyu": "準2" },
+{ "id": 83, "sentence": "無理な頼み事をコバム。", "katakana": "コバム", "answer": "拒む", "correctedSentence": "無理な頼み事を拒む。", "kyu": "準2" },
+{ "id": 84, "sentence": "いちいち口をハサムのはやめろ。", "katakana": "ハサム", "answer": "挟む", "correctedSentence": "いちいち口を挟むのはやめろ。", "kyu": "準2" }
+];
+
+// 漢字検定準2級 問題データ（書き取り・出る順Aランク）
+const jun2KakitoriData = [
+{ "id": 1, "sentence": "すり鉢で香辛料を細かくクダク。", "katakana": "クダク", "answer": "砕く", "correctedSentence": "すり鉢で香辛料を細かく砕く。", "meaning": "固形物を力で細かくする。", "kyu": "準2" },
+{ "id": 2, "sentence": "光線は水中でクッセツして進む。", "katakana": "クッセツ", "answer": "屈折", "correctedSentence": "光線は水中で屈折して進む。", "meaning": "おれ曲がっていること。", "kyu": "準2" },
+{ "id": 3, "sentence": "交通費はベット請求する。", "katakana": "ベット", "answer": "別途", "correctedSentence": "交通費は別途請求する。", "meaning": "別のやり方、別の用途。", "kyu": "準2" },
+{ "id": 4, "sentence": "内部情報がツツヌけになった。", "katakana": "ツツヌ", "answer": "筒抜け", "correctedSentence": "内部情報が筒抜けけになった。", "meaning": "秘密が他に漏れ伝わること。", "kyu": "準2" },
+{ "id": 5, "sentence": "不信感をサラに深める発言だ。", "katakana": "サラ", "answer": "更に", "correctedSentence": "不信感を更にに深める発言だ。", "meaning": "その上。いっそう。ますます。", "kyu": "準2" },
+{ "id": 6, "sentence": "飛行機は一時間前にリリクした。", "katakana": "リリク", "answer": "離陸", "correctedSentence": "飛行機は一時間前に離陸した。", "meaning": "飛行機などが飛び立つこと。", "kyu": "準2" },
+{ "id": 7, "sentence": "旅館にシュクハクする予定だ。", "katakana": "シュクハク", "answer": "宿泊", "correctedSentence": "旅館に宿泊する予定だ。", "meaning": "旅先や出先でとまること。", "kyu": "準2" },
+{ "id": 8, "sentence": "幼子の歯列をキョウセイする。", "katakana": "キョウセイ", "answer": "矯正", "correctedSentence": "幼子の歯列を矯正する。", "meaning": "悪い所を正しく直すこと。", "kyu": "準2" },
+{ "id": 9, "sentence": "センサイな心の持ち主だ。", "katakana": "センサイ", "answer": "繊細", "correctedSentence": "繊細な心の持ち主だ。", "meaning": "感情などがこまやかなこと。", "kyu": "準2" },
+{ "id": 10, "sentence": "ミサキの灯台を眺めた。", "katakana": "ミサキ", "answer": "岬", "correctedSentence": "岬の灯台を眺めた。", "meaning": "海や湖などに突き出た陸地。", "kyu": "準2" },
+{ "id": 11, "sentence": "基本計画のワク組みを定める。", "katakana": "ワク", "answer": "枠", "correctedSentence": "基本計画の枠組みを定める。", "meaning": "物事の範囲を決める仕切り。", "kyu": "準2" },
+{ "id": 12, "sentence": "全資産をボッシュウされた。", "katakana": "ボッシュウ", "answer": "没収", "correctedSentence": "全資産を没収された。", "meaning": "強制的に取り上げること。", "kyu": "準2" },
+{ "id": 13, "sentence": "イモを甘辛く煮て食べる。", "katakana": "イモ", "answer": "芋", "correctedSentence": "芋を甘辛く煮て食べる。", "meaning": "植物の根が肥大化したもの。", "kyu": "準2" },
+{ "id": 14, "sentence": "事をアラダてないように努めた。", "katakana": "アラダ", "answer": "荒立", "correctedSentence": "事を荒立てないように努めた。", "meaning": "物事を混乱させ面倒にする。", "kyu": "準2" },
+{ "id": 15, "sentence": "父は温厚でニュウワな人柄だ。", "katakana": "ニュウワ", "answer": "柔和", "correctedSentence": "父は温厚で柔和な人柄だ。", "meaning": "ものやわらかな性質や態度。", "kyu": "準2" },
+{ "id": 16, "sentence": "柱に打ちつけられた釘をヌく。", "katakana": "ヌ", "answer": "抜", "correctedSentence": "柱に打ちつけられた釘を抜く。", "meaning": "引っ張って取り去る。", "kyu": "準2" },
+{ "id": 17, "sentence": "おボンには帰省する予定だ。", "katakana": "ボン", "answer": "盆", "correctedSentence": "お盆には帰省する予定だ。", "meaning": "先祖供養（くよう）の仏事。", "kyu": "準2" },
+{ "id": 18, "sentence": "感情をセイギョするよう努めた。", "katakana": "セイギョ", "answer": "制御", "correctedSentence": "感情を制御するよう努めた。", "meaning": "相手を押さえて自分の意志通りにすること。", "kyu": "準2" },
+{ "id": 19, "sentence": "夜十時のシュウシン時間を守る。", "katakana": "シュウシン", "answer": "就寝", "correctedSentence": "夜十時の就寝時間を守る。", "meaning": "寝床に入りねむること。", "kyu": "準2" },
+{ "id": 20, "sentence": "姉はオモナガで古風な顔立ちだ。", "katakana": "オモナガ", "answer": "面長", "correctedSentence": "姉は面長で古風な顔立ちだ。", "meaning": "顔が長めなさま。", "kyu": "準2" },
+{ "id": 21, "sentence": "甘辛く煮たサトイモを食べる。", "katakana": "サトイモ", "answer": "里芋", "correctedSentence": "甘辛く煮た里芋を食べる。", "meaning": "サトイモ科の多年草。", "kyu": "準2" },
+{ "id": 22, "sentence": "カの鳴くような声でささやいた。", "katakana": "カ", "answer": "蚊", "correctedSentence": "蚊の鳴くような声でささやいた。", "meaning": "昆虫。弱々しい羽音を出す。", "kyu": "準2" },
+{ "id": 23, "sentence": "ケイコクに架けられた橋を渡る。", "katakana": "ケイコク", "answer": "渓谷", "correctedSentence": "渓谷に架けられた橋を渡る。", "meaning": "山に挟まれ川が流れる所。", "kyu": "準2" },
+{ "id": 24, "sentence": "内容のジュウジツした資料だ。", "katakana": "ジュウジツ", "answer": "充実", "correctedSentence": "内容の充実した資料だ。", "meaning": "中身が満ちて豊富なこと。", "kyu": "準2" },
+{ "id": 25, "sentence": "フヨウ家族手当が支給される。", "katakana": "フヨウ", "answer": "扶養", "correctedSentence": "扶養家族手当が支給される。", "meaning": "生活を助けやしなうこと。", "kyu": "準2" },
+{ "id": 26, "sentence": "これまでの悪行をクい改める。", "katakana": "ク", "answer": "悔", "correctedSentence": "これまでの悪行を悔い改める。", "meaning": "過去のあやまちを残念がる。", "kyu": "準2" },
+{ "id": 27, "sentence": "強盗にオドされて金を渡した。", "katakana": "オド", "answer": "脅", "correctedSentence": "強盗に脅されて金を渡した。", "meaning": "恐れさせて従わせること。", "kyu": "準2" },
+{ "id": 28, "sentence": "緊張で体中がコウチョクした。", "katakana": "コウチョク", "answer": "硬直", "correctedSentence": "緊張で体中が硬直した。", "meaning": "筋肉がこわばり動かない。", "kyu": "準2" },
+{ "id": 29, "sentence": "家の掃除機にジュミョウがきた。", "katakana": "ジュミョウ", "answer": "寿命", "correctedSentence": "家の掃除機に寿命がきた。", "meaning": "物が使用に耐え得る期間。", "kyu": "準2" },
+{ "id": 30, "sentence": "ドロナワ式の勉強法を続けた。", "katakana": "ドロナワ", "answer": "泥縄", "correctedSentence": "泥縄式の勉強法を続けた。", "meaning": "事が起こってから慌てて対処しようと取り組むさま。", "kyu": "準2" },
+{ "id": 31, "sentence": "夏は別荘にタイザイする予定だ。", "katakana": "タイザイ", "answer": "滞在", "correctedSentence": "夏は別荘に滞在する予定だ。", "meaning": "行った先で長くとどまること。", "kyu": "準2" },
+{ "id": 32, "sentence": "難破船が浜にヒョウチャクした。", "katakana": "ヒョウチャク", "answer": "漂着", "correctedSentence": "難破船が浜に漂着した。", "meaning": "ただよい、岸に流れつくこと。", "kyu": "準2" },
+{ "id": 33, "sentence": "家族でしたイモホりを思い出す。", "katakana": "イモホ", "answer": "芋掘", "correctedSentence": "家族でした芋掘りを思い出す。", "meaning": "イモをほり起こすこと。", "kyu": "準2" },
+{ "id": 34, "sentence": "カンビな音楽に身を浸す。", "katakana": "カンビ", "answer": "甘美", "correctedSentence": "甘美な音楽に身を浸す。", "meaning": "うっとりと心地良いさま。", "kyu": "準2" },
+{ "id": 35, "sentence": "ゲンマイを炊いて食べている。", "katakana": "ゲンマイ", "answer": "玄米", "correctedSentence": "玄米を炊いて食べている。", "meaning": "精白していない米。", "kyu": "準2" },
+{ "id": 36, "sentence": "メバナが受粉して結実する。", "katakana": "メバナ", "answer": "雌花", "correctedSentence": "雌花が受粉して結実する。", "meaning": "雌しべだけの花。", "kyu": "準2" },
+{ "id": 37, "sentence": "山海のチンミが宴席に並ぶ。", "katakana": "チンミ", "answer": "珍味", "correctedSentence": "山海の珍味が宴席に並ぶ。", "meaning": "めずらしくておいしい食べ物。", "kyu": "準2" },
+{ "id": 38, "sentence": "来場者数が十万人をトッパした。", "katakana": "トッパ", "answer": "突破", "correctedSentence": "来場者数が十万人を突破した。", "meaning": "目標や数量を超えること。", "kyu": "準2" },
+{ "id": 39, "sentence": "音楽に合わせて上手にオドる。", "katakana": "オド", "answer": "踊", "correctedSentence": "音楽に合わせて上手に踊る。", "meaning": "音に合わせて体を動かす。", "kyu": "準2" },
+{ "id": 40, "sentence": "授業中についイネムりをした。", "katakana": "イネム", "answer": "居眠", "correctedSentence": "授業中につい居眠りをした。", "meaning": "座ったままねむること。", "kyu": "準2" },
+{ "id": 41, "sentence": "駐車場がマンパイで入れない。", "katakana": "マンパイ", "answer": "満杯", "correctedSentence": "駐車場が満杯で入れない。", "meaning": "予定の数量に達すること。", "kyu": "準2" },
+{ "id": 42, "sentence": "当面は今の税率をスえ置く。", "katakana": "ス", "answer": "据", "correctedSentence": "当面は今の税率を据え置く。", "meaning": "手をつけずそのままの状態にしておく。", "kyu": "準2" }
 ];
 
 const LEVELS = [
@@ -380,13 +1111,13 @@ label: '準２級',
 types: [
 { key: 'yomi', label: '読み', data: jun2YomiData, mode: 'sentence' },
 { key: 'bushu', label: '部首', data: jun2BushuData, mode: 'bushu' },
-{ key: 'kouzou', label: '熟語の構成', data: [], mode: 'word' },
-{ key: 'yoji', label: '四字熟語', data: [], mode: 'word' },
-{ key: 'taigirui', label: '対義語・類義語', data: [], mode: 'word' },
-{ key: 'dousei', label: '同音・同訓異字', data: [], mode: 'word' },
-{ key: 'goji', label: '誤字訂正', data: [], mode: 'sentence' },
-{ key: 'okurigana', label: '送りがな', data: [], mode: 'word' },
-{ key: 'kakitori', label: '書き取り', data: [], mode: 'sentence' },
+{ key: 'kouzou', label: '熟語の構成', data: jun2KouzouData, mode: 'kouzou' },
+{ key: 'yoji', label: '四字熟語', data: jun2YojiData, mode: 'yoji' },
+{ key: 'taigirui', label: '対義語・類義語', data: jun2TaigiruiData, mode: 'taigirui' },
+{ key: 'dousei', label: '同音・同訓異字', data: jun2DouseiData, mode: 'dousei' },
+{ key: 'goji', label: '誤字訂正', data: jun2GojiData, mode: 'goji' },
+{ key: 'okurigana', label: '送りがな', data: jun2OkuriganaData, mode: 'okurigana' },
+{ key: 'kakitori', label: '書き取り', data: jun2KakitoriData, mode: 'kakitori' },
 ]
 },
 {
@@ -567,7 +1298,7 @@ className="text-blue-600 hover:text-blue-800 font-semibold text-sm underline"
 }
 
 // 復習画面コンポーネント
-function ReviewScreen({ currentIndex, reviewData, onNext, onBackToMenu, checkedItems, onToggleCheck, buildKey, mode }) {
+function ReviewScreen({ currentIndex, reviewData, onNext, onPrev, onBackToMenu, checkedItems, onToggleCheck, buildKey, mode }) {
 const [isAnswerShown, setIsAnswerShown] = useState(false);
 const currentItem = reviewData[currentIndex];
 const currentItemKey = currentItem ? buildKey(currentItem.id) : null;
@@ -607,6 +1338,22 @@ return (
 );
 };
 
+const renderDouseiSentence = (item) => {
+const idx = item.sentence.indexOf(item.katakana);
+if (idx === -1) {
+return <span>{item.sentence}</span>;
+}
+const before = item.sentence.slice(0, idx);
+const after = item.sentence.slice(idx + item.katakana.length);
+return (
+<span>
+{before}
+<span className="underline decoration-2 underline-offset-4 text-blue-700">{item.katakana}</span>
+{after}
+</span>
+);
+};
+
 return (
 <div className="min-h-screen bg-gradient-to-b from-blue-50 to-blue-100 p-4 pt-12 flex flex-col">
 <div className="text-center mb-6">
@@ -624,9 +1371,29 @@ return (
 <p className="text-xl font-bold text-gray-800 leading-relaxed text-left">
 {renderSentence(currentItem)}
 </p>
+) : mode === 'dousei' ? (
+<p className="text-xl font-bold text-gray-800 leading-relaxed text-left">
+{renderDouseiSentence(currentItem)}
+</p>
+) : mode === 'okurigana' ? (
+<p className="text-xl font-bold text-gray-800 leading-relaxed text-left">
+{renderDouseiSentence(currentItem)}
+</p>
+) : mode === 'kakitori' ? (
+<p className="text-xl font-bold text-gray-800 leading-relaxed text-left">
+{renderDouseiSentence(currentItem)}
+</p>
+) : mode === 'kouzou' ? (
+<p className="text-6xl font-bold text-blue-600">
+{currentItem.jukugo}
+</p>
+) : mode === 'yoji' ? (
+<p className="text-5xl font-bold text-blue-600 tracking-wider">
+{currentItem.pattern}
+</p>
 ) : (
 <p className="text-7xl font-bold text-blue-600">
-{currentItem.kanji}
+{mode === 'taigirui' ? currentItem.word : mode === 'goji' ? currentItem.wrong : currentItem.kanji}
 </p>
 )}
 </div>
@@ -637,9 +1404,29 @@ return (
 <p className="text-lg font-bold text-gray-800 leading-relaxed mb-4">
 {renderSentence(currentItem)}
 </p>
+) : mode === 'dousei' ? (
+<p className="text-lg font-bold text-gray-800 leading-relaxed mb-4">
+{currentItem.correctedSentence}
+</p>
+) : mode === 'okurigana' ? (
+<p className="text-lg font-bold text-gray-800 leading-relaxed mb-4">
+{currentItem.correctedSentence}
+</p>
+) : mode === 'kakitori' ? (
+<p className="text-lg font-bold text-gray-800 leading-relaxed mb-4">
+{currentItem.correctedSentence}
+</p>
+) : mode === 'kouzou' ? (
+<p className="text-4xl font-bold text-green-600 mb-4">
+{currentItem.jukugo}
+</p>
+) : mode === 'yoji' ? (
+<p className="text-4xl font-bold text-green-600 mb-4 tracking-wider">
+{currentItem.answer}
+</p>
 ) : (
 <p className="text-4xl font-bold text-green-600 mb-4">
-{currentItem.kanji}
+{mode === 'taigirui' ? currentItem.word : mode === 'goji' ? currentItem.wrong : currentItem.kanji}
 </p>
 )}
 <div className="border-t-2 border-green-300 pt-6 mt-6">
@@ -650,8 +1437,97 @@ return (
 {currentItem.bushu}
 </p>
 <p className="text-gray-700 text-sm mb-2">【部首名】</p>
-<p className="text-xl text-gray-800">
+<p className="text-xl text-gray-800 mb-4">
 {currentItem.bushuYomi}
+</p>
+{currentItem.examples && currentItem.examples.length > 0 && (
+<React.Fragment>
+<p className="text-gray-700 text-sm mb-2">【同じ部首の漢字】</p>
+<p className="text-2xl text-gray-800">
+{currentItem.examples.join('　')}
+</p>
+</React.Fragment>
+)}
+</React.Fragment>
+) : mode === 'taigirui' ? (
+<React.Fragment>
+<p className="text-gray-700 text-sm mb-2">【{currentItem.kind}】</p>
+<p className="text-4xl font-bold text-green-700 mb-4">
+{currentItem.answer}
+</p>
+<p className="text-gray-700 text-sm mb-2">【読み】</p>
+<p className="text-xl text-gray-800 mb-4">
+{currentItem.answerYomi}
+</p>
+<p className="text-gray-700 text-sm mb-2">【問題の語句の読み】</p>
+<p className="text-xl text-gray-800">
+{currentItem.word}（{currentItem.wordYomi}）
+</p>
+</React.Fragment>
+) : mode === 'dousei' ? (
+<React.Fragment>
+<p className="text-gray-700 text-sm mb-2">【正しい語句】</p>
+<p className="text-3xl font-bold text-green-700 mb-4">
+{currentItem.word}
+</p>
+<p className="text-gray-700 text-sm mb-2">【意味】</p>
+<p className="text-base text-gray-800 leading-relaxed">
+{currentItem.imi}
+</p>
+</React.Fragment>
+) : mode === 'goji' ? (
+<React.Fragment>
+<p className="text-gray-700 text-sm mb-2">【正字】</p>
+<p className="text-5xl font-bold text-green-700 mb-4">
+{currentItem.correct}
+</p>
+<p className="text-gray-700 text-sm mb-2">【正しい語句・読み】</p>
+<p className="text-xl text-gray-800">
+{currentItem.word}（{currentItem.reading}）
+</p>
+</React.Fragment>
+) : mode === 'okurigana' ? (
+<React.Fragment>
+<p className="text-gray-700 text-sm mb-2">【正しい語句】</p>
+<p className="text-4xl font-bold text-green-700 mb-4">
+{currentItem.answer}
+</p>
+</React.Fragment>
+) : mode === 'kakitori' ? (
+<React.Fragment>
+<p className="text-gray-700 text-sm mb-2">【正しい語句】</p>
+<p className="text-4xl font-bold text-green-700 mb-4">
+{currentItem.answer}
+</p>
+<p className="text-gray-700 text-sm mb-2">【意味】</p>
+<p className="text-base text-gray-800 leading-relaxed">
+{currentItem.meaning}
+</p>
+</React.Fragment>
+) : mode === 'kouzou' ? (
+<React.Fragment>
+<p className="text-gray-700 text-sm mb-2">【答え】</p>
+<p className="text-5xl font-bold text-green-700 mb-4">
+{currentItem.answer}
+</p>
+<p className="text-gray-700 text-sm mb-2">【読み】</p>
+<p className="text-xl text-gray-800 mb-4">
+{currentItem.reading}
+</p>
+<p className="text-gray-700 text-sm mb-2">【解説】</p>
+<p className="text-base text-gray-800 leading-relaxed">
+{currentItem.explanation}
+</p>
+</React.Fragment>
+) : mode === 'yoji' ? (
+<React.Fragment>
+<p className="text-gray-700 text-sm mb-2">【読み】</p>
+<p className="text-2xl font-semibold text-green-700 mb-6">
+{currentItem.reading}
+</p>
+<p className="text-gray-700 text-sm mb-2">【意味】</p>
+<p className="text-base text-gray-800 leading-relaxed">
+{currentItem.meaning}
 </p>
 </React.Fragment>
 ) : (
@@ -681,7 +1557,7 @@ width: `${((currentIndex + 1) / reviewData.length) * 100}%`,
 </div>
 </div>
 
-<div className="w-full max-w-sm mx-auto mb-16">
+<div className="w-full max-w-sm mx-auto mb-16 flex gap-2">
 <button
 onClick={() => {
 if (!isAnswerShown) {
@@ -691,13 +1567,26 @@ setIsAnswerShown(false);
 onNext();
 }
 }}
-className="w-full py-4 rounded-lg font-bold text-white text-lg bg-orange-500 shadow-md hover:bg-orange-600 active:scale-95 transition-all"
+style={{ width: currentIndex > 0 ? '80%' : '100%' }}
+className="py-4 rounded-lg font-bold text-white text-lg bg-orange-500 shadow-md hover:bg-orange-600 active:scale-95 transition-all"
 >
 {isAnswerShown ? '次へ' : '解答を見る'}
 </button>
+{currentIndex > 0 && (
+<button
+onClick={() => {
+setIsAnswerShown(false);
+onPrev();
+}}
+style={{ width: '20%' }}
+className="py-4 rounded-lg font-bold text-white text-base bg-gray-400 shadow-md hover:bg-gray-500 active:scale-95 transition-all"
+>
+前へ
+</button>
+)}
 </div>
 
-<div className="flex gap-3 items-center w-full max-w-sm mx-auto mb-6">
+<label className="flex gap-3 items-center w-full max-w-sm mx-auto mb-6 cursor-pointer">
 <input
 type="checkbox"
 checked={isChecked}
@@ -705,7 +1594,7 @@ onChange={onToggleCheck}
 className="w-6 h-6 cursor-pointer"
 />
 <span className="text-sm text-gray-700">覚えた</span>
-</div>
+</label>
 
 <div className="text-center mb-4">
 <button
@@ -760,6 +1649,22 @@ return (
 );
 };
 
+const renderDouseiSentence = (item) => {
+const idx = item.sentence.indexOf(item.katakana);
+if (idx === -1) {
+return <span>{item.sentence}</span>;
+}
+const before = item.sentence.slice(0, idx);
+const after = item.sentence.slice(idx + item.katakana.length);
+return (
+<span>
+{before}
+<span className="underline decoration-2 underline-offset-4 text-blue-700">{item.katakana}</span>
+{after}
+</span>
+);
+};
+
 return (
 <div className="min-h-screen bg-gradient-to-b from-blue-50 to-blue-100 p-4 pt-12 flex flex-col">
 <div className="text-center mb-6">
@@ -777,14 +1682,73 @@ return (
 {renderSentence(currentItem)}
 </p>
 </div>
-) : (
-<div className="bg-white rounded-lg shadow-lg p-8 text-center mb-4 min-h-[350px] flex flex-col justify-center">
-<p className="text-gray-600 text-sm mb-6">{mode === 'bushu' ? '次の漢字の部首を記せ（部首名は不要）' : '問題'}</p>
-<p className="text-7xl font-bold text-blue-600">
-{currentItem.kanji}
+) : mode === 'dousei' ? (
+<div className="bg-white rounded-lg shadow-lg p-8 mb-4 min-h-[350px] flex flex-col justify-center">
+<p className="text-gray-600 text-sm mb-6">次の下線部のカタカナを漢字に直せ</p>
+<p className="text-2xl font-bold text-gray-800 leading-relaxed">
+{renderDouseiSentence(currentItem)}
 </p>
 </div>
+) : mode === 'okurigana' ? (
+<div className="bg-white rounded-lg shadow-lg p-8 mb-4 min-h-[350px] flex flex-col justify-center">
+<p className="text-gray-600 text-sm mb-6">次の下線部のカタカナを漢字一字と送りがな（ひらがな）に直せ</p>
+<p className="text-2xl font-bold text-gray-800 leading-relaxed">
+{renderDouseiSentence(currentItem)}
+</p>
+</div>
+) : mode === 'kakitori' ? (
+<div className="bg-white rounded-lg shadow-lg p-8 mb-4 min-h-[350px] flex flex-col justify-center">
+<p className="text-gray-600 text-sm mb-6">次の下線部のカタカナを漢字に直せ</p>
+<p className="text-2xl font-bold text-gray-800 leading-relaxed">
+{renderDouseiSentence(currentItem)}
+</p>
+</div>
+) : mode === 'kouzou' ? (
+<div className="bg-white rounded-lg shadow-lg p-6 mb-4 min-h-[350px] flex flex-col justify-center">
+<p className="text-gray-600 text-sm mb-4">次の熟語の構成はどれにあたるか、記号で答えよ</p>
+<p className="text-6xl font-bold text-blue-600 text-center mb-6">
+{currentItem.jukugo}
+</p>
+<div className="bg-blue-50 rounded-lg p-3 text-xs text-gray-700 leading-relaxed">
+<p>ア 同じ意味　イ 反対の意味　ウ 上が下を修飾</p>
+<p>エ 下が目的・補語　オ 上が打ち消し</p>
+</div>
+</div>
+) : mode === 'yoji' ? (
+<div className="bg-white rounded-lg shadow-lg p-8 text-center mb-4 min-h-[350px] flex flex-col justify-center">
+<p className="text-gray-600 text-sm mb-6">空欄に入る漢字を答えよ</p>
+<p className="text-6xl font-bold text-blue-600 tracking-wider">
+{currentItem.pattern}
+</p>
+<div className="bg-blue-50 rounded-lg p-3 mt-6 text-sm text-gray-700 leading-relaxed">
+<p className="text-xs text-gray-500 mb-1">語群（読み・ひらがな）</p>
+{currentSetData.map(it => it.reading).sort().join('・')}
+</div>
+</div>
+) : mode === 'goji' && currentItem.sentence ? (
+<div className="bg-white rounded-lg shadow-lg p-8 mb-4 min-h-[350px] flex flex-col justify-center">
+<p className="text-gray-600 text-sm mb-6">次の文中の誤字を正しい漢字に直せ</p>
+<p className="text-2xl font-bold text-gray-800 leading-relaxed">
+{currentItem.sentence}
+</p>
+</div>
+) : (
+<div className="bg-white rounded-lg shadow-lg p-8 text-center mb-4 min-h-[350px] flex flex-col justify-center">
+<p className="text-gray-600 text-sm mb-6">
+{mode === 'bushu' ? '次の漢字の部首を記せ（部首名は不要）' : mode === 'taigirui' ? `次の語句の${currentItem.kind}を漢字で記せ` : mode === 'goji' ? '次の誤字を正しい漢字に直せ' : '問題'}
+</p>
+<p className="text-7xl font-bold text-blue-600">
+{mode === 'taigirui' ? currentItem.word : mode === 'goji' ? currentItem.wrong : currentItem.kanji}
+</p>
+{mode === 'taigirui' && (
+<div className="bg-blue-50 rounded-lg p-3 mt-6 text-sm text-gray-700 leading-relaxed">
+<p className="text-xs text-gray-500 mb-1">語群（ひらがな）</p>
+{currentSetData.map(it => it.answerYomi).sort().join('・')}
+</div>
 )}
+</div>
+)}
+
 
 <div className="bg-gray-200 rounded-full h-2">
 <div
@@ -815,7 +1779,7 @@ className="py-4 rounded-lg font-bold text-white text-base bg-gray-400 shadow-md 
 )}
 </div>
 
-<div className="flex gap-3 items-center w-full max-w-sm mx-auto mb-6">
+<label className="flex gap-3 items-center w-full max-w-sm mx-auto mb-6 cursor-pointer">
 <input
 type="checkbox"
 checked={isChecked}
@@ -823,7 +1787,7 @@ onChange={onToggleCheck}
 className="w-6 h-6 cursor-pointer"
 />
 <span className="text-sm text-gray-700">わからなかった</span>
-</div>
+</label>
 
 <div className="text-center mb-4">
 <button
@@ -895,9 +1859,29 @@ return (
 <p className="text-lg font-bold text-gray-800 leading-relaxed mb-4">
 {renderSentence(currentItem)}
 </p>
+) : mode === 'dousei' ? (
+<p className="text-lg font-bold text-gray-800 leading-relaxed mb-4">
+{currentItem.correctedSentence}
+</p>
+) : mode === 'okurigana' ? (
+<p className="text-lg font-bold text-gray-800 leading-relaxed mb-4">
+{currentItem.correctedSentence}
+</p>
+) : mode === 'kakitori' ? (
+<p className="text-lg font-bold text-gray-800 leading-relaxed mb-4">
+{currentItem.correctedSentence}
+</p>
+) : mode === 'kouzou' ? (
+<p className="text-4xl font-bold text-green-600 mb-4">
+{currentItem.jukugo}
+</p>
+) : mode === 'yoji' ? (
+<p className="text-5xl font-bold text-green-600 mb-4 tracking-wider">
+{currentItem.answer}
+</p>
 ) : (
 <p className="text-4xl font-bold text-green-600 mb-4">
-{currentItem.kanji}
+{mode === 'taigirui' ? currentItem.word : mode === 'goji' ? currentItem.wrong : currentItem.kanji}
 </p>
 )}
 <div className="border-t-2 border-green-300 pt-6 mt-6">
@@ -908,8 +1892,97 @@ return (
 {currentItem.bushu}
 </p>
 <p className="text-gray-700 text-sm mb-2">【部首名】</p>
-<p className="text-xl text-gray-800">
+<p className="text-xl text-gray-800 mb-4">
 {currentItem.bushuYomi}
+</p>
+{currentItem.examples && currentItem.examples.length > 0 && (
+<React.Fragment>
+<p className="text-gray-700 text-sm mb-2">【同じ部首の漢字】</p>
+<p className="text-2xl text-gray-800">
+{currentItem.examples.join('　')}
+</p>
+</React.Fragment>
+)}
+</React.Fragment>
+) : mode === 'taigirui' ? (
+<React.Fragment>
+<p className="text-gray-700 text-sm mb-2">【{currentItem.kind}】</p>
+<p className="text-4xl font-bold text-green-700 mb-4">
+{currentItem.answer}
+</p>
+<p className="text-gray-700 text-sm mb-2">【読み】</p>
+<p className="text-xl text-gray-800 mb-4">
+{currentItem.answerYomi}
+</p>
+<p className="text-gray-700 text-sm mb-2">【問題の語句の読み】</p>
+<p className="text-xl text-gray-800">
+{currentItem.word}（{currentItem.wordYomi}）
+</p>
+</React.Fragment>
+) : mode === 'dousei' ? (
+<React.Fragment>
+<p className="text-gray-700 text-sm mb-2">【正しい語句】</p>
+<p className="text-3xl font-bold text-green-700 mb-4">
+{currentItem.word}
+</p>
+<p className="text-gray-700 text-sm mb-2">【意味】</p>
+<p className="text-base text-gray-800 leading-relaxed">
+{currentItem.imi}
+</p>
+</React.Fragment>
+) : mode === 'goji' ? (
+<React.Fragment>
+<p className="text-gray-700 text-sm mb-2">【正字】</p>
+<p className="text-5xl font-bold text-green-700 mb-4">
+{currentItem.correct}
+</p>
+<p className="text-gray-700 text-sm mb-2">【正しい語句・読み】</p>
+<p className="text-xl text-gray-800">
+{currentItem.word}（{currentItem.reading}）
+</p>
+</React.Fragment>
+) : mode === 'okurigana' ? (
+<React.Fragment>
+<p className="text-gray-700 text-sm mb-2">【正しい語句】</p>
+<p className="text-4xl font-bold text-green-700 mb-4">
+{currentItem.answer}
+</p>
+</React.Fragment>
+) : mode === 'kakitori' ? (
+<React.Fragment>
+<p className="text-gray-700 text-sm mb-2">【正しい語句】</p>
+<p className="text-4xl font-bold text-green-700 mb-4">
+{currentItem.answer}
+</p>
+<p className="text-gray-700 text-sm mb-2">【意味】</p>
+<p className="text-base text-gray-800 leading-relaxed">
+{currentItem.meaning}
+</p>
+</React.Fragment>
+) : mode === 'kouzou' ? (
+<React.Fragment>
+<p className="text-gray-700 text-sm mb-2">【答え】</p>
+<p className="text-5xl font-bold text-green-700 mb-4">
+{currentItem.answer}
+</p>
+<p className="text-gray-700 text-sm mb-2">【読み】</p>
+<p className="text-xl text-gray-800 mb-4">
+{currentItem.reading}
+</p>
+<p className="text-gray-700 text-sm mb-2">【解説】</p>
+<p className="text-base text-gray-800 leading-relaxed">
+{currentItem.explanation}
+</p>
+</React.Fragment>
+) : mode === 'yoji' ? (
+<React.Fragment>
+<p className="text-gray-700 text-sm mb-2">【読み】</p>
+<p className="text-2xl font-semibold text-green-700 mb-6">
+{currentItem.reading}
+</p>
+<p className="text-gray-700 text-sm mb-2">【意味】</p>
+<p className="text-base text-gray-800 leading-relaxed">
+{currentItem.meaning}
 </p>
 </React.Fragment>
 ) : (
@@ -957,7 +2030,7 @@ className="py-4 rounded-lg font-bold text-white text-base bg-gray-400 shadow-md 
 )}
 </div>
 
-<div className="flex gap-3 items-center w-full max-w-sm mx-auto mb-6">
+<label className="flex gap-3 items-center w-full max-w-sm mx-auto mb-6 cursor-pointer">
 <input
 type="checkbox"
 checked={isChecked}
@@ -965,7 +2038,7 @@ onChange={onToggleCheck}
 className="w-6 h-6 cursor-pointer"
 />
 <span className="text-sm text-gray-700">わからなかった</span>
-</div>
+</label>
 
 <div className="text-center mb-4">
 <button
@@ -1080,7 +2153,9 @@ setScreen('menu');
 const handlePrev = () => {
 if (currentIndex > 0) {
 setCurrentIndex(currentIndex - 1);
+if (screen !== 'review') {
 setScreen('question');
+}
 }
 };
 
@@ -1178,6 +2253,7 @@ return <ReviewScreen
 currentIndex={currentIndex}
 reviewData={reviewData}
 onNext={handleNext}
+onPrev={handlePrev}
 onBackToMenu={handleBackToMenu}
 checkedItems={checkedItems}
 onToggleCheck={handleToggleCheck}
