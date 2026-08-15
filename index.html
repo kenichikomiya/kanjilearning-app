@@ -1137,6 +1137,24 @@ const taigiruiWordGroups = {
   7: ["だとう", "はくじょう", "はいりょ", "だきょう", "もくさつ", "こんきょ", "ろぼう", "けっかん", "もくにん", "えいみん", "しゅわん", "しんけん", "もうてん", "ふふごう"]
 };
 
+
+// OK辞典(https://okjiten.jp/)の該当漢字ページへのリンク集（送り仮名・書き取り問題で使用）
+const OKJITEN_MAP = {"仰":"https://okjiten.jp/kanji1104.html","伺":"https://okjiten.jp/kanji1172.html","倒":"https://okjiten.jp/kanji1107.html","偽":"https://okjiten.jp/kanji1286.html","傾":"https://okjiten.jp/kanji1105.html","償":"https://okjiten.jp/kanji1926.html","充":"https://okjiten.jp/kanji1771.html","兼":"https://okjiten.jp/kanji1327.html","別":"https://okjiten.jp/kanji640.html","制":"https://okjiten.jp/kanji826.html","刺":"https://okjiten.jp/kanji1150.html","劣":"https://okjiten.jp/kanji1478.html","及":"https://okjiten.jp/kanji1146.html","含":"https://okjiten.jp/kanji1225.html","和":"https://okjiten.jp/kanji45.html","嘆":"https://okjiten.jp/kanji1227.html","報":"https://okjiten.jp/kanji857.html","壊":"https://okjiten.jp/kanji1244.html","宿":"https://okjiten.jp/kanji391.html","寂":"https://okjiten.jp/kanji1363.html","寿":"https://okjiten.jp/kanji1403.html","尋":"https://okjiten.jp/kanji1226.html","就":"https://okjiten.jp/kanji1051.html","尽":"https://okjiten.jp/kanji1382.html","居":"https://okjiten.jp/kanji888.html","屈":"https://okjiten.jp/kanji1192.html","岬":"https://okjiten.jp/kanji345.html","巡":"https://okjiten.jp/kanji1145.html","弾":"https://okjiten.jp/kanji1411.html","忍":"https://okjiten.jp/kanji1912.html","忙":"https://okjiten.jp/kanji1269.html","恐":"https://okjiten.jp/kanji1164.html","恥":"https://okjiten.jp/kanji1170.html","悔":"https://okjiten.jp/kanji1536.html","悩":"https://okjiten.jp/kanji1267.html","惑":"https://okjiten.jp/kanji1167.html","戒":"https://okjiten.jp/kanji1287.html","扱":"https://okjiten.jp/kanji1075.html","扶":"https://okjiten.jp/kanji2012.html","承":"https://okjiten.jp/kanji884.html","抜":"https://okjiten.jp/kanji1113.html","抱":"https://okjiten.jp/kanji1116.html","拒":"https://okjiten.jp/kanji1784.html","挟":"https://okjiten.jp/kanji1832.html","捕":"https://okjiten.jp/kanji1216.html","据":"https://okjiten.jp/kanji1886.html","描":"https://okjiten.jp/kanji1115.html","携":"https://okjiten.jp/kanji1606.html","操":"https://okjiten.jp/kanji901.html","更":"https://okjiten.jp/kanji1319.html","朽":"https://okjiten.jp/kanji1176.html","枠":"https://okjiten.jp/kanji1809.html","枯":"https://okjiten.jp/kanji1177.html","柔":"https://okjiten.jp/kanji1178.html","汚":"https://okjiten.jp/kanji1078.html","沈":"https://okjiten.jp/kanji1086.html","没":"https://okjiten.jp/kanji1513.html","泥":"https://okjiten.jp/kanji1992.html","浸":"https://okjiten.jp/kanji1082.html","添":"https://okjiten.jp/kanji1087.html","渋":"https://okjiten.jp/kanji1903.html","渓":"https://okjiten.jp/kanji1835.html","満":"https://okjiten.jp/kanji704.html","滞":"https://okjiten.jp/kanji1493.html","漂":"https://okjiten.jp/kanji1586.html","澄":"https://okjiten.jp/kanji1085.html","濁":"https://okjiten.jp/kanji1337.html","熟":"https://okjiten.jp/kanji971.html","犯":"https://okjiten.jp/kanji202.html","狭":"https://okjiten.jp/kanji161.html","玄":"https://okjiten.jp/kanji1318.html","珍":"https://okjiten.jp/kanji1314.html","甘":"https://okjiten.jp/kanji1100.html","畳":"https://okjiten.jp/kanji1362.html","盆":"https://okjiten.jp/kanji1241.html","盗":"https://okjiten.jp/kanji1240.html","眠":"https://okjiten.jp/kanji1263.html","矯":"https://okjiten.jp/kanji1854.html","砕":"https://okjiten.jp/kanji1542.html","硬":"https://okjiten.jp/kanji1541.html","突":"https://okjiten.jp/kanji1364.html","筒":"https://okjiten.jp/kanji1765.html","結":"https://okjiten.jp/kanji582.html","繊":"https://okjiten.jp/kanji1850.html","背":"https://okjiten.jp/kanji281.html","脅":"https://okjiten.jp/kanji1408.html","腐":"https://okjiten.jp/kanji1437.html","芋":"https://okjiten.jp/kanji307.html","荒":"https://okjiten.jp/kanji1203.html","蓄":"https://okjiten.jp/kanji1358.html","薄":"https://okjiten.jp/kanji1429.html","蚊":"https://okjiten.jp/kanji312.html","被":"https://okjiten.jp/kanji1251.html","訴":"https://okjiten.jp/kanji1188.html","詰":"https://okjiten.jp/kanji1236.html","誇":"https://okjiten.jp/kanji1186.html","誉":"https://okjiten.jp/kanji1237.html","費":"https://okjiten.jp/kanji703.html","踊":"https://okjiten.jp/kanji1235.html","踏":"https://okjiten.jp/kanji1234.html","輝":"https://okjiten.jp/kanji1306.html","迎":"https://okjiten.jp/kanji1144.html","迫":"https://okjiten.jp/kanji1139.html","透":"https://okjiten.jp/kanji1136.html","里":"https://okjiten.jp/kanji114.html","鈍":"https://okjiten.jp/kanji1098.html","鋭":"https://okjiten.jp/kanji1095.html","陥":"https://okjiten.jp/kanji2157.html","隠":"https://okjiten.jp/kanji1278.html","雌":"https://okjiten.jp/kanji1303.html","離":"https://okjiten.jp/kanji1304.html","震":"https://okjiten.jp/kanji1220.html","面":"https://okjiten.jp/kanji541.html","響":"https://okjiten.jp/kanji1325.html","頼":"https://okjiten.jp/kanji1463.html","飢":"https://okjiten.jp/kanji1371.html","飾":"https://okjiten.jp/kanji1370.html","駆":"https://okjiten.jp/kanji1230.html","騒":"https://okjiten.jp/kanji1231.html","驚":"https://okjiten.jp/kanji1229.html","鮮":"https://okjiten.jp/kanji314.html"};
+function getOkjitenUrl(answerText) {
+  const match = (answerText || '').match(/[\u4e00-\u9fff]/);
+  if (!match) return null;
+  return OKJITEN_MAP[match[0]] || null;
+}
+
+// 熟語の構成：答えの記号と分類の対応
+const KOUZOU_EXPLAIN = {
+  "ア": "同じ意味",
+  "イ": "反対の意味",
+  "ウ": "上が下を修飾",
+  "エ": "下が目的・補語",
+  "オ": "上が打ち消し"
+};
+
 const LEVELS = [
 {
 key: 'jun2',
@@ -1189,6 +1207,18 @@ return '★'.repeat(star) + '☆'.repeat(hollow);
 }
 }
 
+// 戻るボタン（各画面左上に固定表示）
+function BackButton({ onClick, label }) {
+return (
+<button
+onClick={onClick}
+className="fixed top-3 left-3 z-20 flex items-center gap-1 bg-white shadow-md rounded-full pl-2.5 pr-3.5 py-2 text-blue-600 font-bold text-sm hover:bg-blue-50 active:scale-95 transition-all"
+>
+<span className="text-base leading-none">←</span>{label}
+</button>
+);
+}
+
 // 級選択画面
 function LevelScreen({ onSelectLevel }) {
 return (
@@ -1225,6 +1255,7 @@ className="w-full bg-white rounded-lg shadow-md p-6 text-left hover:shadow-lg tr
 function TypeScreen({ level, onSelectType, onBackToLevel }) {
 return (
 <div className="min-h-screen bg-gradient-to-b from-blue-50 to-blue-100 p-4 pt-8 flex flex-col">
+<BackButton onClick={onBackToLevel} label="級選択" />
 <div className="text-center mb-8">
 <h1 className="text-3xl font-bold text-gray-800 mb-2">{level.label}</h1>
 <p className="text-gray-600">問題種別を選択してください</p>
@@ -1250,14 +1281,6 @@ className={`w-full rounded-lg shadow-md p-5 text-left transition-shadow ${isRead
 );
 })}
 </div>
-<div className="text-center mb-2">
-<button
-onClick={onBackToLevel}
-className="text-blue-600 hover:text-blue-800 font-semibold text-sm underline"
->
-← 級選択に戻る
-</button>
-</div>
 </div>
 );
 }
@@ -1273,6 +1296,7 @@ sets.push({ number: i + 1, start, end });
 
 return (
 <div className="min-h-screen bg-gradient-to-b from-blue-50 to-blue-100 p-4 pt-8 flex flex-col">
+<BackButton onClick={onBackToType} label="種別選択" />
 <div className="text-center mb-8">
 <h1 className="text-3xl font-bold text-gray-800 mb-2">漢字検定</h1>
 <p className="text-gray-600">{categoryLabel}</p>
@@ -1312,15 +1336,6 @@ className="w-full bg-white rounded-lg shadow-md p-6 text-left hover:shadow-lg tr
 </button>
 );
 })}
-</div>
-
-<div className="text-center mb-2">
-<button
-onClick={onBackToType}
-className="text-blue-600 hover:text-blue-800 font-semibold text-sm underline"
->
-← 問題種別選択に戻る
-</button>
 </div>
 
 <div className="text-center text-xs text-gray-500">
@@ -1387,8 +1402,25 @@ return (
 );
 };
 
+const renderGojiSentence = (item) => {
+const idx = item.sentence.indexOf(item.wrong);
+if (idx === -1) {
+return <span>{item.sentence}</span>;
+}
+const before = item.sentence.slice(0, idx);
+const after = item.sentence.slice(idx + item.wrong.length);
+return (
+<span>
+{before}
+<span className="underline decoration-2 underline-offset-4 text-red-600 font-bold">{item.wrong}</span>
+{after}
+</span>
+);
+};
+
 return (
 <div className="min-h-screen bg-gradient-to-b from-blue-50 to-blue-100 p-4 pt-12 flex flex-col">
+<BackButton onClick={onBackToMenu} label="メニュー" />
 <div className="text-center mb-6">
 <h1 className="text-2xl font-bold text-gray-800">復習モード</h1>
 <p className="text-sm text-gray-600">
@@ -1441,6 +1473,10 @@ return (
 {(taigiruiWordGroups[Math.floor((currentItem.id - 1) / 20)] || []).join('　')}
 </p>
 </React.Fragment>
+) : mode === 'goji' && currentItem.sentence ? (
+<p className="text-xl font-bold text-gray-800 leading-relaxed text-left">
+{currentItem.sentence}
+</p>
 ) : (
 <p className="text-7xl font-bold text-blue-600">
 {mode === 'goji' ? currentItem.wrong : currentItem.kanji}
@@ -1474,9 +1510,9 @@ return (
 <p className="text-4xl font-bold text-green-600 mb-4 tracking-wider">
 {currentItem.answer}
 </p>
-) : (
+) : mode === 'goji' ? null : (
 <p className="text-4xl font-bold text-green-600 mb-4">
-{mode === 'taigirui' ? currentItem.word : mode === 'goji' ? currentItem.wrong : currentItem.kanji}
+{mode === 'taigirui' ? currentItem.word : currentItem.kanji}
 </p>
 )}
 <div className="border-t-2 border-green-300 pt-6 mt-6">
@@ -1527,29 +1563,42 @@ return (
 </React.Fragment>
 ) : mode === 'goji' ? (
 <React.Fragment>
-<p className="text-gray-700 text-sm mb-2">【正字】</p>
-<p className="text-5xl font-bold text-green-700 mb-4">
-{currentItem.correct}
+<p className="text-base text-gray-800 leading-relaxed mb-4">
+{renderGojiSentence(currentItem)}
 </p>
-<p className="text-gray-700 text-sm mb-2">【正しい語句・読み】</p>
-<p className="text-xl text-gray-800">
+<div className="border-t-2 border-gray-300 pt-4 mt-4">
+<p className="text-3xl font-bold text-gray-800 text-center mb-2">
+{currentItem.wrong} <span className="text-gray-600">→</span> {currentItem.correct}
+</p>
+<p className="text-xl text-gray-800 text-center">
 {currentItem.word}（{currentItem.reading}）
 </p>
+</div>
 </React.Fragment>
 ) : mode === 'okurigana' ? (
 <React.Fragment>
 <p className="text-gray-700 text-sm mb-2">【正しい語句】</p>
-<p className="text-4xl font-bold text-green-700 mb-4">
+<p className="text-4xl font-bold text-green-700 mb-2">
 {currentItem.answer}
 </p>
+{getOkjitenUrl(currentItem.answer) && (
+<a href={getOkjitenUrl(currentItem.answer)} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 text-sm underline">
+解説ページ
+</a>
+)}
 </React.Fragment>
 ) : mode === 'kakitori' ? (
 <React.Fragment>
 <p className="text-gray-700 text-sm mb-2">【正しい語句】</p>
-<p className="text-4xl font-bold text-green-700 mb-4">
+<p className="text-4xl font-bold text-green-700 mb-2">
 {currentItem.answer}
 </p>
-<p className="text-gray-700 text-sm mb-2">【意味】</p>
+{getOkjitenUrl(currentItem.answer) && (
+<a href={getOkjitenUrl(currentItem.answer)} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 text-sm underline">
+解説ページ
+</a>
+)}
+<p className="text-gray-700 text-sm mb-2 mt-4">【意味】</p>
 <p className="text-base text-gray-800 leading-relaxed">
 {currentItem.meaning}
 </p>
@@ -1557,8 +1606,11 @@ return (
 ) : mode === 'kouzou' ? (
 <React.Fragment>
 <p className="text-gray-700 text-sm mb-2">【答え】</p>
-<p className="text-5xl font-bold text-green-700 mb-4">
+<p className="text-5xl font-bold text-green-700 mb-1">
 {currentItem.answer}
+</p>
+<p className="text-xs text-gray-700 mb-4">
+{KOUZOU_EXPLAIN[currentItem.answer]}
 </p>
 <p className="text-gray-700 text-sm mb-2">【読み】</p>
 <p className="text-xl text-gray-800 mb-4">
@@ -1645,15 +1697,6 @@ className="w-6 h-6 cursor-pointer"
 />
 <span className="text-sm text-gray-700">覚えた</span>
 </label>
-
-<div className="text-center mb-4">
-<button
-onClick={onBackToMenu}
-className="text-blue-600 hover:text-blue-800 font-semibold text-sm underline"
->
-← メニューに戻る
-</button>
-</div>
 </div>
 );
 }
@@ -1715,8 +1758,25 @@ return (
 );
 };
 
+const renderGojiSentence = (item) => {
+const idx = item.sentence.indexOf(item.wrong);
+if (idx === -1) {
+return <span>{item.sentence}</span>;
+}
+const before = item.sentence.slice(0, idx);
+const after = item.sentence.slice(idx + item.wrong.length);
+return (
+<span>
+{before}
+<span className="underline decoration-2 underline-offset-4 text-red-600 font-bold">{item.wrong}</span>
+{after}
+</span>
+);
+};
+
 return (
 <div className="min-h-screen bg-gradient-to-b from-blue-50 to-blue-100 p-4 pt-12 flex flex-col">
+<BackButton onClick={onBackToMenu} label="メニュー" />
 <div className="text-center mb-6">
 <h1 className="text-2xl font-bold text-gray-800">漢字検定（{categoryLabel}）</h1>
 <p className="text-sm text-gray-600">
@@ -1838,15 +1898,6 @@ className="w-6 h-6 cursor-pointer"
 />
 <span className="text-sm text-gray-700">わからなかった</span>
 </label>
-
-<div className="text-center mb-4">
-<button
-onClick={onBackToMenu}
-className="text-blue-600 hover:text-blue-800 font-semibold text-sm underline"
->
-← メニューに戻る
-</button>
-</div>
 </div>
 );
 }
@@ -1893,8 +1944,25 @@ return (
 );
 };
 
+const renderGojiSentence = (item) => {
+const idx = item.sentence.indexOf(item.wrong);
+if (idx === -1) {
+return <span>{item.sentence}</span>;
+}
+const before = item.sentence.slice(0, idx);
+const after = item.sentence.slice(idx + item.wrong.length);
+return (
+<span>
+{before}
+<span className="underline decoration-2 underline-offset-4 text-red-600 font-bold">{item.wrong}</span>
+{after}
+</span>
+);
+};
+
 return (
 <div className="min-h-screen bg-gradient-to-b from-blue-50 to-blue-100 p-4 pt-12 flex flex-col">
+<BackButton onClick={onBackToMenu} label="メニュー" />
 <div className="text-center mb-6">
 <h1 className="text-2xl font-bold text-gray-800">漢字検定（{categoryLabel}）</h1>
 <p className="text-sm text-gray-600">
@@ -1929,9 +1997,9 @@ return (
 <p className="text-5xl font-bold text-green-600 mb-4 tracking-wider">
 {currentItem.answer}
 </p>
-) : (
+) : mode === 'goji' ? null : (
 <p className="text-4xl font-bold text-green-600 mb-4">
-{mode === 'taigirui' ? currentItem.word : mode === 'goji' ? currentItem.wrong : currentItem.kanji}
+{mode === 'taigirui' ? currentItem.word : currentItem.kanji}
 </p>
 )}
 <div className="border-t-2 border-green-300 pt-6 mt-6">
@@ -1982,29 +2050,42 @@ return (
 </React.Fragment>
 ) : mode === 'goji' ? (
 <React.Fragment>
-<p className="text-gray-700 text-sm mb-2">【正字】</p>
-<p className="text-5xl font-bold text-green-700 mb-4">
-{currentItem.correct}
+<p className="text-base text-gray-800 leading-relaxed mb-4">
+{renderGojiSentence(currentItem)}
 </p>
-<p className="text-gray-700 text-sm mb-2">【正しい語句・読み】</p>
-<p className="text-xl text-gray-800">
+<div className="border-t-2 border-gray-300 pt-4 mt-4">
+<p className="text-3xl font-bold text-gray-800 text-center mb-2">
+{currentItem.wrong} <span className="text-gray-600">→</span> {currentItem.correct}
+</p>
+<p className="text-xl text-gray-800 text-center">
 {currentItem.word}（{currentItem.reading}）
 </p>
+</div>
 </React.Fragment>
 ) : mode === 'okurigana' ? (
 <React.Fragment>
 <p className="text-gray-700 text-sm mb-2">【正しい語句】</p>
-<p className="text-4xl font-bold text-green-700 mb-4">
+<p className="text-4xl font-bold text-green-700 mb-2">
 {currentItem.answer}
 </p>
+{getOkjitenUrl(currentItem.answer) && (
+<a href={getOkjitenUrl(currentItem.answer)} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 text-sm underline">
+解説ページ
+</a>
+)}
 </React.Fragment>
 ) : mode === 'kakitori' ? (
 <React.Fragment>
 <p className="text-gray-700 text-sm mb-2">【正しい語句】</p>
-<p className="text-4xl font-bold text-green-700 mb-4">
+<p className="text-4xl font-bold text-green-700 mb-2">
 {currentItem.answer}
 </p>
-<p className="text-gray-700 text-sm mb-2">【意味】</p>
+{getOkjitenUrl(currentItem.answer) && (
+<a href={getOkjitenUrl(currentItem.answer)} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 text-sm underline">
+解説ページ
+</a>
+)}
+<p className="text-gray-700 text-sm mb-2 mt-4">【意味】</p>
 <p className="text-base text-gray-800 leading-relaxed">
 {currentItem.meaning}
 </p>
@@ -2012,8 +2093,11 @@ return (
 ) : mode === 'kouzou' ? (
 <React.Fragment>
 <p className="text-gray-700 text-sm mb-2">【答え】</p>
-<p className="text-5xl font-bold text-green-700 mb-4">
+<p className="text-5xl font-bold text-green-700 mb-1">
 {currentItem.answer}
+</p>
+<p className="text-xs text-gray-700 mb-4">
+{KOUZOU_EXPLAIN[currentItem.answer]}
 </p>
 <p className="text-gray-700 text-sm mb-2">【読み】</p>
 <p className="text-xl text-gray-800 mb-4">
@@ -2089,15 +2173,6 @@ className="w-6 h-6 cursor-pointer"
 />
 <span className="text-sm text-gray-700">わからなかった</span>
 </label>
-
-<div className="text-center mb-4">
-<button
-onClick={onBackToMenu}
-className="text-blue-600 hover:text-blue-800 font-semibold text-sm underline"
->
-← メニューに戻る
-</button>
-</div>
 </div>
 );
 }
