@@ -3,6 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
 <title>漢字検定 学習アプリ - 2字熟語対策</title>
 <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
 <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
@@ -32,6 +35,9 @@ min-height: 100vh;
 <div id="root"></div>
 <script type="text/babel">
 const { useState, useEffect, useRef } = React;
+
+// アプリのバージョン表記（更新時に手動でこの日付を書き換える。画面下部に表示して最新版か確認できるようにする）
+const APP_VERSION = "2026-08-18";
 
 // 漢字検定準2級 問題データ（読み・出る順Aランク）
 const jun2YomiData = [
@@ -1220,7 +1226,8 @@ className="select-none fixed top-3 left-3 z-20 flex items-center gap-1 bg-white 
 }
 
 // 級選択画面
-function LevelScreen({ onSelectLevel }) {
+function LevelScreen({ onSelectLevel, onExportData, onImportData }) {
+const fileInputRef = useRef(null);
 return (
 <div className="min-h-screen bg-gradient-to-b from-blue-50 to-blue-100 p-4 pt-8 flex flex-col">
 <div className="text-center mb-8">
@@ -1246,6 +1253,36 @@ className="select-none w-full bg-white rounded-lg shadow-md p-6 text-left hover:
 </button>
 );
 })}
+</div>
+<div className="mt-6 text-center">
+<div className="flex justify-center gap-4 mb-3">
+<button
+onClick={onExportData}
+className="select-none text-xs text-blue-600 hover:text-blue-800 underline"
+>
+学習記録をバックアップ
+</button>
+<button
+onClick={() => fileInputRef.current && fileInputRef.current.click()}
+className="select-none text-xs text-blue-600 hover:text-blue-800 underline"
+>
+バックアップから復元
+</button>
+<input
+ref={fileInputRef}
+type="file"
+accept="application/json"
+className="hidden"
+onChange={(e) => {
+const file = e.target.files && e.target.files[0];
+if (file) {
+onImportData(file);
+}
+e.target.value = '';
+}}
+/>
+</div>
+<p className="text-xs text-gray-400">version {APP_VERSION}</p>
 </div>
 </div>
 );
@@ -2187,6 +2224,7 @@ const [currentIndex, setCurrentIndex] = useState(0);
 const [checkedItems, setCheckedItems] = useState({});
 const [reviewData, setReviewData] = useState([]);
 const [setCompletions, setSetCompletions] = useState({});
+const [isLoaded, setIsLoaded] = useState(false);
 
 useEffect(() => {
 const saved = localStorage.getItem('kanjiCheckedItems');
@@ -2197,15 +2235,58 @@ const savedCompletions = localStorage.getItem('kanjiSetCompletions');
 if (savedCompletions) {
 setSetCompletions(JSON.parse(savedCompletions));
 }
+setIsLoaded(true);
 }, []);
 
 useEffect(() => {
+if (!isLoaded) return;
 localStorage.setItem('kanjiCheckedItems', JSON.stringify(checkedItems));
-}, [checkedItems]);
+}, [checkedItems, isLoaded]);
 
 useEffect(() => {
+if (!isLoaded) return;
 localStorage.setItem('kanjiSetCompletions', JSON.stringify(setCompletions));
-}, [setCompletions]);
+}, [setCompletions, isLoaded]);
+
+// 学習記録のバックアップ（エクスポート）
+const handleExportData = () => {
+const backup = {
+appVersion: APP_VERSION,
+exportedAt: new Date().toISOString(),
+checkedItems,
+setCompletions
+};
+const blob = new Blob([JSON.stringify(backup, null, 2)], { type: 'application/json' });
+const url = URL.createObjectURL(blob);
+const a = document.createElement('a');
+const dateStr = new Date().toISOString().slice(0, 10);
+a.href = url;
+a.download = `kanji-backup-${dateStr}.json`;
+document.body.appendChild(a);
+a.click();
+document.body.removeChild(a);
+URL.revokeObjectURL(url);
+};
+
+// バックアップからの復元（インポート）
+const handleImportData = (file) => {
+const reader = new FileReader();
+reader.onload = (e) => {
+try {
+const data = JSON.parse(e.target.result);
+if (!data || typeof data !== 'object' || !data.checkedItems || !data.setCompletions) {
+alert('バックアップファイルの形式が正しくありません。');
+return;
+}
+setCheckedItems(data.checkedItems);
+setSetCompletions(data.setCompletions);
+alert('学習記録を復元しました。');
+} catch (err) {
+alert('バックアップファイルの読み込みに失敗しました。');
+}
+};
+reader.readAsText(file);
+};
 
 const currentLevelInfo = LEVELS.find(l => l.key === level);
 const currentTypeInfo = currentLevelInfo ? currentLevelInfo.types.find(t => t.key === type) : null;
@@ -2333,7 +2414,7 @@ const currentItemKey = currentItem ? buildKey(currentItem.id) : null;
 const isChecked = currentItemKey ? !!checkedItems[currentItemKey] : false;
 
 if (screen === 'level') {
-return <LevelScreen onSelectLevel={handleSelectLevel} />;
+return <LevelScreen onSelectLevel={handleSelectLevel} onExportData={handleExportData} onImportData={handleImportData} />;
 } else if (screen === 'type') {
 return <TypeScreen level={currentLevelInfo} onSelectType={handleSelectType} onBackToLevel={handleBackToLevel} />;
 } else if (screen === 'menu') {
